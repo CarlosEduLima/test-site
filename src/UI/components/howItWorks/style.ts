@@ -17,10 +17,14 @@ export const Container = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
   height: 100%;
   width: 30%;
-
-  border: 1px solid purple;
+  padding: 0 25px;
 `;
 
 export const CardsContainer = styled.div`
@@ -31,13 +35,16 @@ export const CardsContainer = styled.div`
 
   height: 100%;
   width: 70%;
-
-  border: 1px solid green;
 `;
 
-export const Title = styled.h3``;
+export const Title = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 500;
+`;
 
-export const TitleSpan = styled.span``;
+export const TitleSpan = styled.span`
+  font-weight: 700;
+`;
 
 export const DescriptionText = styled.p``;
 
@@ -45,6 +52,9 @@ export const UserTypeContainer = styled.div`
   border-radius: 20px;
 
   height: 35px;
+  width: 100%;
+
+  margin: 15px 0;
 
   background-color: ${colors.purple};
 

@@ -51,7 +51,7 @@ const HowItWorks = () => {
 
         <DescriptionText>
           Encontrar e contratar profissionais qualificados para os mais variados serviços nunca foi
-          tão fácil, ápido e sem burocracia.
+          tão fácil, rápido e sem burocracia.
         </DescriptionText>
       </ButtonContainer>
       <CardsContainer>
