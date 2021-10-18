@@ -1,7 +1,9 @@
+import HowItWorks from '../../UI/components/howItWorks';
+
 const Home = () => {
   return (
     <div>
-      <h1>IZIW - WEBSITE</h1>
+      <HowItWorks />
     </div>
   );
 };
