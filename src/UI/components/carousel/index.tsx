@@ -12,9 +12,8 @@ export const Carousel: React.FC = () => {
       let initialPosition = {
         scrollLeft: ref.current.scrollLeft,
       }
-      ref.current.scrollLeft = initialPosition.scrollLeft + ev.deltaY
+      ref.current.scrollLeft = initialPosition.scrollLeft + ev.deltaY * 3
     }
-    console.log(ev)
   }
 
   return (

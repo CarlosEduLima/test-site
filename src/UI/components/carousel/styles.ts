@@ -29,6 +29,7 @@ export const HorizontalScrollArea = styled.div`
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
+  scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
 
