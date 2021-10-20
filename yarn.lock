@@ -416,6 +416,14 @@
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-decorators" "^7.14.5"
 
+"@babel/plugin-proposal-do-expressions@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-do-expressions/-/plugin-proposal-do-expressions-7.14.5.tgz#a15e0b262a98f732d81581b1bb5f52cee1e7eb07"
+  integrity sha512-i40m/CLe5WBGYMZL/SC3xtjJ/B0i+XblaonSsinumgfNIqmBOf4LEcZJXijoQeQbQVl55PyM0siWSWWJ9lV7cA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-do-expressions" "^7.14.5"
+
 "@babel/plugin-proposal-dynamic-import@^7.12.1", "@babel/plugin-proposal-dynamic-import@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-dynamic-import/-/plugin-proposal-dynamic-import-7.14.5.tgz#0c6617df461c0c1f8fff3b47cd59772360101d2c"
@@ -592,6 +600,13 @@
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-decorators/-/plugin-syntax-decorators-7.14.5.tgz#eafb9c0cbe09c8afeb964ba3a7bbd63945a72f20"
   integrity sha512-c4sZMRWL4GSvP1EXy0woIP7m4jkVcEuG8R1TOZxPBPtp4FSM/kiPZub9UIs/Jrb5ZAOzvTUSGYrWsrSu1JvoPw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-syntax-do-expressions@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-do-expressions/-/plugin-syntax-do-expressions-7.14.5.tgz#d32be33bb0ea7c16cf2265f097864c363690954a"
+  integrity sha512-IpVyxRlfFCU2emBiq2OxUX10PD6FoGZ30yWwGt1qdkIPUDhAodG5Il1LStODgATndKRhQgqT21ksqA5fd39AwA==
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
