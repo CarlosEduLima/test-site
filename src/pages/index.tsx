@@ -1,9 +1,10 @@
 import Home from '../pages/Home';
+import { WhatMakesUsDifferent } from '../UI/components/what-makes-us-different'
 
 const Index = () => {
   return (
     <div>
-      <Home />
+      <WhatMakesUsDifferent />
     </div>
   );
 };
