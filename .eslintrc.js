@@ -30,14 +30,15 @@ module.exports = {
       files: ['**/*.stories.*'],
       rules: {
         'import/no-anonymous-default-export': 'off',
+        indent: 'off',
       },
     },
   ],
   rules: {
-    indent: ['error', 2, { SwitchCase: 1 }],
+    indent: 'off',
     'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single', { avoidEscape: true }],
-    semi: ['error', 'always'],
+    semi: 'off',
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     'react/display-name': 'off',
@@ -48,6 +49,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
   },
+  ignorePatterns: ['node_modules'],
   settings: {
     react: {
       version: 'detect',
