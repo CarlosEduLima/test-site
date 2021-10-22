@@ -1,7 +1,7 @@
-import Home from '../pages/Home';
-import { Carousel } from '../UI/components/carousel'
+import React from 'react';
+import { Carousel } from '../UI/components/carousel';
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div>
       <Carousel />
