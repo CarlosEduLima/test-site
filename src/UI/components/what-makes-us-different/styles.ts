@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import colors from '../../../utils/colors'
 import fonts from '../../../utils/fonts'
-import Image from 'next/image'
+import NextImage from 'next/image'
 
 export const Title = styled.h1`
   font-family: ${fonts.extraBold};
@@ -48,6 +48,14 @@ export const Text = styled.p`
   color: ${colors.black};
   margin-bottom: 55px;
 `
-export const ThisImage = styled(Image)`
+export const StyledLink = styled.a`
+  font-size: 25px;
+  font-family: ${fonts.heading};
+  color: ${colors.black};
+  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
+`
+export const Image = styled(NextImage)`
   width: 545px;
 `
