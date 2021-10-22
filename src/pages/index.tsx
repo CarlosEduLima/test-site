@@ -1,7 +1,7 @@
-import Home from '../pages/Home';
-import { WhatMakesUsDifferent } from '../UI/components/what-makes-us-different'
+import React from 'react';
+import { WhatMakesUsDifferent } from '../UI/components/what-makes-us-different';
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div>
       <WhatMakesUsDifferent />
