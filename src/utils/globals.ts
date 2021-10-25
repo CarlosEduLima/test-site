@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+font-family: 'Nunito', sans-serif;
 
 [aria-dropeffect=copy]:hover {
   cursor: copy;
@@ -143,8 +144,7 @@ img[alt][longdesc]:hover {
 }
 
 html {
-  font-family: 'Nunito', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -180,7 +180,8 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
+
   font-size: 1em;
 }
 
@@ -374,7 +375,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
+
   font-size: 1em;
 }
 
@@ -399,7 +401,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  font-family: 'Nunito', sans-serif;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
