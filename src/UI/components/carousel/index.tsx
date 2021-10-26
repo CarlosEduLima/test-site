@@ -8,12 +8,15 @@ import useWindowSize from '../../../utils/hooks';
 export const Carousel: React.FC = () => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState([]);
-  const ref = useRef(null);
-  const { onMouseDown } = useDraggableScroll(ref);
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
+  const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 325, height: 151 };
 
   const defineLines = (highlights) => {
+    console.log(highlights);
     let arrayOne;
     let arrayTwo;
     if (cardSize.width * highlights.length > windowSize.width * 2) {
@@ -35,9 +38,10 @@ export const Carousel: React.FC = () => {
         setServiceHighlightsLineTwo(arrayTwo);
       })
       .catch(console.log);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function onWheel(ev: React.WheelEvent): void {
+  function onWheel(ev: React.WheelEvent, ref): void {
     if (ref.current) {
       const initialPosition: { scrollLeft: number } = {
         scrollLeft: ref.current.scrollLeft,
@@ -51,7 +55,12 @@ export const Carousel: React.FC = () => {
       <Title style={{ marginBottom: 12 }}>Categorias em destaque</Title>
       <Divider />
       <ScrollAreaContainer>
-        <HorizontalScrollArea ref={ref} onWheel={onWheel} onMouseDown={onMouseDown}>
+        <HorizontalScrollArea
+          ref={ref1}
+          onWheel={(e) => {
+            onWheel(e, ref1);
+          }}
+          onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
               size={cardSize}
@@ -61,7 +70,12 @@ export const Carousel: React.FC = () => {
             />
           ))}
         </HorizontalScrollArea>
-        <HorizontalScrollArea onWheel={onWheel} onMouseDown={onMouseDown}>
+        <HorizontalScrollArea
+          ref={ref2}
+          onWheel={(e) => {
+            onWheel(e, ref2);
+          }}
+          onMouseDown={onMouseDownRef2}>
           {serviceHighlightsLineTwo.map((highlight, index) => (
             <InputCard
               size={cardSize}
