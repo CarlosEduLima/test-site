@@ -1,5 +1,5 @@
 import React from 'react';
-import { WhatMakesUsDifferent } from '../UI/components/what-makes-us-different';
+import { WhatMakesUsDifferent } from '../UI/components/whatMakesUsDifferent';
 
 const Index: React.FC = () => {
   return (
