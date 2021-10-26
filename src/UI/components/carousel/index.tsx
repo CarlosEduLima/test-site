@@ -16,7 +16,6 @@ export const Carousel: React.FC = () => {
   const cardSize = { width: 325, height: 151 };
 
   const defineLines = (highlights) => {
-    console.log(highlights);
     let arrayOne;
     let arrayTwo;
     if (cardSize.width * highlights.length > windowSize.width * 2) {
@@ -50,6 +49,22 @@ export const Carousel: React.FC = () => {
     }
   }
 
+  function enableScroll(): void {
+    document.removeEventListener('wheel', preventDefault, false);
+  }
+
+  function disableScroll(): void {
+    document.addEventListener('wheel', preventDefault, { passive: false });
+  }
+
+  function preventDefault(e: Event) {
+    e = e || window.event;
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    e.returnValue = false;
+  }
+
   return (
     <Container>
       <Title style={{ marginBottom: 12 }}>Categorias em destaque</Title>
@@ -60,6 +75,8 @@ export const Carousel: React.FC = () => {
           onWheel={(e) => {
             onWheel(e, ref1);
           }}
+          onMouseEnter={disableScroll}
+          onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
@@ -75,6 +92,8 @@ export const Carousel: React.FC = () => {
           onWheel={(e) => {
             onWheel(e, ref2);
           }}
+          onMouseEnter={disableScroll}
+          onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef2}>
           {serviceHighlightsLineTwo.map((highlight, index) => (
             <InputCard
