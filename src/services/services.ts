@@ -17,9 +17,9 @@ export interface IServiceProps {
   sub_services: IServiceProps[];
 }
 
-export const ServicesHighlight = async (): Promise<IServiceProps | Error> => {
+export const ServiceHighlights = async (): Promise<IServiceProps[]> => {
   try {
-    const { data } = await api.get<IServiceProps>('/servicos?highlight=1');
+    const { data } = await api.get<IServiceProps[]>('/servicos?highlight=1');
     return data;
   } catch (error) {
     console.log('API GET error: /servicos?highlight=1');

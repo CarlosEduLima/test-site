@@ -1,15 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Container, Divider, HorizontalScrollArea, ScrollAreaContainer, Title } from './styles';
 import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
-import { ServicesHighlight } from '../../../services/services';
+import { ServiceHighlights } from '../../../services/services';
 
 export const Carousel: React.FC = () => {
+  const [serviceHighlights, setServiceHighlights] = useState([]);
   const ref = useRef(null);
   const { onMouseDown } = useDraggableScroll(ref);
 
   useEffect(() => {
-    void ServicesHighlight().then(console.log).catch(console.log);
+    void ServiceHighlights()
+      .then((data) => {
+        setServiceHighlights(data);
+      })
+      .catch(console.log);
   }, []);
 
   function onWheel(ev: React.WheelEvent): void {
@@ -24,23 +29,16 @@ export const Carousel: React.FC = () => {
   return (
     <Container>
       <Title style={{ marginBottom: 12 }}>Categorias em destaque</Title>
-      <Divider></Divider>
+      <Divider />
       <ScrollAreaContainer>
         <HorizontalScrollArea ref={ref} onWheel={onWheel} onMouseDown={onMouseDown}>
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
-          <InputCard title="Auto" backgroundImage="https://source.unsplash.com/random/325x151" />
+          {serviceHighlights.map((highlight, index) => (
+            <InputCard
+              title={highlight.name}
+              key={index}
+              backgroundImage={highlight.desktop_image_path}
+            />
+          ))}
         </HorizontalScrollArea>
       </ScrollAreaContainer>
       <button>Quero me cadastrar</button>
