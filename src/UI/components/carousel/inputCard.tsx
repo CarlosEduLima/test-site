@@ -5,11 +5,14 @@ import fonts from '../../../utils/fonts';
 
 const cardOpacity = '65';
 
-export const Card = styled.div<{ backgroundImage: string }>`
+export const Card = styled.div<{
+  backgroundImage: string;
+  size: { width: number; height: number };
+}>`
   flex: 0 0 auto;
   margin: 10px;
-  height: 151px;
-  width: 325px;
+  height: ${(props) => props.size.height}px;
+  width: ${(props) => props.size.width}px;
   border-radius: 13px;
   background-image: linear-gradient(
       242deg,
@@ -30,11 +33,12 @@ export const CardText = styled.p`
 interface Props {
   title?: string;
   backgroundImage?: string;
+  size: { width: number; height: number };
 }
 
-export const InputCard: React.FC<Props> = ({ title, backgroundImage }) => {
+export const InputCard: React.FC<Props> = ({ title, backgroundImage, size }) => {
   return (
-    <Card backgroundImage={backgroundImage}>
+    <Card backgroundImage={backgroundImage} size={size}>
       <CardText>{title}</CardText>
     </Card>
   );

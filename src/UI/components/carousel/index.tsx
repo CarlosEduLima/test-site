@@ -3,16 +3,36 @@ import { Container, Divider, HorizontalScrollArea, ScrollAreaContainer, Title } 
 import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
 import { ServiceHighlights } from '../../../services/services';
+import useWindowSize from '../../../utils/hooks';
 
 export const Carousel: React.FC = () => {
-  const [serviceHighlights, setServiceHighlights] = useState([]);
+  const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState([]);
+  const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState([]);
   const ref = useRef(null);
   const { onMouseDown } = useDraggableScroll(ref);
+  const windowSize = useWindowSize();
+  const cardSize = { width: 325, height: 151 };
+
+  const defineLines = (highlights) => {
+    let arrayOne;
+    let arrayTwo;
+    if (cardSize.width * highlights.length > windowSize.width * 2) {
+      const index = Math.floor(highlights.length / 2 + 1);
+      arrayOne = highlights.slice(0, index);
+      arrayTwo = highlights.slice(index);
+    } else {
+      arrayOne = highlights;
+      arrayTwo = [];
+    }
+    return { arrayOne, arrayTwo };
+  };
 
   useEffect(() => {
     void ServiceHighlights()
       .then((data) => {
-        setServiceHighlights(data);
+        const { arrayOne, arrayTwo } = defineLines(data);
+        setServiceHighlightsLineOne(arrayOne);
+        setServiceHighlightsLineTwo(arrayTwo);
       })
       .catch(console.log);
   }, []);
@@ -32,8 +52,19 @@ export const Carousel: React.FC = () => {
       <Divider />
       <ScrollAreaContainer>
         <HorizontalScrollArea ref={ref} onWheel={onWheel} onMouseDown={onMouseDown}>
-          {serviceHighlights.map((highlight, index) => (
+          {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
+              size={cardSize}
+              title={highlight.name}
+              key={index}
+              backgroundImage={highlight.desktop_image_path}
+            />
+          ))}
+        </HorizontalScrollArea>
+        <HorizontalScrollArea onWheel={onWheel} onMouseDown={onMouseDown}>
+          {serviceHighlightsLineTwo.map((highlight, index) => (
+            <InputCard
+              size={cardSize}
               title={highlight.name}
               key={index}
               backgroundImage={highlight.desktop_image_path}
@@ -42,6 +73,7 @@ export const Carousel: React.FC = () => {
         </HorizontalScrollArea>
       </ScrollAreaContainer>
       <button>Quero me cadastrar</button>
+      <div>{}</div>
     </Container>
   );
 };
