@@ -28,6 +28,7 @@ export const Title = styled.h1`
   font-family: ${fonts.bold};
   color: ${colors.white};
   line-height: 34px;
+  margin: 5px 0;
 `;
 
 export const Text = styled.p`
@@ -35,6 +36,7 @@ export const Text = styled.p`
   font-family: ${fonts.regular};
   color: ${colors.white};
   line-height: 27px;
+  margin: 0;
 `;
 
 export const StoreButtonsContainer = styled.div`
@@ -42,6 +44,7 @@ export const StoreButtonsContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   margin-left: -15px;
+  margin-bottom: 20px;
 `;
 
 export const BgDetailsConfig = styled.div`
