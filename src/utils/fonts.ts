@@ -1,6 +1,6 @@
 export default {
-  heading: 'Nunito_600SemiBold',
-  regular: 'Nunito_400Regular',
-  bold: 'Nunito_700Bold',
-  extraBold: 'Nunito_800ExtraBold',
+  heading: 'nunito,sans-serif;font-weight:600;',
+  regular: 'nunito,sans-serif;font-weight:400;',
+  bold: 'nunito,sans-serif;font-weight:700;',
+  extraBold: 'nunito,sans-serif;font-weight:800;',
 };
