@@ -1,11 +1,24 @@
 import React from 'react';
-import { Container, LeftSide, RightSide, Title, Text, StoreButtonsContainer } from './styles';
+import {
+  Container,
+  LeftSide,
+  RightSide,
+  Title,
+  Text,
+  StoreButtonsContainer,
+  BgDetailsOne,
+  BgDetailsThree,
+  BgDetailsTwo,
+} from './styles';
 import { GooglePlayBadge } from './googlePlayStoreBadge';
 import { AppStoreBadge } from './appStoreBadge';
 
 export const AvailableInStores: React.FC = () => {
   return (
     <Container>
+      <BgDetailsOne />
+      <BgDetailsThree />
+      <BgDetailsTwo />
       <LeftSide>imagem</LeftSide>
       <RightSide>
         <Title>A IziW chegou para mudar.</Title>
@@ -17,6 +30,7 @@ export const AvailableInStores: React.FC = () => {
           <AppStoreBadge height={52} />
           <GooglePlayBadge height={52} />
         </StoreButtonsContainer>
+        <button>Quero me cadastrar</button>
       </RightSide>
     </Container>
   );
