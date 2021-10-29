@@ -1,16 +1,21 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable linebreak-style */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable linebreak-style */
-/* eslint-disable prettier/prettier */
-/* eslint-disable linebreak-style */
-/* eslint-disable semi */
+import { Button } from '../../UI/components/Button'
 
 const Home = () => {
   return (
     <div>
       <h1>IZIW - WEBSITE</h1>
+      <Button
+        variant='primary'
+        children='Button'
+        loading={false}
+        mini={false}
+        max={false}
+        height='50px'
+        widthCircle="32px"
+        heightCircle="32px"
+        fontSize="16px"
+        onPress={() => { }}
+      />
     </div>
   );
 };

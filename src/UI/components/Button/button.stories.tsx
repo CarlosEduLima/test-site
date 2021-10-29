@@ -1,10 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable prettier/prettier */
-/* eslint-disable linebreak-style */
-
 import React from 'react';
 
 import { Button } from './index';

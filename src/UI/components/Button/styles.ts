@@ -1,14 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
-/* eslint-disable linebreak-style */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable linebreak-style */
-
-/* eslint-disable prettier/prettier */
-/* eslint-disable linebreak-style */
 import styled from 'styled-components';
 
 import colors from '../../../utils/colors';

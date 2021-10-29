@@ -1,7 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable prettier/prettier */
-/* eslint-disable linebreak-style */
-
 export interface ButtonProps {
   loading?: boolean;
 

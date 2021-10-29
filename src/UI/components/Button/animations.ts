@@ -1,12 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable linebreak-style */
-/* eslint-disable semi */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable prettier/prettier */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
 import { keyframes } from 'styled-components';
 
 export const Spin = keyframes`  
