@@ -5,22 +5,25 @@ import fonts from '../../../utils/fonts';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   background-color: ${colors.purple};
   position: relative;
-  padding: 55px 0;
+  padding: 55px 0 0 0;
   margin: 0;
-  margin-top: 113px;
+  margin-top: 138px;
   z-index: -10;
 `;
 
 export const LeftSide = styled.div`
   flex: 0.5;
+  margin-top: -210px;
 `;
 
 export const RightSide = styled.div`
   flex-direction: column;
   flex: 1;
   max-width: 400px;
+  padding-bottom: 55px;
 `;
 
 export const Title = styled.h1`
@@ -48,7 +51,8 @@ export const StoreButtonsContainer = styled.div`
 `;
 
 export const BgDetailsConfig = styled.div`
-  background: linear-gradient(180deg, ${colors.purple}50, ${colors.blue}50);
+  background: linear-gradient(180deg, ${colors.purple} 0%, ${colors.blue} 100%);
+  opacity: 0.5;
   position: absolute;
   z-index: -1;
 `;

@@ -12,6 +12,7 @@ import {
 } from './styles';
 import { GooglePlayBadge } from './googlePlayStoreBadge';
 import { AppStoreBadge } from './appStoreBadge';
+import { CellImages } from './CellImages';
 
 export const AvailableInStores: React.FC = () => {
   return (
@@ -19,7 +20,9 @@ export const AvailableInStores: React.FC = () => {
       <BgDetailsOne />
       <BgDetailsThree />
       <BgDetailsTwo />
-      <LeftSide>imagem</LeftSide>
+      <LeftSide>
+        <CellImages />
+      </LeftSide>
       <RightSide>
         <Title>A IziW chegou para mudar.</Title>
         <Text>
