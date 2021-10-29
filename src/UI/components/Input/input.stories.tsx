@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable linebreak-style */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable linebreak-style */
 /* eslint-disable quotes */
@@ -18,7 +20,7 @@ export default {
     component: Input,
 };
 
-const Template = (args) => <div style={{ width: 400, backgroundColor: colors.purple, padding: 28, marginLeft: 12, marginRight: 12 }}><Input {...args} /></div>;
+const Template = (args) => <div style={{ display: 'grid', justifyItems: 'center', justifyContent: 'start', width: 400, backgroundColor: colors.purple, padding: 10, marginLeft: 12, marginRight: 12 }}><Input {...args} /></div>;
 
 export const InputEmail = Template.bind({});
 InputEmail.args = {
@@ -48,36 +50,6 @@ InputEmail.args = {
     placeholder: "exemplo@gmail.com"
 };
 
-export const InputEmailWithoutLabel = Template.bind({});
-InputEmailWithoutLabel.args = {
-    name: "email-without",
-    icon: "email",
-    label: "",
-    secureTextEntry: false,
-    required: true,
-    inputError: "",
-    type: 'other',
-    typeInput: "email",
-    backgroundColor: colors.labelInput,
-    height: 32,
-    color: colors.purple,
-    size: 24,
-    borderRadius: "10px",
-    labelFontSize: 16,
-    padding: "12px",
-    fontWeight: "bold",
-    colorLabel: 'black',
-    colorIcon: "black",
-    marginRight: 10,
-    borderColor: '#666666',
-    onChange: (value: any) => {
-        console.log(value.currentTarget.value);
-    },
-    placeholder: "exemplo@gmail.com"
-};
-
-
-
 export const InputPassword = Template.bind({});
 InputPassword.args = {
     name: "password",
@@ -95,35 +67,7 @@ InputPassword.args = {
     padding: "12px",
     fontWeight: "bold",
     colorLabel: 'white',
-    colorIcon: "black",
-    borderRadius: "10px",
-    labelFontSize: 16,
-    marginRight: 10,
-    borderColor: 'black',
-    onChange: (value: any) => {
-        console.log(value.currentTarget.value);
-    },
-    placeholder: "• • • • • • • • • • • • •"
-};
-
-export const InputPasswordlWithoutLabel = Template.bind({});
-InputPasswordlWithoutLabel.args = {
-    name: "password",
-    icon: "password",
-    label: "",
-    secureTextEntry: true,
-    required: true,
-    inputError: "",
-    type: 'other',
-    typeInput: "password",
-    backgroundColor: 'white',
-    height: 32,
-    color: 'black',
-    size: 24,
-    padding: "12px",
-    fontWeight: "bold",
-    colorLabel: 'white',
-    colorIcon: "black",
+    colorIcon: "red",
     borderRadius: "10px",
     labelFontSize: 16,
     marginRight: 10,
@@ -139,34 +83,6 @@ InputText.args = {
     name: "text",
     icon: "text",
     label: "Texto",
-    secureTextEntry: false,
-    required: true,
-    inputError: "",
-    type: 'other',
-    typeInput: "text",
-    backgroundColor: 'white',
-    height: 32,
-    color: 'black',
-    size: 24,
-    padding: "12px",
-    fontWeight: "bold",
-    colorLabel: 'black',
-    colorIcon: "white",
-    borderRadius: "10px",
-    labelFontSize: 16,
-    marginRight: 10,
-    borderColor: 'black',
-    onChange: (value: any) => {
-        console.log(value.currentTarget.value);
-    },
-    placeholder: "Insira aqui o texto"
-};
-
-export const InputTextWithoutLabel = Template.bind({});
-InputTextWithoutLabel.args = {
-    name: "text",
-    icon: "text",
-    label: "",
     secureTextEntry: false,
     required: true,
     inputError: "",
@@ -218,67 +134,11 @@ InputPhone.args = {
     },
 };
 
-export const InputPhoneWithoutLabel = Template.bind({});
-InputPhoneWithoutLabel.args = {
-    icon: "phone",
-    name: "telephone",
-    label: "",
-    secureTextEntry: false,
-    required: true,
-    inputError: "",
-    type: 'other',
-    typeInput: "text",
-    backgroundColor: 'white',
-    height: 32,
-    color: 'black',
-    size: 24,
-    padding: "12px",
-    fontWeight: "bold",
-    colorLabel: 'black',
-    colorIcon: "white",
-    borderRadius: "10px",
-    labelFontSize: 16,
-    marginRight: 10,
-    borderColor: 'black',
-    placeholder: "(  ) _ ____-____",
-    onChange: (value: any) => {
-        console.log(value.currentTarget.value);
-    },
-};
-
 export const InputCep = Template.bind({});
 InputCep.args = {
     icon: "cep",
     name: "cep",
     label: "CEP",
-    secureTextEntry: false,
-    required: true,
-    inputError: "",
-    type: 'other',
-    typeInput: "text",
-    backgroundColor: 'white',
-    height: 32,
-    color: 'black',
-    size: 24,
-    padding: "12px",
-    fontWeight: "bold",
-    colorLabel: 'black',
-    colorIcon: "white",
-    borderRadius: "10px",
-    labelFontSize: 16,
-    marginRight: 10,
-    borderColor: 'black',
-    placeholder: "54245-127",
-    onChange: (value: any) => {
-        console.log(value.currentTarget.value);
-    },
-};
-
-export const InputCepWithoutLabel = Template.bind({});
-InputCepWithoutLabel.args = {
-    icon: "cep",
-    name: "cep",
-    label: "",
     secureTextEntry: false,
     required: true,
     inputError: "",
@@ -330,29 +190,33 @@ InputMoney.args = {
     },
 };
 
-export const InputMoneyWithoutLabel = Template.bind({});
-InputMoneyWithoutLabel.args = {
-    icon: "money",
-    name: "money",
+export const InputSearch = Template.bind({});
+InputSearch.args = {
+    icon: "search",
+    name: "search",
     label: "",
     secureTextEntry: false,
     required: true,
     inputError: "",
     type: 'other',
-    typeInput: "number",
+    typeInput: "text",
     backgroundColor: 'white',
     height: 32,
     color: 'black',
-    size: 24,
+    size: 28,
     padding: "12px",
     fontWeight: "bold",
     colorLabel: 'black',
-    colorIcon: "white",
-    borderRadius: "10px",
+    colorIcon: 'red',
+    borderRadius: "5px",
     labelFontSize: 16,
     marginRight: 10,
     borderColor: 'black',
-    placeholder: "money",
+    placeholder: "Pesquisar aqui",
+    dataSearch: [],
+    filterPreviewSearch: (datas, data) => {
+        return [datas, data]
+    },
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },

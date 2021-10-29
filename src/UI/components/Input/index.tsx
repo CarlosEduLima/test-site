@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function*/
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, {
     useState,
     useEffect,
@@ -13,15 +14,17 @@ import React, {
 import { TextInputMask } from 'react-masked-text';
 import { Controller, useForm } from 'react-hook-form';
 import { RHFInput } from 'react-hook-form-input';
-import { BsFillEyeFill, BsEyeSlashFill, BsSearch } from 'react-icons/bs';
+import { BsFillEyeFill, BsEyeSlashFill, BsSearch, } from 'react-icons/bs';
+import { GrSearch } from 'react-icons/gr';
 import InputMask from 'react-input-mask';
 import IntlCurrencyInput from 'react-intl-currency-input'
 
 import { TextInputAttributes } from './attributes';
-import { filterPreviewSearch } from '../../../utils/functions';
+//import { filterPreviewSearch } from '../../../utils/functions';
 import fonts from '../../../utils/fonts';
 import colors from '../../../utils/colors';
 import { InputProps, InputRef } from './interfaces';
+import { currencyConfig } from '../../../utils/input'
 
 import {
     Container,
@@ -30,6 +33,9 @@ import {
     TextInput,
     ErrorText,
     ContainerTextAreaInput,
+    ContainerSearchPreview,
+    ContainerSearchPreviewItems,
+    ContainerSearchPreviewItem,
     TextInputArea
 } from './style';
 
@@ -57,6 +63,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         marginRight,
         borderColor,
         placeholder,
+        dataSearch = [{ id: 1, name: 'Desenvolvimento de sites' }],
+        filterPreviewSearch = (datas: any[], data: string) => {
+            return [datas, data]
+        },
         ...rest
     }
 ) => {
@@ -65,6 +75,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 
     const [isErrored, setIsErrored] = useState(false);
     const [inputSecureTextEntry, setInputSecureTextEntry] = useState(true);
+    const [filterPreviewSearchValue, setFilterPreviewSearchValue] = useState([]);
     const { register, getValues, setFocus, setValue } = useForm();
 
     const Register = register(name);
@@ -86,32 +97,18 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         },
     }));
 
-    const onChangeTextMoney = (args: any) => ({
-        value: args[0].nativeEvent.data,
-    });
-
     const handleChange = (event, value, maskedValue) => {
         event.preventDefault();
         setValue(name, value);
     };
 
-    const currencyConfig = {
-        locale: 'pt-BR',
-        formats: {
-            number: {
-                BRL: {
-                    style: 'currency',
-                    currency: 'BRL',
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                },
-            },
-        },
-    };
-
     useEffect(() => {
         if (icon == 'search') {
-            //
+            setInterval(() => {
+                const value: string = getValues(name) || '';
+                const valueFilter = filterPreviewSearch(dataSearch, value) || []
+                setFilterPreviewSearchValue(valueFilter)
+            }, 400)
         }
     }, []);
 
@@ -343,7 +340,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                                     flexShrink: 1,
                                 }}
                                 currency='BRL'
-                                config={currencyConfig}
+                                config={currencyConfig()}
                                 onChange={handleChange}
                             />
                         )}
@@ -385,7 +382,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 
                         {icon == 'search' && (
                             <div style={{ marginRight }}>
-                                <BsSearch onClick={() => handleIconClick()} color={colorIcon} size={size} />
+                                <GrSearch onClick={() => handleIconClick()} color={colorIcon} size={size} />
                             </div>
                         )}
 
@@ -393,7 +390,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                             icon != 'phone' &&
                             icon != 'textArea' &&
                             icon != 'cep' &&
-                            icon != 'money' && (
+                            icon != 'money' &&
+                            icon != 'search' && (
                                 <RHFInput
                                     as={
                                         <TextInput
@@ -420,7 +418,16 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                             )}
                     </ContainerInput>
                 )}
-                <ErrorText>{inputError}</ErrorText>
+                {icon == 'search' ? (
+                    <ContainerSearchPreview>
+                        <ContainerSearchPreviewItems>
+                            <ContainerSearchPreviewItem>Coffee</ContainerSearchPreviewItem>
+                            <ContainerSearchPreviewItem>Coffee</ContainerSearchPreviewItem>
+                        </ContainerSearchPreviewItems>
+                    </ContainerSearchPreview>
+                ) :
+                    <ErrorText>{inputError}</ErrorText>
+                }
             </Container>
         </>
     );

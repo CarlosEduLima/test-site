@@ -30,7 +30,6 @@ export const ContainerInput = styled.div<ContainerProps>`
   border-radius: ${(props) => props.borderRadius || '10px'};
   background-color: ${(props) => props.backgroundColor || 'white'};
 
-  align-items: center;
   align-content: center;
   border: 1px;
   border-color: black;
@@ -55,6 +54,11 @@ export const ContainerInput = styled.div<ContainerProps>`
   padding: ${(props) => props.padding || '10px'};
 `;
 
+export const ContainerSearchPreview = styled.div`
+  display: block;
+  width: 100%;
+`;
+
 export const ContainerTextAreaInput = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
@@ -69,7 +73,6 @@ export const ContainerTextAreaInput = styled.div<ContainerProps>`
   margin-bottom: 10px;
   background-color: ${(props) => props.backgroundColor || 'white'};
 
-  flex-direction: row;
   align-items: center;
   border: 1px;
   border-color: black;
@@ -152,6 +155,28 @@ export const TextInputArea = styled.textarea<InputPropsStyle>`
     outline: 0;
   }
   flex-shrink: 1;
+`;
+
+export const ContainerSearchPreviewItems = styled.ul`
+  width: calc(100% - 16px);
+  background-color: white;
+  position: relative;
+
+  margin-top: 0px;
+  margin-left: 0.4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 1px solid purple;
+`;
+
+export const ContainerSearchPreviewItem = styled.li`
+  display: grid;
+  justify-items: start;
+  justify-content: start;
+  width: 100%;
+  min-width: 100%;
+  margin-left: -7%;
+  border-bottom: 1px solid black;
 `;
 
 export const ErrorText = styled.p`

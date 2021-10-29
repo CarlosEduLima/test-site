@@ -24,6 +24,8 @@ export interface InputProps {
   marginRight: number;
   borderColor: string;
   placeholder: string;
+  dataSearch?: any[];
+  filterPreviewSearch?: (datas: any[], data: string) => any[];
 }
 
 export interface InputPropsStyle {

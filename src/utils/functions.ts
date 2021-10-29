@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable prettier/prettier */
 
-export function function2(){
+export function filterPreviewSearch(){
 
 }
