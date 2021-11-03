@@ -9,7 +9,7 @@ export const Container = styled.div`
   background-color: ${colors.blue};
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
@@ -19,7 +19,6 @@ export const LeftContent = styled.div`
   padding: 123px 83px 123px 128px;
   display: flex;
   flex-direction: column;
-  flex: 1;
   box-sizing: border-box;
 `;
 
@@ -37,6 +36,7 @@ export const Text = styled.p`
   margin: 0;
   padding: 0;
   font-family: ${fonts.regular};
+  width: 625px;
   font-size: 30px;
   line-height: 41px;
   color: ${colors.white};
@@ -45,7 +45,6 @@ export const Text = styled.p`
 
 export const RightContent = styled.div`
   position: relative;
-  flex: 1;
   box-sizing: border-box;
   padding: 29px 0px 36px 83px;
 `;
@@ -63,6 +62,7 @@ export const InteractionContainer = styled.div`
   max-width: 410px;
   display: flex;
   flex-direction: column;
+  height: 131px;
 `;
 
 export const Image = styled(NextImage)`
@@ -83,7 +83,7 @@ export const BgDetailOne = styled(BgDetail)`
   border-radius: 50%;
   background: ${colors.darkBlue};
   top: 50px;
-  right: 35%;
+  right: 85%;
 `;
 
 export const BgDetailTwo = styled(BgDetail)`
@@ -97,11 +97,11 @@ export const BgDetailTwo = styled(BgDetail)`
 
 export const BgDetailThree = styled(BgDetail)`
   height: 96px;
-  width: 205px;
+  width: 405px;
   border-top-left-radius: 96px;
   border-bottom-left-radius: 96px;
   top: 50px;
-  right: 0;
+  left: 85%;
 `;
 
 export const BgDetailFour = styled(BgDetail)`
@@ -118,5 +118,5 @@ export const BgDetailFive = styled(BgDetail)`
   width: 412px;
   border-radius: 96px;
   bottom: 40px;
-  right: 318px;
+  right: 25%;
 `;
