@@ -33,6 +33,7 @@ export const AvailableInStores: React.FC = () => {
           <AppStoreBadge height={52} />
           <GooglePlayBadge height={52} />
         </StoreButtonsContainer>
+        {/* TODO adicionar componente de botão */}
         <button>Quero me cadastrar</button>
       </RightSide>
     </Container>
