@@ -12,6 +12,7 @@ export const Container = styled.div`
   justify-content: flex-end;
   box-sizing: border-box;
   position: relative;
+  z-index: 1;
 `;
 
 export const LeftContent = styled.div`
@@ -61,4 +62,55 @@ export const ImageBg = styled.div`
 export const Image = styled(NextImage)`
   position: absolute;
   bottom: 0px;
+`;
+
+const BgDetail = styled.div`
+  opacity: 0.5;
+  background: linear-gradient(180deg, ${colors.darkBlue} 0%, ${colors.blue} 100%);
+  position: absolute;
+  z-index: -1;
+`;
+
+export const BgDetailOne = styled(BgDetail)`
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: ${colors.darkBlue};
+  top: 50px;
+  right: 35%;
+`;
+
+export const BgDetailTwo = styled(BgDetail)`
+  height: 80px;
+  width: 80px;
+  border-top-right-radius: 80px;
+  background: ${colors.darkBlue};
+  bottom: 0px;
+  left: 0px;
+`;
+
+export const BgDetailThree = styled(BgDetail)`
+  height: 96px;
+  width: 205px;
+  border-top-left-radius: 96px;
+  border-bottom-left-radius: 96px;
+  top: 50px;
+  right: 0;
+`;
+
+export const BgDetailFour = styled(BgDetail)`
+  height: 96px;
+  width: 512px;
+  border-top-right-radius: 96px;
+  border-bottom-right-radius: 96px;
+  top: 0;
+  left: -138px;
+`;
+
+export const BgDetailFive = styled(BgDetail)`
+  height: 96px;
+  width: 512px;
+  border-radius: 96px;
+  bottom: 40px;
+  right: 318px;
 `;
