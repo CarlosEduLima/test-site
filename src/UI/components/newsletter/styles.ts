@@ -59,6 +59,12 @@ export const ImageBg = styled.div`
   border-radius: 50%;
 `;
 
+export const InteractionContainer = styled.div`
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Image = styled(NextImage)`
   position: absolute;
   bottom: 0px;
@@ -109,7 +115,7 @@ export const BgDetailFour = styled(BgDetail)`
 
 export const BgDetailFive = styled(BgDetail)`
   height: 96px;
-  width: 512px;
+  width: 412px;
   border-radius: 96px;
   bottom: 40px;
   right: 318px;
