@@ -34,8 +34,8 @@ export const Newsletter: React.FC = () => {
       <RightContent>
         <ImageBg />
         <Image src={newsletterImage} alt="newsletterImage" layout="fixed" />
-        <BgDetailThree />
         <BgDetailOne />
+        <BgDetailThree />
         <BgDetailFive />
       </RightContent>
     </Container>
