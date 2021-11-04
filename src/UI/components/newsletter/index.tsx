@@ -5,7 +5,6 @@ import {
   TextTitle,
   Text,
   RightContent,
-  Image,
   ImageBg,
   BgDetailOne,
   BgDetailTwo,
@@ -14,6 +13,7 @@ import {
   BgDetailFive,
   InteractionContainer,
 } from './styles';
+import Image from 'next/image';
 import newsletterImage from '../../../assets/newsletterImage.png';
 
 export const Newsletter: React.FC = () => {

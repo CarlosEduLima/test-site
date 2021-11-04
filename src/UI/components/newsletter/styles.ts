@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../../utils/colors';
 import fonts from '../../../utils/fonts';
-import NextImage from 'next/image';
 
 export const Container = styled.div`
   margin: 0;
@@ -13,6 +12,12 @@ export const Container = styled.div`
   box-sizing: border-box;
   position: relative;
   z-index: 1;
+  overflow: auto;
+  --ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const LeftContent = styled.div`
@@ -36,7 +41,7 @@ export const Text = styled.p`
   margin: 0;
   padding: 0;
   font-family: ${fonts.regular};
-  width: 625px;
+  max-width: 625px;
   font-size: 30px;
   line-height: 41px;
   color: ${colors.white};
@@ -63,11 +68,6 @@ export const InteractionContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 131px;
-`;
-
-export const Image = styled(NextImage)`
-  position: absolute;
-  bottom: 0px;
 `;
 
 const BgDetail = styled.div`
