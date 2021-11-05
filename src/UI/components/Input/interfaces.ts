@@ -26,6 +26,7 @@ export interface InputProps {
   placeholder: string;
   dataSearch?: any[];
   filterPreviewSearch?: (datas: any[], data: string) => any[];
+  returnName?: (datas: any) => any;
 }
 
 export interface InputPropsStyle {
@@ -59,6 +60,7 @@ export interface ContainerProps {
   borderRadius: string;
   padding: string;
   borderColor: string;
+  isSearch?: boolean;
 }
 
 export interface IconProps {

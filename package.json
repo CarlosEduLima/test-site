@@ -20,6 +20,8 @@
     "react-hook-form-input": "^1.1.10",
     "react-icons": "^4.3.1",
     "react-input-mask": "^2.0.4",
+    "react-intl-currency-input": "^0.2.6",
+    "react-masked-text": "^0.4.1",
     "react-scripts": "^4.0.3",
     "react-web-vector-icons": "^1.0.2",
     "remask": "^0.1.0-alpha.5",

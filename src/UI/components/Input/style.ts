@@ -40,10 +40,22 @@ export const ContainerInput = styled.div<ContainerProps>`
     `}
   &:focus-within {
     border: 2px solid;
+    border-bottom: ${(props) => {
+      if (props.isSearch) {
+        return '0px';
+      }
+      return '2px solid';
+    }};
     border-color: ${(props) => props.borderColor || '#666666'};
   }
   &:focus {
     border: 2px solid;
+    border-bottom: ${(props) => {
+      if (props.isSearch) {
+        return '0px';
+      }
+      return '2px solid';
+    }};
     border-color: ${(props) => props.borderColor || '#666666'};
   }
   ${(props) =>
@@ -84,10 +96,22 @@ export const ContainerTextAreaInput = styled.div<ContainerProps>`
     `}
   &:focus-within {
     border: 2px solid;
+    border-bottom: ${(props) => {
+      if (props.isSearch) {
+        return '0px';
+      }
+      return '2px solid';
+    }};
     border-color: ${(props) => props.borderColor || '#666666'};
   }
   &:focus {
     border: 2px solid;
+    border-bottom: ${(props) => {
+      if (props.isSearch) {
+        return '0px';
+      }
+      return '2px solid';
+    }};
     border-color: ${(props) => props.borderColor || '#666666'};
   }
   ${(props) =>
@@ -162,11 +186,14 @@ export const ContainerSearchPreviewItems = styled.ul`
   background-color: white;
   position: relative;
 
-  margin-top: 0px;
-  margin-left: 0.4px;
+  margin-top: -2px;
+  margin-left: 0px;
   padding-top: 8px;
   padding-bottom: 8px;
   border: 1px solid purple;
+  border-top: 0px;
+  padding-bottom: 16px;
+  transition: all 0.7s;
 `;
 
 export const ContainerSearchPreviewItem = styled.li`
@@ -176,7 +203,8 @@ export const ContainerSearchPreviewItem = styled.li`
   width: 100%;
   min-width: 100%;
   margin-left: -7%;
-  border-bottom: 1px solid black;
+  margin-top: 8px;
+  cursor: pointer;
 `;
 
 export const ErrorText = styled.p`

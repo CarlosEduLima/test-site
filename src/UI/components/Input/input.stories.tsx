@@ -14,6 +14,7 @@ import React from 'react';
 
 import Input from './index';
 import colors from '../../../utils/colors'
+import { mockInputSearch } from '../../../utils/input'
 
 export default {
     title: 'Input',
@@ -213,11 +214,14 @@ InputSearch.args = {
     marginRight: 10,
     borderColor: 'black',
     placeholder: "Pesquisar aqui",
-    dataSearch: [],
+    dataSearch: mockInputSearch,
     filterPreviewSearch: (datas, data) => {
         return [datas, data]
     },
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
+    returnName: (value: any) => {
+        return value.name
+    }
 };

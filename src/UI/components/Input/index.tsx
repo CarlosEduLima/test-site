@@ -65,7 +65,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         placeholder,
         dataSearch = [{ id: 1, name: 'Desenvolvimento de sites' }],
         filterPreviewSearch = (datas: any[], data: string) => {
-            return [datas, data]
+            const dataFilter = datas.filter((value) => {
+                return value.name == data
+            })
+            return dataFilter;
+        },
+        returnName = (value: any) => {
+            return value.name
         },
         ...rest
     }
@@ -102,10 +108,15 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         setValue(name, value);
     };
 
+    const getNameSearch = (value) => {
+        console.log(value)
+    };
+
     useEffect(() => {
         if (icon == 'search') {
             setInterval(() => {
                 const value: string = getValues(name) || '';
+                console.log(`value valueeee: ${value} `)
                 const valueFilter = filterPreviewSearch(dataSearch, value) || []
                 setFilterPreviewSearchValue(valueFilter)
             }, 400)
@@ -144,7 +155,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                     label}
                 </Label>
                 {type !== 'other' ? (
-                    <ContainerInput borderColor={borderColor} padding={padding} borderRadius={borderRadius} isFocused={isFocused} isErrored={isErrored} backgroundColor={backgroundColor} height={height}>
+                    <ContainerInput isSearch={filterPreviewSearchValue.length == 0 ? false : true} borderColor={borderColor} padding={padding} borderRadius={borderRadius} isFocused={isFocused} isErrored={isErrored} backgroundColor={backgroundColor} height={height}>
                         {type === 'text' ? (
                             <Controller
                                 control={control}
@@ -196,7 +207,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                         )}
                     </ContainerInput>
                 ) : icon == 'textArea' ? (
-                    <ContainerTextAreaInput borderColor={borderColor} padding={padding} borderRadius={borderRadius} isFocused={isFocused} isErrored={isErrored} backgroundColor={backgroundColor} height={height}>
+                    <ContainerTextAreaInput isSearch={filterPreviewSearchValue.length == 0 ? false : true} borderColor={borderColor} padding={padding} borderRadius={borderRadius} isFocused={isFocused} isErrored={isErrored} backgroundColor={backgroundColor} height={height}>
                         {icon == 'textArea' && (
                             <RHFInput
                                 as={
@@ -228,7 +239,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                         )}
                     </ContainerTextAreaInput>
                 ) : (
-                    <ContainerInput borderColor={borderColor} padding={padding} borderRadius={borderRadius} isFocused={isFocused} isErrored={isErrored} backgroundColor={backgroundColor} height={height}>
+                    <ContainerInput isSearch={filterPreviewSearchValue.length == 0 ? false : true} borderColor={borderColor} padding={padding} borderRadius={borderRadius} isFocused={isFocused} isErrored={isErrored} backgroundColor={backgroundColor} height={height}>
                         {icon == 'password' && (
                             <RHFInput
                                 as={
@@ -360,7 +371,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                                         {...TextInputAttributes(handleInputFocus, handleInputBlur)}
                                         type={typeInput}
                                         onChange={(text) => {
-                                            setValue(name, text.currentTarget.value);
+                                            setValue(name, text)
                                             //pega valor do input: getValues(name)
                                         }}
                                         color={color}
@@ -370,6 +381,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                                         id={name}
                                         placeholder={placeholder}
                                         backgroundColor={backgroundColor}
+
                                     />
                                 }
                                 register={() => Register.ref}
@@ -418,17 +430,23 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                             )}
                     </ContainerInput>
                 )}
-                {icon == 'search' ? (
+                {icon == 'search' && filterPreviewSearchValue.length != 0 ? (
                     <ContainerSearchPreview>
-                        <ContainerSearchPreviewItems>
-                            <ContainerSearchPreviewItem>Coffee</ContainerSearchPreviewItem>
-                            <ContainerSearchPreviewItem>Coffee</ContainerSearchPreviewItem>
-                        </ContainerSearchPreviewItems>
+                        <ContainerSearchPreviewItems key={filterPreviewSearchValue.length}>
+                            {filterPreviewSearchValue.map((value, index) => {
+                                const nameItem: string = returnName(value)
+                                console.log(`name item: ${nameItem}`)
+                        return (
+                        <ContainerSearchPreviewItem key={index} onClick={() => getNameSearch(nameItem)}>{nameItem}</ContainerSearchPreviewItem>
+                        )
+                            })
+                            }
+                    </ContainerSearchPreviewItems>
                     </ContainerSearchPreview>
-                ) :
-                    <ErrorText>{inputError}</ErrorText>
+            ) :
+            <ErrorText>{inputError}</ErrorText>
                 }
-            </Container>
+        </Container>
         </>
     );
 };
