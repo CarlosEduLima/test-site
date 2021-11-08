@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import styled, { css } from 'styled-components';
+import SearchInput from 'react-search-input';
 
 import fonts from '../../../utils/fonts';
 import colors from '../../../utils/colors';
@@ -69,6 +70,7 @@ export const ContainerInput = styled.div<ContainerProps>`
 export const ContainerSearchPreview = styled.div`
   display: block;
   width: 100%;
+  z-index: 0;
 `;
 
 export const ContainerTextAreaInput = styled.div<ContainerProps>`
@@ -179,6 +181,7 @@ export const TextInputArea = styled.textarea<InputPropsStyle>`
     outline: 0;
   }
   flex-shrink: 1;
+  resize: none;
 `;
 
 export const ContainerSearchPreviewItems = styled.ul`
@@ -186,7 +189,7 @@ export const ContainerSearchPreviewItems = styled.ul`
   background-color: white;
   position: relative;
 
-  margin-top: -2px;
+  margin-top: -20px;
   margin-left: 0px;
   padding-top: 8px;
   padding-bottom: 8px;

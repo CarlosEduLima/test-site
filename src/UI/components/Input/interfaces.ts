@@ -26,7 +26,11 @@ export interface InputProps {
   placeholder: string;
   dataSearch?: any[];
   filterPreviewSearch?: (datas: any[], data: string) => any[];
-  returnName?: (datas: any) => any;
+  KEYS_TO_FILTERS?: string[];
+  marginLeft: number;
+  rows: number;
+  cols: number;
+  fontSize: string;
 }
 
 export interface InputPropsStyle {
@@ -35,6 +39,7 @@ export interface InputPropsStyle {
   color: string;
   borderRadius: string;
   padding: string;
+  fontSize: string;
 }
 
 export interface InputPropsLabel {

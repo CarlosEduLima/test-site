@@ -45,6 +45,7 @@ InputEmail.args = {
     colorIcon: "black",
     marginRight: 10,
     borderColor: '#666666',
+    fontSize: '16px',
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
@@ -73,6 +74,7 @@ InputPassword.args = {
     labelFontSize: 16,
     marginRight: 10,
     borderColor: 'black',
+    fontSize: '16px',
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
@@ -101,6 +103,7 @@ InputText.args = {
     labelFontSize: 16,
     marginRight: 10,
     borderColor: 'black',
+    fontSize: '16px',
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
@@ -130,6 +133,7 @@ InputPhone.args = {
     marginRight: 10,
     borderColor: 'black',
     placeholder: "(  ) _ ____-____",
+    fontSize: '16px',
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
@@ -158,6 +162,7 @@ InputCep.args = {
     marginRight: 10,
     borderColor: 'black',
     placeholder: "54245-127",
+    fontSize: '16px',
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
@@ -186,6 +191,7 @@ InputMoney.args = {
     marginRight: 10,
     borderColor: 'black',
     placeholder: "money",
+    fontSize: '16px',
     onChange: (value: any) => {
         console.log(value.currentTarget.value);
     },
@@ -208,13 +214,54 @@ InputSearch.args = {
     padding: "12px",
     fontWeight: "bold",
     colorLabel: 'black',
-    colorIcon: 'red',
+    colorIcon: colors.purple,
     borderRadius: "5px",
     labelFontSize: 16,
-    marginRight: 10,
+    marginRight: -19,
     borderColor: 'black',
     placeholder: "Pesquisar aqui",
     dataSearch: mockInputSearch,
+    marginLeft: 18,
+    fontSize: '16px',
+    filterPreviewSearch: (datas, data) => {
+        return [datas, data]
+    },
+    onChange: (value: any) => {
+        console.log(value.currentTarget.value);
+    },
+    returnName: (value: any) => {
+        return value.name
+    }
+};
+
+export const InputArea = Template.bind({});
+InputArea.args = {
+    icon: "textArea",
+    name: "textArea",
+    label: "",
+    secureTextEntry: false,
+    required: true,
+    inputError: "",
+    type: 'other',
+    typeInput: "text",
+    backgroundColor: 'white',
+    height: '100%',
+    color: 'black',
+    size: 28,
+    padding: "12px",
+    fontWeight: "bold",
+    colorLabel: 'black',
+    colorIcon: colors.purple,
+    borderRadius: "5px",
+    labelFontSize: 16,
+    marginRight: -19,
+    borderColor: 'black',
+    placeholder: "Pesquisar aqui",
+    dataSearch: mockInputSearch,
+    marginLeft: 18,
+    rows: 10,
+    cols: 33,
+    fontSize: '16px',
     filterPreviewSearch: (datas, data) => {
         return [datas, data]
     },
