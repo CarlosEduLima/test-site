@@ -1,10 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-empty-function*/
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, {
     useState,
     useEffect,

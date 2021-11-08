@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable linebreak-style */
 export interface InputProps {
   name: string;
   icon?: string;

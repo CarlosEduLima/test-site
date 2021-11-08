@@ -1,7 +1,4 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import styled, { css } from 'styled-components';
-import SearchInput from 'react-search-input';
 
 import fonts from '../../../utils/fonts';
 import colors from '../../../utils/colors';

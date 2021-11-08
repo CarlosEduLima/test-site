@@ -1,15 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable prettier/prettier */
-/* eslint-disable linebreak-style */
-
 import React from 'react';
 
 import Input from './index';
