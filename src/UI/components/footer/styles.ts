@@ -2,28 +2,56 @@ import styled from 'styled-components';
 import colors from '../../../utils/colors';
 
 export const FooterContainer = styled.div`
-  text-decoration: none;
   box-sizing: border-box;
   width: 100%;
   padding: 40px;
   background-color: ${colors.white};
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FooterUp = styled.div`
+  margin:  10px;
+  width: 1366px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-itens: center;
   flex-wrap: wrap;
+  @media (max-width: 1440px) {
+    width: 1100px;
+  }
+  @media (max-width: 1200px) {
+    justify-content: center;
+    width: 800px;
+  }
+  @media (max-width: 840px) {
+    justify-content: flex-start;
+    text-align: left;
+    width: 300px;
+  }
 `;
 
 export const FooterDown = styled.div`
-  padding: 40px 0;
+  margin:  10px;
+  width: 1366px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-itens: center;
   flex-wrap: wrap;
+  @media (max-width: 1440px) {
+    width: 1100px;
+  }
+  @media (max-width: 1200px) {
+    width: 800px;
+  }
+  @media (max-width: 840px) {
+    justify-content: center;
+    width: 300px;
+  }
 `;
 
 export const TextUp = styled.p`
@@ -33,6 +61,7 @@ export const TextUp = styled.p`
 `;
 
 export const TextDown = styled.p`
+  cursor: pointer;
   text-decoration: none;
   margin: 12px 40px 12px 0;
   color: ${colors.black};
@@ -44,8 +73,6 @@ export const FooterSection = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 1px;
-  padding: 10px;
   margin: 15px;
   width: ${props => props.width};
 `;
@@ -62,6 +89,18 @@ export const FooterListImg = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+`;
+
+export const FooterListFAQ = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @media (max-width: 840px){
+    margin: 20px 10px;
+    flex-direction: column;
+    text-align: left;
+    align-itens: center;
+  }
 `;
 
 export const ImageLocalDiv = styled.div`
@@ -85,5 +124,6 @@ export const ImageLocal = styled.div`
   transform: translate(-50%, -50%);
 `;
 export const DownloadImage = styled.div`
+  cursor: pointer;
   margin: 10px 0;
 `;

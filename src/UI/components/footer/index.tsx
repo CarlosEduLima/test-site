@@ -13,6 +13,7 @@ import {
   ImageLocal,
   ImageLocalDiv,
   DownloadImage,
+  FooterListFAQ,
 } from './styles';
 import instagram from '../../../assets/instagram.png';
 import facebook from '../../../assets/facebook.png';
@@ -110,14 +111,14 @@ const Footer = () => {
         <Image
           src={iziwIcon}
         />
-        <FooterListImg>
+        <FooterListFAQ>
           {footerFAQ.map(item => (
             <TextDown>{item}</TextDown>
           ))}
-        </FooterListImg>
+        </FooterListFAQ>
       </FooterDown>
     </FooterContainer>
-  )
+  );
 };
 
 export default Footer;
