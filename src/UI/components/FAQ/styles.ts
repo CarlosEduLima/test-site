@@ -7,18 +7,18 @@ export const FAQFull = styled.div`
 `;
 
 export const FAQContainer = styled.div`
+  padding: 40px 0;
   width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   background-color: #fff;
-  border: 1px solid #f00;
-  padding-bottom: 40px;
+  /* border: 1px solid #f00; */
 `;
 
 export const Title = styled.p`
-  max-width: 360px;
+  max-width: 380px;
   color: #000;
   font-size: ${props => props.size + 'px'};
   font-weight: 400;
@@ -44,7 +44,7 @@ export const Categoria = styled.div`
   justify-content: center;
   text-align: center;
   /* border: 3px solid #373AAD; */
-  border: 3px solid #fff;
+  border: 2px solid ${(props) => (props.border ? '#373AAD' : '#FFF')};
   border-radius: 25px;
   margin: 20px;
   transition: 0.2s;
@@ -97,7 +97,7 @@ export const SearchButton = styled.img`
 `;
 
 export const Details = styled.details`
-  cursor: pointer;
+  /* cursor: pointer; */
   margin: 15px 0;
   border-radius: 6px;
   width: 80%;
@@ -108,5 +108,6 @@ export const Details = styled.details`
 `;
 
 export const Summary = styled.summary`
+  cursor: pointer;
   color: #000;
 `;
