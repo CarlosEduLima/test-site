@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FAQFull,
   FAQContainer,
@@ -14,59 +14,66 @@ import {
   Summary,
 } from './styles';
 
-import icone from '../../../assets/icon.png';
-
 const FAQ = () => {
 
   const categoriaItens = [
     {
-      id: 1,
-      icon: icone,
+      id: 0,
+      icon: '${ICON}',
       title: 'Primeiros passos',
+      questions: [
+        {
+          title: 'Como eu crio meu perfil?',
+          response: 'Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui',
+        },
+        {
+          title: 'Preciso baixar o aplicativo?',
+          response: 'Sim, a experiencia Iziw fica ainda melhor no nosso aplicativo',
+        },
+      ],
+    },
+    {
+      id: 1,
+      icon: '${ICON}',
+      title: 'Preços e moedas',
+      questions: [
+        {
+          title: 'Como faço para comprar moedas?',
+          response: 'Para comprar moedas, vá na aba de moedas para fazer uma compra',
+        },
+        {
+          title: 'Porque preciso comprar moedas para aceitar um pedido?',
+          response: 'Para darmos confiança ao usuario de que você está realmente disposto a fazer o trabalho proposto',
+        },
+      ],
     },
     {
       id: 2,
       icon: '${ICON}',
-      title: 'Preços e moedas',
-    },
-    {
-      id: 3,
-      icon: '${ICON}',
       title: 'Como utilizar',
+      questions: [
+        {
+          title: 'Como aceitar um pedido',
+          response: "No app, vá em 'ORÇAMENTOS' e lá aparecerá todos os pedidos abertos",
+        },
+        {
+          title: 'Como abrir um serviço?',
+          response: "Para abrir um serviço, vá na aba 'SERVIÇOS' escolha a categoria e sub-categoria e responda o questionario",
+        },
+      ],
     },
   ];
 
-  const questions = [
-    {
-      title: 'Como eu crio meu perfil?',
-      response: 'Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui',
-    },
-    {
-      title: 'Preciso baixar o aplicativo?',
-      response: 'Sim! A experiência Iziw fica ainda melhor no nosso aplicativo. É por lá que você vai encontrar oportunidades, publicar serviços e contratar profissionais. Nosso aplicativo vai te conectar com os melhores profissionais e oportunidades, você pode pesquisar categorias que estão em alta na sua cidade, além de poder ver as avaliações dos profissionais.',
-    },
-  ];
-
-  const [newsQuestions, setNewsQuestions] = useState([]);
   const [value, setValue] = useState();
-  let [inCategoria, setInCategoria] = useState(1);
-  let [existe, setExiste] = useState(false);
+  const [inCategoria, setInCategoria] = useState(0);
 
-  function verifySearch() {
-    let valor = value.trim();
-    setNewsQuestions([]);
-    if (valor !== undefined && valor !== '' && valor !== null) {
-      for (let question of questions) {
-        if (question.response.includes(valor.trim()) || question.title.includes(valor.trim())) {
-          setNewsQuestions([...newsQuestions, question]);
-          console.log('Existe', newsQuestions);
-        }
-      }
-      if (newsQuestions.length > 0) {
-        setExiste(true);
-      }
-    }
-  }
+  const questions = categoriaItens.map(item => item.questions);
+  const categorias = [].concat([0,1,3,4], [0,7,2,8]);
+
+  useEffect(() => {
+    console.log('----------------------------------------------------------');
+    console.log(questions, categorias);
+  },[])
 
   return (
     <FAQFull>
@@ -75,11 +82,10 @@ const FAQ = () => {
           Como podemos <span>ajudar?</span>
         </Title>
         <Search>
-          <Input placeholder="Escreva aqui sua dúvida" onChange={(e) => setValue(e.target.value)} />
+          <Input placeholder="Escreva aqui sua dúvida" onChange={e => setValue(e.target.value)} />
           <SearchButton
             src="https://imagepng.org/wp-content/uploads/2019/08/google-icon.png"
             alt="Search"
-            onClick={verifySearch}
           />
         </Search>
         <Text style={{ marginTop: '40px' }} size={25}>
@@ -126,32 +132,22 @@ const FAQ = () => {
         <Title size={28} style={{ margin: '20px 0 40px 0' }}>
           Primeiros passos para começar sua experiência IziW
         </Title>
-        {(newsQuestions.length === 0 || value.trim() === '') && questions.map((item) => (
-          <Details key={item.title}>
-            <Summary key={item.title}>{item.title}</Summary>
-            <Text
-              key={item.title}
-              size={18}
-              style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
-              {item.response}
-            </Text>
-          </Details>
-        ))}
-        {/* {exist === false && <Title size={25} style={{marginTop: '20px'}}>Não existe nada sobre isso na lista</Title>} */}
-        {existe && newsQuestions.map((item) => (
-          <Details key={item.title}>
-            <Summary key={item.title}>{item.title}</Summary>
-            <Text
-              key={item.title}
-              size={18}
-              style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
-              {item.response}
-            </Text>
-          </Details>
-        ))}
+        {}
       </FAQContainer>
     </FAQFull>
   );
 };
 
 export default FAQ;
+
+
+
+
+          // <Details>
+          //   <Summary>Como eu crio meu perfil?</Summary>
+          //   <Text
+          //     size={18}
+          //     style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+          //     Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui
+          //   </Text>
+          // </Details>
