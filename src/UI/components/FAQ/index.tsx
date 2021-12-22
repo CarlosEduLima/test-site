@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   FAQFull,
   FAQContainer,
@@ -12,14 +12,20 @@ import {
   SearchButton,
   Details,
   Summary,
+  PortaIcons,
 } from './styles';
+
+import Flag from '../../../assets/flag.svg';
+import Wvalues from '../../../assets/wvalues.svg';
+import Interrogation from '../../../assets/interrogation.svg';
+import SearchBtn from '../../../assets/searchBtn.svg';
 
 const FAQ = () => {
 
   const categoriaItens = [
     {
       id: 0,
-      icon: '${ICON}',
+      icon: Flag,
       title: 'Primeiros passos',
       questions: [
         {
@@ -34,7 +40,7 @@ const FAQ = () => {
     },
     {
       id: 1,
-      icon: '${ICON}',
+      icon: Wvalues,
       title: 'Preços e moedas',
       questions: [
         {
@@ -49,7 +55,7 @@ const FAQ = () => {
     },
     {
       id: 2,
-      icon: '${ICON}',
+      icon: Interrogation,
       title: 'Como utilizar',
       questions: [
         {
@@ -64,16 +70,23 @@ const FAQ = () => {
     },
   ];
 
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
   const [inCategoria, setInCategoria] = useState(0);
 
-  const questions = categoriaItens.map(item => item.questions);
-  const categorias = [].concat([0,1,3,4], [0,7,2,8]);
+  const fullQuestions = categoriaItens.flatMap((item) => item.questions);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
 
-  useEffect(() => {
-    console.log('----------------------------------------------------------');
-    console.log(questions, categorias);
-  },[])
+  const SearchQuestion = () => {
+    setFilteredQuestions([]);
+    setInCategoria(-1);
+    if (value !== undefined && value.trim() !== '') { //? VERIFICA SE O 'value' é um valor valido.
+      for (const question of fullQuestions) { //? PERCORRE TODAS AS QUESTOES DE 'fullQuestions'.
+        if (question.response.includes(value.trim()) || question.title.includes(value.trim())) { //? VERIFICA SE O 'fullQuestion' tem o valor do input.
+          setFilteredQuestions([...filteredQuestions, question]);
+        }
+      }
+    }
+  };
 
   return (
     <FAQFull>
@@ -82,9 +95,13 @@ const FAQ = () => {
           Como podemos <span>ajudar?</span>
         </Title>
         <Search>
-          <Input placeholder="Escreva aqui sua dúvida" onChange={e => setValue(e.target.value)} />
+          <Input placeholder="Escreva aqui sua dúvida" onChange={(e) => {
+            setValue(e.target.value);
+            SearchQuestion();
+          }} />
           <SearchButton
-            src="https://imagepng.org/wp-content/uploads/2019/08/google-icon.png"
+            onClick={SearchQuestion}
+            src={SearchBtn}
             alt="Search"
           />
         </Search>
@@ -92,47 +109,46 @@ const FAQ = () => {
           Ou escolha uma categoria relacionada à sua dúvida
         </Text>
         <Categorias>
-          {categoriaItens.map(item => {
-            if (item.id === inCategoria) {
-              return (
-                <Categoria
-                  key={item.title}
-                  onClick={() => {
-                    setInCategoria(item.id);
-                    console.log(inCategoria);
-                  }}
-                  border>
-                  <Icon
-                    key={item.title}
-                    src="https://imagepng.org/wp-content/uploads/2019/08/google-icon.png"
-                    alt={item.title}
-                  />
-                  <Text size={18}>{item.title}</Text>
-                </Categoria>
-              );
-            } else {
-              return (
-                <Categoria
-                  key={item.title}
-                  onClick={() => {
-                    setInCategoria(item.id);
-                    console.log(inCategoria);
-                  }}>
-                  <Icon
-                    key={item.title}
-                    src="https://imagepng.org/wp-content/uploads/2019/08/google-icon.png"
-                    alt={item.title}
-                  />
-                  <Text size={18}>{item.title}</Text>
-                </Categoria>
-              );
-            }
+          {categoriaItens.map((item) => {
+            return (
+              <Categoria
+                key={item.title}
+                onClick={() => {
+                  setValue('');
+                  setInCategoria(item.id);
+                }}
+                border={item.id === inCategoria ? '#373AAD' : '#FFF'}>
+                <PortaIcons>
+                  <Icon key={item.title} src={item.icon} alt={item.title} />
+                </PortaIcons>
+                <Text size={18}>{item.title}</Text>
+              </Categoria>
+            );
           })}
         </Categorias>
         <Title size={28} style={{ margin: '20px 0 40px 0' }}>
           Primeiros passos para começar sua experiência IziW
         </Title>
-        {}
+        {value.length === 0 && categoriaItens[inCategoria]?.questions.map((item) => (
+          <Details>
+            <Summary>{item.title}</Summary>
+            <Text
+              size={18}
+              style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+              {item.response}
+            </Text>
+          </Details>
+        ))}
+        {value.length > 0 && filteredQuestions.map((item) => (
+          <Details>
+            <Summary>{item.title}</Summary>
+            <Text
+              size={18}
+              style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+              {item.response}
+            </Text>
+          </Details>
+        ))}
       </FAQContainer>
     </FAQFull>
   );

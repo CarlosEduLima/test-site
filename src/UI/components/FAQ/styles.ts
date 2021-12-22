@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const FAQFull = styled.div`
@@ -14,10 +15,9 @@ export const FAQContainer = styled.div`
   align-items: center;
   text-align: center;
   background-color: #fff;
-  /* border: 1px solid #f00; */
 `;
 
-export const Title = styled.p`
+export const Title = styled.p<{ size: number }>`
   max-width: 380px;
   color: #000;
   font-size: ${props => props.size + 'px'};
@@ -34,7 +34,7 @@ export const Categorias = styled.div`
   justify-content: center;
 `;
 
-export const Categoria = styled.div`
+export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
   cursor: pointer;
   width: 205px;
   height: 135px;
@@ -43,15 +43,14 @@ export const Categoria = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* border: 3px solid #373AAD; */
-  border: 2px solid ${(props) => (props.border ? '#373AAD' : '#FFF')};
+  border: 2px solid ${(props) => props.border};
   border-radius: 25px;
   margin: 20px;
   transition: 0.2s;
   box-shadow: 0px 0px 25px 14px #12121244;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ size: number }>`
   color: #000;
   font-size: ${props => props.size + 'px'};
   font-weight: 400;
@@ -60,7 +59,18 @@ export const Text = styled.p`
   }
 `;
 
-export const Icon = styled.img`
+export const PortaIcons = styled.div`
+  width: 72px;
+  height: 72px;
+  border: 4px solid #29ABE2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+`;
+
+export const Icon = styled(Image)`
   margin-top: 10px;
   width: 50px;
   height: auto;
@@ -88,7 +98,7 @@ export const Input = styled.input`
   }
 `;
 
-export const SearchButton = styled.img`
+export const SearchButton = styled(Image)`
   cursor: pointer;
   display: flex;
   justify-content: center;
