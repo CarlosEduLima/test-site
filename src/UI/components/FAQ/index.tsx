@@ -20,7 +20,7 @@ import Wvalues from '../../../assets/wvalues.svg';
 import Interrogation from '../../../assets/interrogation.svg';
 import SearchBtn from '../../../assets/searchBtn.svg';
 
-const FAQ = () => {
+const FAQ: React.FC = () => {
 
   const categoriaItens = [
     {
@@ -74,15 +74,21 @@ const FAQ = () => {
   const [inCategoria, setInCategoria] = useState(0);
 
   const fullQuestions = categoriaItens.flatMap((item) => item.questions);
-  const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const [filteredQuestions] = useState([]);
 
   const SearchQuestion = () => {
-    setFilteredQuestions([]);
-    setInCategoria(-1);
-    if (value !== undefined && value.trim() !== '') { //? VERIFICA SE O 'value' é um valor valido.
-      for (const question of fullQuestions) { //? PERCORRE TODAS AS QUESTOES DE 'fullQuestions'.
-        if (question.response.includes(value.trim()) || question.title.includes(value.trim())) { //? VERIFICA SE O 'fullQuestion' tem o valor do input.
-          setFilteredQuestions([...filteredQuestions, question]);
+    for (const quest in filteredQuestions) {
+      filteredQuestions.shift(quest);
+    }
+    // setfilteredQuestions([]);
+    if (value !== undefined && value.trim() !== '') {
+      setInCategoria(-1);
+      for (const question of fullQuestions) {
+        if (
+          question.response.toLowerCase().includes(value.toLowerCase().trim()) ||
+          question.title.toLowerCase().includes(value.toLowerCase().trim())
+        ) {
+          filteredQuestions.push(question);
         }
       }
     }
@@ -97,13 +103,8 @@ const FAQ = () => {
         <Search>
           <Input placeholder="Escreva aqui sua dúvida" onChange={(e) => {
             setValue(e.target.value);
-            SearchQuestion();
           }} />
-          <SearchButton
-            onClick={SearchQuestion}
-            src={SearchBtn}
-            alt="Search"
-          />
+          <SearchButton onClick={SearchQuestion} src={SearchBtn} alt="Search" />
         </Search>
         <Text style={{ marginTop: '40px' }} size={25}>
           Ou escolha uma categoria relacionada à sua dúvida
@@ -155,15 +156,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-
-
-
-
-          // <Details>
-          //   <Summary>Como eu crio meu perfil?</Summary>
-          //   <Text
-          //     size={18}
-          //     style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
-          //     Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui
-          //   </Text>
-          // </Details>
