@@ -15,15 +15,22 @@ export const FAQContainer = styled.div`
   align-items: center;
   text-align: center;
   background-color: #fff;
+  @media (max-width: 800px) {
+    width: 500px;
+  }
 `;
 
 export const Title = styled.p<{ size: number }>`
   max-width: 380px;
+  margin: 0 15px;
   color: #000;
   font-size: ${props => props.size + 'px'};
   font-weight: 400;
   span{
     font-weight: 800;
+  }
+  @media (max-width: 600px) {
+    font-size: ${(props) => (props.size - 4) + 'px'};
   }
 `;
 
@@ -32,6 +39,7 @@ export const Categorias = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
@@ -54,6 +62,20 @@ export const Text = styled.p<{ size: number }>`
   color: #000;
   font-size: ${props => props.size + 'px'};
   font-weight: 400;
+  margin: 0 8px;
+  span {
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    font-size: ${(props) => (props.size - 4) + 'px'};
+  }
+`;
+
+export const CategoriaText = styled.p`
+  color: #000;
+  font-size: ${props => props.size + 'px'};
+  font-weight: 400;
+  margin: 0 8px;
   span {
     font-weight: 600;
   }
@@ -85,10 +107,12 @@ export const Search = styled.div`
   background-color: #b7c6ce;
   border-radius: 6px;
   gap: 5px;
+  margin: 0 10px;
 `;
 export const Input = styled.input`
   background-color: transparent;
-  border: none;
+  border: none !important;
+  box-shadow: none !important;
   width: 280px;
   height: 30px;
   outline: none;
@@ -115,6 +139,9 @@ export const Details = styled.details`
   padding: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 25px 10px #12121255;
+   @media (max-width: 800px) {
+    width: 90%;
+   }
 `;
 
 export const Summary = styled.summary`

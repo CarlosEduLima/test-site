@@ -13,6 +13,7 @@ import {
   Details,
   Summary,
   PortaIcons,
+  CategoriaText,
 } from './styles';
 
 import Flag from '../../../assets/flag.svg';
@@ -21,7 +22,6 @@ import Interrogation from '../../../assets/interrogation.svg';
 import SearchBtn from '../../../assets/searchBtn.svg';
 
 const FAQ: React.FC = () => {
-
   const categoriaItens = [
     {
       id: 0,
@@ -30,7 +30,8 @@ const FAQ: React.FC = () => {
       questions: [
         {
           title: 'Como eu crio meu perfil?',
-          response: 'Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui',
+          response:
+            'Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui',
         },
         {
           title: 'Preciso baixar o aplicativo?',
@@ -49,7 +50,8 @@ const FAQ: React.FC = () => {
         },
         {
           title: 'Porque preciso comprar moedas para aceitar um pedido?',
-          response: 'Para darmos confiança ao usuario de que você está realmente disposto a fazer o trabalho proposto',
+          response:
+            'Para darmos confiança ao usuario de que você está realmente disposto a fazer o trabalho proposto',
         },
       ],
     },
@@ -64,7 +66,8 @@ const FAQ: React.FC = () => {
         },
         {
           title: 'Como abrir um serviço?',
-          response: "Para abrir um serviço, vá na aba 'SERVIÇOS' escolha a categoria e sub-categoria e responda o questionario",
+          response:
+            "Para abrir um serviço, vá na aba 'SERVIÇOS' escolha a categoria e sub-categoria e responda o questionario",
         },
       ],
     },
@@ -73,20 +76,23 @@ const FAQ: React.FC = () => {
   const [value, setValue] = useState('');
   const [inCategoria, setInCategoria] = useState(0);
 
-  const fullQuestions = categoriaItens.flatMap((item) => item.questions);
-  const [filteredQuestions] = useState([]);
+  console.log(categoriaItens.flatMap((item) => item.questions));
 
-  const SearchQuestion = () => {
-    for (const quest in filteredQuestions) {
-      filteredQuestions.shift(quest);
-    }
-    // setfilteredQuestions([]);
-    if (value !== undefined && value.trim() !== '') {
+  const fullQuestions = categoriaItens.flatMap((item) => item.questions);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
+
+  const SearchQuestion = (valor = '') => {
+    setValue(valor);
+    const texto = valor;
+    console.log(texto);
+    if (texto !== undefined && texto !== '') {
+      filteredQuestions.splice(0);
+      // setFilteredQuestions([]);
       setInCategoria(-1);
       for (const question of fullQuestions) {
         if (
-          question.response.toLowerCase().includes(value.toLowerCase().trim()) ||
-          question.title.toLowerCase().includes(value.toLowerCase().trim())
+          question.response.toLowerCase().includes(texto.toLowerCase()) ||
+          question.title.toLowerCase().includes(texto.toLowerCase())
         ) {
           filteredQuestions.push(question);
         }
@@ -101,10 +107,13 @@ const FAQ: React.FC = () => {
           Como podemos <span>ajudar?</span>
         </Title>
         <Search>
-          <Input placeholder="Escreva aqui sua dúvida" onChange={(e) => {
-            setValue(e.target.value);
-          }} />
-          <SearchButton onClick={SearchQuestion} src={SearchBtn} alt="Search" />
+          <Input
+            placeholder="Escreva aqui sua dúvida"
+            onKeyUp={(e) => {
+              SearchQuestion(e.target.value);
+            }}
+          />
+          <SearchButton onClick={() => SearchQuestion(value)} src={SearchBtn} alt="Search" />
         </Search>
         <Text style={{ marginTop: '40px' }} size={25}>
           Ou escolha uma categoria relacionada à sua dúvida
@@ -115,6 +124,7 @@ const FAQ: React.FC = () => {
               <Categoria
                 key={item.title}
                 onClick={() => {
+                  filteredQuestions.splice(0);
                   setValue('');
                   setInCategoria(item.id);
                 }}
@@ -122,7 +132,7 @@ const FAQ: React.FC = () => {
                 <PortaIcons>
                   <Icon key={item.title} src={item.icon} alt={item.title} />
                 </PortaIcons>
-                <Text size={18}>{item.title}</Text>
+                <CategoriaText size={18}>{item.title}</CategoriaText>
               </Categoria>
             );
           })}
@@ -130,26 +140,23 @@ const FAQ: React.FC = () => {
         <Title size={28} style={{ margin: '20px 0 40px 0' }}>
           Primeiros passos para começar sua experiência IziW
         </Title>
-        {value.length === 0 && categoriaItens[inCategoria]?.questions.map((item) => (
-          <Details>
-            <Summary>{item.title}</Summary>
-            <Text
-              size={18}
-              style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
-              {item.response}
-            </Text>
-          </Details>
-        ))}
+        {value.length === 0 &&
+          categoriaItens[inCategoria]?.questions.map((item) => (
+            <Details key={item.title}>
+              <Summary>{item.title}</Summary>
+              <Text size={18} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+                {item.response}
+              </Text>
+            </Details>
+          ))}
         {value.length > 0 && filteredQuestions.map((item) => (
-          <Details>
-            <Summary>{item.title}</Summary>
-            <Text
-              size={18}
-              style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
-              {item.response}
-            </Text>
-          </Details>
-        ))}
+            <Details key={item.title}>
+              <Summary>{item.title}</Summary>
+              <Text size={18} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+                {item.response}
+              </Text>
+            </Details>
+          ))}
       </FAQContainer>
     </FAQFull>
   );
