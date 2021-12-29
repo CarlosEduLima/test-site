@@ -79,7 +79,7 @@ const FAQ: React.FC = () => {
   console.log(categoriaItens.flatMap((item) => item.questions));
 
   const fullQuestions = categoriaItens.flatMap((item) => item.questions);
-  const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const [filteredQuestions] = useState([]);
 
   const SearchQuestion = (valor = '') => {
     setValue(valor);
@@ -87,7 +87,6 @@ const FAQ: React.FC = () => {
     console.log(texto);
     if (texto !== undefined && texto !== '') {
       filteredQuestions.splice(0);
-      // setFilteredQuestions([]);
       setInCategoria(-1);
       for (const question of fullQuestions) {
         if (
