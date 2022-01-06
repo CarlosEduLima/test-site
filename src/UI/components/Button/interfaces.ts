@@ -1,16 +1,10 @@
 export interface ButtonProps {
   loading?: boolean;
-
   variant: 'primary' | 'secondary';
-
   disabled: boolean;
-
   mini: boolean;
-
   max: boolean;
-
   height?: string;
-
   fontSize?: string;
 }
 

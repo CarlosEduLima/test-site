@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-export const Spin = keyframes`  
+export const Spin = keyframes`
   from {
       transform: scale(1) rotate(0deg);
       border-bottom-color: transparent;
@@ -10,7 +10,7 @@ export const Spin = keyframes`
       transform: scale(1) rotate(360deg);
     }
 `;
-export const Spin2 = keyframes`  
+export const Spin2 = keyframes`
   from {
     border-bottom-color: transparent;
       -webkit-transform: rotate(0deg);

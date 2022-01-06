@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-
 import colors from '../../../utils/colors';
-
 import fonts from '../../../utils/fonts';
-
 import { ButtonProps, CircleProps } from './interfaces';
-
 import { Spin, Spin2 } from './animations';
 
 export const ButtonComponent = styled.button<ButtonProps>`
@@ -37,8 +33,8 @@ export const ButtonComponent = styled.button<ButtonProps>`
 `;
 
 export const CircleRotate = styled.div<CircleProps>`
-  width: ${({ width, height }) => width};
-  height: ${({ height, width }) => height};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   animation: ${Spin} 1s infinite linear;
   -webkit-animation: ${Spin2} 1s infinite linear;
   border-radius: 100%;
