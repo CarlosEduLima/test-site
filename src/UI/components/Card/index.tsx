@@ -12,15 +12,15 @@ import img from '../../../assets/imagemFundoCadastro.png';
 const steps = [
     {
       id: "telaEmaileCel",
-      title: "Dados pessoais"
+      title: "Dados de cadastro"
     },
     {
       id: "telaSenha",
-      title: "Endereço de entrega"
+      title: "Dados de senha"
     },
     {
       id: "telaFinalizado",
-      title: "Dados de pagamento"
+      title: "Terminado"
     }
   ];
   
@@ -177,7 +177,6 @@ const steps = [
               </button>
             )}
   
-            {loading && <h1 className="loader">Enviando...</h1>}
           </div>
     );
   }
