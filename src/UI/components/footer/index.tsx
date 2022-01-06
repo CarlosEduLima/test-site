@@ -92,7 +92,6 @@ const Footer = () => {
                 </ImageLocalDiv>
               ))}
             </FooterListImg>
-            <TextUp>Parcerias</TextUp>
           </FooterList>
         </FooterSection>
         <FooterSection>

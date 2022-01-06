@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../../utils/colors';
+import fonts from '../../../utils/fonts';
 
 export const FooterContainer = styled.div`
   box-sizing: border-box;
@@ -13,13 +14,14 @@ export const FooterContainer = styled.div`
 `;
 
 export const FooterUp = styled.div`
+  padding-bottom: 60px;
   margin:  10px;
   width: 1366px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-itens: center;
   flex-wrap: wrap;
+  border-bottom: 1px solid #707070;
   @media (max-width: 1440px) {
     width: 1100px;
   }
@@ -35,12 +37,12 @@ export const FooterUp = styled.div`
 `;
 
 export const FooterDown = styled.div`
-  margin:  10px;
+  padding: 60px 0;
   width: 1366px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-itens: center;
+  align-items: center;
   flex-wrap: wrap;
   @media (max-width: 1440px) {
     width: 1100px;
@@ -57,7 +59,7 @@ export const FooterDown = styled.div`
 export const TextUp = styled.p`
   color: ${colors.black};
   font-size: 15px;
-  font-weight: 800;
+  font-family: ${fonts.heading};
 `;
 
 export const TextDown = styled.p`
@@ -66,10 +68,10 @@ export const TextDown = styled.p`
   margin: 12px 40px 12px 0;
   color: ${colors.black};
   font-size: 15px;
-  font-weight: 400;
+  font-family: ${fonts.regular};
 `;
 
-export const FooterSection = styled.div`
+export const FooterSection = styled.div<{ width?: string; }>`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -80,7 +82,7 @@ export const FooterSection = styled.div`
 export const FooterList = styled.div`
   display: flex;
   flex-direction: column;
-  align-itens: space-between;
+  align-items: space-between;
   flex-wrap: wrap;
   max-height: 220px;
 `;
@@ -99,7 +101,6 @@ export const FooterListFAQ = styled.div`
     margin: 20px 10px;
     flex-direction: column;
     text-align: left;
-    align-itens: center;
   }
 `;
 
@@ -109,7 +110,6 @@ export const ImageLocalDiv = styled.div`
   display: flex;
   margin: 8px 10px;
   justify-content: center;
-  align-itens: center;
   border-radius: 50%;
   width: 10px;
   height: 10px;
