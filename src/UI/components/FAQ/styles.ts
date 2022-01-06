@@ -12,7 +12,7 @@ export const FAQFull = styled.div`
 
 export const FAQContainer = styled.div`
   padding: 40px 0;
-  width: 800px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +20,9 @@ export const FAQContainer = styled.div`
   background-color: #fff;
   @media (max-width: 800px) {
     width: 500px;
+  }
+  @media (max-width: 550px) {
+    width: 340px;
   }
 `;
 
@@ -38,11 +41,16 @@ export const Title = styled.p<{ size: number }>`
 `;
 
 export const Categorias = styled.div`
+  max-width: 100%;
   margin: 20px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
+  @media (max-width: 800px){
+    max-width: 80%;
+  }
 `;
 
 export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
@@ -137,13 +145,13 @@ export const Details = styled.details`
   /* cursor: pointer; */
   margin: 15px 0;
   border-radius: 6px;
-  width: 80%;
+  width: 800px;
   text-align: left;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 25px 10px #12121255;
-   @media (max-width: 800px) {
-    width: 90%;
+   @media (max-width: 900px) {
+    width: 80%;
    }
 `;
 
