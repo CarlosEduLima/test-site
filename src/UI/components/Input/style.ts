@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
-
-import fonts from '../../../utils/fonts';
 import colors from '../../../utils/colors';
-import { ContainerProps, InputPropsStyle, InputPropsLabel } from './interfaces';
+import fonts from '../../../utils/fonts';
+import { ContainerProps, InputPropsLabel, InputPropsStyle } from './interfaces';
 
 export const Container = styled.div`
   display: grid;
