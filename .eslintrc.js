@@ -35,8 +35,8 @@ module.exports = {
     },
   ],
   rules: {
-    indent: 'off',
-    'linebreak-style': ['error', 'windows'],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'linebreak-style': ['warn', 'unix'],
     quotes: ['error', 'single', { avoidEscape: true }],
     semi: 'off',
     'no-empty-function': 'off',
