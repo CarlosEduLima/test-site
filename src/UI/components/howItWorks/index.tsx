@@ -18,7 +18,7 @@ import {
   DescriptionText,
 } from './style';
 
-const HowItWorks = () => {
+const HowItWorks: React.FC = () => {
   const [user, setUser] = useState('professional');
 
   const handleClientUser = () => {
