@@ -1,6 +1,7 @@
+import React from 'react';
 import Home from '../pages/Home';
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div>
       <Home />

@@ -2,7 +2,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 [aria-dropeffect=copy]:hover {
   cursor: copy;
@@ -35,8 +34,6 @@ const GlobalStyle = createGlobalStyle`
 [aria-hidden=true] {
   visibility: hidden;
 }
-
-@import url('../assets/css/index.css');
 
 input[aria-invalid=false]:focus,
 select[aria-invalid=false]:focus,
@@ -488,6 +485,21 @@ template {
 
 [hidden] {
   display: none;
+}
+
+html {
+  font-family: 'Nunito', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
 `;
 
