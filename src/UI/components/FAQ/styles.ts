@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import fonts from '../../../utils/fonts';
+import colors from '../../../utils/colors';
 
 export const FAQFull = styled.div`
   display: flex;
@@ -37,6 +38,7 @@ export const Title = styled.p<{ size: number }>`
   }
   @media (max-width: 600px) {
     font-size: ${(props) => (props.size - 4) + 'px'};
+    max-width: 80%;
   }
 `;
 
@@ -66,7 +68,7 @@ export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
   border-radius: 25px;
   margin: 20px;
   transition: 0.2s;
-  box-shadow: 0px 0px 25px 14px #12121244;
+  box-shadow: 0px 0px 25px 7px ${colors.heading}40;
 `;
 
 export const Text = styled.p<{ size: number }>`
@@ -79,6 +81,7 @@ export const Text = styled.p<{ size: number }>`
   }
   @media (max-width: 600px) {
     font-size: ${(props) => (props.size - 4) + 'px'};
+    max-width: 80%;
   }
 `;
 
@@ -95,7 +98,7 @@ export const CategoriaText = styled.p<{ size: number }>`
 export const PortaIcons = styled.div`
   width: 72px;
   height: 72px;
-  border: 4px solid #29ABE2;
+  border: 4px solid ${colors.blue};
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -115,7 +118,7 @@ export const Search = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #b7c6ce;
+  background-color: ${colors.lightBlue};
   border-radius: 6px;
   gap: 5px;
   margin: 0 10px;
@@ -128,7 +131,7 @@ export const Input = styled.input`
   height: 30px;
   outline: none;
   ::placeholder {
-    color: #121212;
+    color: ${colors.input};
     font-family: ${fonts.regular};
   }
 `;
@@ -149,7 +152,7 @@ export const Details = styled.details`
   text-align: left;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0px 0px 25px 10px #12121255;
+  box-shadow: 0px 0px 25px 7px ${colors.heading}40;
    @media (max-width: 900px) {
     width: 80%;
    }
