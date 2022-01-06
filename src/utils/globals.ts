@@ -36,8 +36,6 @@ font-family: 'Nunito', sans-serif;
   visibility: hidden;
 }
 
-@import url('../assets/css/index.css');
-
 input[aria-invalid=false]:focus,
 select[aria-invalid=false]:focus,
 textarea[aria-invalid=false]:focus,
@@ -490,6 +488,21 @@ template {
 
 [hidden] {
   display: none;
+}
+
+html {
+  font-family: 'Nunito', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
 `;
 
