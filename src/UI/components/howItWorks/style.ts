@@ -40,18 +40,16 @@ export const CardsContainer = styled.div`
 
 export const Title = styled.h3`
   font-size: 1.5rem;
-  font-weight: 500;
-
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
-
-  font-family: 'Nunito', sans-serif;
+  font-family: ${fonts.regular};
 `;
 
 export const TitleSpan = styled.span`
-  font-weight: 700;
+  font-family: ${fonts.bold};
 `;
 
-export const DescriptionText = styled.p``;
+export const DescriptionText = styled.p`
+  font-family: ${fonts.regular};
+`;
 
 export const UserTypeContainer = styled.div`
   border-radius: 20px;

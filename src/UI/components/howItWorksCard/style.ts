@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fonts from '../../../utils/fonts';
 
 export const Container = styled.div`
   display: flex;
@@ -15,4 +16,5 @@ export const Container = styled.div`
 export const Description = styled.p`
   text-align: center;
   font-size: 1.2rem;
+  font-family: ${fonts.regular};
 `;
