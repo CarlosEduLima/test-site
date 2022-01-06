@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import styled from 'styled-components';
+import fonts from '../../../utils/fonts';
 
 export const FAQFull = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100%;
 `;
@@ -25,7 +28,7 @@ export const Title = styled.p<{ size: number }>`
   margin: 0 15px;
   color: #000;
   font-size: ${props => props.size + 'px'};
-  font-weight: 400;
+  font-family: ${fonts.regular};
   span{
     font-weight: 800;
   }
@@ -61,7 +64,7 @@ export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
 export const Text = styled.p<{ size: number }>`
   color: #000;
   font-size: ${props => props.size + 'px'};
-  font-weight: 400;
+  font-family: ${fonts.regular};
   margin: 0 8px;
   span {
     font-weight: 600;
@@ -71,10 +74,10 @@ export const Text = styled.p<{ size: number }>`
   }
 `;
 
-export const CategoriaText = styled.p`
+export const CategoriaText = styled.p<{ size: number }>`
   color: #000;
   font-size: ${props => props.size + 'px'};
-  font-weight: 400;
+  font-family: ${fonts.regular};
   margin: 0 8px;
   span {
     font-weight: 600;
@@ -118,7 +121,7 @@ export const Input = styled.input`
   outline: none;
   ::placeholder {
     color: #121212;
-    font-weight: 600;
+    font-family: ${fonts.regular};
   }
 `;
 
@@ -146,5 +149,6 @@ export const Details = styled.details`
 
 export const Summary = styled.summary`
   cursor: pointer;
+  font-family: ${fonts.regular};
   color: #000;
 `;

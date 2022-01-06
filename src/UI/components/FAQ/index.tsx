@@ -96,6 +96,12 @@ const FAQ: React.FC = () => {
           filteredQuestions.push(question);
         }
       }
+      if (filteredQuestions.length < 1) {
+        console.log(filteredQuestions);
+      }
+    }
+    if (texto.length === 0) {
+      setInCategoria(0);
     }
   };
 
@@ -136,9 +142,19 @@ const FAQ: React.FC = () => {
             );
           })}
         </Categorias>
-        <Title size={28} style={{ margin: '20px 0 40px 0' }}>
-          Primeiros passos para começar sua experiência IziW
-        </Title>
+        {inCategoria === 0 ? (
+          <Title size={28} style={{ margin: '20px 0 40px 0' }}>
+            Primeiros passos para começar sua experiência IziW
+          </Title>
+        ) : inCategoria === 1 ? (
+          <Title size={28} style={{ margin: '20px 0 40px 0' }}>
+            Preços e Moedas
+          </Title>
+        ) : inCategoria === 2 && (
+          <Title size={28} style={{ margin: '20px 0 40px 0' }}>
+            Como Utilizar
+          </Title>
+        )}
         {value.length === 0 &&
           categoriaItens[inCategoria]?.questions.map((item) => (
             <Details key={item.title}>
@@ -155,8 +171,11 @@ const FAQ: React.FC = () => {
                 {item.response}
               </Text>
             </Details>
-          ))}
+        ))}
       </FAQContainer>
+      {filteredQuestions.length < 1 && inCategoria < 0 && (
+        <Title size={28} style={{ textAlign: 'center', }}>Não existe questões sobre esse assunto</Title>
+      )}
     </FAQFull>
   );
 };
