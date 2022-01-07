@@ -21,13 +21,13 @@ export const FooterUp = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid #70707050;
   @media (max-width: 1440px) {
     width: 1100px;
   }
   @media (max-width: 1200px) {
-    justify-content: center;
-    width: 800px;
+    justify-content: flex-start;
+    width: 700px;
   }
   @media (max-width: 840px) {
     justify-content: flex-start;
@@ -48,18 +48,24 @@ export const FooterDown = styled.div`
     width: 1100px;
   }
   @media (max-width: 1200px) {
+    flex-direction: column;
+    /* justify-content: center; */
+    min-height: 230px;
     width: 800px;
   }
   @media (max-width: 840px) {
+    min-height: 0;
+    flex-direction: row;
     justify-content: center;
     width: 300px;
   }
 `;
 
 export const TextUp = styled.p`
+  padding-bottom: 15px;
   color: ${colors.black};
   font-size: 15px;
-  font-family: ${fonts.heading};
+  font-family: ${fonts.extraBold};
 `;
 
 export const TextDown = styled.p`
@@ -69,14 +75,20 @@ export const TextDown = styled.p`
   color: ${colors.black};
   font-size: 15px;
   font-family: ${fonts.regular};
+  @media (max-width: 800px) {
+    margin: 9px 25px 9px 0;
+  }
 `;
 
-export const FooterSection = styled.div<{ width?: string; }>`
+export const FooterSection = styled.div<{ width?: number }>`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   margin: 15px;
-  width: ${props => props.width};
+  width: ${(props) => props.width}px;
+  @media (max-width: 1200px) {
+    margin: 7px;
+  }
 `;
 
 export const FooterList = styled.div`
@@ -88,6 +100,7 @@ export const FooterList = styled.div`
 `;
 
 export const FooterListImg = styled.div`
+  margin-left: -5px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -108,7 +121,7 @@ export const ImageLocalDiv = styled.div`
   position: relative;
   cursor: pointer;
   display: flex;
-  margin: 8px 10px;
+  margin: 8px 5px;
   justify-content: center;
   border-radius: 50%;
   width: 10px;

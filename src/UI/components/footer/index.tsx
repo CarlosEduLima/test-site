@@ -64,7 +64,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterUp>
-        <FooterSection width="300px">
+        <FooterSection width={300}>
           <TextUp>Categorias</TextUp>
           <FooterList>
             {categoriasItens.map(item => <TextDown>{item}</TextDown>)}
@@ -84,7 +84,7 @@ const Footer = () => {
                 <ImageLocalDiv key={item.name}>
                   <ImageLocal>
                     {item.name === 'facebook' ? (
-                      <Image src={item.local} width={15} height={30} />
+                      <Image src={item.local} width={11} height={23} />
                     ) : (
                       <Image src={item.local} height={500} />
                     )}
@@ -98,21 +98,19 @@ const Footer = () => {
           <TextUp>Downloads</TextUp>
           <FooterList>
             <DownloadImage>
-              <Image src={googlePlay} width={150} height={50} />
+              <Image src={googlePlay} width={220} height={66} />
             </DownloadImage>
             <DownloadImage>
-              <Image src={appStore} width={150} height={50} />
+              <Image src={appStore} width={220} height={66} />
             </DownloadImage>
           </FooterList>
         </FooterSection>
       </FooterUp>
       <FooterDown>
-        <Image
-          src={iziwIcon}
-        />
+        <Image src={iziwIcon}/>
         <FooterListFAQ>
           {footerFAQ.map(item => (
-            <TextDown>{item}</TextDown>
+            <TextDown key={item.length}>{item}</TextDown>
           ))}
         </FooterListFAQ>
       </FooterDown>
