@@ -1,30 +1,38 @@
-import React, { Component } from 'react'
-import Iconimage from '../../../assets/icon-white.png';
-import colors from "src/utils/colors";
-import {Icone, Header, Lista, MeuBotao, ContainerLista, ContainerImage} from './Styled';
+/* eslint-disable react/no-children-prop */
+import React, { Component } from 'react';
+import { Icon, ContainerButton, Header, List, ContainerList, ContainerImage } from './styles';
+import LogoImg from '../../../assets/icon-white.png';
+import { Button } from '../Button';
 
-export default class index extends Component {
+interface props {
+  opacidade: boolean;
+}
 
-    render() {
-        return (
-            <div>
-                <Header colocarOpacidade={this.props.opacidade === "True" ? "0.84": "1.0"}>
-                    <ContainerImage >
-                        <Icone src={Iconimage} alt="Search" />
-                    </ContainerImage>
-                    <ContainerLista>
-                        <Lista>Home</Lista>
-                        <Lista>Como funciona?</Lista>
-                        <Lista>Categorias</Lista>
-                        <Lista>FAQ</Lista>
-
-                    <MeuBotao>
-                            Quero me cadastrar
-                    </MeuBotao>  
-                    </ContainerLista>
-                                          
-                </Header>
-            </div>
-        )
-    }
+export default class index extends Component<props> {
+  render() {
+    return (
+      <div>
+        <Header colocarOpacidade={this.props.opacidade === true ? 0.84 : 1.0}>
+          <ContainerImage>
+            <Icon src={LogoImg} alt="Logo IZIW" />
+          </ContainerImage>
+          <ContainerList>
+            <List>Home</List>
+            <List>Como funciona?</List>
+            <List>Categorias</List>
+            <List>FAQ</List>
+            <ContainerButton>
+              <Button
+                variant={'primary'}
+                children={'Quero me cadastrar'}
+                height={'30px'}
+                widthCircle={''}
+                heightCircle={''}
+              />
+            </ContainerButton>
+          </ContainerList>
+        </Header>
+      </div>
+    );
+  }
 }
