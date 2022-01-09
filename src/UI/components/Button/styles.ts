@@ -28,7 +28,7 @@ export const ButtonComponent = styled.button<ButtonProps>`
   transition: all 1.2s;
   &:hover {
     -webkit-box-shadow: ${(props) =>
-      props.loading ? null : '-4px 3px 16px 3px rgba(0, 0, 0, 0.26)'};
+    props.loading ? null : '-4px 3px 16px 3px rgba(0, 0, 0, 0.26)'};
     box-shadow: ${(props) => (props.loading ? null : '-4px 3px 16px 3px rgba(0, 0, 0, 0.26)')};
   }
 `;
