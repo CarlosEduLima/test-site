@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from 'src/UI/components/Card';
 
 const Home: React.FC = () => {
   return (
