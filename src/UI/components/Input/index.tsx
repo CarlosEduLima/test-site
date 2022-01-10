@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RHFInput } from 'react-hook-form-input';
@@ -28,8 +29,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   name,
   icon,
   label,
-  required,
-  control = () => {},
+  required = true,
+  control,
   inputError,
   type = 'other',
   typeInput = 'text',
@@ -43,16 +44,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   fontWeight = '500',
   colorLabel = 'black',
   colorIcon = colors.labelInput,
-  marginRight,
-  borderColor,
+  marginRight = 10,
+  borderColor = '#666666',
   placeholder,
   dataSearch = [{ id: 1, name: 'Desenvolvimento de sites' }],
-  filterPreviewSearch = (datas: any[], data: string) => {
-    const dataFilter = datas.filter((value) => {
-      return value.name == data;
-    });
-    return dataFilter;
-  },
   KEYS_TO_FILTERS = ['name'],
   marginLeft = 18,
   rows = 10,
@@ -61,7 +56,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [isFilled, setIsFilled] = useState(false);
 
   const [isErrored, setIsErrored] = useState(false);
   const [inputSecureTextEntry, setInputSecureTextEntry] = useState(true);
@@ -76,7 +70,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   }, []);
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
-    setIsFilled(!!getValues(name));
   }, []);
   const handleIconClick = () => {
     setIsFocused(!isFocused);
@@ -101,8 +94,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
 
   useEffect(() => {
     setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterPreviewSearchValue]);
+  }, [KEYS_TO_FILTERS, dataSearch, filterPreviewSearchValue]);
 
   useEffect(() => {
     if (inputError) {

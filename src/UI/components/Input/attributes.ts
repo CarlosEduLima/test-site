@@ -1,6 +1,6 @@
 export function TextInputAttributes(
-  onFocus: any,
-  onBlur: any,
+  onFocus: () => unknown,
+  onBlur: () => unknown,
   secureTextEntry = false,
 ) {
   const attributes = {
@@ -12,11 +12,7 @@ export function TextInputAttributes(
   return attributes;
 }
 
-export function IconInputAttributes(
-  name: string,
-  size: number,
-  color: string,
-) {
+export function IconInputAttributes(name: string, size: number, color: string) {
   const attributes = {
     name,
     size,

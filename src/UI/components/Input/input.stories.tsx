@@ -30,10 +30,7 @@ InputEmail.args = {
   name: 'email',
   icon: 'email',
   label: 'Email',
-  secureTextEntry: false,
-  required: true,
   inputError: '',
-  type: 'other',
   typeInput: 'email',
   backgroundColor: colors.labelInput,
   height: 32,
@@ -41,14 +38,9 @@ InputEmail.args = {
   size: 24,
   borderRadius: '10px',
   labelFontSize: 16,
-  padding: '12px',
   fontWeight: 'bold',
-  colorLabel: 'black',
   colorIcon: 'black',
-  marginRight: 10,
-  borderColor: '#666666',
-  fontSize: '16px',
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
   },
   placeholder: 'exemplo@gmail.com',
@@ -78,7 +70,7 @@ InputPassword.args = {
   marginRight: 10,
   borderColor: 'black',
   fontSize: '16px',
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
   },
   placeholder: '• • • • • • • • • • • • •',
@@ -108,7 +100,7 @@ InputText.args = {
   marginRight: 10,
   borderColor: 'black',
   fontSize: '16px',
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
   },
   placeholder: 'Insira aqui o texto',
@@ -139,7 +131,7 @@ InputPhone.args = {
   borderColor: 'black',
   placeholder: '(  ) _ ____-____',
   fontSize: '16px',
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
   },
 };
@@ -169,7 +161,7 @@ InputCep.args = {
   borderColor: 'black',
   placeholder: '54245-127',
   fontSize: '16px',
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
   },
 };
@@ -199,7 +191,7 @@ InputMoney.args = {
   borderColor: 'black',
   placeholder: 'money',
   fontSize: '16px',
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
   },
 };
@@ -231,16 +223,8 @@ InputSearch.args = {
   dataSearch: mockInputSearch,
   marginLeft: 18,
   fontSize: '16px',
-  filterPreviewSearch: (datas, data) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return [datas, data];
-  },
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
-  },
-  returnName: (value: any) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return value.name;
   },
 };
 
@@ -273,17 +257,7 @@ InputArea.args = {
   rows: 10,
   cols: 33,
   fontSize: '16px',
-  filterPreviewSearch: (datas, data) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return [datas, data];
-  },
-
-  onChange: (value: any) => {
+  onChange: (value: { currentTarget: { value: '' } }) => {
     console.log(value.currentTarget.value);
-  },
-
-  returnName: (value: any) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return value.name;
   },
 };
