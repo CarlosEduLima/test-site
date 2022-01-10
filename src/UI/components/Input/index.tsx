@@ -61,6 +61,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   const [inputSecureTextEntry, setInputSecureTextEntry] = useState(true);
   const [filterPreviewSearchValue, setFilterPreviewSearchValue] = useState('');
   const [filtered, setFiltered] = useState([]);
+  const [valueSearch, setValueSearch] = useState('');
+  const [isSearch, setIsSearch] = useState(false);
   const { register, getValues, setFocus, setValue } = useForm();
 
   const Register = register(name);
@@ -88,13 +90,17 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   };
 
   const getNameSearch = (value: string) => {
+    setValueSearch(value);
+    if (valueSearch != value) {
+      setIsSearch(true);
+    }
     setValue(name, value);
     setFilterPreviewSearchValue(value);
   };
 
   useEffect(() => {
     setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
-  }, [KEYS_TO_FILTERS, dataSearch, filterPreviewSearchValue]);
+  }, [filterPreviewSearchValue]);
 
   useEffect(() => {
     if (inputError) {
@@ -402,6 +408,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                 className=""
                 type="text"
                 onChange={getNameSearch}
+                value={valueSearch}
               />
             )}
 
@@ -448,19 +455,27 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
         )}
         <ErrorText>{inputError}</ErrorText>
       </Container>
-      {icon == 'search' && filterPreviewSearchValue.length != 0 && filtered.length != 0 && (
-        <ContainerSearchPreview>
-          <ContainerSearchPreviewItems key={filtered.length}>
-            {filtered.map((value, index) => {
-              return (
-                <ContainerSearchPreviewItem key={index} onClick={() => {}}>
-                  {value.name}
-                </ContainerSearchPreviewItem>
-              );
-            })}
-          </ContainerSearchPreviewItems>
-        </ContainerSearchPreview>
-      )}
+      {icon == 'search' &&
+        filterPreviewSearchValue.length != 0 &&
+        filtered.length != 0 &&
+        isSearch && (
+          <ContainerSearchPreview>
+            <ContainerSearchPreviewItems key={filtered.length}>
+              {filtered.map((value, index) => {
+                return (
+                  <ContainerSearchPreviewItem
+                    key={index}
+                    onClick={() => {
+                      setIsSearch(false);
+                      return setValueSearch(value.name);
+                    }}>
+                    {value.name}
+                  </ContainerSearchPreviewItem>
+                );
+              })}
+            </ContainerSearchPreviewItems>
+          </ContainerSearchPreview>
+        )}
     </>
   );
 };
