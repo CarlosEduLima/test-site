@@ -3,11 +3,17 @@ import styled from 'styled-components';
 import fonts from '../../../utils/fonts';
 import colors from '../../../utils/colors';
 
+import circuloFaq from '../../../assets/circuloFaq.svg';
+import meioCirculoFaq from '../../../assets/meioCirculoFaq.svg';
+import retanguloFaq from '../../../assets/retanguloFaq.svg';
+import backgroundSearchFaq from '../../../assets/backgroundSearchFaq.svg';
+
 export const FAQFull = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 40px;
   width: 100%;
 `;
 
@@ -19,25 +25,63 @@ export const FAQContainer = styled.div`
   align-items: center;
   text-align: center;
   background-color: #fff;
-  @media (max-width: 800px) {
-    width: 500px;
+`;
+
+export const SearchContainer = styled.div`
+  padding: 40px 0;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    linear-gradient(#373aadaa, #373aadaa),
+    url(${backgroundSearchFaq.src}) no-repeat;
+  background-position: center;
+  background-size: cover;
+`;
+
+export const CategoryTextContainer = styled.div`
+  padding: 40px 0;
+  height: 180px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #373aad;
+  background-image: url(${meioCirculoFaq.src}), url(${circuloFaq.src}), url(${retanguloFaq.src});
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 195px, 80px, 200px;
+  background-position: bottom 0px left 0px, top 20px right 240px, top 20px right 0px;
+  @media (max-width: 700px) {
+    background-size: 145px, 50px, 125px;
+    background-position: bottom 0px left 0px, top 20px right 150px, top 20px right 0px;
   }
-  @media (max-width: 550px) {
-    width: 340px;
-  }
+`;
+
+export const CategoryText = styled.p<{ size: number }>`
+  max-width: 400px;
+  margin: 0 15px;
+  color: ${colors.white};
+  font-size: ${(props) => props.size}px;
+  font-family: ${fonts.extraBold};
 `;
 
 export const Title = styled.p<{ size: number }>`
   max-width: 380px;
   margin: 0 15px;
   color: #000;
-  font-size: ${props => props.size + 'px'};
+  font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
-  span{
+  span {
     font-weight: 800;
   }
   @media (max-width: 600px) {
-    font-size: ${(props) => (props.size - 4) + 'px'};
+    font-size: ${(props) => props.size - 4}px;
     max-width: 80%;
   }
 `;
@@ -50,7 +94,7 @@ export const Categorias = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     max-width: 80%;
   }
 `;
@@ -73,21 +117,21 @@ export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
 
 export const Text = styled.p<{ size: number }>`
   color: #000;
-  font-size: ${props => props.size + 'px'};
+  font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
   margin: 0 8px;
   span {
     font-weight: 600;
   }
   @media (max-width: 600px) {
-    font-size: ${(props) => (props.size - 4) + 'px'};
+    font-size: ${(props) => props.size - 4}px;
     max-width: 80%;
   }
 `;
 
 export const CategoriaText = styled.p<{ size: number }>`
   color: #000;
-  font-size: ${props => props.size + 'px'};
+  font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
   margin: 0 8px;
   span {
@@ -115,6 +159,7 @@ export const Icon = styled(Image)`
 export const Search = styled.div`
   z-index: 10;
   padding: 5px 8px;
+  width: 450px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -122,17 +167,21 @@ export const Search = styled.div`
   border-radius: 6px;
   gap: 5px;
   margin: 0 10px;
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
+
 export const Input = styled.input`
   background-color: transparent;
+  width: 100%;
   border: none !important;
   box-shadow: none !important;
-  width: 280px;
   height: 30px;
   outline: none;
   ::placeholder {
-    color: ${colors.input};
-    font-family: ${fonts.regular};
+    color: ${colors.black};
+    font-family: ${fonts.heading};
   }
 `;
 
@@ -145,7 +194,6 @@ export const SearchButton = styled(Image)`
 `;
 
 export const Details = styled.details`
-  /* cursor: pointer; */
   margin: 15px 0;
   border-radius: 6px;
   width: 800px;
@@ -153,9 +201,9 @@ export const Details = styled.details`
   padding: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 25px 7px ${colors.heading}40;
-   @media (max-width: 900px) {
+  @media (max-width: 900px) {
     width: 80%;
-   }
+  }
 `;
 
 export const Summary = styled.summary`

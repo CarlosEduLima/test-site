@@ -10,10 +10,13 @@ import {
   Search,
   Input,
   SearchButton,
+  SearchContainer,
   Details,
   Summary,
   PortaIcons,
   CategoriaText,
+  CategoryTextContainer,
+  CategoryText,
 } from './styles';
 
 import Flag from '../../../assets/flag.svg';
@@ -51,7 +54,7 @@ const FAQ: React.FC = () => {
         {
           title: 'Porque preciso comprar moedas para aceitar um pedido?',
           response:
-            'Para darmos confiança ao usuario de que você está realmente disposto a fazer o trabalho proposto',
+            'Para darmos confiança ao usuario de que você está realmente disposto a fazer o trabalho proposto, por isso é necessario comprar moedas',
         },
       ],
     },
@@ -62,12 +65,12 @@ const FAQ: React.FC = () => {
       questions: [
         {
           title: 'Como aceitar um pedido',
-          response: "No app, vá em 'ORÇAMENTOS' e lá aparecerá todos os pedidos abertos",
+          response: "No app, vá em 'Orçamentos' e lá aparecerá todos os pedidos abertos",
         },
         {
           title: 'Como abrir um serviço?',
           response:
-            "Para abrir um serviço, vá na aba 'SERVIÇOS' escolha a categoria e sub-categoria e responda o questionario",
+            "Para abrir um serviço, vá na aba 'Serviços' escolha a categoria e sub-categoria e responda o questionario",
         },
       ],
     },
@@ -76,15 +79,12 @@ const FAQ: React.FC = () => {
   const [value, setValue] = useState('');
   const [inCategoria, setInCategoria] = useState(0);
 
-  console.log(categoriaItens.flatMap((item) => item.questions));
-
   const fullQuestions = categoriaItens.flatMap((item) => item.questions);
   const [filteredQuestions] = useState([]);
 
   const SearchQuestion = (valor = '') => {
     setValue(valor);
     const texto = valor;
-    console.log(texto);
     if (texto !== undefined && texto !== '') {
       filteredQuestions.splice(0);
       setInCategoria(-1);
@@ -96,9 +96,6 @@ const FAQ: React.FC = () => {
           filteredQuestions.push(question);
         }
       }
-      if (filteredQuestions.length < 1) {
-        console.log(filteredQuestions);
-      }
     }
     if (texto.length === 0) {
       setInCategoria(0);
@@ -107,8 +104,8 @@ const FAQ: React.FC = () => {
 
   return (
     <FAQFull>
-      <FAQContainer>
-        <Title size={25} style={{ margin: '20px 0' }}>
+      <SearchContainer>
+        <Title size={25} style={{ margin: '20px 0', color: '#fff' }}>
           Como podemos <span>ajudar?</span>
         </Title>
         <Search>
@@ -120,6 +117,8 @@ const FAQ: React.FC = () => {
           />
           <SearchButton onClick={() => SearchQuestion(value)} src={SearchBtn} alt="Search" />
         </Search>
+      </SearchContainer>
+      <FAQContainer>
         <Text style={{ marginTop: '40px' }} size={25}>
           Ou escolha uma categoria relacionada à sua dúvida
         </Text>
@@ -142,19 +141,19 @@ const FAQ: React.FC = () => {
             );
           })}
         </Categorias>
+      </FAQContainer>
+      <CategoryTextContainer>
         {inCategoria === 0 ? (
-          <Title size={28} style={{ margin: '20px 0 40px 0' }}>
-            Primeiros passos para começar sua experiência IziW
-          </Title>
+          <CategoryText size={28}>Primeiros passos para começar sua experiência IziW</CategoryText>
         ) : inCategoria === 1 ? (
-          <Title size={28} style={{ margin: '20px 0 40px 0' }}>
-            Preços e Moedas
-          </Title>
-        ) : inCategoria === 2 && (
-          <Title size={28} style={{ margin: '20px 0 40px 0' }}>
-            Como Utilizar
-          </Title>
+          <CategoryText size={28}>Preços e Moedas</CategoryText>
+        ) : inCategoria === 2 ? (
+          <CategoryText size={28}>Como Utilizar</CategoryText>
+        ) : (
+          <CategoryText size={28}>Outros</CategoryText>
         )}
+      </CategoryTextContainer>
+      <FAQContainer>
         {value.length === 0 &&
           categoriaItens[inCategoria]?.questions.map((item) => (
             <Details key={item.title}>
@@ -165,16 +164,19 @@ const FAQ: React.FC = () => {
             </Details>
           ))}
         {value.length > 0 && filteredQuestions.map((item) => (
-            <Details key={item.title}>
-              <Summary>{item.title}</Summary>
-              <Text size={18} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
-                {item.response}
-              </Text>
-            </Details>
+          <Details key={item.title}>
+            <Summary>{item.title}</Summary>
+            <Text size={18} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+              {item.response}
+            </Text>
+          </Details>
         ))}
       </FAQContainer>
+      
       {filteredQuestions.length < 1 && inCategoria < 0 && (
-        <Title size={28} style={{ textAlign: 'center', }}>Não existe questões sobre esse assunto</Title>
+        <Title size={28} style={{ textAlign: 'center' }}>
+          Não existe questões sobre esse assunto
+        </Title>
       )}
     </FAQFull>
   );
