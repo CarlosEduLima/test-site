@@ -29,7 +29,8 @@
     "react-web-vector-icons": "^1.0.2",
     "remask": "^0.1.0-alpha.5",
     "styled-components": "^5.3.1",
-    "web-vitals": "^2.1.2",
+    "use-draggable-scroll": "^0.1.0",
+    "web-vitals": "^0.2.4",
     "yup": "^0.32.11",
     "yup-locale-pt": "0.0.8"
   },

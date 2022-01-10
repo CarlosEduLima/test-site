@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -142,6 +143,20 @@ img[alt][longdesc]:hover {
   text-indent: -9999px;
 }
 
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
 *,
 *::before,
 *::after {
@@ -165,7 +180,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 
@@ -359,7 +374,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 
@@ -384,7 +399,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  font-family: 'Nunito', sans-serif;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;

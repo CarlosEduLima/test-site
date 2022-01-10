@@ -1,1 +1,2 @@
-export function filterfunction() {}
+/* eslint-disable linebreak-style */
+/* eslint-disable prettier/prettier */
