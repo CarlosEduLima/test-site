@@ -1,13 +1,23 @@
 export interface InputProps {
   name: string;
-  icon?: string;
+  icon?:
+    | 'textArea'
+    | 'password'
+    | 'phone'
+    | 'cep'
+    | 'money'
+    | 'search'
+    | 'email'
+    | 'other'
+    | 'text'
+    | string;
   label: string;
   secureTextEntry?: boolean;
   required?: boolean;
   inputError: string;
   control?: never;
-  type?: string;
-  typeInput: string;
+  type?: 'text' | 'other' | string;
+  typeInput: 'color' | 'date' | 'email' | 'text' | 'number' | 'password' | string;
   backgroundColor?: string;
   height?: number;
   color?: string;

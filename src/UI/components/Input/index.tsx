@@ -47,7 +47,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   marginRight = 10,
   borderColor = '#666666',
   placeholder,
-  dataSearch = [{ id: 1, name: 'Desenvolvimento de sites' }],
+  dataSearch = [],
   KEYS_TO_FILTERS = ['name'],
   marginLeft = 18,
   rows = 10,
@@ -97,7 +97,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
     setValue(name, value);
     setFilterPreviewSearchValue(value);
   };
-
   useEffect(() => {
     setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
   }, [filterPreviewSearchValue]);
@@ -127,8 +126,9 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                         outline: 0;
                     }
                     textarea:focus, input:focus {
-                        box-shadow: 0 0 0 0;
-                        outline: 0;
+                        box-shadow: 0 0 0 0 !important;
+                        outline: 0 !important;
+                        border: 0px !important;
                     }
                         `,
           ].join('\n'),
