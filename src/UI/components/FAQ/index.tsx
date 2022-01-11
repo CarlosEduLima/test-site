@@ -30,6 +30,7 @@ const FAQ: React.FC = () => {
       id: 0,
       icon: Flag,
       title: 'Primeiros passos',
+      categoryText: 'Primeiros passos para começar sua experiência IziW',
       questions: [
         {
           title: 'Como eu crio meu perfil?',
@@ -46,6 +47,7 @@ const FAQ: React.FC = () => {
       id: 1,
       icon: Wvalues,
       title: 'Preços e moedas',
+      categoryText: 'Preços e moedas',
       questions: [
         {
           title: 'Como faço para comprar moedas?',
@@ -62,6 +64,7 @@ const FAQ: React.FC = () => {
       id: 2,
       icon: Interrogation,
       title: 'Como utilizar',
+      categoryText: 'Como utilizar',
       questions: [
         {
           title: 'Como aceitar um pedido',
@@ -118,47 +121,47 @@ const FAQ: React.FC = () => {
           <SearchButton onClick={() => SearchQuestion(value)} src={SearchBtn} alt="Search" />
         </Search>
       </SearchContainer>
-      <FAQContainer>
-        <Text style={{ marginTop: '40px' }} size={25}>
-          Ou escolha uma categoria relacionada à sua dúvida
-        </Text>
-        <Categorias>
-          {categoriaItens.map((item) => {
-            return (
-              <Categoria
-                key={item.title}
-                onClick={() => {
-                  filteredQuestions.splice(0);
-                  setValue('');
-                  setInCategoria(item.id);
-                }}
-                border={item.id === inCategoria ? '#373AAD' : '#FFF'}>
-                <PortaIcons>
-                  <Icon key={item.title} src={item.icon} alt={item.title} />
-                </PortaIcons>
-                <CategoriaText size={18}>{item.title}</CategoriaText>
-              </Categoria>
-            );
-          })}
-        </Categorias>
-      </FAQContainer>
-      <CategoryTextContainer>
-        {inCategoria === 0 ? (
-          <CategoryText size={28}>Primeiros passos para começar sua experiência IziW</CategoryText>
-        ) : inCategoria === 1 ? (
-          <CategoryText size={28}>Preços e Moedas</CategoryText>
-        ) : inCategoria === 2 ? (
-          <CategoryText size={28}>Como Utilizar</CategoryText>
-        ) : (
-          <CategoryText size={28}>Outros</CategoryText>
-        )}
-      </CategoryTextContainer>
+      {value.length < 1 && (
+        <>
+          <FAQContainer>
+            <Text style={{ marginTop: '40px' }} size={25}>
+              Ou escolha uma categoria relacionada à sua dúvida
+            </Text>
+            <Categorias>
+              {categoriaItens.map((item) => {
+                return (
+                  <Categoria
+                    key={item.title}
+                    onClick={() => {
+                      filteredQuestions.splice(0);
+                      setValue('');
+                      setInCategoria(item.id);
+                    }}
+                    border={item.id === inCategoria ? '#373AAD' : '#FFF'}>
+                    <PortaIcons>
+                      <Icon key={item.title} src={item.icon} alt={item.title} />
+                    </PortaIcons>
+                    <CategoriaText size={22}>{item.title}</CategoriaText>
+                  </Categoria>
+                );
+              })}
+            </Categorias>
+          </FAQContainer>
+          <CategoryTextContainer>
+            {categoriaItens[inCategoria]?.categoryText !== undefined ? (
+              <CategoryText size={28}>{categoriaItens[inCategoria]?.categoryText}</CategoryText>
+            ) : (
+              <CategoryText size={28}>Outros</CategoryText>
+            )}
+          </CategoryTextContainer>
+        </>
+      )}
       <FAQContainer>
         {value.length === 0 &&
           categoriaItens[inCategoria]?.questions.map((item) => (
             <Details key={item.title}>
               <Summary>{item.title}</Summary>
-              <Text size={18} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+              <Text size={16} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
                 {item.response}
               </Text>
             </Details>
@@ -166,7 +169,7 @@ const FAQ: React.FC = () => {
         {value.length > 0 && filteredQuestions.map((item) => (
           <Details key={item.title}>
             <Summary>{item.title}</Summary>
-            <Text size={18} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+            <Text size={16} style={{ marginTop: '20px', cursor: 'text' }}>
               {item.response}
             </Text>
           </Details>

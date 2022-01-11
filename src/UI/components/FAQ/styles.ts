@@ -65,10 +65,11 @@ export const CategoryTextContainer = styled.div`
 
 export const CategoryText = styled.p<{ size: number }>`
   max-width: 400px;
+  line-height: 37px;
   margin: 0 15px;
   color: ${colors.white};
   font-size: ${(props) => props.size}px;
-  font-family: ${fonts.extraBold};
+  font-family: ${fonts.bold};
 `;
 
 export const Title = styled.p<{ size: number }>`
@@ -101,8 +102,8 @@ export const Categorias = styled.div`
 
 export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
   cursor: pointer;
-  width: 205px;
-  height: 135px;
+  width: 230px;
+  height: 163px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +113,7 @@ export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
   border-radius: 25px;
   margin: 20px;
   transition: 0.2s;
-  box-shadow: 0px 0px 25px 7px ${colors.heading}40;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.161);
 `;
 
 export const Text = styled.p<{ size: number }>`
@@ -133,7 +134,7 @@ export const CategoriaText = styled.p<{ size: number }>`
   color: #000;
   font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
-  margin: 0 8px;
+  margin-top: 12px;
   span {
     font-weight: 600;
   }
@@ -151,9 +152,7 @@ export const PortaIcons = styled.div`
 `;
 
 export const Icon = styled(Image)`
-  margin-top: 10px;
-  width: 50px;
-  height: auto;
+  /* nada */
 `;
 
 export const Search = styled.div`
@@ -200,13 +199,14 @@ export const Details = styled.details`
   text-align: left;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0px 0px 25px 7px ${colors.heading}40;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (max-width: 900px) {
-    width: 80%;
+    width: 95%;
   }
 `;
 
 export const Summary = styled.summary`
+  font-size: 20px;
   cursor: pointer;
   font-family: ${fonts.regular};
   color: #000;
