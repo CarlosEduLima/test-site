@@ -51,7 +51,7 @@ export interface InputPropsStyle {
 
 export interface InputPropsLabel {
   labelFontSize: number;
-  for: string;
+  htmlFor: string;
   fontWeight: string;
   colorLabel: string;
 }
@@ -73,6 +73,10 @@ export interface ContainerProps {
   padding: string;
   borderColor: string;
   isSearch?: boolean;
+}
+
+export interface ContainerPlaceholderProps {
+  color: string;
 }
 
 export interface IconProps {

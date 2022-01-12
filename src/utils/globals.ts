@@ -504,6 +504,16 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
 }
+
+.money-input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+textarea:focus, input:focus {
+  box-shadow: 0 0 0 0 !important;
+  outline: 0 !important;
+  border: 0px !important;
+}
 `;
 
 export default GlobalStyle;

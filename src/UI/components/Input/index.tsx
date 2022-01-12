@@ -25,36 +25,39 @@ import {
   TextInputArea,
 } from './style';
 
-const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
-  name,
-  icon,
-  label,
-  required = true,
-  control,
-  inputError,
-  type = 'other',
-  typeInput = 'text',
-  backgroundColor = 'white',
-  height = 26,
-  color = 'black',
-  size = 32,
-  borderRadius = '60px',
-  labelFontSize = 22,
-  padding = '12px',
-  fontWeight = '500',
-  colorLabel = 'black',
-  colorIcon = colors.labelInput,
-  marginRight = 10,
-  borderColor = '#666666',
-  placeholder,
-  dataSearch = [],
-  KEYS_TO_FILTERS = ['name'],
-  marginLeft = 18,
-  rows = 10,
-  cols = 33,
-  fontSize = '16px',
-  ...rest
-}) => {
+const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
+  {
+    name,
+    icon,
+    label,
+    required = true,
+    control,
+    inputError,
+    type = 'other',
+    typeInput = 'text',
+    backgroundColor = 'white',
+    height = 26,
+    color = 'black',
+    size = 32,
+    borderRadius = '60px',
+    labelFontSize = 22,
+    padding = '12px',
+    fontWeight = '500',
+    colorLabel = 'black',
+    colorIcon = colors.labelInput,
+    marginRight = 10,
+    borderColor = '#666666',
+    placeholder,
+    dataSearch = [],
+    KEYS_TO_FILTERS = ['name'],
+    marginLeft = 18,
+    rows = 10,
+    cols = 33,
+    fontSize = '16px',
+    ...rest
+  },
+  ref,
+) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const [isErrored, setIsErrored] = useState(false);
@@ -102,7 +105,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   }, [filterPreviewSearchValue]);
 
   useEffect(() => {
-    if (inputError) {
+    if (inputError && inputError != '') {
       setIsErrored(true);
     } else {
       setIsErrored(false);
@@ -111,34 +114,12 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
 
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: [
-            `
-                        ::-webkit-input-placeholder {
-                        color: ${color};,
-                        },
-                    .money-input:-moz-placeholder {
-                        color: ${color};
-                        }
-                    .money-input:focus {
-                        box - shadow: 0 0 0 0;
-                        outline: 0;
-                    }
-                    textarea:focus, input:focus {
-                        box-shadow: 0 0 0 0 !important;
-                        outline: 0 !important;
-                        border: 0px !important;
-                    }
-                        `,
-          ].join('\n'),
-        }}></style>
-      <Container>
+      <Container color={color}>
         <Label
           colorLabel={colorLabel}
           fontWeight={fontWeight}
           labelFontSize={labelFontSize}
-          for={name}>
+          htmlFor={name}>
           {label}
         </Label>
         {type !== 'other' ? (
@@ -171,6 +152,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                     id={name}
                     placeholder={placeholder}
                     required={required}
+                    ref={Register.ref}
                     {...rest}
                   />
                 )}
@@ -196,6 +178,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                     }}
                     placeholder={placeholder}
                     required={required}
+                    ref={Register.ref}
                     {...rest}
                   />
                 )}
@@ -305,6 +288,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                     borderRadius={borderRadius}
                     name={name}
                     required={required}
+                    ref={Register.ref}
                   />
                 )}
               </InputMask>
@@ -336,6 +320,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                     borderRadius={borderRadius}
                     name={name}
                     required={required}
+                    ref={Register.ref}
                   />
                 )}
               </InputMask>
@@ -365,6 +350,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                 currency="BRL"
                 config={currencyConfig()}
                 onChange={handleChange}
+                ref={Register.ref}
               />
             )}
 
@@ -409,6 +395,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
                 type="text"
                 onChange={getNameSearch}
                 value={valueSearch}
+                ref={Register.ref}
               />
             )}
 

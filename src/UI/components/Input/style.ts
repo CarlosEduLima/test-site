@@ -1,12 +1,23 @@
 import styled, { css } from 'styled-components';
 import colors from '../../../utils/colors';
 import fonts from '../../../utils/fonts';
-import { ContainerProps, InputPropsLabel, InputPropsStyle } from './interfaces';
+import {
+  ContainerProps,
+  InputPropsLabel,
+  InputPropsStyle,
+  ContainerPlaceholderProps,
+} from './interfaces';
 
-export const Container = styled.div`
+export const Container = styled.div<ContainerPlaceholderProps>`
   display: grid;
   min-width: 100%;
   max-width: 100%;
+  ::-webkit-input-placeholder {
+    color: ${(props) => props.color};
+  }
+  .money-input:-moz-placeholder {
+    color: $ ${(props) => props.color};
+  }
 `;
 
 export const Label = styled.label<InputPropsLabel>`
@@ -28,7 +39,7 @@ export const ContainerInput = styled.div<ContainerProps>`
   background-color: ${(props) => props.backgroundColor || 'white'};
 
   align-content: center;
-  border: 1px;
+  border: 1px solid;
   border-color: black;
   ${(props) =>
     props.isFocused &&
@@ -44,6 +55,11 @@ export const ContainerInput = styled.div<ContainerProps>`
       return '2px solid';
     }};
     border-color: ${(props) => props.borderColor || '#666666'};
+    ${(props) =>
+      props.isErrored &&
+      css`
+        border-color: #c53030;
+      `}
   }
   &:focus {
     border: 2px solid;
@@ -54,6 +70,11 @@ export const ContainerInput = styled.div<ContainerProps>`
       return '2px solid';
     }};
     border-color: ${(props) => props.borderColor || '#666666'};
+    ${(props) =>
+      props.isErrored &&
+      css`
+        border-color: #c53030;
+      `}
   }
   ${(props) =>
     props.isErrored &&
@@ -84,12 +105,12 @@ export const ContainerTextAreaInput = styled.div<ContainerProps>`
   background-color: ${(props) => props.backgroundColor || 'white'};
 
   align-items: center;
-  border: 1px;
+  border: 1px solid;
   border-color: black;
   ${(props) =>
     props.isFocused &&
     css`
-      border: 1px;
+      border: 1px solid;
       border-color: #666666;
     `}
   &:focus-within {
@@ -101,6 +122,11 @@ export const ContainerTextAreaInput = styled.div<ContainerProps>`
       return '2px solid';
     }};
     border-color: ${(props) => props.borderColor || '#666666'};
+    ${(props) =>
+      props.isErrored &&
+      css`
+        border-color: #c53030;
+      `}
   }
   &:focus {
     border: 2px solid;
@@ -111,6 +137,11 @@ export const ContainerTextAreaInput = styled.div<ContainerProps>`
       return '2px solid';
     }};
     border-color: ${(props) => props.borderColor || '#666666'};
+    ${(props) =>
+      props.isErrored &&
+      css`
+        border-color: #c53030;
+      `}
   }
   ${(props) =>
     props.isErrored &&
@@ -211,5 +242,6 @@ export const ErrorText = styled.p`
   padding-left: 10px;
   font-family: ${fonts.regular};
   margin-bottom: 10px;
+  margin-top: 8px;
   font-size: 16px;
 `;
