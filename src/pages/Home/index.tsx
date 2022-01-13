@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'src/UI/components/Card';
+import Card from 'src/UI/components/Card-cadastro';
 
 const Home: React.FC = () => {
   return (
