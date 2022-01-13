@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Container, Divider, HorizontalScrollArea, ScrollAreaContainer, Title } from './styles';
 import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
-import { ServiceHighlights } from '../../../services/services';
+import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
 
 export const Carousel: React.FC = () => {
-  const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState([]);
-  const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState([]);
+  const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
+  const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
@@ -16,8 +16,8 @@ export const Carousel: React.FC = () => {
   const cardSize = { width: 325, height: 151 };
 
   const defineLines = (highlights) => {
-    let arrayOne;
-    let arrayTwo;
+    let arrayOne: IServiceProps[];
+    let arrayTwo: IServiceProps[];
     if (cardSize.width * highlights.length > windowSize.width * 2) {
       const index = Math.floor(highlights.length / 2 + 1);
       arrayOne = highlights.slice(0, index);
