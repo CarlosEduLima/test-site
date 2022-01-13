@@ -36,9 +36,7 @@ export const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background:
-    linear-gradient(#373aadaa, #373aadaa),
-    url(${backgroundSearchFaq.src}) no-repeat;
+  background: linear-gradient(#373aadaa, #373aadaa), url(${backgroundSearchFaq.src}) no-repeat;
   background-position: center;
   background-size: cover;
 `;
@@ -89,7 +87,7 @@ export const Title = styled.p<{ size: number }>`
 
 export const Categorias = styled.div`
   max-width: 100%;
-  margin: 20px 0;
+  margin: 10px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -102,8 +100,8 @@ export const Categorias = styled.div`
 
 export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
   cursor: pointer;
-  width: 230px;
-  height: 163px;
+  width: 244px;
+  height: 172px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,15 +132,15 @@ export const CategoriaText = styled.p<{ size: number }>`
   color: #000;
   font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
-  margin-top: 12px;
+  margin-top: 19px;
   span {
     font-weight: 600;
   }
 `;
 
 export const PortaIcons = styled.div`
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   border: 4px solid ${colors.blue};
   display: flex;
   flex-direction: row;
@@ -197,9 +195,9 @@ export const Details = styled.details`
   border-radius: 6px;
   width: 800px;
   text-align: left;
-  padding: 20px;
+  padding: 32px 40px;
   background-color: #fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   @media (max-width: 900px) {
     width: 95%;
   }
@@ -207,7 +205,10 @@ export const Details = styled.details`
 
 export const Summary = styled.summary`
   font-size: 20px;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
   font-family: ${fonts.regular};
   color: #000;
+  list-style-type: none;
 `;

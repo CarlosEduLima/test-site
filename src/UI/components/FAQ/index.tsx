@@ -124,7 +124,7 @@ const FAQ: React.FC = () => {
       {value.length < 1 && (
         <>
           <FAQContainer>
-            <Text style={{ marginTop: '40px' }} size={25}>
+            <Text style={{ margin: 38 }} size={25}>
               Ou escolha uma categoria relacionada à sua dúvida
             </Text>
             <Categorias>
@@ -160,22 +160,33 @@ const FAQ: React.FC = () => {
         {value.length === 0 &&
           categoriaItens[inCategoria]?.questions.map((item) => (
             <Details key={item.title}>
-              <Summary>{item.title}</Summary>
+              <Summary>
+                <Text size={15} style={{ marginTop: 1 }}>
+                  ●
+                </Text>
+                {item.title}
+              </Summary>
               <Text size={16} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
                 {item.response}
               </Text>
             </Details>
           ))}
-        {value.length > 0 && filteredQuestions.map((item) => (
-          <Details key={item.title}>
-            <Summary>{item.title}</Summary>
-            <Text size={16} style={{ marginTop: '20px', cursor: 'text' }}>
-              {item.response}
-            </Text>
-          </Details>
-        ))}
+        {value.length > 0 &&
+          filteredQuestions.map((item) => (
+            <Details key={item.title}>
+              <Summary>
+                <Text size={15} style={{ marginTop: 1 }}>
+                  ●
+                </Text>
+                {item.title}
+              </Summary>
+              <Text size={16} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+                {item.response}
+              </Text>
+            </Details>
+          ))}
       </FAQContainer>
-      
+
       {filteredQuestions.length < 1 && inCategoria < 0 && (
         <Title size={28} style={{ textAlign: 'center' }}>
           Não existe questões sobre esse assunto
