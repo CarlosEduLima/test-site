@@ -17,7 +17,7 @@ export const Icon = styled(Image)`
 export const ContainerImage = styled.div`
   padding-left: 20px;
 `;
-export const Header = styled.header<HeaderProps>`
+export const DivHeader = styled.header<HeaderProps>`
   top: 0;
   left: 0;
   position: fixed;
@@ -28,7 +28,7 @@ export const Header = styled.header<HeaderProps>`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 70px;
   flex-wrap: nowrap;
   font-size: 14px;
   opacity: ${(props) => props.colocarOpacidade};
