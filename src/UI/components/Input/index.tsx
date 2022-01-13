@@ -29,7 +29,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
     name,
     icon,
-    label,
+    label = '',
     required = true,
     control,
     inputError,

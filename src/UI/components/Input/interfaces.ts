@@ -11,13 +11,13 @@ export interface InputProps {
     | 'other'
     | 'text'
     | string;
-  label: string;
+  label?: string;
   secureTextEntry?: boolean;
   required?: boolean;
-  inputError: string;
+  inputError?: string;
   control?: never;
   type?: 'text' | 'other' | string;
-  typeInput: 'color' | 'date' | 'email' | 'text' | 'number' | 'password' | string;
+  typeInput?: 'color' | 'date' | 'email' | 'text' | 'number' | 'password' | string;
   backgroundColor?: string;
   height?: number;
   color?: string;
