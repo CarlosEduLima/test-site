@@ -40,7 +40,7 @@ export const ContainerInput = styled.div<ContainerProps>`
 
   align-content: center;
   border: 1px solid;
-  border-color: black;
+  border-color: ${(props) => props.borderColor || '#666666'};
   ${(props) =>
     props.isFocused &&
     css`
