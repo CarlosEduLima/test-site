@@ -7,7 +7,6 @@ import InputMask from 'react-input-mask';
 import { TextInputMask } from 'react-masked-text';
 import { createFilter } from 'react-search-input';
 import colors from '../../../utils/colors';
-import fonts from '../../../utils/fonts';
 import { currencyConfig } from '../../../utils/input';
 import { TextInputAttributes } from './attributes';
 import { InputProps, InputRef } from './interfaces';
@@ -21,9 +20,9 @@ import {
   CurrencyInput,
   ErrorText,
   Label,
+  SearchInput,
   TextInput,
   TextInputArea,
-  SearchInput,
 } from './style';
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
@@ -132,7 +131,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
     placeholder: placeholder,
     borderRadius: borderRadius,
     name: name,
-    // required: required,
+    required: required,
     ref: Register.ref,
   };
 
@@ -141,11 +140,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
       <RHFInput
         as={
           <TextInput
+            {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur, inputSecureTextEntry)}
             onChange={(text) => {
               setValue(name, text.currentTarget.value);
             }}
-            {...textInputProps}
             type={inputSecureTextEntry ? typeInput : 'text'}
           />
         }
@@ -200,11 +199,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   const moneyInput = (
     <ContainerInput {...containerInputProps}>
       <CurrencyInput
+        {...textInputProps}
         required={required}
         currency="BRL"
         config={currencyConfig()}
         onChange={handleChange}
-        {...textInputProps}
       />
     </ContainerInput>
   );
@@ -227,7 +226,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
             type={typeInput}
             onChange={(text) => {
               setValue(name, text);
-              //pega valor do input: getValues(name)
             }}
             color={color}
             height={height}
@@ -283,11 +281,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
         name={name}
         render={({ field: { onChange } }) => (
           <TextInput
+            {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}
             onChange={(text) => {
               onChange(text.currentTarget.value);
             }}
-            {...textInputProps}
           />
         )}
       />
@@ -300,6 +298,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
         name={name}
         render={({ field: { onChange, value, name } }) => (
           <TextInputMask
+            {...textInputProps}
             style={{ width: '100%', fontSize }}
             options={{
               mask: '99/99',
@@ -308,7 +307,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
             onChange={(text) => {
               onChange(text.currentTarget.value);
             }}
-            {...textInputProps}
           />
         )}
       />
