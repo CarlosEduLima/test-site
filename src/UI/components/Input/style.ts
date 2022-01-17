@@ -113,10 +113,10 @@ const commonTextProperties = css<InputPropsStyle>`
     outline: 0;
   }
   flex-shrink: 1;
-  border: 0;
   padding-right: ${(props) => props.padding || '10px'};
   padding-left: ${(props) => props.padding || '10px'};
-  box-shadow: 0 0 0 0;
+  box-shadow: 0 0 0 0 !important;
+  border: 0 !important;
 `;
 
 export const TextInput = styled.input<InputPropsStyle>`
