@@ -1,6 +1,6 @@
 export interface InputProps {
   name: string;
-  icon?:
+  icon:
     | 'textArea'
     | 'password'
     | 'phone'
