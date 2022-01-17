@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import IntlCurrencyInput from 'react-intl-currency-input';
+import ReactSearchInput from 'react-search-input';
 import styled, { css } from 'styled-components';
 import colors from '../../../utils/colors';
 import fonts from '../../../utils/fonts';
@@ -184,4 +185,35 @@ export const CurrencyInput = styled(IntlCurrencyInput)`
   height: ${(props) => props.height - 5}px;
   border: 0;
   font-size: ${(props) => props.fontSize};
+`;
+
+export const SearchInput = styled(ReactSearchInput)`
+  flex: 1;
+  flex-shrink: 1;
+  align-items: center;
+  font-size: ${(props) => props.fontSize};
+  font-family: ${fonts.regular};
+  opacity: 1;
+  width: 100%;
+  height: ${(props) => props.height - 5}px;
+  border-radius: ${(props) => props.borderRadius || '10px'};
+  border: none;
+  color: ${(props) => props.color || 'black'};
+  background-color: transparent;
+  padding: 0;
+  ::-webkit-input-placeholder: {
+    color: ${(props) => props.color || 'black'};
+  }
+  &:-moz-placeholder: {
+    color: ${(props) => props.color || 'black'};
+  }
+  &:focus: {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+  input {
+    width: 100%;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
 `;

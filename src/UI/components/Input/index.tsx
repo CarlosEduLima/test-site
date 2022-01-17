@@ -5,7 +5,7 @@ import { RHFInput } from 'react-hook-form-input';
 import { BsEyeSlashFill, BsFillEyeFill, BsSearch } from 'react-icons/bs';
 import InputMask from 'react-input-mask';
 import { TextInputMask } from 'react-masked-text';
-import SearchInput, { createFilter } from 'react-search-input';
+import { createFilter } from 'react-search-input';
 import colors from '../../../utils/colors';
 import fonts from '../../../utils/fonts';
 import { currencyConfig } from '../../../utils/input';
@@ -23,6 +23,7 @@ import {
   Label,
   TextInput,
   TextInputArea,
+  SearchInput,
 } from './style';
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
@@ -210,37 +211,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
 
   const searchInput = (
     <ContainerInput {...containerInputProps}>
-      <SearchInput
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          fontSize,
-          fontFamily: fonts.regular,
-          opacity: 1,
-          width: '100%',
-          height: `${height - 5}px`,
-          borderRadius: borderRadius || '10px',
-          border: '0px',
-          color: color || 'black',
-          backgroundColor: backgroundColor || 'white',
-          flexShrink: 1,
-          padding: padding || '10px',
-          '::-webkit-input-placeholder': {
-            color: color || 'black',
-          },
-          '&:-moz-placeholder': {
-            color: color || 'black',
-          },
-          '&:focus': {
-            boxShadow: '0 0 0 0',
-            outline: 0,
-          },
-        }}
-        type="text"
-        onChange={getNameSearch}
-        value={valueSearch}
-        ref={Register.ref}
-      />
+      <SearchInput type="text" onChange={getNameSearch} value={valueSearch} {...textInputProps} />
       <div style={{ marginRight, marginLeft }}>
         <BsSearch onClick={() => handleIconClick()} color={colorIcon} size={size} />
       </div>
