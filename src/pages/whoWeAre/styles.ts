@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import colors from '../../utils/colors';
 import fonts from '../../utils/fonts';
 import NextImage from 'next/image';
+import top from '../../assets/top.png';
+
+export const Top = styled.div`
+  width: 100%;
+  height: 490px;
+  background: linear-gradient(#373aadaa, #373aadaa), url(${top.src}) no-repeat;
+`;
 
 export const Title = styled.h1`
   font-family: ${fonts.extraBold};

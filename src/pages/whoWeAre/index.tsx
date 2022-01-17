@@ -10,8 +10,10 @@ import {
   Image,
   SubContentRight,
   SubContentLeft,
+  Top,
   StyledLink,
 } from './styles';
+import top from '../../assets/top.png';
 import askingQuestions from '../../assets/asking-questions.png';
 import startupIdea from '../../assets/startup-idea.png';
 import workRiskFree from '../../assets/work-risk-free.png';
@@ -19,45 +21,56 @@ import workRiskFree from '../../assets/work-risk-free.png';
 export const WhoWeAre: React.FC = () => {
   return (
     <Container>
-      <Title>O que nos torna diferentes?</Title>
+      <Top>
+        <SubTitle>Quem somos</SubTitle>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore.
+        </Text>
+      </Top>
+      <Title>A Iziw</Title>
       <Divider />
       <ContentLine>
         <SubContentLeft>
           <Image src={askingQuestions} alt="" />
         </SubContentLeft>
         <SubContentRight>
-          <SubTitle>É de graça?</SubTitle>
+          <SubTitle>Quem somos</SubTitle>
           <Text>
-            Para solicitar orçamentos sim! Os profissionais podem desbloquear pedidos adquirindo
-            nossas moedas.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
           </Text>
         </SubContentRight>
       </ContentLine>
 
       <ContentLine>
         <SubContentLeft>
-          <SubTitle>É seguro?</SubTitle>
+          <SubTitle>Como surgiu</SubTitle>
           <Text>
-            Na IziW prezamos sempre pela segurança de nossos clientes e colaboradores. Sempre
-            checamos e verificamos as informações.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
           </Text>
         </SubContentLeft>
         <SubContentRight>
-          <Image src={startupIdea} alt="" />
-        </SubContentRight>
-      </ContentLine>
-
-      <ContentLine>
-        <SubContentLeft>
           <Image src={workRiskFree} alt="" />
+        </SubContentRight>
+      </ContentLine>
+
+      <ContentLine>
+        <SubContentLeft>
+          <Image src={startupIdea} alt="" />
         </SubContentLeft>
         <SubContentRight>
-          <SubTitle>Como faço para ser um profissional IZiW?</SubTitle>
+          <SubTitle>O que fazemos</SubTitle>
           <Text>
-            <Link href="/temp">
-              <StyledLink>Clique aqui</StyledLink>
-            </Link>{' '}
-            e será redirecionado para nosso formulário de inscrição.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
           </Text>
         </SubContentRight>
       </ContentLine>
