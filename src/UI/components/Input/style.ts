@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+import IntlCurrencyInput from 'react-intl-currency-input';
 import styled, { css } from 'styled-components';
 import colors from '../../../utils/colors';
 import fonts from '../../../utils/fonts';
 import {
+  ContainerPlaceholderProps,
   ContainerProps,
   InputPropsLabel,
   InputPropsStyle,
-  ContainerPlaceholderProps,
 } from './interfaces';
 
 export const Container = styled.div<ContainerPlaceholderProps>`
@@ -31,6 +33,7 @@ export const Label = styled.label<InputPropsLabel>`
 export const ContainerInput = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: ${(props) => props.height}px;
@@ -40,11 +43,11 @@ export const ContainerInput = styled.div<ContainerProps>`
 
   align-content: center;
   border: 1px solid;
-  border-color: ${(props) => props.borderColor || '#666666'};
+  border-color: ${(props) => props.borderColor || 'transparent'};
   ${(props) =>
     props.isFocused &&
     css`
-      border-color: #666666;
+      border: 1px solid #666666;
     `}
   &:focus-within {
     border: 2px solid;
@@ -54,7 +57,7 @@ export const ContainerInput = styled.div<ContainerProps>`
       }
       return '2px solid';
     }};
-    border-color: ${(props) => props.borderColor || '#666666'};
+    border-color: ${(props) => props.borderColor || 'transparent'};
     ${(props) =>
       props.isErrored &&
       css`
@@ -69,10 +72,11 @@ export const ContainerInput = styled.div<ContainerProps>`
       }
       return '2px solid';
     }};
-    border-color: ${(props) => props.borderColor || '#666666'};
+    border-color: ${(props) => props.borderColor || 'transparent'};
     ${(props) =>
       props.isErrored &&
       css`
+        border: 5px solid red;
         border-color: #c53030;
       `}
   }
@@ -84,75 +88,9 @@ export const ContainerInput = styled.div<ContainerProps>`
   padding: ${(props) => props.padding || '10px'};
 `;
 
-export const ContainerSearchPreview = styled.div`
-  display: block;
-  width: 100%;
-  z-index: 0;
-`;
+export const ContainerTextAreaInput = styled(ContainerInput)``;
 
-export const ContainerTextAreaInput = styled.div<ContainerProps>`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: ${(props) => {
-    const value = props.height - 5;
-    return value;
-  }}px;
-  padding: 0 4px;
-  border-radius: ${(props) => props.borderRadius || '10px'};
-  margin-bottom: 10px;
-  background-color: ${(props) => props.backgroundColor || 'white'};
-
-  align-items: center;
-  border: 1px solid;
-  border-color: black;
-  ${(props) =>
-    props.isFocused &&
-    css`
-      border: 1px solid;
-      border-color: #666666;
-    `}
-  &:focus-within {
-    border: 2px solid;
-    border-bottom: ${(props) => {
-      if (props.isSearch) {
-        return '0px';
-      }
-      return '2px solid';
-    }};
-    border-color: ${(props) => props.borderColor || '#666666'};
-    ${(props) =>
-      props.isErrored &&
-      css`
-        border-color: #c53030;
-      `}
-  }
-  &:focus {
-    border: 2px solid;
-    border-bottom: ${(props) => {
-      if (props.isSearch) {
-        return '0px';
-      }
-      return '2px solid';
-    }};
-    border-color: ${(props) => props.borderColor || '#666666'};
-    ${(props) =>
-      props.isErrored &&
-      css`
-        border-color: #c53030;
-      `}
-  }
-  ${(props) =>
-    props.isErrored &&
-    css`
-      border: 1px solid ${colors.red};
-    `}
-
-  padding: ${(props) => props.padding || '10px'};
-`;
-
-export const TextInput = styled.input<InputPropsStyle>`
+const commonTextProperties = css<InputPropsStyle>`
   flex: 1;
   align-items: center;
   color: ${colors.input};
@@ -160,14 +98,9 @@ export const TextInput = styled.input<InputPropsStyle>`
   font-family: ${fonts.regular};
   opacity: 1;
   width: 100%;
-  height: ${(props) => {
-    const value = props.height - 5;
-    return value;
-  }}px;
-  border-radius: ${(props) => props.borderRadius || '10px'};
-  border: 0px;
+  height: ${(props) => props.height - 5}px;
   color: ${(props) => props.color || 'black'};
-  background-color: ${(props) => props.backgroundColor || 'white'};
+  background-color: ${(props) => props.backgroundColor || 'transparent'};
   ::-webkit-input-placeholder {
     color: ${(props) => props.color || 'black'};
   }
@@ -179,36 +112,26 @@ export const TextInput = styled.input<InputPropsStyle>`
     outline: 0;
   }
   flex-shrink: 1;
-  padding: ${(props) => props.padding || '10px'};
+  border: 0;
+  padding-right: ${(props) => props.padding || '10px'};
+  padding-left: ${(props) => props.padding || '10px'};
+  box-shadow: 0 0 0 0;
+`;
+
+export const TextInput = styled.input<InputPropsStyle>`
+  ${commonTextProperties}
 `;
 
 export const TextInputArea = styled.textarea<InputPropsStyle>`
-  color: ${colors.input};
-  font-size: 16px;
-  font-family: ${fonts.regular};
-  opacity: 1;
-  width: 100%;
-  align-items: center;
-  height: ${(props) => {
-    const value = props.height - 5;
-    return value;
-  }}px;
-  ::-webkit-input-placeholder {
-    color: ${(props) => props.color || 'black'};
-  }
-  &:-moz-placeholder {
-    color: ${(props) => props.color || 'black'};
-  }
-  border-radius: ${(props) => props.borderRadius || '10px'};
-  border: 0px;
-  background-color: ${(props) => props.backgroundColor || 'white'};
-  color: ${(props) => props.color || 'black'};
-  &:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-  }
-  flex-shrink: 1;
+  ${commonTextProperties}
+  padding-top: 0;
   resize: none;
+`;
+
+export const ContainerSearchPreview = styled.div`
+  display: block;
+  width: 100%;
+  z-index: 0;
 `;
 
 export const ContainerSearchPreviewItems = styled.ul`
@@ -244,4 +167,21 @@ export const ErrorText = styled.p`
   margin-bottom: 10px;
   margin-top: 8px;
   font-size: 16px;
+`;
+
+export const CurrencyInput = styled(IntlCurrencyInput)`
+  background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => props.color};
+  border-radius: ${(props) => props.borderRadius};
+  padding: ${(props) => props.padding};
+  border-color: ${(props) => props.borderColor};
+  flex: 1;
+  align-items: center;
+  font-family: ${fonts.regular};
+  font-weight: ${(props) => props.fontWeight};
+  opacity: 1;
+  width: 100%;
+  height: ${(props) => props.height - 5}px;
+  border: 0;
+  font-size: ${(props) => props.fontSize};
 `;

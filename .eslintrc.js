@@ -43,6 +43,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     'react/display-name': 'off',
     'react/prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
