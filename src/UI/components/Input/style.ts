@@ -17,9 +17,15 @@ export const Container = styled.div<ContainerPlaceholderProps>`
   max-width: 100%;
   ::-webkit-input-placeholder {
     color: ${(props) => props.placeholderTextColor};
+    opacity: 1;
+  }
+  ::placeholder {
+    color: ${(props) => props.placeholderTextColor || 'black'};
+    opacity: 1;
   }
   .money-input:-moz-placeholder {
     color: $ ${(props) => props.placeholderTextColor};
+    opacity: 1;
   }
 `;
 
@@ -79,9 +85,15 @@ const commonTextProperties = css<InputPropsStyle>`
   background-color: ${(props) => props.backgroundColor || 'transparent'};
   ::-webkit-input-placeholder {
     color: ${(props) => props.placeholderTextColor || 'black'};
+    opacity: 1;
   }
   ::-moz-placeholder {
     color: ${(props) => props.placeholderTextColor || 'black'};
+    opacity: 1;
+  }
+  ::placeholder {
+    color: ${(props) => props.placeholderTextColor || 'black'};
+    opacity: 1;
   }
   &:focus {
     box-shadow: 0 0 0 0;
