@@ -63,6 +63,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isErrored, setIsErrored] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
   const [inputSecureTextEntry, setInputSecureTextEntry] = useState(true);
   const [filterPreviewSearchValue, setFilterPreviewSearchValue] = useState('');
   const [filtered, setFiltered] = useState([]);
@@ -98,6 +99,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
 
   const handleChange = (event, value) => {
     event.preventDefault();
+    setIsDirty(true);
     setValue(name, value);
   };
 
@@ -148,6 +150,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
     required: required,
     placeholderTextColor: style.placeholderTextColor,
     fontWeight: style.fontWeight,
+    isDirty: isDirty,
     ref: Register.ref,
   };
 
@@ -316,7 +319,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
       <Controller
         control={control}
         name={name}
-        render={({ field: { onChange, value, name } }) => (
+        render={({ field: { onChange, value } }) => (
           <TextInputMask
             {...textInputProps}
             style={{ width: '100%', fontSize: style.fontSize }}

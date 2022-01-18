@@ -80,7 +80,7 @@ const commonTextProperties = css<InputPropsStyle>`
   ::-webkit-input-placeholder {
     color: ${(props) => props.placeholderTextColor || 'black'};
   }
-  &:-moz-placeholder {
+  ::-moz-placeholder {
     color: ${(props) => props.placeholderTextColor || 'black'};
   }
   &:focus {
@@ -147,12 +147,13 @@ export const ErrorText = styled.p`
 
 export const CurrencyInput = styled(IntlCurrencyInput)`
   ${commonTextProperties}
+  color: ${(props) => (props.isDirty ? props.color : props.placeholderTextColor)}
 `;
 
 export const SearchInput = styled(ReactSearchInput)`
-  ${commonTextProperties}
   display: flex;
   input {
+    ${commonTextProperties}
     width: 100%;
     background-color: ${(props) => props.backgroundColor || 'transparent'};
     box-shadow: none !important;
