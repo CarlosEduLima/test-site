@@ -132,7 +132,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     isErrored: isErrored,
     borderColor: style.borderColor,
     padding: style.padding,
-    borderRadius: style.borderRadius,
+    $borderRadius: style.borderRadius,
     backgroundColor: style.backgroundColor,
     height: style.height,
     $placeholderTextColor: style.placeholderTextColor,
@@ -144,7 +144,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     padding: style.padding,
     backgroundColor: style.backgroundColor,
     height: style.height,
-    borderRadius: style.borderRadius,
+    $borderRadius: style.borderRadius,
     fontSize: style.fontSize,
     type: typeInput,
     id: name,
@@ -282,7 +282,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
             height={style.height}
             color={style.color}
             backgroundColor={style.backgroundColor}
-            borderRadius={style.borderRadius}
+            $borderRadius={style.borderRadius}
             fontSize={style.fontSize}
             padding={style.padding}
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}

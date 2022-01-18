@@ -45,7 +45,7 @@ export const ContainerInput = styled.div<ContainerProps>`
   width: 100%;
   height: ${(props) => props.height}px;
   padding: 0 5px;
-  border-radius: ${(props) => props.borderRadius || '10px'};
+  border-radius: ${(props) => props.$borderRadius || '10px'};
   background-color: ${(props) => props.backgroundColor || 'white'};
   align-content: center;
   border: 1px solid;

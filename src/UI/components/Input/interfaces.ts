@@ -50,7 +50,7 @@ export interface InputPropsStyle {
   backgroundColor: string;
   height: number;
   color: string;
-  borderRadius: string;
+  $borderRadius: string;
   padding: string;
   fontSize: string;
   fontWeight: string;
@@ -77,7 +77,7 @@ export interface ContainerProps {
   isErrored: boolean;
   backgroundColor: string;
   height: number;
-  borderRadius: string;
+  $borderRadius: string;
   padding: string;
   borderColor: string;
   isSearch?: boolean;
