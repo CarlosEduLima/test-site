@@ -16,15 +16,15 @@ export const Container = styled.div<ContainerPlaceholderProps>`
   min-width: 100%;
   max-width: 100%;
   ::-webkit-input-placeholder {
-    color: ${(props) => props.placeholderTextColor};
+    color: ${(props) => props.$placeholderTextColor};
     opacity: 1;
   }
   ::placeholder {
-    color: ${(props) => props.placeholderTextColor || 'black'};
+    color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
   }
   .money-input:-moz-placeholder {
-    color: $ ${(props) => props.placeholderTextColor};
+    color: $ ${(props) => props.$placeholderTextColor};
     opacity: 1;
   }
 `;
@@ -84,15 +84,15 @@ const commonTextProperties = css<InputPropsStyle>`
   color: ${(props) => props.color || 'black'};
   background-color: ${(props) => props.backgroundColor || 'transparent'};
   ::-webkit-input-placeholder {
-    color: ${(props) => props.placeholderTextColor || 'black'};
+    color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
   }
   ::-moz-placeholder {
-    color: ${(props) => props.placeholderTextColor || 'black'};
+    color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
   }
   ::placeholder {
-    color: ${(props) => props.placeholderTextColor || 'black'};
+    color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
   }
   &:focus {
@@ -159,7 +159,7 @@ export const ErrorText = styled.p`
 
 export const CurrencyInput = styled(IntlCurrencyInput)`
   ${commonTextProperties}
-  color: ${(props) => (props.isDirty ? props.color : props.placeholderTextColor)}
+  color: ${(props) => (props.$isDirty ? props.color : props.$placeholderTextColor)}
 `;
 
 export const SearchInput = styled(ReactSearchInput)`

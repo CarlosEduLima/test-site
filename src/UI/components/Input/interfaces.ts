@@ -54,7 +54,7 @@ export interface InputPropsStyle {
   padding: string;
   fontSize: string;
   fontWeight: string;
-  placeholderTextColor: string;
+  $placeholderTextColor: string;
 }
 
 export interface InputPropsLabel {
@@ -81,13 +81,13 @@ export interface ContainerProps {
   padding: string;
   borderColor: string;
   isSearch?: boolean;
-  placeholderTextColor: string;
+  $placeholderTextColor: string;
   focusBorderColor: string;
 }
 
 export interface ContainerPlaceholderProps {
   color: string;
-  placeholderTextColor: string;
+  $placeholderTextColor: string;
 }
 
 export interface IconProps {
