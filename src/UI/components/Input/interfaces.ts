@@ -47,7 +47,7 @@ export interface InputProps {
 }
 
 export interface InputPropsStyle {
-  backgroundColor: string;
+  $backgroundColor: string;
   height: number;
   color: string;
   $borderRadius: string;
@@ -75,7 +75,7 @@ export interface InputRef {
 export interface ContainerProps {
   isFocused: boolean;
   isErrored: boolean;
-  backgroundColor: string;
+  $backgroundColor: string;
   height: number;
   $borderRadius: string;
   padding: string;

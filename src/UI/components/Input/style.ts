@@ -46,7 +46,7 @@ export const ContainerInput = styled.div<ContainerProps>`
   height: ${(props) => props.height}px;
   padding: 0 5px;
   border-radius: ${(props) => props.$borderRadius || '10px'};
-  background-color: ${(props) => props.backgroundColor || 'white'};
+  background-color: ${(props) => props.$backgroundColor || 'white'};
   align-content: center;
   border: 1px solid;
   padding: ${(props) => props.padding || '10px'};
@@ -82,7 +82,7 @@ const commonTextProperties = css<InputPropsStyle>`
   width: 100%;
   height: ${(props) => props.height - 5}px;
   color: ${(props) => props.color || 'black'};
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
+  background-color: ${(props) => props.$backgroundColor || 'transparent'};
   ::-webkit-input-placeholder {
     color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
@@ -167,7 +167,7 @@ export const SearchInput = styled(ReactSearchInput)`
   input {
     ${commonTextProperties}
     width: 100%;
-    background-color: ${(props) => props.backgroundColor || 'transparent'};
+    background-color: ${(props) => props.$backgroundColor || 'transparent'};
     box-shadow: none !important;
     border: 0 !important;
   }

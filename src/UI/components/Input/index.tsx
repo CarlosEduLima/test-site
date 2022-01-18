@@ -133,7 +133,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     borderColor: style.borderColor,
     padding: style.padding,
     $borderRadius: style.borderRadius,
-    backgroundColor: style.backgroundColor,
+    $backgroundColor: style.backgroundColor,
     height: style.height,
     $placeholderTextColor: style.placeholderTextColor,
     focusBorderColor: style.focusBorderColor,
@@ -142,7 +142,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   const textInputProps = {
     color: style.color,
     padding: style.padding,
-    backgroundColor: style.backgroundColor,
+    $backgroundColor: style.backgroundColor,
     height: style.height,
     $borderRadius: style.borderRadius,
     fontSize: style.fontSize,
@@ -281,7 +281,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
             cols={style.cols}
             height={style.height}
             color={style.color}
-            backgroundColor={style.backgroundColor}
+            $backgroundColor={style.backgroundColor}
             $borderRadius={style.borderRadius}
             fontSize={style.fontSize}
             padding={style.padding}
@@ -340,7 +340,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   );
   return (
     <>
-      <Container color={style.color} placeholderTextColor={style.placeholderTextColor}>
+      <Container color={style.color} $placeholderTextColor={style.placeholderTextColor}>
         <Label
           colorLabel={style.colorLabel}
           fontWeight={style.fontWeight}
