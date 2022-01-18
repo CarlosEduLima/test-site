@@ -34,29 +34,34 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   inputError,
   type = 'other',
   typeInput = 'text',
-  backgroundColor = 'white',
-  height = 32,
-  color = 'black',
-  size = 20,
-  borderRadius = '60px',
-  labelFontSize = 22,
-  padding = '12px',
-  fontWeight = '500',
-  colorLabel = 'black',
-  colorIcon = colors.labelInput,
-  marginRight = 10,
-  borderColor = 'transparent',
+  variant = 'squared',
+  style = {
+    backgroundColor: 'white',
+    height: 32,
+    color: 'black',
+    size: 20,
+    borderRadius: '60px',
+    labelFontSize: 22,
+    padding: '12px',
+    colorLabel: 'black',
+    colorIcon: colors.blue,
+    marginRight: 10,
+    borderColor: 'transparent',
+    marginLeft: 18,
+    rows: 10,
+    cols: 33,
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '25px',
+    placeholderTextColor: colors.labelInput,
+    focusBorderColor: 'transparent',
+  },
   placeholder,
   dataSearch = [],
   KEYS_TO_FILTERS = ['name'],
-  marginLeft = 18,
-  rows = 10,
-  cols = 33,
-  fontSize = '16px',
   ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-
   const [isErrored, setIsErrored] = useState(false);
   const [inputSecureTextEntry, setInputSecureTextEntry] = useState(true);
   const [filterPreviewSearchValue, setFilterPreviewSearchValue] = useState('');
@@ -64,8 +69,15 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   const [valueSearch, setValueSearch] = useState('');
   const [isSearch, setIsSearch] = useState(false);
   const { register, getValues, setFocus, setValue } = useForm();
-
   const Register = register(name);
+
+  if (variant == 'squared') {
+    style.backgroundColor = colors.lightBlue;
+    style.height = 44;
+    style.borderRadius = '8px';
+    style.fontSize = '18px';
+    style.focusBorderColor = colors.blue;
+  }
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -111,27 +123,30 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
 
   const containerInputProps = {
     isSearch: filtered.length == 0 ? false : true,
-    borderColor: borderColor,
-    padding: padding,
-    borderRadius: borderRadius,
     isFocused: isFocused,
     isErrored: isErrored,
-    backgroundColor: backgroundColor,
-    height: height,
+    borderColor: style.borderColor,
+    padding: style.padding,
+    borderRadius: style.borderRadius,
+    backgroundColor: style.backgroundColor,
+    height: style.height,
+    placeholderTextColor: style.placeholderTextColor,
+    focusBorderColor: style.focusBorderColor,
   };
 
   const textInputProps = {
-    color: color,
-    padding: padding,
-    backgroundColor: backgroundColor,
-    height: height,
+    color: style.color,
+    padding: style.padding,
+    backgroundColor: style.backgroundColor,
+    height: style.height,
+    borderRadius: style.borderRadius,
+    fontSize: style.fontSize,
     type: typeInput,
     id: name,
-    fontSize: fontSize,
     placeholder: placeholder,
-    borderRadius: borderRadius,
     name: name,
     required: required,
+    placeholderTextColor: style.placeholderTextColor,
     ref: Register.ref,
   };
 
@@ -168,11 +183,19 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
         {...TextInputAttributes(handleInputFocus, handleInputBlur)}>
         {() => <TextInput {...textInputProps} />}
       </InputMask>
-      <div style={{ marginRight }}>
+      <div style={{ marginRight: style.marginRight }}>
         {inputSecureTextEntry ? (
-          <BsEyeSlashFill size={size} onClick={() => handleIconClick()} color={colorIcon} />
+          <BsEyeSlashFill
+            size={style.size}
+            onClick={() => handleIconClick()}
+            color={style.colorIcon}
+          />
         ) : (
-          <BsFillEyeFill size={size} onClick={() => handleIconClick()} color={colorIcon} />
+          <BsFillEyeFill
+            size={style.size}
+            onClick={() => handleIconClick()}
+            color={style.colorIcon}
+          />
         )}
       </div>
     </ContainerInput>
@@ -211,8 +234,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   const searchInput = (
     <ContainerInput {...containerInputProps}>
       <SearchInput type="text" onChange={getNameSearch} value={valueSearch} {...textInputProps} />
-      <div style={{ marginRight, marginLeft }}>
-        <BsSearch onClick={() => handleIconClick()} color={colorIcon} size={size} />
+      <div style={{ marginRight: style.marginRight, marginLeft: style.marginLeft }}>
+        <BsSearch onClick={() => handleIconClick()} color={style.colorIcon} size={style.size} />
       </div>
     </ContainerInput>
   );
@@ -227,13 +250,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
             onChange={(text) => {
               setValue(name, text);
             }}
-            color={color}
-            height={height}
-            borderRadius={borderRadius}
-            padding={padding}
+            color={style.color}
+            height={style.height}
+            borderRadius={style.borderRadius}
+            padding={style.padding}
+            fontSize={style.fontSize}
+            backgroundColor={style.backgroundColor}
             placeholder={placeholder}
-            fontSize={fontSize}
-            backgroundColor={backgroundColor}
           />
         }
         register={() => Register.ref}
@@ -251,14 +274,14 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
           <TextInputArea
             id={name}
             name={name}
-            rows={rows}
-            cols={cols}
-            height={height}
-            color={color}
-            backgroundColor={backgroundColor}
-            borderRadius={borderRadius}
-            fontSize={fontSize}
-            padding={padding}
+            rows={style.rows}
+            cols={style.cols}
+            height={style.height}
+            color={style.color}
+            backgroundColor={style.backgroundColor}
+            borderRadius={style.borderRadius}
+            fontSize={style.fontSize}
+            padding={style.padding}
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}
             onChange={(text) => {
               setValue(name, text.currentTarget.value);
@@ -299,7 +322,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
         render={({ field: { onChange, value, name } }) => (
           <TextInputMask
             {...textInputProps}
-            style={{ width: '100%', fontSize }}
+            style={{ width: '100%', fontSize: style.fontSize }}
             options={{
               mask: '99/99',
             }}
@@ -314,11 +337,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   );
   return (
     <>
-      <Container color={color}>
+      <Container color={style.color}>
         <Label
-          colorLabel={colorLabel}
-          fontWeight={fontWeight}
-          labelFontSize={labelFontSize}
+          colorLabel={style.colorLabel}
+          fontWeight={style.fontWeight}
+          labelFontSize={style.labelFontSize}
           htmlFor={name}>
           {label}
         </Label>

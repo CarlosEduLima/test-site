@@ -16,10 +16,10 @@ export const Container = styled.div<ContainerPlaceholderProps>`
   min-width: 100%;
   max-width: 100%;
   ::-webkit-input-placeholder {
-    color: ${(props) => props.color};
+    color: ${(props) => props.placeholderTextColor};
   }
   .money-input:-moz-placeholder {
-    color: $ ${(props) => props.color};
+    color: $ ${(props) => props.placeholderTextColor};
   }
 `;
 
@@ -41,52 +41,26 @@ export const ContainerInput = styled.div<ContainerProps>`
   padding: 0 5px;
   border-radius: ${(props) => props.borderRadius || '10px'};
   background-color: ${(props) => props.backgroundColor || 'white'};
-
   align-content: center;
   border: 1px solid;
-  border-color: ${(props) => props.borderColor || 'transparent'};
-  ${(props) =>
-    props.isFocused &&
-    css`
-      border: 1px solid #666666;
-    `}
+  padding: ${(props) => props.padding || '10px'};
+
+  border-color: ${(props) =>
+    props.isErrored ? colors.redError : props.borderColor || 'transparent'};
+
   &:focus-within {
     border: 2px solid;
-    border-bottom: ${(props) => {
-      if (props.isSearch) {
-        return '0px';
-      }
-      return '2px solid';
-    }};
-    border-color: ${(props) => props.borderColor || 'transparent'};
-    ${(props) =>
-      props.isErrored &&
-      css`
-        border-color: #c53030;
-      `}
+    border-bottom: ${(props) => (props.isSearch ? '0' : '2px solid')};
+    border-color: ${(props) =>
+      props.isErrored ? colors.redError : props.focusBorderColor || 'transparent'};
   }
+
   &:focus {
     border: 2px solid;
-    border-bottom: ${(props) => {
-      if (props.isSearch) {
-        return '0px';
-      }
-      return '2px solid';
-    }};
-    border-color: ${(props) => props.borderColor || 'transparent'};
-    ${(props) =>
-      props.isErrored &&
-      css`
-        border: 5px solid red;
-        border-color: #c53030;
-      `}
+    border-bottom: ${(props) => (props.isSearch ? '0' : '2px solid')};
+    border-color: ${(props) =>
+      props.isErrored ? colors.redError : props.focusBorderColor || 'transparent'};
   }
-  ${(props) =>
-    props.isErrored &&
-    css`
-      border-color: #c53030;
-    `}
-  padding: ${(props) => props.padding || '10px'};
 `;
 
 export const ContainerTextAreaInput = styled(ContainerInput)``;
@@ -94,19 +68,20 @@ export const ContainerTextAreaInput = styled(ContainerInput)``;
 const commonTextProperties = css<InputPropsStyle>`
   flex: 1;
   align-items: center;
-  color: ${colors.input};
-  font-size: 16px;
+  color: ${(props) => props.color};
+  font-size: ${(props) => props.fontSize};
   font-family: ${fonts.regular};
+  font-weight: ${(props) => props.fontWeight};
   opacity: 1;
   width: 100%;
   height: ${(props) => props.height - 5}px;
   color: ${(props) => props.color || 'black'};
   background-color: ${(props) => props.backgroundColor || 'transparent'};
   ::-webkit-input-placeholder {
-    color: ${(props) => props.color || 'black'};
+    color: ${(props) => props.placeholderTextColor || 'black'};
   }
   &:-moz-placeholder {
-    color: ${(props) => props.color || 'black'};
+    color: ${(props) => props.placeholderTextColor || 'black'};
   }
   &:focus {
     box-shadow: 0 0 0 0;
@@ -184,7 +159,6 @@ export const CurrencyInput = styled(IntlCurrencyInput)`
   width: 100%;
   height: ${(props) => props.height - 5}px;
   border: 0;
-  font-size: ${(props) => props.fontSize};
 `;
 
 export const SearchInput = styled(ReactSearchInput)`
@@ -199,13 +173,13 @@ export const SearchInput = styled(ReactSearchInput)`
   border-radius: ${(props) => props.borderRadius || '10px'};
   border: none;
   color: ${(props) => props.color || 'black'};
-  background-color: transparent;
+  background-color: ${(props) => props.backgroundColor || 'transparent'};
   padding: 0;
   ::-webkit-input-placeholder: {
-    color: ${(props) => props.color || 'black'};
+    color: ${(props) => props.placeholderTextColor || 'black'};
   }
   &:-moz-placeholder: {
-    color: ${(props) => props.color || 'black'};
+    color: ${(props) => props.placeholderTextColor || 'black'};
   }
   &:focus: {
     box-shadow: 0 0 0 0;
@@ -213,6 +187,7 @@ export const SearchInput = styled(ReactSearchInput)`
   }
   input {
     width: 100%;
+    background-color: ${(props) => props.backgroundColor || 'transparent'};
     box-shadow: none !important;
     border: 0 !important;
   }

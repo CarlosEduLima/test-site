@@ -12,32 +12,38 @@ export interface InputProps {
     | 'text'
     | string;
   label?: string;
+  variant?: 'rounded' | 'squared';
   secureTextEntry?: boolean;
   required?: boolean;
   inputError?: string;
   control?: never;
   type?: 'text' | 'other' | string;
   typeInput?: 'color' | 'date' | 'email' | 'text' | 'number' | 'password' | string;
-  backgroundColor?: string;
-  height?: number;
-  color?: string;
-  size?: number;
-  borderRadius?: string;
-  labelFontSize?: number;
-  padding?: string;
-  fontWeight?: string;
-  colorLabel?: string;
-  colorIcon?: string;
-  marginRight?: number;
-  borderColor?: string;
   placeholder: string;
+  style?: {
+    backgroundColor?: string;
+    height?: number;
+    color?: string;
+    size?: number;
+    borderRadius?: string;
+    labelFontSize?: number;
+    padding?: string;
+    colorLabel?: string;
+    colorIcon?: string;
+    marginRight?: number;
+    borderColor?: string;
+    marginLeft?: number;
+    rows?: number;
+    cols?: number;
+    fontSize?: string;
+    fontWeight?: string;
+    lineHeight: string;
+    placeholderTextColor: string;
+    focusBorderColor: string;
+  };
   dataSearch?: unknown[];
   filterPreviewSearch?: (datas: unknown[], data: string) => unknown[];
   KEYS_TO_FILTERS?: string[];
-  marginLeft?: number;
-  rows?: number;
-  cols?: number;
-  fontSize?: string;
 }
 
 export interface InputPropsStyle {
@@ -47,6 +53,8 @@ export interface InputPropsStyle {
   borderRadius: string;
   padding: string;
   fontSize: string;
+  fontWeight: string;
+  placeholderTextColor: string;
 }
 
 export interface InputPropsLabel {
@@ -73,10 +81,13 @@ export interface ContainerProps {
   padding: string;
   borderColor: string;
   isSearch?: boolean;
+  placeholderTextColor: string;
+  focusBorderColor: string;
 }
 
 export interface ContainerPlaceholderProps {
   color: string;
+  placeholderTextColor: string;
 }
 
 export interface IconProps {
