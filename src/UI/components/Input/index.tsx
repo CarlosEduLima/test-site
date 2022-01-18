@@ -172,21 +172,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
         name={name}
         setValue={() => {}}
       />
-    </ContainerInput>
-  );
-
-  const phoneInput = (
-    <ContainerInput {...containerInputProps}>
-      <InputMask
-        ref={() => Register.ref}
-        mask="(99) 9 9999-9999"
-        maskChar={null}
-        onChange={(text) => {
-          setValue(name, text);
-        }}
-        {...TextInputAttributes(handleInputFocus, handleInputBlur)}>
-        {() => <TextInput {...textInputProps} />}
-      </InputMask>
       <div style={{ marginRight: style.marginRight }}>
         {inputSecureTextEntry ? (
           <BsEyeSlashFill
@@ -202,6 +187,21 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
           />
         )}
       </div>
+    </ContainerInput>
+  );
+
+  const phoneInput = (
+    <ContainerInput {...containerInputProps}>
+      <InputMask
+        ref={() => Register.ref}
+        mask="(99) 9 9999-9999"
+        maskChar={null}
+        onChange={(text) => {
+          setValue(name, text);
+        }}
+        {...TextInputAttributes(handleInputFocus, handleInputBlur)}>
+        {() => <TextInput {...textInputProps} />}
+      </InputMask>
     </ContainerInput>
   );
 
