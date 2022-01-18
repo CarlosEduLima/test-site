@@ -147,6 +147,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
     name: name,
     required: required,
     placeholderTextColor: style.placeholderTextColor,
+    fontWeight: style.fontWeight,
     ref: Register.ref,
   };
 
@@ -250,13 +251,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
             onChange={(text) => {
               setValue(name, text);
             }}
-            color={style.color}
-            height={style.height}
-            borderRadius={style.borderRadius}
-            padding={style.padding}
-            fontSize={style.fontSize}
-            backgroundColor={style.backgroundColor}
-            placeholder={placeholder}
+            {...textInputProps}
           />
         }
         register={() => Register.ref}
@@ -272,6 +267,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
       <RHFInput
         as={
           <TextInputArea
+            placeholderTextColor={style.placeholderTextColor}
+            fontWeight={style.fontWeight}
             id={name}
             name={name}
             rows={style.rows}
@@ -337,7 +334,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({
   );
   return (
     <>
-      <Container color={style.color}>
+      <Container color={style.color} placeholderTextColor={style.placeholderTextColor}>
         <Label
           colorLabel={style.colorLabel}
           fontWeight={style.fontWeight}

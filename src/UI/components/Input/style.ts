@@ -146,45 +146,12 @@ export const ErrorText = styled.p`
 `;
 
 export const CurrencyInput = styled(IntlCurrencyInput)`
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.color};
-  border-radius: ${(props) => props.borderRadius};
-  padding: ${(props) => props.padding};
-  border-color: ${(props) => props.borderColor};
-  flex: 1;
-  align-items: center;
-  font-family: ${fonts.regular};
-  font-weight: ${(props) => props.fontWeight};
-  opacity: 1;
-  width: 100%;
-  height: ${(props) => props.height - 5}px;
-  border: 0;
+  ${commonTextProperties}
 `;
 
 export const SearchInput = styled(ReactSearchInput)`
-  flex: 1;
-  flex-shrink: 1;
-  align-items: center;
-  font-size: ${(props) => props.fontSize};
-  font-family: ${fonts.regular};
-  opacity: 1;
-  width: 100%;
-  height: ${(props) => props.height - 5}px;
-  border-radius: ${(props) => props.borderRadius || '10px'};
-  border: none;
-  color: ${(props) => props.color || 'black'};
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
-  padding: 0;
-  ::-webkit-input-placeholder: {
-    color: ${(props) => props.placeholderTextColor || 'black'};
-  }
-  &:-moz-placeholder: {
-    color: ${(props) => props.placeholderTextColor || 'black'};
-  }
-  &:focus: {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-  }
+  ${commonTextProperties}
+  display: flex;
   input {
     width: 100%;
     background-color: ${(props) => props.backgroundColor || 'transparent'};
