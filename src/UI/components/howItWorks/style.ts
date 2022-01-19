@@ -6,6 +6,10 @@ interface HowItWorksProps {
   user: string;
 }
 
+interface UserProfileProps {
+  user: string;
+}
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -15,6 +19,12 @@ export const Container = styled.div`
   height: 345px;
 
   background-color: ${colors.lightBlue};
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 20px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -26,6 +36,11 @@ export const ButtonContainer = styled.div`
   height: 100%;
   width: 30%;
   padding: 0 25px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 25px;
+  }
 `;
 
 export const CardsContainer = styled.div`
@@ -36,11 +51,19 @@ export const CardsContainer = styled.div`
 
   height: 100%;
   width: 70%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h3`
   font-size: 1.5rem;
   font-family: ${fonts.regular};
+  @media (max-width: 800px) {
+    margin: 0 auto;
+  }
 `;
 
 export const TitleSpan = styled.span`
@@ -49,6 +72,9 @@ export const TitleSpan = styled.span`
 
 export const DescriptionText = styled.p`
   font-family: ${fonts.regular};
+  @media (max-width: 800px) {
+    text-align: center;
+  }
 `;
 
 export const UserTypeContainer = styled.div`
@@ -90,4 +116,36 @@ export const UserTypeProfessional = styled.button<HowItWorksProps>`
 
   height: 100%;
   width: 50%;
+`;
+
+export const UserProfileProfessional = styled.div<UserProfileProps>`
+  display: ${({ user }) => (user === 'professional' ? 'flex' : 'none')};
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: 100%;
+  width: 70%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+  }
+`;
+
+export const UserProfileClient = styled.div<UserProfileProps>`
+  display: ${({ user }) => (user === 'client' ? 'flex' : 'none')};
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: 100%;
+  width: 70%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;

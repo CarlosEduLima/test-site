@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useDebugValue, useState } from 'react';
 
 import HowItWorksCard from '../howItWorksCard';
 
+import profileClientIllustration from '../../../assets/profileClientIllustration.svg';
+import offerClientIllustration from '../../../assets/offerClientIllustration.svg';
 import profileIllustration from '../../../assets/profileIllustration.svg';
 import servicesIllustration from '../../../assets/servicesIllustration.svg';
 import offerIllustration from '../../../assets/offerIllustration.svg';
@@ -9,13 +11,14 @@ import offerIllustration from '../../../assets/offerIllustration.svg';
 import {
   Container,
   ButtonContainer,
-  CardsContainer,
   Title,
   TitleSpan,
   UserTypeProfessional,
   UserTypeClient,
   UserTypeContainer,
   DescriptionText,
+  UserProfileProfessional,
+  UserProfileClient,
 } from './style';
 
 const HowItWorks: React.FC = () => {
@@ -50,13 +53,13 @@ const HowItWorks: React.FC = () => {
         </UserTypeContainer>
 
         <DescriptionText>
-          Encontrar e contratar profissionais qualificados para os mais variados serviços nunca foi
-          tão fácil, rápido e sem burocracia.
+          Encontrar e contratar profissionais qualificados para os mais variados serviços nunca foi tão fácil, rápido e sem burocracia.
         </DescriptionText>
       </ButtonContainer>
-      <CardsContainer>
+
+      <UserProfileClient user={user}>
         <HowItWorksCard
-          icon={profileIllustration}
+          icon={profileClientIllustration}
           description="Crie seu perfil gratuitamente e navegue nas categorias."
         />
         <HowItWorksCard
@@ -64,10 +67,26 @@ const HowItWorks: React.FC = () => {
           description="Procure os serviços que você deseja e solicite um orçamento."
         />
         <HowItWorksCard
-          icon={offerIllustration}
+          icon={offerClientIllustration}
           description="Receba propostas e feche negócios com os profissionais mais qualificados."
         />
-      </CardsContainer>
+      </UserProfileClient>
+      <UserProfileProfessional user={user}>
+        <HowItWorksCard
+          icon={profileIllustration}
+          description="Crie seu perfil gratuitamente e navegue nas categorias."
+        />
+        <HowItWorksCard
+          icon={servicesIllustration}
+          description="Procure os serviços que você deseja realizar e negocie um orçamento."
+        />
+        <HowItWorksCard
+          icon={offerIllustration}
+          description="Envie propostas e feche negócios com clientes."
+        />
+      </UserProfileProfessional>
+
+
     </Container>
   );
 };
