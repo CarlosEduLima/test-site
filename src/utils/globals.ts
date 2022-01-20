@@ -1,7 +1,7 @@
+/* eslint-disable linebreak-style */
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 [aria-dropeffect=copy]:hover {
   cursor: copy;
@@ -34,8 +34,6 @@ const GlobalStyle = createGlobalStyle`
 [aria-hidden=true] {
   visibility: hidden;
 }
-
-@import url('../assets/css/index.css');
 
 input[aria-invalid=false]:focus,
 select[aria-invalid=false]:focus,
@@ -143,8 +141,7 @@ img[alt][longdesc]:hover {
 }
 
 html {
-  font-family: 'Nunito', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -180,7 +177,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 
@@ -374,7 +371,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 
@@ -399,7 +396,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  font-family: 'Nunito', sans-serif;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
@@ -488,6 +485,21 @@ template {
 
 [hidden] {
   display: none;
+}
+
+html {
+  font-family: 'Nunito', sans-serif, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
 `;
 
