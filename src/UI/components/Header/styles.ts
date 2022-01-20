@@ -4,7 +4,7 @@ import colors from 'src/utils/colors';
 import fonts from 'src/utils/fonts';
 
 interface HeaderProps {
-  colocarOpacidade: number;
+  opacity: number;
 }
 
 export const Icon = styled(Image)`
@@ -31,7 +31,7 @@ export const DivHeader = styled.header<HeaderProps>`
   height: 70px;
   flex-wrap: nowrap;
   font-size: 14px;
-  opacity: ${(props) => props.colocarOpacidade};
+  opacity: ${(props) => props.opacity};
 
   @media (max-width: 700px) {
     font-size: 14px;
