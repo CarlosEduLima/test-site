@@ -55,11 +55,7 @@ const Footer = () => {
       local: linkedin,
     },
   ];
-  const footerFAQ = [
-    'Ajuda',
-    'Termos de Uso',
-    'Firedev It Solutions 2021 - Todos os Direitos Reservados',
-  ];
+  const footerFAQ = ['Ajuda', 'Termos de Uso'];
 
   return (
     <FooterContainer>
@@ -67,13 +63,17 @@ const Footer = () => {
         <FooterSection width={300}>
           <TextUp>Categorias</TextUp>
           <FooterList>
-            {categoriasItens.map(item => <TextDown>{item}</TextDown>)}
+            {categoriasItens.map((item, i) => (
+              <TextDown key={i}>{item}</TextDown>
+            ))}
           </FooterList>
         </FooterSection>
         <FooterSection>
           <TextUp>Institucional</TextUp>
           <FooterList>
-            {institucionalItens.map(item => <TextDown>{item}</TextDown>)}
+            {institucionalItens.map((item, i) => (
+              <TextDown key={i}>{item}</TextDown>
+            ))}
           </FooterList>
         </FooterSection>
         <FooterSection>
@@ -84,9 +84,9 @@ const Footer = () => {
                 <ImageLocalDiv key={item.name}>
                   <ImageLocal>
                     {item.name === 'facebook' ? (
-                      <Image src={item.local} width={11} height={23} />
+                      <Image src={item.local} width={11} height={23} alt={item.name} />
                     ) : (
-                      <Image src={item.local} height={500} />
+                      <Image src={item.local} height={500} alt={item.name} />
                     )}
                   </ImageLocal>
                 </ImageLocalDiv>
@@ -98,20 +98,23 @@ const Footer = () => {
           <TextUp>Downloads</TextUp>
           <FooterList>
             <DownloadImage>
-              <Image src={googlePlay} width={220} height={66} />
+              <Image src={googlePlay} width={220} height={66} alt="Google play store" />
             </DownloadImage>
             <DownloadImage>
-              <Image src={appStore} width={220} height={66} />
+              <Image src={appStore} width={220} height={66} alt="Apple Store" />
             </DownloadImage>
           </FooterList>
         </FooterSection>
       </FooterUp>
       <FooterDown>
-        <Image src={iziwIcon}/>
+        <Image src={iziwIcon} alt="Iziw Icon" />
         <FooterListFAQ>
-          {footerFAQ.map(item => (
-            <TextDown key={item.length}>{item}</TextDown>
+          {footerFAQ.map((item, i) => (
+            <TextDown key={i}>{item}</TextDown>
           ))}
+          <TextDown size={12} key="3">
+            Firedev It Solutions 2021 - Todos os Direitos Reservados
+          </TextDown>
         </FooterListFAQ>
       </FooterDown>
     </FooterContainer>

@@ -15,13 +15,13 @@ export const FooterContainer = styled.div`
 
 export const FooterUp = styled.div`
   padding-bottom: 60px;
-  margin:  10px;
+  margin: 10px;
   width: 1366px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-bottom: 1px solid #70707050;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.2);
   @media (max-width: 1440px) {
     width: 1100px;
   }
@@ -68,12 +68,12 @@ export const TextUp = styled.p`
   font-family: ${fonts.extraBold};
 `;
 
-export const TextDown = styled.p`
+export const TextDown = styled.p<{ size?: 15 | number }>`
   cursor: pointer;
   text-decoration: none;
   margin: 12px 40px 12px 0;
   color: ${colors.black};
-  font-size: 15px;
+  font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
   @media (max-width: 800px) {
     margin: 9px 25px 9px 0;
@@ -110,7 +110,7 @@ export const FooterListFAQ = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  @media (max-width: 840px){
+  @media (max-width: 840px) {
     margin: 20px 10px;
     flex-direction: column;
     text-align: left;
@@ -127,7 +127,7 @@ export const ImageLocalDiv = styled.div`
   width: 10px;
   height: 10px;
   padding: 20px;
-  background-color: #29ABE2;
+  background-color: #29abe2;
 `;
 
 export const ImageLocal = styled.div`
