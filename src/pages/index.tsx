@@ -1,11 +1,10 @@
 import React from 'react';
-import Home from '../pages/Home';
-import { AvailableInStores } from '../UI/components/availableInStores';
+import { WhoWeAre } from './whoWeAre';
 
 const Index: React.FC = () => {
   return (
     <div>
-      <AvailableInStores />
+      <WhoWeAre />
     </div>
   );
 };
