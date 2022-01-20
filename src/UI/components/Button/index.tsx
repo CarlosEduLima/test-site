@@ -3,6 +3,7 @@ import { ButtonPropsComponent } from './interfaces';
 import { ButtonComponent, CircleRotate } from './styles';
 
 export const Button: React.FC<ButtonPropsComponent> = ({
+  type,
   loading = false,
   children,
   variant,
@@ -16,6 +17,7 @@ export const Button: React.FC<ButtonPropsComponent> = ({
 }) => {
   return (
     <ButtonComponent
+      type={type}
       loading={loading}
       disabled={loading}
       max={max}
