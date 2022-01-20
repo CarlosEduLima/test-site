@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from 'src/UI/components/Header/index';
 
 const Home: React.FC = () => {
   return (
