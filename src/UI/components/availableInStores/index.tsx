@@ -13,6 +13,7 @@ import {
 import { GooglePlayBadge } from './googlePlayStoreBadge';
 import { AppStoreBadge } from './appStoreBadge';
 import { CellImages } from './CellImages';
+import { Button } from '../Button';
 
 export const AvailableInStores: React.FC = () => {
   return (
@@ -33,8 +34,16 @@ export const AvailableInStores: React.FC = () => {
           <AppStoreBadge height={52} />
           <GooglePlayBadge height={52} />
         </StoreButtonsContainer>
-        {/* TODO adicionar componente de botão */}
-        <button>Quero me cadastrar</button>
+        <div style={{ maxWidth: 280 }}>
+          <Button
+            variant={'primary'}
+            height="36px"
+            widthCircle={''}
+            heightCircle={''}
+            fontSize="14px">
+            Quero me cadastrar
+          </Button>
+        </div>
       </RightSide>
     </Container>
   );

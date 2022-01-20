@@ -22,7 +22,7 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div`
   flex-direction: column;
   flex: 1;
-  max-width: 400px;
+  max-width: 485px;
   padding-bottom: 55px;
 `;
 
@@ -46,6 +46,7 @@ export const StoreButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  margin-top: 16px;
   margin-left: -15px;
   margin-bottom: 20px;
 `;
