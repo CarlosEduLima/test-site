@@ -83,7 +83,7 @@ export const UserTypeContainer = styled.div`
   height: 35px;
   width: 100%;
 
-  margin: 15px 0;
+  margin: 25px 0;
 
   background-color: ${colors.purple};
 
@@ -97,11 +97,19 @@ export const UserTypeClient = styled.button<HowItWorksProps>`
   border: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  font-size: 16px;
 
   cursor: pointer;
 
   height: 100%;
   width: 50%;
+
+  @media screen and (max-width: 1000px){
+    font-size: 12px;
+  }
+  @media screen and (max-width: 800px){
+    font-size: 16px;
+  }
 `;
 
 export const UserTypeProfessional = styled.button<HowItWorksProps>`
@@ -111,26 +119,36 @@ export const UserTypeProfessional = styled.button<HowItWorksProps>`
   border: none;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  font-size: 16px;
 
   cursor: pointer;
 
   height: 100%;
   width: 50%;
+
+  @media screen and (max-width: 1000px){
+    font-size: 12px;
+  }
+  @media screen and (max-width: 800px){
+    font-size: 16px;
+  }
 `;
 
 export const UserProfileProfessional = styled.div<UserProfileProps>`
   display: ${({ user }) => (user === 'professional' ? 'flex' : 'none')};
 
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
+  padding-top: 25px;
 
-  height: 100%;
   width: 70%;
 
   @media (max-width: 800px) {
     flex-direction: column;
+    align-items: center;
     width: 100%;
+    padding-top: 0px;
   }
 `;
 
@@ -138,14 +156,16 @@ export const UserProfileClient = styled.div<UserProfileProps>`
   display: ${({ user }) => (user === 'client' ? 'flex' : 'none')};
 
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
+  padding-top: 25px;
 
-  height: 100%;
   width: 70%;
 
   @media (max-width: 800px) {
     flex-direction: column;
+    align-items: center;
     width: 100%;
+    padding-top: 0px;
   }
 `;

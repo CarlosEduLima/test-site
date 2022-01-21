@@ -7,14 +7,14 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  height: 70%;
   width: 30%;
 
   padding: 0 5px;
 
   @media (max-width: 800px) {
     width: 80%;
-    padding: 25px 5px;
+    padding: 0px 5px;
+    padding-top: 40px;
   }
 `;
 
@@ -22,8 +22,5 @@ export const Description = styled.p`
   text-align: center;
   font-size: 1.2rem;
   font-family: ${fonts.regular};
-
-  @media (max-width: 800px) {
-    margin-top: 10px;
-  }
+  padding: 20px 0px;
 `;
