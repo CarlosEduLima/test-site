@@ -119,12 +119,13 @@ export const Text = styled.p<{ size: number }>`
   font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
   margin: 0 8px;
+  user-select: text;
   span {
     font-weight: 600;
   }
   @media (max-width: 600px) {
     font-size: ${(props) => props.size - 4}px;
-    max-width: 80%;
+    max-width: 100%;
   }
 `;
 
@@ -192,12 +193,12 @@ export const SearchButton = styled(Image)`
 
 export const Details = styled.details`
   margin: 15px 0;
-  border-radius: 6px;
+  border-radius: 9px;
   width: 800px;
   text-align: left;
-  padding: 32px 40px;
-  background-color: #fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  background-color: #fbfbfb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  user-select: none;
   @media (max-width: 900px) {
     width: 95%;
   }
@@ -208,6 +209,7 @@ export const Summary = styled.summary`
   display: flex;
   flex-direction: row;
   cursor: pointer;
+  padding: 32px 40px;
   font-family: ${fonts.regular};
   color: #000;
   list-style-type: none;

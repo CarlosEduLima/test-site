@@ -166,7 +166,7 @@ const FAQ: React.FC = () => {
                 </Text>
                 {item.title}
               </Summary>
-              <Text size={16} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+              <Text size={16} style={{ padding: '0px 40px 32px 40px', lineHeight: '25px', cursor: 'text' }}>
                 {item.response}
               </Text>
             </Details>
@@ -180,7 +180,7 @@ const FAQ: React.FC = () => {
                 </Text>
                 {item.title}
               </Summary>
-              <Text size={16} style={{ marginTop: '20px', lineHeight: '25px', cursor: 'text' }}>
+              <Text size={16} style={{ padding: '0px 40px 32px 40px', lineHeight: '25px', cursor: 'text' }}>
                 {item.response}
               </Text>
             </Details>
