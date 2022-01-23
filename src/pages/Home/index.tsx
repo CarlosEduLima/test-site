@@ -1,9 +1,11 @@
 import React from 'react';
 
+import HowItWorks from '../../UI/components/howItWorks';
+
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>IZIW - WEBSITE</h1>
+      <HowItWorks />
     </div>
   );
 };
