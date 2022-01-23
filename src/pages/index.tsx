@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from '../pages/Home';
+import { WhoWeAre } from './whoWeAre';
 
 const Index: React.FC = () => {
   return (
     <div>
-      <Home />
+      <WhoWeAre />
     </div>
   );
 };

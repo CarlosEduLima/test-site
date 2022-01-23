@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -179,7 +180,6 @@ hr {
 
 pre {
   font-family: 'Nunito', sans-serif;
-
   font-size: 1em;
 }
 
@@ -374,7 +374,6 @@ code,
 kbd,
 samp {
   font-family: 'Nunito', sans-serif;
-
   font-size: 1em;
 }
 
