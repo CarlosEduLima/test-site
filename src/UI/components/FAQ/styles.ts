@@ -7,6 +7,7 @@ import circuloFaq from '../../../assets/circuloFaq.svg';
 import meioCirculoFaq from '../../../assets/meioCirculoFaq.svg';
 import retanguloFaq from '../../../assets/retanguloFaq.svg';
 import backgroundSearchFaq from '../../../assets/backgroundSearchFaq.svg';
+import { redirect } from 'next/dist/server/api-utils';
 
 export const FAQFull = styled.div`
   display: flex;
@@ -83,6 +84,13 @@ export const Title = styled.p<{ size: number }>`
     font-size: ${(props) => props.size - 4}px;
     max-width: 80%;
   }
+  &.center{
+    text-align: center;
+  }
+  &.search{
+    margin: 20px 0;
+    color: #fff;
+  }
 `;
 
 export const Categorias = styled.div`
@@ -126,6 +134,19 @@ export const Text = styled.p<{ size: number }>`
   @media (max-width: 600px) {
     font-size: ${(props) => props.size - 4}px;
     max-width: 100%;
+  }
+  &.answer{
+    padding: 0px 40px 32px 40px;
+    cursor: text;
+  }
+  &.mTop{
+    margin-top: 1px;
+    @media screen and (max-width: 600px) {
+      margin-top: 4px;
+    }
+  }
+  &.categoria{
+    margin: 38px;
   }
 `;
 

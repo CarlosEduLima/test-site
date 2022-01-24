@@ -16,7 +16,7 @@ import {
   PortaIcons,
   CategoriaText,
   CategoryTextContainer,
-  CategoryText,
+  CategoryText
 } from './styles';
 
 import Flag from '../../../assets/flag.svg';
@@ -108,7 +108,7 @@ const FAQ: React.FC = () => {
   return (
     <FAQFull>
       <SearchContainer>
-        <Title size={25} style={{ margin: '20px 0', color: '#fff' }}>
+        <Title size={25} className="search">
           Como podemos <span>ajudar?</span>
         </Title>
         <Search>
@@ -124,7 +124,7 @@ const FAQ: React.FC = () => {
       {value.length < 1 && (
         <>
           <FAQContainer>
-            <Text style={{ margin: 38 }} size={25}>
+            <Text className="categoria" size={25}>
               Ou escolha uma categoria relacionada à sua dúvida
             </Text>
             <Categorias>
@@ -161,12 +161,12 @@ const FAQ: React.FC = () => {
           categoriaItens[inCategoria]?.questions.map((item) => (
             <Details key={item.title}>
               <Summary>
-                <Text size={15} style={{ marginTop: 1 }}>
+                <Text size={15} className="mTop">
                   ●
                 </Text>
                 {item.title}
               </Summary>
-              <Text size={16} style={{ padding: '0px 40px 32px 40px', lineHeight: '25px', cursor: 'text' }}>
+              <Text size={16} className="answer">
                 {item.response}
               </Text>
             </Details>
@@ -175,12 +175,12 @@ const FAQ: React.FC = () => {
           filteredQuestions.map((item) => (
             <Details key={item.title}>
               <Summary>
-                <Text size={15} style={{ marginTop: 1 }}>
+                <Text size={15} className="mTop">
                   ●
                 </Text>
                 {item.title}
               </Summary>
-              <Text size={16} style={{ padding: '0px 40px 32px 40px', lineHeight: '25px', cursor: 'text' }}>
+              <Text size={16} className="answer">
                 {item.response}
               </Text>
             </Details>
@@ -188,7 +188,7 @@ const FAQ: React.FC = () => {
       </FAQContainer>
 
       {filteredQuestions.length < 1 && inCategoria < 0 && (
-        <Title size={28} style={{ textAlign: 'center' }}>
+        <Title size={28} className="center">
           Não existe questões sobre esse assunto
         </Title>
       )}
