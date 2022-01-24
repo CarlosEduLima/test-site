@@ -239,8 +239,16 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   );
 
   const searchInput = (
-    <ContainerInput {...containerInputProps}>
-      <SearchInput type="text" onChange={getNameSearch} value={valueSearch} {...textInputProps} />
+    <ContainerInput
+      {...containerInputProps}
+      $borderRadius={filtered.length > 0 && valueSearch.length > 0 && '9px 9px 0 0'}>
+      <SearchInput
+        autoComplete={false}
+        type="text"
+        onChange={getNameSearch}
+        value={valueSearch}
+        {...textInputProps}
+      />
       <div style={{ marginRight: style.marginRight, marginLeft: style.marginLeft }}>
         <BsSearch onClick={() => handleIconClick()} color={style.colorIcon} size={style.size} />
       </div>

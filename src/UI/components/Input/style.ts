@@ -24,7 +24,7 @@ export const Container = styled.div<ContainerPlaceholderProps>`
     opacity: 1;
   }
   .money-input:-moz-placeholder {
-    color: $ ${(props) => props.$placeholderTextColor};
+    color: ${(props) => props.$placeholderTextColor};
     opacity: 1;
   }
 `;
@@ -55,14 +55,14 @@ export const ContainerInput = styled.div<ContainerProps>`
     props.isErrored ? colors.redError : props.borderColor || 'transparent'};
 
   &:focus-within {
-    border: 2px solid;
+    border: 0 solid;
     border-bottom: ${(props) => (props.isSearch ? '0' : '2px solid')};
     border-color: ${(props) =>
       props.isErrored ? colors.redError : props.focusBorderColor || 'transparent'};
   }
 
   &:focus {
-    border: 2px solid;
+    border: 0 solid;
     border-bottom: ${(props) => (props.isSearch ? '0' : '2px solid')};
     border-color: ${(props) =>
       props.isErrored ? colors.redError : props.focusBorderColor || 'transparent'};
@@ -123,15 +123,15 @@ export const ContainerSearchPreview = styled.div`
 `;
 
 export const ContainerSearchPreviewItems = styled.ul`
-  width: calc(100% - 16px);
+  width: calc(100%);
   background-color: white;
   position: relative;
 
   margin-top: -20px;
-  margin-left: 0px;
+  margin-left: 0 px;
   padding-top: 8px;
   padding-bottom: 8px;
-  border: 1px solid purple;
+  border-radius: 0 0 9px 9px;
   border-top: 0px;
   padding-bottom: 16px;
   transition: all 0.7s;
@@ -143,9 +143,14 @@ export const ContainerSearchPreviewItem = styled.li`
   justify-content: start;
   width: 100%;
   min-width: 100%;
-  margin-left: -7%;
+  margin-left: 1rem;
   margin-top: 8px;
+  padding: 5px 0;
   cursor: pointer;
+
+  font-family: ${fonts.regular};
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
 `;
 
 export const ErrorText = styled.p`
