@@ -1,10 +1,10 @@
 import React from 'react';
-import { CarouselSayAboutUs } from '../UI/components/carouselSayAboutUs';
+import { CardPrice } from '../UI/components/cardPrice';
 
 const Index: React.FC = () => {
   return (
     <div>
-      <CarouselSayAboutUs />
+      <CardPrice />
     </div>
   );
 };
