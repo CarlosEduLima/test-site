@@ -15,10 +15,7 @@ export const Container = styled.div<ContainerPlaceholderProps>`
   display: grid;
   min-width: 100%;
   max-width: 100%;
-  ::-webkit-input-placeholder {
-    color: ${(props) => props.$placeholderTextColor};
-    opacity: 1;
-  }
+
   ::placeholder {
     color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
@@ -45,12 +42,11 @@ export const ContainerInput = styled.div<ContainerProps>`
   width: 100%;
   height: ${(props) => props.height}px;
   padding: 0 5px;
-  border-radius: ${(props) => props.$borderRadius || '10px'};
-  background-color: ${(props) => props.$backgroundColor || 'white'};
+  border-radius: ${(props) => props.$borderRadius || '9px'};
+  background-color: white;
   align-content: center;
   border: 1px solid;
   padding: ${(props) => props.padding || '10px'};
-
   border-color: ${(props) =>
     props.isErrored ? colors.redError : props.borderColor || 'transparent'};
 
@@ -80,17 +76,11 @@ const commonTextProperties = css<InputPropsStyle>`
   font-weight: ${(props) => props.fontWeight};
   opacity: 1;
   width: 100%;
+  margin-left: 2px;
   height: ${(props) => props.height - 5}px;
   color: ${(props) => props.color || 'black'};
   background-color: ${(props) => props.$backgroundColor || 'transparent'};
-  ::-webkit-input-placeholder {
-    color: ${(props) => props.$placeholderTextColor || 'black'};
-    opacity: 1;
-  }
-  ::-moz-placeholder {
-    color: ${(props) => props.$placeholderTextColor || 'black'};
-    opacity: 1;
-  }
+
   ::placeholder {
     color: ${(props) => props.$placeholderTextColor || 'black'};
     opacity: 1;
@@ -99,6 +89,7 @@ const commonTextProperties = css<InputPropsStyle>`
     box-shadow: 0 0 0 0;
     outline: 0;
   }
+
   flex-shrink: 1;
   padding-right: ${(props) => props.padding || '10px'};
   padding-left: ${(props) => props.padding || '10px'};
@@ -132,9 +123,16 @@ export const ContainerSearchPreviewItems = styled.ul`
   padding-top: 8px;
   padding-bottom: 8px;
   border-radius: 0 0 9px 9px;
-  border-top: 0px;
   padding-bottom: 16px;
   transition: all 0.7s;
+
+  ::before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    width: 92%;
+  }
 `;
 
 export const ContainerSearchPreviewItem = styled.li`
@@ -143,14 +141,17 @@ export const ContainerSearchPreviewItem = styled.li`
   justify-content: start;
   width: 100%;
   min-width: 100%;
-  margin-left: 1rem;
   margin-top: 8px;
-  padding: 5px 0;
+  padding: 5px 27px;
   cursor: pointer;
 
   font-family: ${fonts.regular};
   font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
+
+  :hover {
+    background-color: #0001;
+  }
 `;
 
 export const ErrorText = styled.p`
@@ -172,7 +173,7 @@ export const SearchInput = styled(ReactSearchInput)`
   input {
     ${commonTextProperties}
     width: 100%;
-    background-color: ${(props) => props.$backgroundColor || 'transparent'};
+    background-color: white;
     box-shadow: none !important;
     border: 0 !important;
   }

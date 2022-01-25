@@ -107,16 +107,26 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   };
 
   const getNameSearch = (value: string) => {
+    setIsClicked(false);
     setValueSearch(value);
     if (valueSearch != value) {
       setIsSearch(true);
     }
     setValue(name, value);
+    if (!isClicked) {
+      setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
+    }
     setFilterPreviewSearchValue(value);
   };
-  useEffect(() => {
-    setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
-  }, [filterPreviewSearchValue]);
+
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleSelected = (value) => {
+    setIsSearch(false);
+    setFiltered([]);
+    setIsClicked(true);
+    return setValueSearch(value.name);
+  };
 
   useEffect(() => {
     if (inputError && inputError != '') {
@@ -241,7 +251,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   const searchInput = (
     <ContainerInput
       {...containerInputProps}
-      $borderRadius={filtered.length > 0 && valueSearch.length > 0 && '9px 9px 0 0'}>
+      $borderRadius={
+        (filtered.length < 1 && valueSearch.length >= 0 && '9px 9px 9px 9px') ||
+        (filtered.length > 0 && valueSearch.length > 0 && '9px 9px 0 0')
+      }>
       <SearchInput
         autoComplete={false}
         type="text"
@@ -385,12 +398,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
             <ContainerSearchPreviewItems key={filtered.length}>
               {filtered.map((value, index) => {
                 return (
-                  <ContainerSearchPreviewItem
-                    key={index}
-                    onClick={() => {
-                      setIsSearch(false);
-                      return setValueSearch(value.name);
-                    }}>
+                  <ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
                     {value.name}
                   </ContainerSearchPreviewItem>
                 );
