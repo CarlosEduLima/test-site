@@ -2,6 +2,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+font-family: 'Nunito', sans-serif;
 
 [aria-dropeffect=copy]:hover {
   cursor: copy;
