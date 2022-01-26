@@ -1,14 +1,16 @@
 import React from 'react';
-import { Newsletter } from '../UI/components/newsletter';
-import { Carousel } from '../UI/components/carousel';
-import { WhatMakesUsDifferent } from '../UI/components/whatMakesUsDifferent';
+import Home from '../pages/Home';
+import FAQ from '../UI/components/FAQ';
+import { WhoWeAre } from './whoWeAre';
+import Footer from '../UI/components/footer';
 
 const Index: React.FC = () => {
   return (
     <div>
-      <Newsletter />
-      <Carousel />
-      <WhatMakesUsDifferent />
+      <Home />
+      <WhoWeAre />
+      <FAQ />
+      <Footer />
     </div>
   );
 };

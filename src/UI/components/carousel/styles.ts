@@ -36,7 +36,7 @@ export const HorizontalScrollArea = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  `;
+`;
 
 export const ScrollAreaContainer = styled.div`
   margin: 47px 0;

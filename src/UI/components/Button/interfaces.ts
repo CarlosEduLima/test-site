@@ -1,4 +1,5 @@
 export interface ButtonProps {
+  type?: string;
   loading?: boolean;
   variant: 'primary' | 'secondary';
   disabled: boolean;
@@ -9,6 +10,7 @@ export interface ButtonProps {
 }
 
 export interface ButtonPropsComponent {
+  type?: 'button' | 'submit' | 'reset';
   loading?: boolean;
   children: string;
   variant: 'primary' | 'secondary';
