@@ -30,6 +30,7 @@ module.exports = {
       files: ['**/*.stories.*'],
       rules: {
         'import/no-anonymous-default-export': 'off',
+        indent: 'off',
       },
     },
   ],
@@ -37,17 +38,19 @@ module.exports = {
     indent: 'off',
     'linebreak-style': ['warn', 'unix'],
     quotes: ['error', 'single', { avoidEscape: true }],
-    semi: ['error', 'always'],
+    semi: 'off',
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     'react/display-name': 'off',
     'react/prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/unbound-method': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
   },
+  ignorePatterns: ['node_modules'],
   settings: {
     react: {
       version: 'detect',
