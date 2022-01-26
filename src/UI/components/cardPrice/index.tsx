@@ -6,9 +6,9 @@ import useWindowSize from '../../../utils/hooks';
 import { ServiceHighlightsDadosApi, DadosApi } from './serviceAPI';
 
 export const CardPrice: React.FC = () => {
-  const [serviceLineOne, setServiceLineOne] = useState<DadosApi[]>([]);
-  const ref1 = useRef(null);
-  const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
+  const [serviceOne, setServiceOne] = useState<DadosApi[]>([]);
+  const listCards = useRef(null);
+  const onMouseDownListCards = useDraggableScroll(listCards).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 323, height: 378 };
 
@@ -39,7 +39,7 @@ export const CardPrice: React.FC = () => {
     void ServiceHighlightsDadosApi()
       .then((data) => {
         const { arrayOne } = defineLinesApi(data);
-        setServiceLineOne(arrayOne);
+        setServiceOne(arrayOne);
       })
       .catch(console.log);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -76,16 +76,16 @@ export const CardPrice: React.FC = () => {
       <Divider />
       <ScrollAreaContainer>
         <HorizontalScrollArea
-          ref={ref1}
+          ref={listCards}
           onWheel={(e) => {
-            onWheel(e, ref1);
+            onWheel(e, listCards);
           }}
           onMouseEnter={disableScroll}
           onMouseLeave={enableScroll}
-          onMouseDown={onMouseDownRef1}>
+          onMouseDown={onMouseDownListCards}>
           {/* Para usar o card com API, utilize o código abaixo:
 
-          {serviceLineOne.map((highlight, index) => (
+          {serviceOne.map((highlight, index) => (
             <InputCard
               size={cardSize}
               title={highlight.name}
