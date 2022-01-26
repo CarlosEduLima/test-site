@@ -17,6 +17,7 @@ export const CenterProfessional = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 export const SubTitleProfessional = styled.h1`
@@ -25,9 +26,8 @@ export const SubTitleProfessional = styled.h1`
   color: ${colors.white};
   line-height: 48px;
   text-align: center;
-  margin-bottom: 270px;
 
   span {
-    font-weight: 800;
+    font-weight: 700;
   }
 `;
