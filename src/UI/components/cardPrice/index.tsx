@@ -1,47 +1,45 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  Container,
-  Divider,
-  HorizontalScrollArea,
-  ScrollAreaContainer,
-  Title,
-  ButtonRegister,
-} from './styles';
+import { Container, Divider, HorizontalScrollArea, ScrollAreaContainer, Title } from './styles';
 import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
-import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
+import { ServiceHighlightsDadosApi, DadosApi } from './serviceAPI';
 
 export const CardPrice: React.FC = () => {
-  const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
-  const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
+  const [serviceLineOne, setServiceLineOne] = useState<DadosApi[]>([]);
   const ref1 = useRef(null);
-  const ref2 = useRef(null);
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
-  const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 323, height: 378 };
 
-  const defineLines = (highlights) => {
-    let arrayOne: IServiceProps[];
-    let arrayTwo: IServiceProps[];
+  // Uso temporário, apenas para teste estático do card
+  const staticApi = {
+    name: 'Plano 50 plus',
+    description1: 'xxx moedas',
+    description2: 'xx mais chances de fechar um pedido',
+    description3: 'Desbloqueie de x a x clientes',
+    split: 3,
+    price: 'XXX,XX',
+    priceSplit: 'XXX,XX',
+  };
+  //
+
+  const defineLinesApi = (highlights) => {
+    let arrayOne: DadosApi[];
     if (cardSize.width * highlights.length > windowSize.width * 2) {
       const index = Math.floor(highlights.length / 2 + 1);
       arrayOne = highlights.slice(0, index);
-      arrayTwo = highlights.slice(index);
     } else {
       arrayOne = highlights;
-      arrayTwo = [];
     }
-    return { arrayOne, arrayTwo };
+    return { arrayOne };
   };
 
   useEffect(() => {
-    void ServiceHighlights()
+    void ServiceHighlightsDadosApi()
       .then((data) => {
-        const { arrayOne, arrayTwo } = defineLines(data);
-        setServiceHighlightsLineOne(arrayOne);
-        setServiceHighlightsLineTwo(arrayTwo);
+        const { arrayOne } = defineLinesApi(data);
+        setServiceLineOne(arrayOne);
       })
       .catch(console.log);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,7 +72,7 @@ export const CardPrice: React.FC = () => {
 
   return (
     <Container>
-      <Title style={{ marginBottom: 12 }}>Pacotes</Title>
+      <Title className="marginBottom">Pacotes</Title>
       <Divider />
       <ScrollAreaContainer>
         <HorizontalScrollArea
@@ -85,6 +83,46 @@ export const CardPrice: React.FC = () => {
           onMouseEnter={disableScroll}
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
+          {/* Para usar o card com API, utilize o código abaixo:
+
+          {serviceLineOne.map((highlight, index) => (
+            <InputCard
+              size={cardSize}
+              title={highlight.name}
+              description1={highlight.description}
+              description2={staticApi.description2}
+              description3={staticApi.description3}
+              split={staticApi.split}
+              priceSplit={staticApi.priceSplit}
+              price={staticApi.price}
+            />
+          ))}
+        */}
+
+          {/* Para usar o card com dados estáticos, utilize o código abaixo:
+          
+          <InputCard
+            size={cardSize}
+            title={staticApi.name}
+            description1={staticApi.description1}
+            description2={staticApi.description2}
+            description3={staticApi.description3}
+            split={staticApi.split}
+            priceSplit={staticApi.priceSplit}
+            price={staticApi.price}
+          />
+          */}
+
+          <InputCard
+            size={cardSize}
+            title="PACOTE X"
+            description1="xxx moedas"
+            description2="xx mais chances de fechar um pedido"
+            description3="Desbloqueie de x a x clientes"
+            split={3}
+            priceSplit="XXX,XX"
+            price="XXX,XX"
+          />
           <InputCard
             size={cardSize}
             title="PACOTE X"

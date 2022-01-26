@@ -7,6 +7,9 @@ export const Title = styled.h1`
   color: ${colors.black};
   font-size: 25px;
   font-weight: 700;
+  &.marginBottom {
+    margin-bottom: 12px;
+  }
 `;
 
 export const Container = styled.div`
@@ -18,14 +21,14 @@ export const Container = styled.div`
 `;
 
 export const Divider = styled.div`
-  width: 125px;
+  width: 133px;
   height: 0;
   border: 2px solid ${colors.blue};
 `;
 
 export const HorizontalScrollArea = styled.div`
   margin: 0 auto;
-  width: 100%;
+  max-width: 1440px;
   display: flex;
   flex-direction: row;
   overflow-x: auto;
@@ -42,19 +45,4 @@ export const HorizontalScrollArea = styled.div`
 export const ScrollAreaContainer = styled.div`
   margin: 47px 0;
   width: 100%;
-`;
-
-export const ButtonRegister = styled.button`
-  width: 280px;
-  height: 37px;
-  background: ${colors.blue};
-  color: ${colors.white};
-  border: 0px;
-  border-radius: 30px;
-  font-family: ${fonts.regular};
-  font-size: 14px;
-  cursor: pointer;
-  :active {
-    background: ${colors.darkBlue};
-  }
 `;
