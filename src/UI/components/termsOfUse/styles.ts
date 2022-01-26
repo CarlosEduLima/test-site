@@ -6,6 +6,7 @@ export const ContainerTitle = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 50px;
 `;
 
 export const Title = styled.h2`
@@ -25,12 +26,16 @@ export const Border = styled.div`
 `;
 
 export const Container = styled.div`
+  top: 0;
+  overflow-y: scroll;
+  height: 800px;
   padding: 15px 10% 100px;
   font: ${fonts.regular};
-  font-size: 35, 81px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 25px;
+  line-height: 34.1px;
   width: 100%;
+
+  span.crosshair{
+  cursor: crosshair;
+}
 `;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Title, Container, Border, ContainerTitle } from './styles';
 
-export default class index extends Component {
+export default class TermsOfUse extends Component {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   render() {
     return (
