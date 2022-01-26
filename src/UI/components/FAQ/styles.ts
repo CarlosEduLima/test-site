@@ -84,10 +84,10 @@ export const Title = styled.p<{ size: number }>`
     font-size: ${(props) => props.size - 4}px;
     max-width: 80%;
   }
-  &.center{
+  &.center {
     text-align: center;
   }
-  &.search{
+  &.search {
     margin: 20px 0;
     color: #fff;
   }
@@ -135,17 +135,17 @@ export const Text = styled.p<{ size: number }>`
     font-size: ${(props) => props.size - 4}px;
     max-width: 100%;
   }
-  &.answer{
+  &.answer {
     padding: 0px 40px 32px 40px;
     cursor: text;
   }
-  &.mTop{
+  &.mTop {
     margin-top: 1px;
     @media screen and (max-width: 600px) {
       margin-top: 4px;
     }
   }
-  &.categoria{
+  &.categoria {
     margin: 38px;
   }
 `;

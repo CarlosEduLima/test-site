@@ -53,7 +53,8 @@ const HowItWorks: React.FC = () => {
         </UserTypeContainer>
 
         <DescriptionText>
-          Encontrar e contratar profissionais qualificados para os mais variados serviços nunca foi tão fácil, rápido e sem burocracia.
+          Encontrar e contratar profissionais qualificados para os mais variados serviços nunca foi
+          tão fácil, rápido e sem burocracia.
         </DescriptionText>
       </ButtonContainer>
 
@@ -85,8 +86,6 @@ const HowItWorks: React.FC = () => {
           description="Envie propostas e feche negócios com clientes."
         />
       </UserProfileProfessional>
-
-
     </Container>
   );
 };

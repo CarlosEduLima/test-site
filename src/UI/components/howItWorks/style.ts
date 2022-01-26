@@ -104,10 +104,10 @@ export const UserTypeClient = styled.button<HowItWorksProps>`
   height: 100%;
   width: 50%;
 
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1000px) {
     font-size: 12px;
   }
-  @media screen and (max-width: 800px){
+  @media screen and (max-width: 800px) {
     font-size: 16px;
   }
 `;
@@ -126,10 +126,10 @@ export const UserTypeProfessional = styled.button<HowItWorksProps>`
   height: 100%;
   width: 50%;
 
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1000px) {
     font-size: 12px;
   }
-  @media screen and (max-width: 800px){
+  @media screen and (max-width: 800px) {
     font-size: 16px;
   }
 `;

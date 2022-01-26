@@ -13,7 +13,12 @@ export const Card = styled.div`
   color: ${colors.black};
   border: 0.75px solid #e5e5e5;
 `;
-export const Imagebackground = styled.div`
+
+interface IImageBackground {
+  ImgBackground: string;
+}
+
+export const Imagebackground = styled.div<IImageBackground>`
   width: 100%;
   display: flex;
   justify-content: center;

@@ -9,7 +9,7 @@ const Index: React.FC = () => {
     <div>
       <Home />
       <WhoWeAre />
-      <FAQ />     
+      <FAQ />
       <Footer />
     </div>
   );

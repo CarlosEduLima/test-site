@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useState } from 'react';
 import {
   FAQFull,
@@ -16,7 +17,7 @@ import {
   PortaIcons,
   CategoriaText,
   CategoryTextContainer,
-  CategoryText
+  CategoryText,
 } from './styles';
 
 import Flag from '../../../assets/flag.svg';
