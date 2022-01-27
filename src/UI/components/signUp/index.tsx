@@ -14,74 +14,77 @@ import {
   BoxButton,
   BoxInput,
   Logo,
-  ContainerImageGooglePlay,
   Box,
   Container,
-  ContainerImage,
+
   ContainerText,
   Text,
   styleInput,
   styleError,
+  ContainerImageStore,
 } from './styles';
 import { Button } from '../Button';
 
 export default function App() {
+
   const [data, setData] = useState({
     name: '',
     email: '',
     phone: '',
     password: '',
-    password_confirm: '',
+    password_confirmation: '',
   });
-  const [currentStep, setCurrentStep] = useState(0);
 
-  //Passos para percorrer as etapas do formulario
+  const [currentStep, setCurrentStep] = useState(0);
+  const [resp, setResp] = useState({});
+
   const steps = [
     <StepOne next={handleNext} data={data} key={0} />,
     <StepTwo next={handleNext} data={data} key={1} />,
-    <StepThree key={2} />,
+    <StepThree key={2} resp={resp} />,
   ];
 
-  //Requisição da API
   async function makeRequest(formData: IRegisterUserProps) {
     try {
-      await RegisterUser(formData);
-      setCurrentStep((prevState) => prevState + 1);
-    } catch {
-      console.log('Erro');
+      const resposta = await RegisterUser(formData);
+      setResp(resposta)
+
+      return resposta;
+    } catch (error) {
+      console.log(error);
     }
   }
-  //Função para mover as paginas e pedir a requisição quando for a penultima tela
-  function handleNext(newData: IRegisterUserProps, final = false) {
+
+  async function handleNext(newData: IRegisterUserProps, final = false) {
     console.log(currentStep);
     setData((prev) => ({ ...prev, ...newData }));
 
     if (final) {
+      const resposta = await makeRequest(newData);
+      if (resposta) {
+        setCurrentStep((prev) => prev + 1);
+      }
+    } else {
       setCurrentStep((prev) => prev + 1);
-      makeRequest(newData);
-      return;
     }
-
-    setCurrentStep((prev) => prev + 1);
   }
-
   return <div className="App">{<Container>{steps[currentStep]}</Container>}</div>;
 }
 
 const nameRegex = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/;
-const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
 
 const userSchema = yup.object({
   name: yup
     .string()
-    .required('O nome é obrigatório')
+    .required('Preencha o campo Nome')
     .matches(nameRegex, 'O nome deve ser padronizado'),
-  email: yup.string().email('Email inválido').required('Preencha o campo de e-mail!'),
+  email: yup.string().email('Email inválido').required('Preencha o campo de e-mail'),
   phone: yup
     .string()
-    .required('O telefone é obrigatório')
-    .max(10, 'O telefone precisa ter menos de 10 caracteres')
-    .matches(phoneRegex, 'O seu número não é um número válido'),
+    .required('Preencha o campo telefone')
+    .max(11, 'O telefone precisa 11 caracteres')
+    .matches(phoneRegex, 'O número informado não é um número válido'),
 });
 
 const StepOne = (props) => {
@@ -94,9 +97,7 @@ const StepOne = (props) => {
       {({ errors }) => (
         <Box>
           <Form>
-            <ContainerImage>
-              <Logo src={LogoImg} alt="Search" />
-            </ContainerImage>
+            <Logo src={LogoImg} alt="Search" />
             <ContainerText>
               <Text>
                 Cadastre-se e tenha acesso
@@ -145,12 +146,15 @@ const userSchema2 = yup.object({
   password: yup
     .string()
     .min(8, 'A senha deve ter no mínimo 8 caracteres')
-    .required('Preencha o campo de senha!')
+    .required('Preencha o campo da senha')
     .matches(
       senhaRegex,
-      'A senha deve conter letras minúscula, maiúscula, letras e caracteres especiais',
+      'A senha deve conter letras minúscula, maiúscula e caracteres especiais',
     ),
-  confirm_password: yup.string().required('Por favor, confirme a senha'),
+  password_confirmation: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Verifique as senhas')
+    .required('Por favor, confirme a senha'),
 });
 
 const StepTwo = (props) => {
@@ -164,9 +168,7 @@ const StepTwo = (props) => {
       {({ errors }) => (
         <Box>
           <Form>
-            <ContainerImage>
-              <Logo src={LogoImg} alt="Search" />
-            </ContainerImage>
+            <Logo src={LogoImg} alt="Search" />
             <ContainerText>
               <Text>
                 Cadastre-se e tenha acesso
@@ -177,7 +179,7 @@ const StepTwo = (props) => {
               <Field
                 name="password"
                 style={styleInput(errors.password)}
-                type="password"
+                type=""//SENHA
                 placeHolder="Senha"
               />
               <ErrorMessage name="password">
@@ -186,12 +188,12 @@ const StepTwo = (props) => {
             </BoxInput>
             <BoxInput>
               <Field
-                name="confirm_password"
-                style={styleInput(errors.confirm_password)}
-                type="password"
+                name="password_confirmation"
+                style={styleInput(errors.password_confirmation)}
+                type=""//SENHA
                 placeHolder="Insira a senha novamente"
               />
-              <ErrorMessage name="confirm_password">
+              <ErrorMessage name="password_confirmation">
                 {(msg) => <div style={styleError}>{msg}</div>}
               </ErrorMessage>
             </BoxInput>
@@ -211,24 +213,25 @@ const StepTwo = (props) => {
   );
 };
 
-const StepThree = () => {
+const StepThree = (props) => {
+
   return (
-    <Box>
-      <ContainerImage>
-        <Logo src={Check} alt="Search" />
-      </ContainerImage>
+    <>
+      {
+        props.resp !== undefined && props.resp.message !== undefined &&
+        (<Box>
+          <Logo src={Check} alt="Search" />
 
-      <ContainerText>
-        <Text>Recebemos seu cadastro! Para continuar, baixe já o aplicativo.</Text>
-      </ContainerText>
+          <ContainerText>
+            <Text>Recebemos seu cadastro! Para continuar, baixe já o aplicativo.</Text>
+          </ContainerText>
 
-      <ContainerImageGooglePlay>
-        <Logo src={googlePlay} alt="googlePlay" />
-      </ContainerImageGooglePlay>
-
-      <ContainerImage>
-        <Logo src={AppStore} alt="AppStore" />
-      </ContainerImage>
-    </Box>
+          <ContainerImageStore>
+            <Logo src={googlePlay} alt="googlePlay" />
+            <Logo src={AppStore} alt="AppStore" />
+          </ContainerImageStore>
+        </Box>)
+      }
+    </>
   );
 };

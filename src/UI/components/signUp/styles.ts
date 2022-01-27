@@ -7,15 +7,15 @@ export const Container = styled.div`
   background: url(${img.src}) no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 20%;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+  position: relative;
 `;
 
 export const Logo = styled(Image)`
-  width: 30px;
+  margin-bottom: 30px;
+  display: flex;
 `;
 
 export const Text = styled.h3`
@@ -24,18 +24,12 @@ export const Text = styled.h3`
   font-weight: 600;
 `;
 
-export const ContainerImage = styled.div`
+export const ContainerImageStore = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
-
-export const ContainerImageGooglePlay = styled.div`
-  margin: 20px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 20px;
+  width: 237px;
+  flex-direction: column;
+  gap: 25px;
   cursor: pointer;
 `;
 
@@ -63,6 +57,7 @@ export const styleInput = (isError) => {
 
 export const styleError = {
   color: '#F00',
+  marginTop: 6,
 };
 
 export const Input = styled.input`
@@ -81,15 +76,15 @@ export const Box = styled.div`
   background-color: white;
   width: 458px;
   height: 612px;
+  position: absolute;
+  bottom: -25px;
+  right: 55%;
   display: flex;
   flex-direction: column;
-  border-radius: 3px;
-  color: black;
-  font-size: 18px;
-  padding: 1rem 1.5rem;
-  justify-content: center;
+  border-radius: 25px;
+  padding: 5rem 1.5rem;
   align-items: center;
-  font-weight: 500;
+  text-align: center;
 `;
 
 export const BoxInput = styled.div`
@@ -98,6 +93,7 @@ export const BoxInput = styled.div`
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
 `;
 
 export const BoxButton = styled.div`
