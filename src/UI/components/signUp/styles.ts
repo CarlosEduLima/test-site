@@ -6,7 +6,6 @@ import img from '../../../assets/imagemFundoCadastro.png';
 export const Container = styled.div`
   background: url(${img.src}) no-repeat;
   background-size: cover;
-  display: flex;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -84,8 +83,16 @@ export const Box = styled.div`
   border-radius: 25px;
   padding: 5rem 1.5rem;
   align-items: center;
+  justify-content: center;
   text-align: center;
+
+  @media (max-width: 1100px) {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
+
 
 export const BoxInput = styled.div`
   border-radius: 50%;
