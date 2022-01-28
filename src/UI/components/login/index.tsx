@@ -48,7 +48,6 @@ export default function Login() {
         password: yup
             .string()
             .required('Preencha o campo da senha'),
-        // .oneOf([yup.ref('password'), null], 'Senha incorreta')
     });
 
     const handleSubmit = async (values) => {
@@ -57,7 +56,6 @@ export default function Login() {
 
         const resposta = await makeRequest(values)
         setResp(resposta)
-        console.log(resposta, 'RESPOSTA MAKE_REQUEST')
     }
 
     return (
