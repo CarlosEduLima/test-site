@@ -6,7 +6,7 @@ export const FooterContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 40px;
-  background-color: ${colors.white};
+  background-color: ${colors.lightBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
