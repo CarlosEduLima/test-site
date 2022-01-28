@@ -179,7 +179,7 @@ const StepTwo = (props) => {
               <Field
                 name="password"
                 style={styleInput(errors.password)}
-                type=""//SENHA
+                type="password"
                 placeHolder="Senha"
               />
               <ErrorMessage name="password">
@@ -190,7 +190,7 @@ const StepTwo = (props) => {
               <Field
                 name="password_confirmation"
                 style={styleInput(errors.password_confirmation)}
-                type=""//SENHA
+                type="password"
                 placeHolder="Insira a senha novamente"
               />
               <ErrorMessage name="password_confirmation">
