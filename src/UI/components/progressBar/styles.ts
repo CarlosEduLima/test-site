@@ -14,8 +14,9 @@ export const Container = styled.div`
 `;
 
 export const ContainerBar = styled.div`
-  height: 6px;
   width: 910px;
+  max-width: 95%;
+  height: 6px;
   background-color: ${colors.lightBlue3};
   border-radius: 50px;
   margin: 50px;
