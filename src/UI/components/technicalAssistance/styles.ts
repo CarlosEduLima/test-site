@@ -6,4 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 800px) {
+    max-width: 95%;
+  }
 `;

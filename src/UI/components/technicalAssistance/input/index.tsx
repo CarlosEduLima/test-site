@@ -1,20 +1,24 @@
 import React from 'react';
-import { Title, Description, Input } from './styles';
+import Input from '../../Input';
+import { Title, Description, ContainerInput } from './styles';
 
 interface Props {
-  title?: string;
+  title: string;
   description?: string;
   placeholderText?: string;
+  icon: string;
 }
 
-export const InputContent: React.FC<Props> = ({ title, description, placeholderText }) => {
+export const InputContent: React.FC<Props> = ({ title, description, placeholderText, icon }) => {
   return (
     <>
       <Title>{title}</Title>
       <Description className={description === undefined ? 'noMargin' : 'marginDescription'}>
         {description}
       </Description>
-      <Input placeholder={placeholderText} />
+      <ContainerInput>
+        <Input name={title} icon={icon} placeholder={placeholderText}></Input>
+      </ContainerInput>
     </>
   );
 };

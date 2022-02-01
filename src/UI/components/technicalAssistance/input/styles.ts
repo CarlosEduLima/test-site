@@ -24,16 +24,24 @@ export const Description = styled.p`
   }
 `;
 
-export const Input = styled.input`
-  font-family: ${fonts.regular};
-  font-size: 20px;
-  background: ${colors.lightBlue};
-  width: 350px;
-  height: 50px;
-  border: 0px;
-  border-radius: 10px;
-  text-align: center;
-  ::placeholder {
-    color: ${colors.gray};
+export const ContainerInput = styled.div`
+  div:focus-within {
+    border: 0px;
+  }
+  label {
+    display: none;
+  }
+  input {
+    font-family: ${fonts.regular};
+    font-size: 20px;
+    background: ${colors.lightBlue};
+    width: 350px;
+    height: 50px;
+    border: 0px;
+    border-radius: 10px;
+    text-align: center;
+    ::placeholder {
+      color: ${colors.gray};
+    }
   }
 `;
