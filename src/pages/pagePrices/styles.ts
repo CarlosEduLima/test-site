@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import colors from '../../utils/colors';
 import fonts from '../../utils/fonts';
+import imagePrices from '../../assets/imagePrices.png';
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -15,7 +16,7 @@ export const NewsletterContainer = styled.div`
 export const Top = styled.div`
   width: 100%;
   height: 490px;
-  background: linear-gradient(#373aadaa, #373aadaa) no-repeat;
+  background: linear-gradient(#373aadaa, #373aadaa), url(${imagePrices.src}) no-repeat;
   display: flex;
   justify-content: center;
   background-size: cover;

@@ -3,6 +3,7 @@ import { Header } from '../../UI/components/Header';
 import Footer from '../../UI/components/footer';
 import { Newsletter } from '../../UI/components/newsletter';
 import { AvailableInStores } from '../../UI/components/availableInStores';
+import { CardPrice } from '../../UI/components/cardPrice';
 import {
   Top,
   TextWhite,
@@ -27,6 +28,7 @@ const PagePrices: React.FC = () => {
           </TextWhite>
         </TopCenter>
       </Top>
+      <CardPrice />
       <AvailableInStores />
       <NewsletterContainer>
         <Newsletter />
