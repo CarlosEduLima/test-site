@@ -4,28 +4,26 @@ import Modal from '../modal';
 import discardImage from '../../../assets/discardImage.svg';
 import Image from 'next/image';
 import api from '../../../services/api'
-import { SubTitle, Container, ButtonContainer, Input, InputContainer, ImagesContainer, ImagesCropped, DiscardImage } from './styles';
-
+import {
+    SubTitle,
+    Container,
+    ButtonContainer,
+    Input,
+    InputContainer,
+    ImagesContainer,
+    ImagesCropped,
+    DiscardImage
+} from './styles';
 
 const AddImages = () => {
 
     const [image, setImage] = useState();
     const [images, setImages] = useState([]);
-    const [imageFile, setImageFile] = useState();
     const [imagesFile, setImagesFile] = useState([]);
     const [response, setResponse] = useState([]);
 
     const CloseModal = () => {
         setImage(undefined);
-        setImageFile(undefined);
-    };
-
-    const SaveModal = () => {
-        setImages([...images, image]);
-        setImage(undefined);
-
-        setImagesFile([...imagesFile, imageFile]);
-        setImageFile(undefined);
     };
 
     const DiscardImg = (i) => {
@@ -37,10 +35,12 @@ const AddImages = () => {
     };
 
     const SendFile = async () => {
-        response.splice(0)
+        if (images.length > 0 && imagesFile.length > 0) {
+            response.splice(0)
+        }
 
         for (let item of imagesFile) {
-            var formData = new FormData();
+            let formData = new FormData();
             formData.append("file[]", item)
 
             setResponse(await api.post('/files?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDEyMzQ0NjksIm5iZiI6MTY0MTIzNDQ2OSwianRpIjoiN2xUcmw0OU1JbWJWNHRLRSIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.sfZ3v5IZPDUfHE11tw7Gd6nHHD1NtWTcJGOzTPY30Vs',
@@ -50,6 +50,8 @@ const AddImages = () => {
                 }
             }))
         }
+        setImagesFile([]);
+        setImages([]);
     }
 
     return (
@@ -68,9 +70,15 @@ const AddImages = () => {
                         <Input type="file" name="file" accept="image/*"
                             onChange={(e) => {
                                 const file: any = e.target.files[0]
-                                const blob: any = URL.createObjectURL(file)
-                                setImageFile(file)
-                                setImage(blob)
+                                const reader: any = new FileReader()
+
+                                reader.addEventListener('load', () => {
+                                    setImage(reader.result)
+                                }, false)
+
+                                if (file) {
+                                    reader.readAsDataURL(file)
+                                }
                             }} />
                     </InputContainer>
                 </ImagesContainer>
@@ -81,8 +89,12 @@ const AddImages = () => {
             {image &&
                 <Modal
                     image={image}
+                    images={images}
+                    imagesFile={imagesFile}
                     buttonClose={CloseModal}
-                    buttonSave={SaveModal}
+                    setImage={setImage}
+                    setImages={setImages}
+                    setImagesFile={setImagesFile}
                 />}
         </>
     )

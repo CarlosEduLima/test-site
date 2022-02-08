@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import NextImage from 'next/image';
 import { Button } from '../Button';
 import Cropper from 'react-easy-crop'
+import getCroppedImg from './cropImage';
 import closeModal from '../../../assets/closeModal.svg';
 import {
     Container,
@@ -15,15 +16,34 @@ import {
     Images,
 } from './styles'
 
-const Modal = ({ image, buttonClose, buttonSave }) => {
+const Modal = ({ image, buttonClose, setImage, setImages, images, setImagesFile, imagesFile }) => {
 
     const [crop, setCrop] = useState({ x: 0, y: 0 })
     const [zoom, setZoom] = useState(1)
-    const [cropped, setCropped] = useState()
+    const [croppedAreaPixels, setCroppedAreaPixels] = useState()
 
     const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-        setCropped(croppedAreaPixels)
-    }, [cropped])
+        setCroppedAreaPixels(croppedAreaPixels)
+    }, [])
+
+    const showCroppedImage = useCallback(async () => {
+        try {
+
+            const [croppedImageNew, fileImage] = await getCroppedImg(
+                image,
+                croppedAreaPixels,
+            )
+
+            const file = new File([croppedImageNew], 'name.jpeg', { type: 'image/jpeg' });
+
+            setImages([...images, croppedImageNew]);
+            setImagesFile([...imagesFile, fileImage]);
+            setImage(undefined);
+
+        } catch (e) {
+            console.error(e)
+        }
+    }, [croppedAreaPixels])
 
     return (
         <Container>
@@ -59,7 +79,7 @@ const Modal = ({ image, buttonClose, buttonSave }) => {
                         }}
                     />
                 </ImageModal>
-                <ButtonModal onClick={buttonSave}>
+                <ButtonModal onClick={showCroppedImage}>
                     <Button variant={'secondary'} widthCircle={''} heightCircle={''} height='35px'>SALVAR</Button>
                 </ButtonModal>
             </ContainerModal>
