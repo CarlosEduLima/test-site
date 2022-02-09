@@ -23,3 +23,23 @@ export const RegisterUser = async (
     throw error;
   }
 };
+
+export interface ILoginUserProps {
+  email: string;
+  password: string;
+};
+
+export const LoginUser = async (
+  params: ILoginUserProps,
+): Promise<{
+  message: string;
+}> => {
+  try {
+    const response = await api.post<{ message: string }>('/auth/login', params);
+    return response.data;
+  } catch (error) {
+    console.log('API POST error: /auth/login');
+    console.log(error);
+    throw error;
+  }
+};
