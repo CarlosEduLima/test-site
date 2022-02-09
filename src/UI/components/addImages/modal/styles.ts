@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import fonts from '../../../utils/fonts';
+import fonts from '../../../../utils/fonts';
 
 export const Container = styled.div`
     display: flex;
@@ -69,11 +69,4 @@ export const ButtonModal = styled.div`
     display: flex;
     align-items: center;
     border-radius: 18px;
-    `;
-
-export const Images = styled.img`
-    height: auto;
-    width: auto;
-    max-height: 100%;
-    max-width: 100%;
     `;

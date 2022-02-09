@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '../Button';
-import Modal from '../modal';
+import Modal from './modal';
 import discardImage from '../../../assets/discardImage.svg';
 import Image from 'next/image';
 import api from '../../../services/api'

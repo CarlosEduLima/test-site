@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import NextImage from 'next/image';
-import { Button } from '../Button';
+import { Button } from '../../Button';
 import Cropper from 'react-easy-crop'
-import getCroppedImg from './cropImage';
-import closeModal from '../../../assets/closeModal.svg';
+import getCroppedImg from '../crop';
+import closeModal from '../../../../assets/closeModal.svg';
 import {
     Container,
     BackgroundModal,
@@ -13,7 +13,6 @@ import {
     ButtonModal,
     TitleModal,
     CloseModal,
-    Images,
 } from './styles'
 
 const Modal = ({ image, buttonClose, setImagesGallery, imagesGallery, setImagesFile, imagesFile, handleLimitImage }) => {
