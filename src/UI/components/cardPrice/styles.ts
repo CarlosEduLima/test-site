@@ -6,6 +6,10 @@ export const Title = styled.h1`
   font-family: ${fonts.extraBold};
   color: ${colors.black};
   font-size: 25px;
+  font-weight: 700;
+  &.marginBottom {
+    margin-bottom: 12px;
+  }
 `;
 
 export const Container = styled.div`
@@ -17,14 +21,14 @@ export const Container = styled.div`
 `;
 
 export const Divider = styled.div`
-  width: 124px;
+  width: 133px;
   height: 0;
-  border: 1px solid ${colors.LightBlue};
+  border: 2px solid ${colors.blue};
 `;
 
 export const HorizontalScrollArea = styled.div`
   margin: 0 auto;
-  width: 100%;
+  max-width: 1440px;
   display: flex;
   flex-direction: row;
   overflow-x: auto;
