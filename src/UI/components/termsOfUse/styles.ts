@@ -26,9 +26,7 @@ export const Border = styled.div`
 `;
 
 export const Container = styled.div`
-  top: 0;
-  overflow-y: scroll;
-  height: 800px;
+  margin-top: 20px;
   padding: 15px 10% 100px;
   font: ${fonts.regular};
   font-size: 25px;

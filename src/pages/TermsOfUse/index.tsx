@@ -1,23 +1,23 @@
 import React from 'react';
-import { HeaderContainer } from './styles';
+import { HeaderContainer, ContainerTermsOfUser } from './styles';
 import { Header } from 'src/UI/components/Header';
 import { Newsletter } from 'src/UI/components/newsletter';
 import Footer from 'src/UI/components/footer';
+import TermsOfUse from 'src/UI/components/termsOfUse';
 
-
-const TermsOfUse: React.FC = () => {
+const TermsOfUsePage: React.FC = () => {
     return (
         <>
             <HeaderContainer>
                 <Header />
             </HeaderContainer>
-
-            {/*  *** COMPONENTE TERMOS DE USO *** */}
-
+            <ContainerTermsOfUser>
+                <TermsOfUse />
+            </ContainerTermsOfUser>
             <Newsletter />
             <Footer />
         </>
     );
 };
 
-export default TermsOfUse;
+export default TermsOfUsePage;
