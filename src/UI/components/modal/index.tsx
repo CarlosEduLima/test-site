@@ -16,7 +16,7 @@ import {
     Images,
 } from './styles'
 
-const Modal = ({ image, buttonClose, setImage, setImages, images, setImagesFile, imagesFile }) => {
+const Modal = ({ image, buttonClose, setImagesGallery, imagesGallery, setImagesFile, imagesFile, handleLimitImage }) => {
 
     const [crop, setCrop] = useState({ x: 0, y: 0 })
     const [zoom, setZoom] = useState(1)
@@ -28,17 +28,12 @@ const Modal = ({ image, buttonClose, setImage, setImages, images, setImagesFile,
 
     const showCroppedImage = useCallback(async () => {
         try {
+            const [croppedImageNew, fileImage] = await getCroppedImg(image, croppedAreaPixels)
 
-            const [croppedImageNew, fileImage] = await getCroppedImg(
-                image,
-                croppedAreaPixels,
-            )
-
-            const file = new File([croppedImageNew], 'name.jpeg', { type: 'image/jpeg' });
-
-            setImages([...images, croppedImageNew]);
+            setImagesGallery([...imagesGallery, croppedImageNew]);
             setImagesFile([...imagesFile, fileImage]);
-            setImage(undefined);
+            handleLimitImage()
+            buttonClose()
 
         } catch (e) {
             console.error(e)

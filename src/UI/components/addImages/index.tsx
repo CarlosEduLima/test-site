@@ -18,24 +18,29 @@ import {
 const AddImages = () => {
 
     const [image, setImage] = useState();
-    const [images, setImages] = useState([]);
+    const [imagesGallery, setImagesGallery] = useState([]);
     const [imagesFile, setImagesFile] = useState([]);
     const [response, setResponse] = useState([]);
+    const [limitImage, setLimitImage] = useState(0);
+
+    const handleLimitImage = () => {
+        setLimitImage(limitImage + 1)
+    };
 
     const CloseModal = () => {
         setImage(undefined);
     };
 
     const DiscardImg = (i) => {
-        images.splice(i, 1);
-        setImages([...images]);
+        imagesGallery.splice(i, 1);
 
         imagesFile.splice(i, 1);
-        setImagesFile([...imagesFile]);
+
+        setLimitImage(limitImage - 1);
     };
 
     const SendFile = async () => {
-        if (images.length > 0 && imagesFile.length > 0) {
+        if (imagesGallery.length > 0 && imagesFile.length > 0) {
             response.splice(0)
         }
 
@@ -50,8 +55,9 @@ const AddImages = () => {
                 }
             }))
         }
+        setLimitImage(0);
         setImagesFile([]);
-        setImages([]);
+        setImagesGallery([]);
     }
 
     return (
@@ -59,28 +65,31 @@ const AddImages = () => {
             <Container>
                 <SubTitle>Adicione fotos para receber orçamentos mais precisos!</SubTitle>
                 <ImagesContainer>
-                    {images?.map((item, i) => (
+                    {imagesGallery?.map((item, i) => (
                         <ImagesCropped img={item} >
                             <DiscardImage onClick={() => DiscardImg(i)}>
                                 <Image src={discardImage} width={10} height={10} />
                             </DiscardImage>
                         </ImagesCropped>
                     ))}
-                    <InputContainer>
-                        <Input type="file" name="file" accept="image/*"
-                            onChange={(e) => {
-                                const file: any = e.target.files[0]
-                                const reader: any = new FileReader()
+                    {limitImage < 5 && (
+                        <InputContainer>
+                            <Input
+                                type="file" name="file" accept="image/*"
+                                onChange={(e) => {
+                                    const file: any = e.target.files[0]
+                                    const reader: any = new FileReader()
 
-                                reader.addEventListener('load', () => {
-                                    setImage(reader.result)
-                                }, false)
+                                    reader.addEventListener('load', () => {
+                                        setImage(reader.result)
+                                    }, false)
 
-                                if (file) {
-                                    reader.readAsDataURL(file)
-                                }
-                            }} />
-                    </InputContainer>
+                                    if (file) {
+                                        reader.readAsDataURL(file)
+                                    }
+                                }} />
+                        </InputContainer>
+                    )}
                 </ImagesContainer>
                 <ButtonContainer onClick={SendFile} >
                     <Button children={'Próximo'} variant={'secondary'} widthCircle={''} heightCircle={''} height='35px' />
@@ -89,12 +98,12 @@ const AddImages = () => {
             {image &&
                 <Modal
                     image={image}
-                    images={images}
+                    imagesGallery={imagesGallery}
                     imagesFile={imagesFile}
                     buttonClose={CloseModal}
-                    setImage={setImage}
-                    setImages={setImages}
+                    setImagesGallery={setImagesGallery}
                     setImagesFile={setImagesFile}
+                    handleLimitImage={handleLimitImage}
                 />}
         </>
     )
