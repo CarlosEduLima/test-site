@@ -12,7 +12,7 @@ import { Header } from '../../UI/components/Header';
 import { AvailableInStores } from '../../UI/components/availableInStores';
 import { Newsletter } from '../../UI/components/newsletter';
 
-export const WhoWeAre: React.FC = () => {
+const WhoWeAre: React.FC = () => {
   return (
     <>
       <HeaderContainer>
@@ -35,3 +35,5 @@ export const WhoWeAre: React.FC = () => {
     </>
   );
 };
+
+export default WhoWeAre;

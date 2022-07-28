@@ -27,7 +27,7 @@ const Modal = ({ image, buttonClose, setImagesGallery, imagesGallery, setImagesF
 
     const showCroppedImage = useCallback(async () => {
         try {
-            const [croppedImageNew, fileImage] = await getCroppedImg(image, croppedAreaPixels)
+            const [croppedImageNew, fileImage]: any = await getCroppedImg(image, croppedAreaPixels)
 
             setImagesGallery([...imagesGallery, croppedImageNew]);
             setImagesFile([...imagesFile, fileImage]);

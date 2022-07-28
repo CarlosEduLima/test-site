@@ -115,7 +115,7 @@ const FAQ: React.FC = () => {
         <Search>
           <Input
             placeholder="Escreva aqui sua dúvida"
-            onKeyUp={(e) => {
+            onKeyUp={(e: any) => {
               SearchQuestion(e.target.value);
             }}
           />

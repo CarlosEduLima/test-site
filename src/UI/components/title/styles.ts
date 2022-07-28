@@ -17,5 +17,5 @@ export const Container = styled.div`
 export const Divider = styled.div`
   width: 124px;
   height: 0;
-  border: 1px solid ${colors.LightBlue};
+  border: 1px solid ${colors.lightBlue};
 `;
