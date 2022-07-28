@@ -8,7 +8,7 @@ export default function useWindowSize(): { width: number; height: number } {
       height: window.innerHeight,
     });
     // eslint-disable-next-line no-inner-declarations
-    function changeWindowSize() {
+    const changeWindowSize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     }
 
