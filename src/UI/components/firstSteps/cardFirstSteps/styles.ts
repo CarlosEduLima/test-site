@@ -14,6 +14,7 @@ export const Card = styled.div`
   color: ${colors.black};
   filter: drop-shadow(0px 3.39496px 6.78992px rgba(0, 0, 0, 0.161));
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const Imagebackground = styled.div`
