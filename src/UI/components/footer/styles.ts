@@ -140,3 +140,14 @@ export const DownloadImage = styled.div`
   cursor: pointer;
   margin: 10px 0;
 `;
+
+export const TitlesList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  flex-wrap: wrap;
+  max-height: 220px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  cursor: pointer;
+`;

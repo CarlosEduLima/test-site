@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-
+import Link from 'next/link';
 import {
   FooterContainer,
   FooterUp,
@@ -14,6 +14,7 @@ import {
   ImageLocalDiv,
   DownloadImage,
   FooterListFAQ,
+  TitlesList,
 } from './styles';
 import instagram from '../../../assets/instagram.png';
 import facebook from '../../../assets/facebook.png';
@@ -36,7 +37,7 @@ const Footer = () => {
     'Saúde',
     'Serviços Domésticos',
   ];
-  const institucionalItens = ['Quem Somos', 'Trabalhe Conosco', 'Profissionais Verificados'];
+
   const imagensSociais = [
     {
       name: 'instagram',
@@ -55,7 +56,6 @@ const Footer = () => {
       local: linkedin,
     },
   ];
-  const footerFAQ = ['Ajuda', 'Termos de Uso'];
 
   return (
     <FooterContainer>
@@ -70,11 +70,21 @@ const Footer = () => {
         </FooterSection>
         <FooterSection>
           <TextUp>Institucional</TextUp>
-          <FooterList>
-            {institucionalItens.map((item, i) => (
-              <TextDown key={i}>{item}</TextDown>
-            ))}
-          </FooterList>
+          <Link href="/whoWeAre">
+            <TitlesList>
+              Quem somos
+            </TitlesList>
+          </Link>
+          <Link href="/pageWorkWithUs">
+            <TitlesList>
+              Trabalhe Conosco
+            </TitlesList>
+          </Link>
+          <Link href="/verifiedProfessionals">
+            <TitlesList>
+              Profissionais Verificados
+            </TitlesList>
+          </Link>
         </FooterSection>
         <FooterSection>
           <TextUp>Redes Sociais</TextUp>
@@ -109,9 +119,14 @@ const Footer = () => {
       <FooterDown>
         <Image src={iziwIcon} alt="Iziw Icon" />
         <FooterListFAQ>
-          {footerFAQ.map((item, i) => (
-            <TextDown key={i}>{item}</TextDown>
-          ))}
+          <TextDown>
+            Ajuda
+          </TextDown>
+          <Link href="/TermsOfUse">
+            <TextDown>
+              Termos de Uso
+            </TextDown>
+          </Link>
           <TextDown size={12} key="3">
             Firedev It Solutions 2021 - Todos os Direitos Reservados
           </TextDown>
