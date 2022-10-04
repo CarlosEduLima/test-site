@@ -104,10 +104,3 @@ export const BgDetailsThree = styled(BgDetailsConfig)`
   top: 40px;
   right: 0;
 `;
-
-export const ButtonContainer = styled.div`
-  max-width: 200px;
-  @media (max-width: 500px) {
-    align-self: center;
-  }
-`;

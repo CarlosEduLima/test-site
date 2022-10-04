@@ -1,5 +1,5 @@
 import React from 'react';
-import GooglePlayBadgeSvg from '../../../assets/GooglePlayStoreBadge.svg';
+import GooglePlayBadgeSvg from '../../../assets/PlayStoreBadge.svg';
 import Image from 'next/image';
 
 const GooglePlayBadgePropostions = { width: 2.5843, height: 1 };
