@@ -15,6 +15,7 @@ export const Container = styled.div<ContainerPlaceholderProps>`
   display: grid;
   min-width: 100%;
   max-width: 100%;
+  overflow: hidden;
 
   ::placeholder {
     color: ${(props) => props.$placeholderTextColor || 'black'};
@@ -108,28 +109,28 @@ export const TextInputArea = styled.textarea<InputPropsStyle>`
 
 export const ContainerSearchPreview = styled.div`
   display: block;
-  width: 100%;
+  max-width: 100%;
+  width: 440px;
   z-index: 0;
+  position: absolute;
+  margin-top: 55px;
 `;
 
 export const ContainerSearchPreviewItems = styled.ul`
   width: calc(100%);
   background-color: white;
   position: relative;
-  margin-top: -20px;
-  padding-top: 8px;
-  padding-bottom: 8px;
   border-radius: 0 0 9px 9px;
-  padding-bottom: 16px;
   transition: all 0.7s;
+  background-color: ${colors.smoke};
+  
 
   ::before {
     content: '';
     display: block;
     margin: 0 auto;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
     width: 92%;
-  }
+  } 
 `;
 
 export const ContainerSearchPreviewItem = styled.li`
@@ -138,13 +139,13 @@ export const ContainerSearchPreviewItem = styled.li`
   justify-content: start;
   width: 100%;
   min-width: 100%;
-  margin-top: 8px;
-  padding: 5px 27px;
+  padding: 13px 27px;
   cursor: pointer;
 
   font-family: ${fonts.regular};
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.5);
+  /* color: rgba(0, 0, 0, 0.5); */
+  color: ${colors.input};
 
   :hover {
     background-color: #0001;

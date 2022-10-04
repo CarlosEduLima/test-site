@@ -107,15 +107,19 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 
   const getNameSearch = (value: string) => {
     setIsClicked(false);
-    setValueSearch(value);
-    if (valueSearch != value) {
-      setIsSearch(true);
+    if (!!value.trim().length) {
+      setValueSearch(value);
+      if (valueSearch != value) {
+        setIsSearch(true);
+      }
+      setValue(name, value);
+      if (!isClicked) {
+        setFiltered(dataSearch.filter((createFilter(value))));
+      }
+      setFilterPreviewSearchValue(value);
+    } else {
+      setFiltered([])
     }
-    setValue(name, value);
-    if (!isClicked) {
-      setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
-    }
-    setFilterPreviewSearchValue(value);
   };
 
   const [isClicked, setIsClicked] = useState(false);
@@ -182,7 +186,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
       />
       <div style={{ marginRight: style.marginRight }}>
         {inputSecureTextEntry ? (
@@ -283,7 +287,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
         {...rest}
       />
     </ContainerInput>
@@ -315,7 +319,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
         {...rest}
       />
     </ContainerTextAreaInput>
@@ -372,39 +376,39 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         {type == 'text'
           ? typeTextInput
           : type != 'other'
-          ? typeRandomInput
-          : icon == 'password'
-          ? passwordInput
-          : icon == 'textArea'
-          ? textAreaInput
-          : icon == 'phone'
-          ? phoneInput
-          : icon == 'cep'
-          ? cepInput
-          : icon == 'money'
-          ? moneyInput
-          : icon == 'search'
-          ? searchInput
-          : otherInput}
+            ? typeRandomInput
+            : icon == 'password'
+              ? passwordInput
+              : icon == 'textArea'
+                ? textAreaInput
+                : icon == 'phone'
+                  ? phoneInput
+                  : icon == 'cep'
+                    ? cepInput
+                    : icon == 'money'
+                      ? moneyInput
+                      : icon == 'search'
+                        ? searchInput
+                        : otherInput}
 
         <ErrorText>{inputError}</ErrorText>
+        {icon == 'search' &&
+          filterPreviewSearchValue.length != 0 &&
+          filtered.length != 0 &&
+          isSearch && (
+            <ContainerSearchPreview>
+              <ContainerSearchPreviewItems key={filtered.length}>
+                {filtered?.map((value, index) => {
+                  return (
+                    <ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
+                      {value}
+                    </ContainerSearchPreviewItem>
+                  );
+                })}
+              </ContainerSearchPreviewItems>
+            </ContainerSearchPreview>
+          )}
       </Container>
-      {icon == 'search' &&
-        filterPreviewSearchValue.length != 0 &&
-        filtered.length != 0 &&
-        isSearch && (
-          <ContainerSearchPreview>
-            <ContainerSearchPreviewItems key={filtered.length}>
-              {filtered.map((value, index) => {
-                return (
-                  <ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
-                    {value.name}
-                  </ContainerSearchPreviewItem>
-                );
-              })}
-            </ContainerSearchPreviewItems>
-          </ContainerSearchPreview>
-        )}
     </>
   );
 };
