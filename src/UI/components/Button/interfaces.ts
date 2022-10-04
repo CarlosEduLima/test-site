@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export interface ButtonProps {
   type?: string;
   loading?: boolean;
@@ -12,7 +14,7 @@ export interface ButtonProps {
 export interface ButtonPropsComponent {
   type?: 'button' | 'submit' | 'reset';
   loading?: boolean;
-  children: string;
+  children: string | ReactElement;
   variant: 'primary' | 'secondary';
   mini?: boolean;
   max?: boolean;
