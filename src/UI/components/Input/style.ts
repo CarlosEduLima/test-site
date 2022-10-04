@@ -165,11 +165,12 @@ export const ErrorText = styled.p`
 
 export const CurrencyInput = styled(IntlCurrencyInput)`
   ${commonTextProperties}
-  color: ${(props) => (props.$isDirty ? props.color : props.$placeholderTextColor)}
+  color: ${(props) => (props.$isDirty ? props.color : props.$placeholderTextColor)};
 `;
 
 export const SearchInput = styled(ReactSearchInput)`
   display: flex;
+  width: 100%;
   input {
     ${commonTextProperties}
     width: 100%;
