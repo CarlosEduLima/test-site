@@ -36,6 +36,7 @@ export const ButtonContainer = styled.div`
   height: 100%;
   width: 30%;
   padding: 0 25px;
+  margin: 0 15px;
 
   @media (max-width: 800px) {
     width: 100%;
