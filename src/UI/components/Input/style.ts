@@ -76,7 +76,6 @@ const commonTextProperties = css<InputPropsStyle>`
   font-weight: ${(props) => props.fontWeight};
   opacity: 1;
   width: 100%;
-  margin-left: 2px;
   height: ${(props) => props.height - 5}px;
   color: ${(props) => props.color || 'black'};
   background-color: ${(props) => props.$backgroundColor || 'transparent'};
@@ -117,9 +116,7 @@ export const ContainerSearchPreviewItems = styled.ul`
   width: calc(100%);
   background-color: white;
   position: relative;
-
   margin-top: -20px;
-  margin-left: 0 px;
   padding-top: 8px;
   padding-bottom: 8px;
   border-radius: 0 0 9px 9px;

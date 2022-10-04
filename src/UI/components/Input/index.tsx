@@ -39,7 +39,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     style = {
       backgroundColor: 'white',
       height: 32,
-      color: 'black',
+      color: '#000000b5',
       size: 20,
       borderRadius: '60px',
       labelFontSize: 22,
@@ -48,7 +48,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       colorIcon: colors.blue,
       marginRight: 10,
       borderColor: 'transparent',
-      //marginLeft: 18,
       rows: 10,
       cols: 33,
       fontSize: '16px',
