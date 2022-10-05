@@ -9,10 +9,12 @@ import {
   BgDetailsOne,
   BgDetailsThree,
   BgDetailsTwo,
+  ButtonContainer,
 } from './styles';
 import { GooglePlayBadge } from './googlePlayStoreBadge';
 import { AppStoreBadge } from './appStoreBadge';
 import { CellImages } from './CellImages';
+import { Button } from '../Button';
 
 export const AvailableInStores: React.FC = () => {
   return (
@@ -30,9 +32,23 @@ export const AvailableInStores: React.FC = () => {
           aplicativo. Rapidez e facilidade na resolução de problemas.
         </Text>
         <StoreButtonsContainer>
-          <AppStoreBadge height={52} />
-          <GooglePlayBadge height={52} />
+          <a href="https://www.apple.com/br/app-store/">
+            <AppStoreBadge height={68} />
+          </a>
+          <a href="https://play.google.com/store/apps">
+            <GooglePlayBadge height={68} />
+          </a>
         </StoreButtonsContainer>
+        <ButtonContainer>
+          <Button
+            variant={'primary'}
+            height="36px"
+            widthCircle={''}
+            heightCircle={''}
+            fontSize="14px">
+            Quero me cadastrar
+          </Button>
+        </ButtonContainer>
       </RightSide>
     </Container>
   );

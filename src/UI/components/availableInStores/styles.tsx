@@ -11,10 +11,7 @@ export const Container = styled.div`
   padding: 55px 0 0 0;
   margin: 0;
   margin-top: 138px;
-  z-index: -10;
-  @media (max-width: 800px) {
-    justify-content: center;
-  }
+  z-index: 1;
 `;
 
 export const LeftSide = styled.div`
@@ -32,10 +29,9 @@ export const RightSide = styled.div`
   max-width: 485px;
   padding-bottom: 55px;
 
-  @media (max-width: 500px) {
-    display: flex;
-    text-align: center;
+  @media (max-width: 800px) {
     padding: 0 20px 55px 20px;
+    justify-content: center;
   }
 `;
 
@@ -48,6 +44,7 @@ export const Title = styled.h1`
 
   @media (max-width: 500px) {
     font-size: 20px;
+    text-align: center;
   }
 `;
 
@@ -103,4 +100,12 @@ export const BgDetailsThree = styled(BgDetailsConfig)`
   height: 97px;
   top: 40px;
   right: 0;
+`;
+
+export const ButtonContainer = styled.div`
+  display: none;
+  @media (max-width: 500px) {
+    display: flex;
+    width: 100%;
+  }
 `;
