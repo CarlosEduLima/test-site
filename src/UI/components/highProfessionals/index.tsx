@@ -5,9 +5,6 @@ import { Button } from '../Button';
 import { TopImg, CenterProfessional, SubTitleProfessional } from './styles';
 import { Services } from 'src/services/services';
 
-const dataMock2 = ['teste', 'nome', 'cesar', 'vargas']
-
-
 export const HighProfessionals: React.FC = () => {
 
     const [data, setData] = useState([]);
