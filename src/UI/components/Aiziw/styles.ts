@@ -4,45 +4,59 @@ import colors from '../../../utils/colors';
 import fonts from '../../../utils/fonts';
 
 export const Title = styled.h1`
-  font-family: ${fonts.extraBold};
+  font-family: ${fonts.bold};
   color: ${colors.black};
-  font-size: 30px;
+  font-size: 25px;
 `;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px 0 50px 0;
+  margin-top: 40px;
 `;
+
 export const Divider = styled.div`
-  width: 124px;
+  width: 133px;
   height: 0;
-  border: 1px solid ${colors.blue};
+  border: 1.5px solid ${colors.blue};
+  background-color: ${colors.blue};
 `;
+
 export const ContentLine = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 0 5%;
+  width: 100%;
+  justify-content: space-evenly;
 `;
+
+export const ContentLineReverse = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  margin-top: 40px;
+  padding: 0 5%;
+  width: 100%;
+  justify-content: space-evenly;
+`;
+
 export const SubContent = styled.div`
-  align-self: flex-end;
-  flex: 1;
-  max-width: 500px;
+  max-width: 600px;
 `;
-export const SubContentLeft = styled(SubContent)`
-  text-align: right;
-`;
-export const SubContentRight = styled(SubContent)`
-  text-align: left;
-`;
+
 export const SubTitle = styled.h1`
-  font-size: 25px;
-  font-family: ${fonts.bold};
+  font-size: 27px;
+  font-family: ${fonts.extraBold};
   color: ${colors.purple};
-  margin-top: 70px;
 `;
+
 export const Text = styled.p`
   font-size: 25px;
   line-height: 34px;
@@ -50,6 +64,7 @@ export const Text = styled.p`
   color: ${colors.black};
   margin-bottom: 55px;
 `;
+
 export const StyledLink = styled.a`
   font-size: 25px;
   font-family: ${fonts.heading};
@@ -58,6 +73,7 @@ export const StyledLink = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `;
+
 export const Image = styled(NextImage)`
   width: 545px;
 `;
