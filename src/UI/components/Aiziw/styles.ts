@@ -15,6 +15,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px 0 50px 0;
+  margin-top: 40px;
 `;
 
 export const Divider = styled.div`
@@ -27,30 +28,33 @@ export const Divider = styled.div`
 export const ContentLine = styled.div`
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-end; */
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 0 5%;
+  width: 100%;
+  justify-content: space-evenly;
+`;
+
+export const ContentLineReverse = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  margin-top: 40px;
+  padding: 0 5%;
+  width: 100%;
+  justify-content: space-evenly;
 `;
 
 export const SubContent = styled.div`
-  /* align-self: flex-end; */
-  flex: 1;
-  max-width: 500px;
-`;
-
-export const SubContentLeft = styled(SubContent)`
-  text-align: right;
-`;
-
-export const SubContentRight = styled(SubContent)`
-  text-align: left;
-  margin-left: 70px;
+  max-width: 600px;
 `;
 
 export const SubTitle = styled.h1`
   font-size: 27px;
   font-family: ${fonts.extraBold};
   color: ${colors.purple};
-  margin-top: 70px;
 `;
 
 export const Text = styled.p`

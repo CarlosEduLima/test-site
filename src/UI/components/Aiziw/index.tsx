@@ -10,10 +10,10 @@ const Aiziw: React.FC = () => {
       <S.Title>A Iziw</S.Title>
       <S.Divider />
       <S.ContentLine>
-        {/* <S.SubContentLeft> */}
-        <S.Image src={WhoWeAre} alt="" />
-        {/* </S.SubContentLeft> */}
-        <S.SubContentRight>
+        <S.SubContent>
+          <S.Image src={WhoWeAre} alt="" />
+        </S.SubContent>
+        <S.SubContent>
           <S.SubTitle>Quem somos</S.SubTitle>
           <S.Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -21,11 +21,10 @@ const Aiziw: React.FC = () => {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Voluptate velit
             esse cillum dolore eu fugiat nulla pariatur.
           </S.Text>
-        </S.SubContentRight>
+        </S.SubContent>
       </S.ContentLine>
-
-      <S.ContentLine>
-        <S.SubContentLeft>
+      <S.ContentLineReverse>
+        <S.SubContent>
           <S.SubTitle>Como surgiu</S.SubTitle>
           <S.Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -33,17 +32,16 @@ const Aiziw: React.FC = () => {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Voluptate velit
             esse cillum dolore eu fugiat nulla pariatur.
           </S.Text>
-        </S.SubContentLeft>
-        <S.SubContentRight>
+        </S.SubContent>
+        <S.SubContent>
           <S.Image src={WhoWeAreTwo} alt="" />
-        </S.SubContentRight>
-      </S.ContentLine>
-
+        </S.SubContent>
+      </S.ContentLineReverse>
       <S.ContentLine>
-        <S.SubContentLeft>
+        <S.SubContent>
           <S.Image src={WhoWeAreThree} alt="" />
-        </S.SubContentLeft>
-        <S.SubContentRight>
+        </S.SubContent>
+        <S.SubContent>
           <S.SubTitle>O que fazemos</S.SubTitle>
           <S.Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -51,7 +49,7 @@ const Aiziw: React.FC = () => {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Voluptate velit
             esse cillum dolore eu fugiat nulla pariatur.
           </S.Text>
-        </S.SubContentRight>
+        </S.SubContent>
       </S.ContentLine>
     </S.Container>
   );

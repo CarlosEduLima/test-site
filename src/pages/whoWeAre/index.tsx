@@ -1,10 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 import Aiziw from '../../UI/components/Aiziw';
-import { Header } from '../../UI/components/Header';
-import { AvailableInStores } from '../../UI/components/availableInStores';
-import { Newsletter } from '../../UI/components/newsletter';
 import Footer from 'src/UI/components/footer';
+import { Header } from '../../UI/components/Header';
+import { Newsletter } from '../../UI/components/newsletter';
 
 const WhoWeAre: React.FC = () => {
   return (
@@ -21,7 +20,6 @@ const WhoWeAre: React.FC = () => {
         </S.TopCenter>
       </S.Top>
       <Aiziw />
-      <AvailableInStores />
       <S.NewsletterContainer>
         <Newsletter />
       </S.NewsletterContainer>
