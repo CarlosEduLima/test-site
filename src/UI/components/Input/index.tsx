@@ -3,27 +3,14 @@ import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useStat
 import { Controller, useForm } from 'react-hook-form';
 import { RHFInput } from 'react-hook-form-input';
 import { BsEyeSlashFill, BsFillEyeFill, BsSearch } from 'react-icons/bs';
-import InputMask from 'react-input-mask';
 import { TextInputMask } from 'react-masked-text';
 import { createFilter } from 'react-search-input';
-import colors from '../../../utils/colors';
 import { currencyConfig } from '../../../utils/input';
 import { TextInputAttributes } from './attributes';
 import { InputProps, InputRef } from './interfaces';
-import {
-  Container,
-  ContainerInput,
-  ContainerSearchPreview,
-  ContainerSearchPreviewItem,
-  ContainerSearchPreviewItems,
-  ContainerTextAreaInput,
-  CurrencyInput,
-  ErrorText,
-  Label,
-  SearchInput,
-  TextInput,
-  TextInputArea,
-} from './style';
+import InputMask from 'react-input-mask';
+import colors from '../../../utils/colors';
+import * as S from './style';
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
@@ -171,10 +158,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   };
 
   const passwordInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <RHFInput
         as={
-          <TextInput
+          <S.TextInput
             {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur, inputSecureTextEntry)}
             onChange={(text) => {
@@ -203,11 +190,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           />
         )}
       </div>
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const phoneInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <InputMask
         ref={() => Register.ref}
         mask="(99) 9 9999-9999"
@@ -216,13 +203,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           setValue(name, text);
         }}
         {...TextInputAttributes(handleInputFocus, handleInputBlur)}>
-        {() => <TextInput {...textInputProps} />}
+        {() => <S.TextInput {...textInputProps} />}
       </InputMask>
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const cepInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <InputMask
         mask="99999-999"
         maskChar={null}
@@ -235,31 +222,31 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         }}
         {...TextInputAttributes(handleInputFocus, handleInputBlur)}
         {...rest}>
-        {() => <TextInput {...textInputProps} />}
+        {() => <S.TextInput {...textInputProps} />}
       </InputMask>
-    </ContainerInput>
+    </S.ContainerInput>
   );
   const moneyInput = (
-    <ContainerInput {...containerInputProps}>
-      <CurrencyInput
+    <S.ContainerInput {...containerInputProps}>
+      <S.CurrencyInput
         {...textInputProps}
         required={required}
         currency="BRL"
         config={currencyConfig()}
         onChange={handleChange}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const searchInput = (
-    <ContainerInput
+    <S.ContainerInput
       {...containerInputProps}
       $borderRadius={
-        (filtered.length < 1 && valueSearch.length >= 0 && '9px 9px 9px 9px') ||
-        (filtered.length > 0 && valueSearch.length > 0 && '9px 9px 0 0')
-      }>
-      <SearchInput
-        autoComplete={false}
+        (filtered.length > 0 && valueSearch.length > 0 ? '9px 9px 0 0' : '9px 9px 9px 9px')
+      }
+    >
+      <S.SearchInput
+        autocomplete="off"
         type="text"
         onChange={getNameSearch}
         value={valueSearch}
@@ -268,14 +255,14 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       <div style={{ marginRight: style.marginRight, marginLeft: style.marginLeft }}>
         <BsSearch onClick={() => handleIconClick()} color={style.colorIcon} size={style.size} />
       </div>
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const otherInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <RHFInput
         as={
-          <TextInput
+          <S.TextInput
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}
             type={typeInput}
             onChange={(text) => {
@@ -290,13 +277,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         setValue={() => { }}
         {...rest}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
   const textAreaInput = (
-    <ContainerTextAreaInput {...containerInputProps}>
+    <S.ContainerTextAreaInput {...containerInputProps}>
       <RHFInput
         as={
-          <TextInputArea
+          <S.TextInputArea
             $placeholderTextColor={style.placeholderTextColor}
             fontWeight={style.fontWeight}
             id={name}
@@ -322,15 +309,15 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         setValue={() => { }}
         {...rest}
       />
-    </ContainerTextAreaInput>
+    </S.ContainerTextAreaInput>
   );
   const typeTextInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <Controller
         control={control}
         name={name}
         render={({ field: { onChange } }) => (
-          <TextInput
+          <S.TextInput
             {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}
             onChange={(text) => {
@@ -339,10 +326,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           />
         )}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
   const typeRandomInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <Controller
         control={control}
         name={name}
@@ -360,18 +347,18 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           />
         )}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
   return (
     <>
-      <Container color={style.color} $placeholderTextColor={style.placeholderTextColor}>
-        <Label
+      <S.Container color={style.color} $placeholderTextColor={style.placeholderTextColor}>
+        <S.Label
           colorLabel={style.colorLabel}
           fontWeight={style.fontWeight}
           labelFontSize={style.labelFontSize}
           htmlFor={name}>
           {label}
-        </Label>
+        </S.Label>
 
         {type == 'text'
           ? typeTextInput
@@ -391,24 +378,24 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
                         ? searchInput
                         : otherInput}
 
-        <ErrorText>{inputError}</ErrorText>
+        <S.ErrorText>{inputError}</S.ErrorText>
         {icon == 'search' &&
           filterPreviewSearchValue.length != 0 &&
           filtered.length != 0 &&
           isSearch && (
-            <ContainerSearchPreview>
-              <ContainerSearchPreviewItems key={filtered.length}>
-                {filtered?.map((value, index) => {
+            <S.ContainerSearchPreview>
+              <S.ContainerSearchPreviewItems key={filtered.length}>
+                {filtered?.slice(0, 4)?.map((value, index) => {
                   return (
-                    <ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
+                    <S.ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
                       {value}
-                    </ContainerSearchPreviewItem>
+                    </S.ContainerSearchPreviewItem>
                   );
                 })}
-              </ContainerSearchPreviewItems>
-            </ContainerSearchPreview>
+              </S.ContainerSearchPreviewItems>
+            </S.ContainerSearchPreview>
           )}
-      </Container>
+      </S.Container>
     </>
   );
 };

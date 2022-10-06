@@ -11,7 +11,7 @@ export const HighProfessionals: React.FC = () => {
 
     const AllServices = async () => {
         const response: any = await Services();
-        setData(response.flatMap(item => item.sub_services).concat(response.map(item => { return { name: item.name } })).map(item => item.name).sort().slice(0, 4));
+        setData(response.flatMap(item => item.sub_services).concat(response.map(item => { return { name: item.name } })).map(item => item.name).sort());
     };
 
     useEffect(() => {
