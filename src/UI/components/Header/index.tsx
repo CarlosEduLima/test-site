@@ -15,7 +15,7 @@ import {
 import LogoImg from '../../../assets/icon-white.png';
 import { Button } from '../Button';
 import Link from 'next/link';
-
+import { AiOutlineMenu } from 'react-icons/ai';
 interface Props {
   opacity?: boolean;
 }
@@ -50,22 +50,9 @@ export const Header: React.FC<Props> = (props) => {
                 </Button>
               </Link>
             </ContainerButton>
+            <AiOutlineMenu />
           </ContainerList>
         </HeaderContent>
-        <MobileDivHeader>
-          <MobileLinkContainer>
-            <Link href="/Home">
-              <List>Home</List>
-            </Link>
-            <Link href="/firstStepsPage">
-              <List>Como funciona?</List>
-            </Link>
-            <List>Categorias</List>
-            <Link href="/PageFaq">
-              <List>FAQ</List>
-            </Link>
-          </MobileLinkContainer>
-        </MobileDivHeader>
       </DivHeader>
     </div>
   );

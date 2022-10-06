@@ -45,8 +45,8 @@ export const ContainerList = styled.ul`
 export const ContainerButton = styled.div`
   width: 210px;
   margin-left: 20px;
-  @media (max-width: 400px) {
-    width: 100px;
+  @media (max-width: 700px) {
+    display: none;
   }
 `;
 
