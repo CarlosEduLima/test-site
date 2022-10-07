@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Icon,
   ContainerButton,
@@ -8,19 +8,24 @@ import {
   ContainerImage,
   LinkContainer,
   MobileLinkContainer,
-  MobileDivHeader,
   HeaderContent,
   ButtonText,
+  MobileMenu,
+  MenuIconContainer,
 } from './styles';
 import LogoImg from '../../../assets/icon-white.png';
 import { Button } from '../Button';
 import Link from 'next/link';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 interface Props {
   opacity?: boolean;
 }
 
 export const Header: React.FC<Props> = (props) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div>
       <DivHeader opacity={props.opacity === true ? 0.45 : 1.0}>
@@ -50,10 +55,30 @@ export const Header: React.FC<Props> = (props) => {
                 </Button>
               </Link>
             </ContainerButton>
-            <AiOutlineMenu />
+            <MenuIconContainer>
+              {open ? (
+                <AiOutlineClose onClick={handleClose} size={24} />
+              ) : (
+                <AiOutlineMenu onClick={handleOpen} size={24} />
+              )}
+            </MenuIconContainer>
           </ContainerList>
         </HeaderContent>
       </DivHeader>
+      <MobileMenu open={open}>
+        <MobileLinkContainer>
+          <Link href="/Home">
+            <List style={{ marginBottom: 25 }}>Home</List>
+          </Link>
+          <Link href="/firstStepsPage">
+            <List style={{ marginBottom: 25 }}>Como funciona?</List>
+          </Link>
+          <List style={{ marginBottom: 25 }}>Categorias</List>
+          <Link href="/PageFaq">
+            <List>FAQ</List>
+          </Link>
+        </MobileLinkContainer>
+      </MobileMenu>
     </div>
   );
 };
