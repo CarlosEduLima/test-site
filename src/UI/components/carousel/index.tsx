@@ -30,29 +30,14 @@ export const Carousel: React.FC = () => {
     return { arrayOne, arrayTwo };
   };
 
-  const mockServices = [
-    {
-      name: 'Eventos',
-      desktop_image_path: null,
-    },
-    {
-      name: 'Eventos',
-      desktop_image_path: null,
-    },
-    {
-      name: 'Eventos',
-      desktop_image_path: null,
-    },
-  ];
-
   useEffect(() => {
-    //void ServiceHighlights()
-    //.then((data) => {
-    const { arrayOne, arrayTwo } = defineLines(mockServices);
-    setServiceHighlightsLineOne(arrayOne);
-    setServiceHighlightsLineTwo(arrayTwo);
-    //})
-    //.catch(console.log);
+    void ServiceHighlights()
+      .then((data) => {
+        const { arrayOne, arrayTwo } = defineLines(data);
+        setServiceHighlightsLineOne(arrayOne);
+        setServiceHighlightsLineTwo(arrayTwo);
+      })
+      .catch(console.log);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -92,7 +77,9 @@ export const Carousel: React.FC = () => {
           onWheel={(e) => {
             onWheel(e, ref1);
           }}
-          onMouseEnter={disableScroll}
+          onMouseEnter={() =>
+            cardSize.width * serviceHighlightsLineOne.length > windowSize.width && disableScroll()
+          }
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
