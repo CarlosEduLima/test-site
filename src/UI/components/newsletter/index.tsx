@@ -8,15 +8,15 @@ import { Button } from '../Button';
 export const Newsletter: React.FC = () => {
   return (
     <S.Container>
-      <S.BgDetailTwo />
-      <S.BgDetailFour />
+      <S.ElementBallFooter />
+      <S.ElementRectangleHeader />
       <S.LeftContent>
         <S.TextTitle>A IziW chegou para mudar.</S.TextTitle>
         <S.Text>Quer ganhar dinheiro extra e escolher quando e como trabalhar?</S.Text>
         <S.InteractionContainer>
           <Link href="/Login">
             <Button
-              children={'Quero fazer parte'}
+              children={'Quero me cadastrar'}
               variant={'secondary'}
               widthCircle={''}
               heightCircle={''}
@@ -25,11 +25,13 @@ export const Newsletter: React.FC = () => {
         </S.InteractionContainer>
       </S.LeftContent>
       <S.RightContent>
-        <S.ImageBg />
-        <Image src={newsletterImage} alt="newsletterImage" layout="fixed" />
-        <S.BgDetailOne />
-        <S.BgDetailThree />
-        <S.BgDetailFive />
+        <S.ElementBall />
+        <S.ContainerImage>
+          <Image src={newsletterImage} alt="newsletterImage" />
+        </S.ContainerImage>
+        <S.ElementMiniBall />
+        <S.ElementRectangleRight />
+        <S.ElementRectangleCenter />
       </S.RightContent>
     </S.Container>
   );
