@@ -11,6 +11,7 @@ import {
   SubContentRight,
   SubContentLeft,
   StyledLink,
+  ContentLineReverse,
 } from './styles';
 import questionFree from '../../../assets/questionFree.svg';
 import questionSafe from '../../../assets/questionSafe.svg';
@@ -34,7 +35,7 @@ export const WhatMakesUsDifferent: React.FC = () => {
         </SubContentRight>
       </ContentLine>
 
-      <ContentLine>
+      <ContentLineReverse>
         <SubContentLeft>
           <SubTitle>É seguro?</SubTitle>
           <Text>
@@ -45,7 +46,7 @@ export const WhatMakesUsDifferent: React.FC = () => {
         <SubContentRight>
           <Image src={questionSafe} alt="" />
         </SubContentRight>
-      </ContentLine>
+      </ContentLineReverse>
 
       <ContentLine>
         <SubContentLeft>
