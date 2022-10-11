@@ -8,13 +8,13 @@ import useWindowSize from '../../../utils/hooks';
 export const Carousel: React.FC = () => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
+  const [alignCarouselCenter, setAlignCarouselCenter] = useState(false);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
   const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 325, height: 151 };
-
   const defineLines = (highlights) => {
     let arrayOne: IServiceProps[];
     let arrayTwo: IServiceProps[];
@@ -25,6 +25,7 @@ export const Carousel: React.FC = () => {
     } else {
       arrayOne = highlights;
       arrayTwo = [];
+      cardSize.width * highlights.length < windowSize.width && setAlignCarouselCenter(true);
     }
     return { arrayOne, arrayTwo };
   };
@@ -72,10 +73,13 @@ export const Carousel: React.FC = () => {
       <ScrollAreaContainer>
         <HorizontalScrollArea
           ref={ref1}
+          alignCenter={alignCarouselCenter}
           onWheel={(e) => {
             onWheel(e, ref1);
           }}
-          onMouseEnter={disableScroll}
+          onMouseEnter={() =>
+            cardSize.width * serviceHighlightsLineOne.length > windowSize.width && disableScroll()
+          }
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
@@ -89,6 +93,7 @@ export const Carousel: React.FC = () => {
         </HorizontalScrollArea>
         <HorizontalScrollArea
           ref={ref2}
+          alignCenter={false}
           onWheel={(e) => {
             onWheel(e, ref2);
           }}
