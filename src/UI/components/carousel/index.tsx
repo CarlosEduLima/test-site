@@ -110,8 +110,6 @@ export const Carousel: React.FC = () => {
           ))}
         </HorizontalScrollArea>
       </ScrollAreaContainer>
-      <button>Quero me cadastrar</button>
-      <div>{}</div>
     </Container>
   );
 };

@@ -71,19 +71,13 @@ const Footer = () => {
         <FooterSection>
           <TextUp>Institucional</TextUp>
           <Link href="/whoWeAre">
-            <TitlesList>
-              Quem somos
-            </TitlesList>
+            <TitlesList>Quem somos</TitlesList>
           </Link>
           <Link href="/pageWorkWithUs">
-            <TitlesList>
-              Trabalhe Conosco
-            </TitlesList>
+            <TitlesList>Trabalhe Conosco</TitlesList>
           </Link>
           <Link href="/verifiedProfessionals">
-            <TitlesList>
-              Profissionais Verificados
-            </TitlesList>
+            <TitlesList>Profissionais Verificados</TitlesList>
           </Link>
         </FooterSection>
         <FooterSection>
@@ -107,25 +101,25 @@ const Footer = () => {
         <FooterSection>
           <TextUp>Downloads</TextUp>
           <FooterList>
-            <DownloadImage>
-              <Image src={googlePlay} width={220} height={66} alt="Google play store" />
-            </DownloadImage>
-            <DownloadImage>
-              <Image src={appStore} width={220} height={66} alt="Apple Store" />
-            </DownloadImage>
+            <a href="https://www.apple.com/br/app-store/">
+              <DownloadImage>
+                <Image src={googlePlay} width={220} height={66} alt="Google play store" />
+              </DownloadImage>
+            </a>
+            <a href="https://play.google.com/store/apps">
+              <DownloadImage>
+                <Image src={appStore} width={220} height={66} alt="Apple Store" />
+              </DownloadImage>
+            </a>
           </FooterList>
         </FooterSection>
       </FooterUp>
       <FooterDown>
         <Image src={iziwIcon} alt="Iziw Icon" />
         <FooterListFAQ>
-          <TextDown>
-            Ajuda
-          </TextDown>
+          <TextDown>Ajuda</TextDown>
           <Link href="/TermsOfUse">
-            <TextDown>
-              Termos de Uso
-            </TextDown>
+            <TextDown>Termos de Uso</TextDown>
           </Link>
           <TextDown size={12} key="3">
             Firedev It Solutions 2021 - Todos os Direitos Reservados
