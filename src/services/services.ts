@@ -32,8 +32,7 @@ export const ServiceHighlights = async (): Promise<IServiceProps[]> => {
 
 export const Services = async () => {
   try {
-    const { data } = await api.get('/services?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vaGxnLml6aXcuY29tLmJyL2FwaS9zaWduLWluIiwiaWF0IjoxNjU3OTA1NDEwLCJuYmYiOjE2NTc5MDU0MTAsImp0aSI6InJmRUNHaEtYM0dzY2ZTM2EiLCJzdWIiOiIzNSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Uuk_0KJ1rolu4yKMAGny5vFmek50zfP0ePJO44qRpcA');
-    console.log(data)
+    const { data } = await api.get<IServiceProps[]>('/services');
     return data;
   } catch (error) {
     console.log(error)
