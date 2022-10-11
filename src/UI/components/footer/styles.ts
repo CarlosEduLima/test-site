@@ -22,42 +22,37 @@ export const FooterUp = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   border-bottom: 1px solid rgba(112, 112, 112, 0.2);
+
   @media (max-width: 1440px) {
     width: 1100px;
   }
+
   @media (max-width: 1200px) {
     justify-content: flex-start;
     width: 700px;
   }
+
   @media (max-width: 840px) {
     justify-content: flex-start;
     text-align: left;
     width: 300px;
+    padding-bottom: 20px;
   }
 `;
 
 export const FooterDown = styled.div`
-  padding: 60px 0;
-  width: 1366px;
+  margin-top: 60px;
+  width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  @media (max-width: 1440px) {
-    width: 1100px;
-  }
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    /* justify-content: center; */
-    min-height: 230px;
-    width: 800px;
-  }
+
   @media (max-width: 840px) {
-    min-height: 0;
-    flex-direction: row;
-    justify-content: center;
-    width: 300px;
+    width: 100vw;
+    margin-top: 20px;
+    padding-left: 20px;
   }
 `;
 
@@ -68,15 +63,44 @@ export const TextUp = styled.p`
   font-family: ${fonts.extraBold};
 `;
 
-export const TextDown = styled.p<{ size?: 15 | number }>`
+export const TextItens = styled.p<{ size?: 15 | number }>`
   cursor: pointer;
   text-decoration: none;
   margin: 12px 40px 12px 0;
   color: ${colors.black};
   font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
+
   @media (max-width: 800px) {
     margin: 9px 25px 9px 0;
+  }
+`;
+
+export const TextDownFooter = styled.p`
+  cursor: pointer;
+  text-decoration: none;
+  margin: 12px 40px 12px 0;
+  color: ${colors.black};
+  font-size: 15px;
+  font-family: ${fonts.regular};
+
+  @media (max-width: 800px) {
+    margin: 9px 25px 9px 0;
+    font-size: 12px;
+  }
+`;
+
+export const TextFiredev = styled.p`
+  text-decoration: none;
+  color: ${colors.black};
+  font-size: 12px;
+  font-family: ${fonts.regular};
+
+  @media (max-width: 840px) {
+    width: 100vw;
+    padding-left: 30px;
+    font-size: 11px;
+    margin-top: 30px;
   }
 `;
 
@@ -104,16 +128,25 @@ export const FooterListImg = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  margin-bottom: 20px;
 `;
 
 export const FooterListFAQ = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
   @media (max-width: 840px) {
-    margin: 20px 10px;
-    flex-direction: column;
-    text-align: left;
+    margin-left: 30px;
+  }
+`;
+
+export const ContainerLogo = styled.image`
+  @media (max-width: 840px) {
+    img {
+      height: 26px;
+      width: 84px;
+    }
   }
 `;
 
@@ -136,9 +169,34 @@ export const ImageLocal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
 export const DownloadImage = styled.div`
   cursor: pointer;
   margin: 10px 0;
+
+  @media (max-width: 840px) {
+    display: none;
+  }
+`;
+
+export const ContainerIconStore = styled.div`
+  cursor: pointer;
+  margin: 5px 0;
+  display: none;
+  margin-right: 20px;
+
+  @media (max-width: 840px) {
+    display: flex;
+  }
+`;
+
+export const ContainerIcons = styled.div`
+  display: none;
+  flex-direction: row;
+
+  @media (max-width: 840px) {
+    display: flex;
+  }
 `;
 
 export const TitlesList = styled.div`
