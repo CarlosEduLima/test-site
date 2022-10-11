@@ -9,6 +9,7 @@ import {
   BgDetailsOne,
   BgDetailsThree,
   BgDetailsTwo,
+  ButtonContainer,
 } from './styles';
 import { GooglePlayBadge } from './googlePlayStoreBadge';
 import { AppStoreBadge } from './appStoreBadge';
@@ -31,10 +32,14 @@ export const AvailableInStores: React.FC = () => {
           aplicativo. Rapidez e facilidade na resolução de problemas.
         </Text>
         <StoreButtonsContainer>
-          <AppStoreBadge height={52} />
-          <GooglePlayBadge height={52} />
+          <a href="https://www.apple.com/br/app-store/">
+            <AppStoreBadge height={68} />
+          </a>
+          <a href="https://play.google.com/store/apps">
+            <GooglePlayBadge height={68} />
+          </a>
         </StoreButtonsContainer>
-        <div style={{ maxWidth: 280 }}>
+        <ButtonContainer>
           <Button
             variant={'primary'}
             height="36px"
@@ -43,7 +48,7 @@ export const AvailableInStores: React.FC = () => {
             fontSize="14px">
             Quero me cadastrar
           </Button>
-        </div>
+        </ButtonContainer>
       </RightSide>
     </Container>
   );
