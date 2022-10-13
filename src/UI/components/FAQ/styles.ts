@@ -6,8 +6,7 @@ import colors from '../../../utils/colors';
 import circuloFaq from '../../../assets/circuloFaq.svg';
 import meioCirculoFaq from '../../../assets/meioCirculoFaq.svg';
 import retanguloFaq from '../../../assets/retanguloFaq.svg';
-import backgroundSearchFaq from '../../../assets/backgroundSearchFaq.svg';
-import { redirect } from 'next/dist/server/api-utils';
+import backgroundSearchFaq from '../../../assets/faqBanner.png';
 
 export const FAQFull = styled.div`
   display: flex;
@@ -38,7 +37,6 @@ export const SearchContainer = styled.div`
   align-items: center;
   text-align: center;
   background: linear-gradient(#373aadaa, #373aadaa), url(${backgroundSearchFaq.src}) no-repeat;
-  background-position: center;
   background-size: cover;
 `;
 
@@ -122,6 +120,33 @@ export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.161);
 `;
 
+export const CategoryCard = styled.div`
+  cursor: pointer;
+  width: 406px;
+  height: 437px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fbfbfb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  border: 2px solid #373aad;
+  margin: 20px;
+  transition: 0.2s;
+`;
+
+export const CategoryCardHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  border-bottom: border: 1px solid ${colors.labelInput};
+`;
+
 export const Text = styled.p<{ size: number }>`
   color: #000;
   font-size: ${(props) => props.size}px;
@@ -176,7 +201,6 @@ export const Icon = styled(Image)`
 `;
 
 export const Search = styled.div`
-  z-index: 10;
   padding: 5px 8px;
   width: 450px;
   display: flex;

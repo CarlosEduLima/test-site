@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FAQFull,
   FAQContainer,
@@ -26,55 +26,107 @@ import Interrogation from '../../../assets/interrogation.svg';
 import SearchBtn from '../../../assets/searchBtn.svg';
 
 const FAQ: React.FC = () => {
-  const categoriaItens = [
-    {
-      id: 0,
-      icon: Flag,
-      title: 'Primeiros passos',
-      categoryText: 'Primeiros passos para começar sua experiência IziW',
-      questions: [
-        {
-          title: 'Como eu crio meu perfil?',
-          response:
-            'Para criar seu perfil, entra na aba de Registo ou clique aqui e você poderá criar sua conta aqui',
-        },
-        {
-          title: 'Preciso baixar o aplicativo?',
-          response: 'Sim, a experiencia Iziw fica ainda melhor no nosso aplicativo',
-        },
-      ],
-    },
+  const mockFaqCategories = [
     {
       id: 1,
-      icon: Wvalues,
-      title: 'Preços e moedas',
-      categoryText: 'Preços e moedas',
+      name: 'Primeiros passos',
+      icon: Flag,
+      description: 'Assuntos relacionados a conta',
       questions: [
         {
-          title: 'Como faço para comprar moedas?',
-          response: 'Para comprar moedas, vá na aba de moedas para fazer uma compra',
+          id: 3,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
         },
         {
-          title: 'Porque preciso comprar moedas para aceitar um pedido?',
-          response:
-            'Para darmos confiança ao usuario de que você está realmente disposto a fazer o trabalho proposto, por isso é necessario comprar moedas',
+          id: 10,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+        {
+          id: 9,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
         },
       ],
     },
     {
       id: 2,
-      icon: Interrogation,
-      title: 'Como utilizar',
-      categoryText: 'Como utilizar',
+      name: 'Preços e moedas',
+      icon: Wvalues,
+      description: 'Assuntos relacionados a conta',
       questions: [
         {
-          title: 'Como aceitar um pedido',
-          response: "No app, vá em 'Orçamentos' e lá aparecerá todos os pedidos abertos",
+          id: 2,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Como utilizar',
+      icon: Flag,
+      description: 'Assuntos relacionados a conta',
+      questions: [
+        {
+          id: 4,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'Conta',
+      icon: Flag,
+      description: 'Assuntos relacionados a conta',
+      questions: [
+        {
+          id: 5,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'Conta',
+      icon: Interrogation,
+      description: 'Assuntos relacionados a conta',
+      questions: [
+        {
+          id: 6,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+      ],
+    },
+    {
+      id: 1,
+      name: 'Conta',
+      icon: Flag,
+      description: 'Assuntos relacionados a conta',
+      questions: [
+        {
+          id: 7,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
         },
         {
-          title: 'Como abrir um serviço?',
-          response:
-            "Para abrir um serviço, vá na aba 'Serviços' escolha a categoria e sub-categoria e responda o questionario",
+          id: 6,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+        {
+          id: 8,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
+        },
+        {
+          id: 9,
+          previous_answer: 'preview',
+          question: 'Quais são as formas de pagamento que o app aceita?',
         },
       ],
     },
@@ -83,8 +135,19 @@ const FAQ: React.FC = () => {
   const [value, setValue] = useState('');
   const [inCategoria, setInCategoria] = useState(0);
 
-  const fullQuestions = categoriaItens.flatMap((item) => item.questions);
+  const fullQuestions = mockFaqCategories.flatMap((item) => item.questions);
   const [filteredQuestions] = useState([]);
+
+  const [data, setData] = useState([]);
+
+  /*const getData = async () => {
+    const response = await mockFaqCategories
+    setData(response)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])*/
 
   const SearchQuestion = (valor = '') => {
     setValue(valor);
@@ -94,8 +157,8 @@ const FAQ: React.FC = () => {
       setInCategoria(-1);
       for (const question of fullQuestions) {
         if (
-          question.response.toLowerCase().includes(texto.toLowerCase()) ||
-          question.title.toLowerCase().includes(texto.toLowerCase())
+          question.previous_answer.toLowerCase().includes(texto.toLowerCase()) ||
+          question.question.toLowerCase().includes(texto.toLowerCase())
         ) {
           filteredQuestions.push(question);
         }
@@ -122,77 +185,26 @@ const FAQ: React.FC = () => {
           <SearchButton onClick={() => SearchQuestion(value)} src={SearchBtn} alt="Search" />
         </Search>
       </SearchContainer>
-      {value.length < 1 && (
-        <>
-          <FAQContainer>
-            <Text className="categoria" size={25}>
-              Ou escolha uma categoria relacionada à sua dúvida
-            </Text>
-            <Categorias>
-              {categoriaItens.map((item) => {
-                return (
-                  <Categoria
-                    key={item.title}
-                    onClick={() => {
-                      filteredQuestions.splice(0);
-                      setValue('');
-                      setInCategoria(item.id);
-                    }}
-                    border={item.id === inCategoria ? '#373AAD' : '#FFF'}>
-                    <PortaIcons>
-                      <Icon key={item.title} src={item.icon} alt={item.title} />
-                    </PortaIcons>
-                    <CategoriaText size={22}>{item.title}</CategoriaText>
-                  </Categoria>
-                );
-              })}
-            </Categorias>
-          </FAQContainer>
-          <CategoryTextContainer>
-            {categoriaItens[inCategoria]?.categoryText !== undefined ? (
-              <CategoryText size={28}>{categoriaItens[inCategoria]?.categoryText}</CategoryText>
-            ) : (
-              <CategoryText size={28}>Outros</CategoryText>
-            )}
-          </CategoryTextContainer>
-        </>
-      )}
       <FAQContainer>
-        {value.length === 0 &&
-          categoriaItens[inCategoria]?.questions.map((item) => (
-            <Details key={item.title}>
-              <Summary>
-                <Text size={15} className="mTop">
-                  ●
-                </Text>
-                {item.title}
-              </Summary>
-              <Text size={16} className="answer">
-                {item.response}
-              </Text>
-            </Details>
-          ))}
-        {value.length > 0 &&
-          filteredQuestions.map((item) => (
-            <Details key={item.title}>
-              <Summary>
-                <Text size={15} className="mTop">
-                  ●
-                </Text>
-                {item.title}
-              </Summary>
-              <Text size={16} className="answer">
-                {item.response}
-              </Text>
-            </Details>
-          ))}
+        <Text className="categoria" size={25}>
+          Ou escolha uma categoria relacionada à sua dúvida
+        </Text>
+        <Categorias>
+          {data.map((item) => {
+            return (
+              <Categoria key={item.name} border={item.id === inCategoria ? '#373AAD' : '#FFF'}>
+                <PortaIcons>
+                  <Icon key={item.name} src={item.icon} alt={item.name} />
+                </PortaIcons>
+                <CategoriaText size={22}>{item.description}</CategoriaText>
+              </Categoria>
+            );
+          })}
+        </Categorias>
       </FAQContainer>
-
-      {filteredQuestions.length < 1 && inCategoria < 0 && (
-        <Title size={28} className="center">
-          Não existe questões sobre esse assunto
-        </Title>
-      )}
+      <CategoryTextContainer>
+        <CategoryText size={28}>Outros</CategoryText>
+      </CategoryTextContainer>
     </FAQFull>
   );
 };
