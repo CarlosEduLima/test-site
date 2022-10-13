@@ -89,7 +89,7 @@ export const ElementBall = styled.div`
 export const ContainerImage = styled.div`
   display: flex;
 
-    @media (max-width: 840px) {
+  @media (max-width: 840px) {
     display: flex;
     height: 268px;
     width: 214px;
@@ -154,7 +154,7 @@ export const ElementRectangleRight = styled(BgDetail)`
   top: 50px;
   left: 85%;
 
-    @media (max-width: 840px) {
+  @media (max-width: 840px) {
     height: 43px;
     width: 212px;
     left: 65%;

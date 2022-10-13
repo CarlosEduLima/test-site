@@ -1,6 +1,4 @@
-import React, { useDebugValue, useState } from 'react';
-
-import HowItWorksCard from '../howItWorksCard';
+import React from 'react';
 
 import { Container, ContainerButton, ButtonText } from './style';
 
