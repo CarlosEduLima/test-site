@@ -152,7 +152,7 @@ export const ElementRectangleRight = styled(BgDetail)`
   border-top-left-radius: 96px;
   border-bottom-left-radius: 96px;
   top: 50px;
-  left: 85%;
+  left: 90%;
 
   @media (max-width: 840px) {
     height: 43px;
