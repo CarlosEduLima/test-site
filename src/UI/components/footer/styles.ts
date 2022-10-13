@@ -42,7 +42,7 @@ export const FooterUp = styled.div`
 
 export const FooterDown = styled.div`
   margin-top: 60px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
