@@ -9,7 +9,7 @@ export const Title = styled.h1`
 `;
 
 export const Container = styled.div`
-  margin: 45.5px auto 64px auto;
+  margin: 45.5px auto 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
