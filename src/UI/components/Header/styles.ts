@@ -100,11 +100,14 @@ export const HeaderContent = styled.header`
 `;
 
 export const MobileMenu = styled.div<HeaderProps>`
-  display: ${(props) => (props.open ? 'flex' : 'none')};
+  display: none;
   justify-content: flex-start;
   width: 100vw;
   min-height: 100vh;
   background: ${colors.purple};
+  @media (max-width: 700px) {
+    display: ${(props) => (props.open ? 'flex' : 'none')};
+  }
 `;
 
 export const MobileLinkContainer = styled.div`
