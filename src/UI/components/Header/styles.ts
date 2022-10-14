@@ -16,7 +16,7 @@ export const Icon = styled(Image)`
   width: 30px;
 `;
 export const ContainerImage = styled.div`
-  padding-left: 20px;
+  /* padding-left: 20px; */
 `;
 export const DivHeader = styled.header<HeaderProps>`
   top: 0;
@@ -93,12 +93,15 @@ export const HeaderContent = styled.header`
   height: 70px;
   flex-wrap: nowrap;
   font-size: 14px;
+  @media (max-width: 700px) {
+    justify-content: space-between;
+    padding: 0 24px;
+  }
 `;
 
 export const MobileMenu = styled.div<HeaderProps>`
   display: ${(props) => (props.open ? 'flex' : 'none')};
-  text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
   min-height: 100vh;
   background: ${colors.purple};
