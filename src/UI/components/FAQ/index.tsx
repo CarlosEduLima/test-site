@@ -1,29 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
-import {
-  FAQFull,
-  FAQContainer,
-  Title,
-  Categorias,
-  Categoria,
-  Text,
-  Icon,
-  Search,
-  Input,
-  SearchButton,
-  SearchContainer,
-  Details,
-  Summary,
-  PortaIcons,
-  CategoriaText,
-  CategoryTextContainer,
-  CategoryText,
-} from './styles';
 
+import * as S from './styles';
+
+import { BsChevronRight } from 'react-icons/bs';
 import Flag from '../../../assets/flag.svg';
 import Wvalues from '../../../assets/wvalues.svg';
 import Interrogation from '../../../assets/interrogation.svg';
 import SearchBtn from '../../../assets/searchBtn.svg';
+
+import { Button } from '../Button';
 
 const FAQ: React.FC = () => {
   const mockFaqCategories = [
@@ -85,7 +71,12 @@ const FAQ: React.FC = () => {
         {
           id: 5,
           previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
+          question: 'Quais são as formas de',
+        },
+        {
+          id: 5,
+          previous_answer: 'preview',
+          question: 'o app aceita?',
         },
       ],
     },
@@ -100,6 +91,16 @@ const FAQ: React.FC = () => {
           previous_answer: 'preview',
           question: 'Quais são as formas de pagamento que o app aceita?',
         },
+        {
+          id: 6,
+          previous_answer: 'preview',
+          question: 'Quais  o app aceita?',
+        },
+        {
+          id: 6,
+          previous_answer: 'preview',
+          question: 'Quais são as app aceita?',
+        },
       ],
     },
     {
@@ -111,12 +112,12 @@ const FAQ: React.FC = () => {
         {
           id: 7,
           previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
+          question: 'Quais são as formas',
         },
         {
           id: 6,
           previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
+          question: 'pagamento',
         },
         {
           id: 8,
@@ -126,7 +127,7 @@ const FAQ: React.FC = () => {
         {
           id: 9,
           previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
+          question: 'Quais são as formas de pagamento que o app aceita? Quais são as formas',
         },
       ],
     },
@@ -143,13 +144,14 @@ const FAQ: React.FC = () => {
   /*const getData = async () => {
     const response = await mockFaqCategories
     setData(response)
+
   }
 
   useEffect(() => {
     getData()
   }, [])*/
 
-  const SearchQuestion = (valor = '') => {
+  const SearchQuestion = (valor) => {
     setValue(valor);
     const texto = valor;
     if (texto !== undefined && texto !== '') {
@@ -170,42 +172,68 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <FAQFull>
-      <SearchContainer>
-        <Title size={25} className="search">
+    <S.FAQFull>
+      <S.SearchContainer>
+        <S.Title size={25} className="search">
           Como podemos <span>ajudar?</span>
-        </Title>
-        <Search>
-          <Input
+        </S.Title>
+        <S.Search>
+          <S.Input
             placeholder="Escreva aqui sua dúvida"
             onKeyUp={(e: any) => {
               SearchQuestion(e.target.value);
             }}
           />
-          <SearchButton onClick={() => SearchQuestion(value)} src={SearchBtn} alt="Search" />
-        </Search>
-      </SearchContainer>
-      <FAQContainer>
-        <Text className="categoria" size={25}>
+          <S.SearchButton onClick={() => SearchQuestion(value)} src={SearchBtn} alt="Search" />
+        </S.Search>
+      </S.SearchContainer>
+      <S.FAQContainer>
+        <S.Text className="categoria" size={25}>
           Ou escolha uma categoria relacionada à sua dúvida
-        </Text>
-        <Categorias>
-          {data.map((item) => {
-            return (
-              <Categoria key={item.name} border={item.id === inCategoria ? '#373AAD' : '#FFF'}>
-                <PortaIcons>
-                  <Icon key={item.name} src={item.icon} alt={item.name} />
-                </PortaIcons>
-                <CategoriaText size={22}>{item.description}</CategoriaText>
-              </Categoria>
-            );
-          })}
-        </Categorias>
-      </FAQContainer>
-      <CategoryTextContainer>
-        <CategoryText size={28}>Outros</CategoryText>
-      </CategoryTextContainer>
-    </FAQFull>
+        </S.Text>
+        <S.Categorias>
+          {data.map((category) => (
+            <S.CategoryCard key={category.id}>
+              <S.CategoryCardHeader>
+                <S.CategoryCardTitle>{category.name}</S.CategoryCardTitle>
+              </S.CategoryCardHeader>
+              <S.CategoryCardQuestionsContainer>
+                {category.questions.map((question) => (
+                  <S.CategoryCardQuestion key={question.id}>
+                    <S.QuestionTitleContainer>
+                      <S.QuestionTitle>{question.question}</S.QuestionTitle>
+                    </S.QuestionTitleContainer>
+                    <S.IconContainer>
+                      <BsChevronRight size={16} />
+                    </S.IconContainer>
+                  </S.CategoryCardQuestion>
+                ))}
+              </S.CategoryCardQuestionsContainer>
+            </S.CategoryCard>
+          ))}
+        </S.Categorias>
+      </S.FAQContainer>
+      <S.ContactSession>
+        <S.ContactText size={28}>Quer entrar em contato?</S.ContactText>
+        <S.ContactButtonsContainer>
+          <S.ButtonContainer>
+            <Button height="37" variant="secondary" fontSize="16px" widthCircle="" heightCircle="">
+              Mande um e-mail
+            </Button>
+          </S.ButtonContainer>
+          <S.ButtonContainer>
+            <Button
+              height="37"
+              variant="secondary"
+              fontSize="16px"
+              widthCircle=""
+              heightCircle="37">
+              Fale pelo WhatsApp
+            </Button>
+          </S.ButtonContainer>
+        </S.ContactButtonsContainer>
+      </S.ContactSession>
+    </S.FAQFull>
   );
 };
 

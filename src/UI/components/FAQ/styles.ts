@@ -13,7 +13,6 @@ export const FAQFull = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 40px;
   width: 100%;
 `;
 
@@ -40,33 +39,34 @@ export const SearchContainer = styled.div`
   background-size: cover;
 `;
 
-export const CategoryTextContainer = styled.div`
-  padding: 40px 0;
-  height: 180px;
+export const ContactSession = styled.div`
+  padding: 40px 60px;
+  height: 106px;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  background-color: #373aad;
-  background-image: url(${meioCirculoFaq.src}), url(${circuloFaq.src}), url(${retanguloFaq.src});
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size: 195px, 80px, 200px;
-  background-position: bottom 0px left 0px, top 20px right 240px, top 20px right 0px;
-  @media (max-width: 700px) {
-    background-size: 145px, 50px, 125px;
-    background-position: bottom 0px left 0px, top 20px right 150px, top 20px right 0px;
-  }
+  background: linear-gradient(270deg, #29abe2 7.54%, #373aad 92.7%);
 `;
 
-export const CategoryText = styled.p<{ size: number }>`
+export const ContactButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const ButtonContainer = styled.div`
+  margin: 0 10px;
+`;
+
+export const ContactText = styled.p<{ size: number }>`
   max-width: 400px;
   line-height: 37px;
   margin: 0 15px;
   color: ${colors.white};
   font-size: ${(props) => props.size}px;
-  font-family: ${fonts.bold};
 `;
 
 export const Title = styled.p<{ size: number }>`
@@ -121,18 +121,13 @@ export const Categoria = styled.div<{ border?: '#373AAD' | '#FFF' }>`
 `;
 
 export const CategoryCard = styled.div`
-  cursor: pointer;
   width: 406px;
   height: 437px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   background: #fbfbfb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  border: 2px solid #373aad;
   margin: 20px;
   transition: 0.2s;
 `;
@@ -143,8 +138,47 @@ export const CategoryCardHeader = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 25%;
-  border-bottom: border: 1px solid ${colors.labelInput};
+  height: 18%;
+  border-bottom: 1px solid ${colors.labelInput};
+`;
+
+export const CategoryCardTitle = styled.span`
+  font-size: 30px;
+  font-family: ${fonts.regular};
+  color: ${colors.blue};
+`;
+
+export const CategoryCardQuestionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 8px 22px;
+`;
+
+export const CategoryCardQuestion = styled.div`
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  margin: 12px 0;
+`;
+
+export const QuestionTitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: initial;
+  width: 95%;
+`;
+
+export const QuestionTitle = styled.span`
+  font-size: 24px;
+  font-family: ${fonts.regular};
+  color: ${colors.black};
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 5%;
 `;
 
 export const Text = styled.p<{ size: number }>`
