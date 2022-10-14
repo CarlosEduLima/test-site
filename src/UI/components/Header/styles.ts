@@ -21,7 +21,7 @@ export const ContainerImage = styled.div`
 export const DivHeader = styled.header<HeaderProps>`
   top: 0;
   left: 0;
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
