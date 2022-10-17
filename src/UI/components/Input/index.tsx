@@ -165,8 +165,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
             {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur, inputSecureTextEntry)}
             onChange={(text) => {
-              console.log(text);
-              console.log(text.currentTarget.value);
               setValue(name, text.currentTarget.value);
             }}
             type={inputSecureTextEntry ? typeInput : 'text'}
