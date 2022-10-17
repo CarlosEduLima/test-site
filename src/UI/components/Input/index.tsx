@@ -94,18 +94,18 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 
   const getNameSearch = (value: string) => {
     setIsClicked(false);
-    if (!!value.trim().length) {
+    if (value.trim().length) {
       setValueSearch(value);
       if (valueSearch != value) {
         setIsSearch(true);
       }
       setValue(name, value);
       if (!isClicked) {
-        setFiltered(dataSearch.filter((createFilter(value))));
+        setFiltered(dataSearch.filter(createFilter(value)));
       }
       setFilterPreviewSearchValue(value);
     } else {
-      setFiltered([])
+      setFiltered([]);
     }
   };
 
@@ -165,6 +165,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
             {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur, inputSecureTextEntry)}
             onChange={(text) => {
+              console.log(text);
+              console.log(text.currentTarget.value);
               setValue(name, text.currentTarget.value);
             }}
             type={inputSecureTextEntry ? typeInput : 'text'}
@@ -173,7 +175,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => { }}
+        setValue={() => {}}
       />
       <div style={{ marginRight: style.marginRight }}>
         {inputSecureTextEntry ? (
@@ -215,7 +217,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         maskChar={null}
         onChange={(text) => {
           setValue(name, text);
-          const textValue = text.substring(0, 9);
+          const textValue = text.target.value.substring(0, 9);
           if (getValues(name).length === 10) {
             setValue(name, textValue);
           }
@@ -242,9 +244,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     <S.ContainerInput
       {...containerInputProps}
       $borderRadius={
-        (filtered.length > 0 && valueSearch.length > 0 ? '9px 9px 0 0' : '9px 9px 9px 9px')
-      }
-    >
+        filtered.length > 0 && valueSearch.length > 0 ? '9px 9px 0 0' : '9px 9px 9px 9px'
+      }>
       <S.SearchInput
         autocomplete="off"
         type="text"
@@ -274,7 +275,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => { }}
+        setValue={() => {}}
         {...rest}
       />
     </S.ContainerInput>
@@ -306,7 +307,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => { }}
+        setValue={() => {}}
         {...rest}
       />
     </S.ContainerTextAreaInput>
@@ -363,20 +364,20 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         {type == 'text'
           ? typeTextInput
           : type != 'other'
-            ? typeRandomInput
-            : icon == 'password'
-              ? passwordInput
-              : icon == 'textArea'
-                ? textAreaInput
-                : icon == 'phone'
-                  ? phoneInput
-                  : icon == 'cep'
-                    ? cepInput
-                    : icon == 'money'
-                      ? moneyInput
-                      : icon == 'search'
-                        ? searchInput
-                        : otherInput}
+          ? typeRandomInput
+          : icon == 'password'
+          ? passwordInput
+          : icon == 'textArea'
+          ? textAreaInput
+          : icon == 'phone'
+          ? phoneInput
+          : icon == 'cep'
+          ? cepInput
+          : icon == 'money'
+          ? moneyInput
+          : icon == 'search'
+          ? searchInput
+          : otherInput}
 
         <S.ErrorText>{inputError}</S.ErrorText>
         {icon == 'search' &&
