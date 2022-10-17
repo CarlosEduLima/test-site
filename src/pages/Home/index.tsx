@@ -10,6 +10,7 @@ import { HeaderContainer } from './styles';
 import { HighProfessionals } from '../../UI/components/highProfessionals';
 import { Carousel } from 'src/UI/components/carousel';
 import RegisterButtonSection from 'src/UI/components/RegisterButtonSession';
+import { WhoAreWe } from 'src/UI/components/whoAreWe';
 
 const Home: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const Home: React.FC = () => {
       <WhatMakesUsDifferent />
       <Newsletter />
       <Footer />
+      <WhoAreWe />
     </div>
   );
 };
