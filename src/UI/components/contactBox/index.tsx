@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../Button';
 import {
   Container,
@@ -15,41 +15,35 @@ import {
 } from './styles';
 
 import * as yup from 'yup';
-// import api from 'src/services/api';
+import api from 'src/services/api';
 
 const ContactBox: React.FC = (props) => {
-  // const [resp, setResp] = useState({});
-  // const [data, setData] = useState({
-  //   name: '',
-  //   email: '',
-  // });
-
+  const [data, setData] = useState({
+    subject: '',
+    message: '',
+    email: '',
+    name: '',
+  });
   const userSchema = yup.object({
     name: yup.string().required('Preencha o campo Nome'),
     email: yup.string().email('Email inválido').required('Preencha o campo de e-mail'),
     subject: yup.string().required('Preencha o campo Assunto'),
   });
 
-  const handleSubmit = (data) => {
+  const handleSubmit = async (data) => {
     console.log('teste', data);
-    // try {
-    //   const resposta =  api.post(`/faq/help/email/`, {
-    //     subject: data.subject,
-    //     message: data.message,
-    //     email: data.email,
-    //     name: data.name,
-    //   });
-    //   setResp(resposta);
-
-    //   return resposta;
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    setData({ ...data });
+    try {
+      const resposta = await api.post('/faq/help/email/', data);
+      return resposta;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <Container>
-      <Formik validationSchema={userSchema} initialValues={props} onSubmit={handleSubmit}>
+      <Formik validationSchema={userSchema} initialValues={data} onSubmit={handleSubmit}>
         {({ errors }) => (
           <Box>
             <Form>
