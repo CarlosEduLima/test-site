@@ -319,7 +319,8 @@ export const Divider = styled.div`
   height: 1px;
   width: 100%;
   background-color: ${colors.mediumGray};
-  margin: 0 8px;
+  margin-bottom: 20px;
+  width: 93%;
 `;
 
 export const ResultContainer = styled.div`
@@ -347,6 +348,7 @@ export const ResultQuestionsContainer = styled.div`
   flex-direction: column;
   width: 100%;
   margin-bottom: 12px;
+  cursor: pointer;
 `;
 
 export const ResultQuestionContainer = styled.div`

@@ -4,179 +4,38 @@ import React, { useEffect, useState } from 'react';
 import * as S from './styles';
 
 import { BsChevronRight } from 'react-icons/bs';
-import Flag from '../../../assets/flag.svg';
-import Wvalues from '../../../assets/wvalues.svg';
-import Interrogation from '../../../assets/interrogation.svg';
 import SearchBtn from '../../../assets/searchBtn.svg';
 
 import { Button } from '../Button';
 
-import { GetFaq } from '../../../services/faq';
+import { GetFaq, IFAQProps } from '../../../services/faq';
+import Image from 'next/image';
+import QuestionIcon from '../../../assets/questionFaqIcon.png';
+import { useRouter } from 'next/router';
 
 const FAQ: React.FC = () => {
-  const mockFaqCategories = [
-    {
-      id: 1,
-      name: 'Primeiros passos',
-      icon: Flag,
-      description: 'Assuntos relacionados a conta',
-      questions: [
-        {
-          id: 3,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-        {
-          id: 10,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-        {
-          id: 9,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Preços e moedas',
-      icon: Wvalues,
-      description: 'Assuntos relacionados a conta',
-      questions: [
-        {
-          id: 2,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-      ],
-    },
-    {
-      id: 3,
-      name: 'Como utilizar',
-      icon: Flag,
-      description: 'Assuntos relacionados a conta',
-      questions: [
-        {
-          id: 4,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-      ],
-    },
-    {
-      id: 1,
-      name: 'Conta',
-      icon: Flag,
-      description: 'Assuntos relacionados a conta',
-      questions: [
-        {
-          id: 5,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de',
-        },
-        {
-          id: 5,
-          previous_answer: 'preview',
-          question: 'o app aceita?',
-        },
-      ],
-    },
-    {
-      id: 1,
-      name: 'Conta',
-      icon: Interrogation,
-      description: 'Assuntos relacionados a conta',
-      questions: [
-        {
-          id: 6,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-        {
-          id: 6,
-          previous_answer: 'preview',
-          question: 'Quais  o app aceita?',
-        },
-        {
-          id: 6,
-          previous_answer: 'preview',
-          question: 'Quais são as app aceita?',
-        },
-      ],
-    },
-    {
-      id: 1,
-      name: 'Conta',
-      icon: Flag,
-      description: 'Assuntos relacionados a conta',
-      questions: [
-        {
-          id: 7,
-          previous_answer: 'preview',
-          question: 'Quais são as formas',
-        },
-        {
-          id: 6,
-          previous_answer: 'preview',
-          question: 'pagamento',
-        },
-        {
-          id: 8,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita?',
-        },
-        {
-          id: 9,
-          previous_answer: 'preview',
-          question: 'Quais são as formas de pagamento que o app aceita? Quais são as formas',
-        },
-      ],
-    },
-  ];
-
   const [value, setValue] = useState('');
-  const [inCategoria, setInCategoria] = useState(0);
-  const [filteredQuestions, setFilteredQuestions] = useState([])
-  const fullQuestions = mockFaqCategories.flatMap((item) => item.questions);
-  //const [filteredQuestions] = useState([]);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const [data, setData] = useState<IFAQProps[]>([]);
+  const router = useRouter();
 
-  const [data, setData] = useState([]);
-
-  const getData = () => {
-    //const test = 
-    //console.log('ggggg', test)
-    //const response = await GetFaq();
-    //setData(response)
-
-  }
+  const getData = async () => {
+    const response = await GetFaq();
+    setData(response);
+  };
 
   useEffect(() => {
-    getData()
-  }, [])
+    void getData();
+  }, []);
 
   const SearchQuestion = (valor) => {
     setValue(valor);
-    const texto = valor;
-    if (texto !== undefined && texto !== '') {
-      const test = data.map(item => item.questions.filter(question => question.question.includes(valor)))
-      console.log('aa', test)
-      setFilteredQuestions(data.filter(item =>  item.questions.filter(question => question.question.includes(valor))))
-      console.log(filteredQuestions)
-      /*filteredQuestions.splice(0);
-      setInCategoria(-1);
-      for (const question of fullQuestions) {
-        if (
-          question.previous_answer.toLowerCase().includes(texto.toLowerCase()) ||
-          question.question.toLowerCase().includes(texto.toLowerCase())
-        ) {
-          filteredQuestions.push(question);
-        }
-      }
-    }
-    if (texto.length === 0) {
-      setInCategoria(0);
-    }*/
+    if (valor !== undefined && valor !== '') {
+      const filterData = data.map((cat) => ({
+        ...cat,
+        questions: cat.questions.filter((question) => question.question.includes(valor)),
+      }));
+      setFilteredQuestions(filterData);
     }
   };
 
@@ -197,39 +56,52 @@ const FAQ: React.FC = () => {
         </S.Search>
       </S.SearchContainer>
       <S.FAQContainer>
-        {value ?
+        {value ? (
           <>
             <S.Text className="categoria" size={25}>
               Resultados da pesquisa
             </S.Text>
             <S.Divider />
-            {data.map(result => (
-              <S.ResultContainer>
-                <S.CategoryResultTitleContainer>
-                  <S.CategoryResultTitle>
-                    {result.name}
-                  </S.CategoryResultTitle>
-                </S.CategoryResultTitleContainer>
-                <S.ResultQuestionsContainer>
-                  {result.questions.map(question => (
-                    <S.ResultQuestionContainer>
-                      <S.ResultQuestionInfo>
-                        <S.QuestionResultTitle>
-                          {question.question}
-                        </S.QuestionResultTitle>
-                        <S.ResultAnswerPreview>
-                          {question.previous_answer}
-                        </S.ResultAnswerPreview>
-                      </S.ResultQuestionInfo>
-                      <S.ResultQuestionIconContainer>
-                        <BsChevronRight size={16} />
-                      </S.ResultQuestionIconContainer>
-                    </S.ResultQuestionContainer>
-                  ))}
-                </S.ResultQuestionsContainer>
-              </S.ResultContainer>
-            ))}
-          </> :
+            {filteredQuestions.map(
+              (result) =>
+                result.questions.length > 0 && (
+                  <S.ResultContainer>
+                    <S.CategoryResultTitleContainer>
+                      <Image src={QuestionIcon} width={22} height={22} alt="questionIcon" />
+                      <S.CategoryResultTitle style={{ marginLeft: '10px' }}>
+                        {result.name}
+                      </S.CategoryResultTitle>
+                    </S.CategoryResultTitleContainer>
+                    <S.ResultQuestionsContainer>
+                      {result.questions.map((question) => (
+                        <S.ResultQuestionContainer
+                          key={question.id}
+                          onClick={() =>
+                            router.push(
+                              {
+                                pathname: '/Answer',
+                                query: { id: question.id },
+                              },
+                              '/Answer',
+                            )
+                          }>
+                          <S.ResultQuestionInfo>
+                            <S.QuestionResultTitle>{question.question}</S.QuestionResultTitle>
+                            <S.ResultAnswerPreview>
+                              {question.previous_answer}
+                            </S.ResultAnswerPreview>
+                          </S.ResultQuestionInfo>
+                          <S.ResultQuestionIconContainer>
+                            <BsChevronRight size={16} />
+                          </S.ResultQuestionIconContainer>
+                        </S.ResultQuestionContainer>
+                      ))}
+                    </S.ResultQuestionsContainer>
+                  </S.ResultContainer>
+                ),
+            )}
+          </>
+        ) : (
           <>
             <S.Text className="categoria" size={25}>
               Ou escolha uma categoria relacionada à sua dúvida
@@ -238,11 +110,24 @@ const FAQ: React.FC = () => {
               {data.map((category) => (
                 <S.CategoryCard key={category.id}>
                   <S.CategoryCardHeader>
-                    <S.CategoryCardTitle>{category.name}</S.CategoryCardTitle>
+                    <Image src={QuestionIcon} width={28} height={28} alt="questionIcon" />
+                    <S.CategoryCardTitle style={{ marginLeft: '10px' }}>
+                      {category.name}
+                    </S.CategoryCardTitle>
                   </S.CategoryCardHeader>
                   <S.CategoryCardQuestionsContainer>
                     {category.questions.map((question) => (
-                      <S.CategoryCardQuestion key={question.id}>
+                      <S.CategoryCardQuestion
+                        key={question.id}
+                        onClick={() =>
+                          router.push(
+                            {
+                              pathname: '/Answer',
+                              query: { id: question.id },
+                            },
+                            '/Answer',
+                          )
+                        }>
                         <S.QuestionTitleContainer>
                           <S.QuestionTitle>{question.question}</S.QuestionTitle>
                         </S.QuestionTitleContainer>
@@ -256,8 +141,7 @@ const FAQ: React.FC = () => {
               ))}
             </S.Categorias>
           </>
-        }
-
+        )}
       </S.FAQContainer>
       <S.ContactSession>
         <S.ContactText size={28}>Quer entrar em contato?</S.ContactText>
@@ -268,8 +152,7 @@ const FAQ: React.FC = () => {
               variant="secondary"
               fontSize="16px"
               widthCircle=""
-              heightCircle=""
-            >
+              heightCircle="">
               Mande um e-mail
             </Button>
           </S.ButtonContainer>
