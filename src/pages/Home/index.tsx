@@ -13,10 +13,8 @@ import RegisterButtonSection from 'src/UI/components/RegisterButtonSession';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <HeaderContainer>
-        <Header />
-      </HeaderContainer>
+    <>
+      <Header />
       <HighProfessionals />
       <Carousel />
       <RegisterButtonSection />
@@ -26,7 +24,7 @@ const Home: React.FC = () => {
       <WhatMakesUsDifferent />
       <Newsletter />
       <Footer />
-    </div>
+    </>
   );
 };
 
