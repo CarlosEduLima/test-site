@@ -28,7 +28,7 @@ import GoBackIcon from '../../../assets/goBack.svg';
 import HelpIcon from '../../../assets/help.svg';
 import { Button } from '../Button';
 
-const ViewAnswer: React.FC = () => {
+const ViewAnswer = (id: any) => {
   const categoriaItens = [
     {
       id: 0,

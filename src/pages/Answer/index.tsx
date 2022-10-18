@@ -4,13 +4,13 @@ import Footer from '../../UI/components/footer';
 import { HeaderContainer } from './styles';
 import ViewAnswer from 'src/UI/components/viewAnswer';
 
-const Answer: React.FC = () => {
+const Answer: React.FC = (id: any) => {
   return (
     <>
       <HeaderContainer>
         <Header />
       </HeaderContainer>
-      <ViewAnswer />
+      <ViewAnswer id={id} />
       <Footer />
     </>
   );
