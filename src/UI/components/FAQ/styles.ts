@@ -49,16 +49,28 @@ export const ContactSession = styled.div`
   justify-content: space-between;
   text-align: center;
   background: linear-gradient(270deg, #29abe2 7.54%, #373aad 92.7%);
+  @media (max-width: 800px) {
+    padding: 23px 60px;
+    height: 200px;
+    flex-direction: column;
+  }
 `;
 
 export const ContactButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const ButtonContainer = styled.div`
   margin: 0 10px;
+  width: 192px;
+  @media (max-width: 800px) {
+    margin: 10px;
+  }
 `;
 
 export const ContactText = styled.p<{ size: number }>`
@@ -67,6 +79,9 @@ export const ContactText = styled.p<{ size: number }>`
   margin: 0 15px;
   color: ${colors.white};
   font-size: ${(props) => props.size}px;
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
 `;
 
 export const Title = styled.p<{ size: number }>`
@@ -146,6 +161,9 @@ export const CategoryCardTitle = styled.span`
   font-size: 30px;
   font-family: ${fonts.regular};
   color: ${colors.blue};
+  @media (max-width: 700px) {
+    font-size: 25px;
+  }
 `;
 
 export const CategoryCardQuestionsContainer = styled.div`
@@ -173,6 +191,9 @@ export const QuestionTitle = styled.span`
   font-size: 24px;
   font-family: ${fonts.regular};
   color: ${colors.black};
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
 `;
 
 export const IconContainer = styled.div`
@@ -292,4 +313,72 @@ export const Summary = styled.summary`
   font-family: ${fonts.regular};
   color: #000;
   list-style-type: none;
+`;
+
+export const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background-color: ${colors.mediumGray};
+  margin: 0 8px;
+`;
+
+export const ResultContainer = styled.div`
+  width: 100%;
+  padding: 0 38px;
+`;
+export const CategoryResultTitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 12px;
+`;
+
+export const CategoryResultTitle = styled.span`
+  font-size: 20px;
+  color: ${colors.blue};
+  font-family: ${fonts.regular};
+`;
+
+export const ResultQuestionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 12px;
+`;
+
+export const ResultQuestionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+`;
+
+export const ResultQuestionInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  align-items: start;
+  margin-right: 10px;
+`;
+
+export const ResultQuestionIconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+`;
+
+export const QuestionResultTitle = styled.p`
+  font-size: 18px;
+  color: ${colors.black};
+  font-family: ${fonts.regular};
+  text-align: start;
+  margin-bottom: 12px;
+`;
+export const ResultAnswerPreview = styled.p`
+  font-size: 18px;
+  color: ${colors.mediumGray};
+  font-family: ${fonts.regular};
 `;

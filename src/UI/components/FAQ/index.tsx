@@ -11,6 +11,8 @@ import SearchBtn from '../../../assets/searchBtn.svg';
 
 import { Button } from '../Button';
 
+import { GetFaq } from '../../../services/faq';
+
 const FAQ: React.FC = () => {
   const mockFaqCategories = [
     {
@@ -135,27 +137,33 @@ const FAQ: React.FC = () => {
 
   const [value, setValue] = useState('');
   const [inCategoria, setInCategoria] = useState(0);
-
+  const [filteredQuestions, setFilteredQuestions] = useState([])
   const fullQuestions = mockFaqCategories.flatMap((item) => item.questions);
-  const [filteredQuestions] = useState([]);
+  //const [filteredQuestions] = useState([]);
 
   const [data, setData] = useState([]);
 
-  /*const getData = async () => {
-    const response = await mockFaqCategories
-    setData(response)
+  const getData = () => {
+    //const test = 
+    //console.log('ggggg', test)
+    //const response = await GetFaq();
+    //setData(response)
 
   }
 
   useEffect(() => {
     getData()
-  }, [])*/
+  }, [])
 
   const SearchQuestion = (valor) => {
     setValue(valor);
     const texto = valor;
     if (texto !== undefined && texto !== '') {
-      filteredQuestions.splice(0);
+      const test = data.map(item => item.questions.filter(question => question.question.includes(valor)))
+      console.log('aa', test)
+      setFilteredQuestions(data.filter(item =>  item.questions.filter(question => question.question.includes(valor))))
+      console.log(filteredQuestions)
+      /*filteredQuestions.splice(0);
       setInCategoria(-1);
       for (const question of fullQuestions) {
         if (
@@ -168,6 +176,7 @@ const FAQ: React.FC = () => {
     }
     if (texto.length === 0) {
       setInCategoria(0);
+    }*/
     }
   };
 
@@ -188,46 +197,89 @@ const FAQ: React.FC = () => {
         </S.Search>
       </S.SearchContainer>
       <S.FAQContainer>
-        <S.Text className="categoria" size={25}>
-          Ou escolha uma categoria relacionada à sua dúvida
-        </S.Text>
-        <S.Categorias>
-          {data.map((category) => (
-            <S.CategoryCard key={category.id}>
-              <S.CategoryCardHeader>
-                <S.CategoryCardTitle>{category.name}</S.CategoryCardTitle>
-              </S.CategoryCardHeader>
-              <S.CategoryCardQuestionsContainer>
-                {category.questions.map((question) => (
-                  <S.CategoryCardQuestion key={question.id}>
-                    <S.QuestionTitleContainer>
-                      <S.QuestionTitle>{question.question}</S.QuestionTitle>
-                    </S.QuestionTitleContainer>
-                    <S.IconContainer>
-                      <BsChevronRight size={16} />
-                    </S.IconContainer>
-                  </S.CategoryCardQuestion>
-                ))}
-              </S.CategoryCardQuestionsContainer>
-            </S.CategoryCard>
-          ))}
-        </S.Categorias>
+        {value ?
+          <>
+            <S.Text className="categoria" size={25}>
+              Resultados da pesquisa
+            </S.Text>
+            <S.Divider />
+            {data.map(result => (
+              <S.ResultContainer>
+                <S.CategoryResultTitleContainer>
+                  <S.CategoryResultTitle>
+                    {result.name}
+                  </S.CategoryResultTitle>
+                </S.CategoryResultTitleContainer>
+                <S.ResultQuestionsContainer>
+                  {result.questions.map(question => (
+                    <S.ResultQuestionContainer>
+                      <S.ResultQuestionInfo>
+                        <S.QuestionResultTitle>
+                          {question.question}
+                        </S.QuestionResultTitle>
+                        <S.ResultAnswerPreview>
+                          {question.previous_answer}
+                        </S.ResultAnswerPreview>
+                      </S.ResultQuestionInfo>
+                      <S.ResultQuestionIconContainer>
+                        <BsChevronRight size={16} />
+                      </S.ResultQuestionIconContainer>
+                    </S.ResultQuestionContainer>
+                  ))}
+                </S.ResultQuestionsContainer>
+              </S.ResultContainer>
+            ))}
+          </> :
+          <>
+            <S.Text className="categoria" size={25}>
+              Ou escolha uma categoria relacionada à sua dúvida
+            </S.Text>
+            <S.Categorias>
+              {data.map((category) => (
+                <S.CategoryCard key={category.id}>
+                  <S.CategoryCardHeader>
+                    <S.CategoryCardTitle>{category.name}</S.CategoryCardTitle>
+                  </S.CategoryCardHeader>
+                  <S.CategoryCardQuestionsContainer>
+                    {category.questions.map((question) => (
+                      <S.CategoryCardQuestion key={question.id}>
+                        <S.QuestionTitleContainer>
+                          <S.QuestionTitle>{question.question}</S.QuestionTitle>
+                        </S.QuestionTitleContainer>
+                        <S.IconContainer>
+                          <BsChevronRight size={16} />
+                        </S.IconContainer>
+                      </S.CategoryCardQuestion>
+                    ))}
+                  </S.CategoryCardQuestionsContainer>
+                </S.CategoryCard>
+              ))}
+            </S.Categorias>
+          </>
+        }
+
       </S.FAQContainer>
       <S.ContactSession>
         <S.ContactText size={28}>Quer entrar em contato?</S.ContactText>
         <S.ContactButtonsContainer>
           <S.ButtonContainer>
-            <Button height="37" variant="secondary" fontSize="16px" widthCircle="" heightCircle="">
+            <Button
+              height="37px"
+              variant="secondary"
+              fontSize="16px"
+              widthCircle=""
+              heightCircle=""
+            >
               Mande um e-mail
             </Button>
           </S.ButtonContainer>
           <S.ButtonContainer>
             <Button
-              height="37"
+              height="37px"
               variant="secondary"
               fontSize="16px"
               widthCircle=""
-              heightCircle="37">
+              heightCircle="">
               Fale pelo WhatsApp
             </Button>
           </S.ButtonContainer>
