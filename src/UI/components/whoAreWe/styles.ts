@@ -20,7 +20,7 @@ export const Divider = styled.div`
   width: 130px;
   border-radius: 10px;
   border: 1px solid ${colors.blue};
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 `;
 
 export const ButtonContainer = styled.div`

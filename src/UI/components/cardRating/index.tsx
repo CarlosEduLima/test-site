@@ -1,51 +1,42 @@
 import React from 'react';
-import colors from 'src/utils/colors';
-import { StarIcon } from '../iconStar/icon';
+import { StarYellow } from '../../../assets/starYellow.tsx';
+import { StarBlue } from '../../../assets/StarBlue.tsx';
 import * as S from './styles';
 
 interface CardProps {
-    description: string;
-    nameProfessional: string;
-    numberRating: number;
+  description: string;
+  nameProfessional: string;
+  numberRating: number;
 }
 
 export const CardRating = ({ description, nameProfessional, numberRating }: CardProps) => {
+  const filterRating = Math.round(numberRating);
 
-    const filterRating = Math.round(numberRating);
+  const RenderStars = () => {
+    const render = [];
 
-    const RenderStars = () => {
-        const render = [];
+    for (let i = 0; filterRating > i; i++) {
+      render.push(<StarYellow />);
+    }
+    for (let i = 5; filterRating < i; i--) {
+      render.push(<StarBlue />);
+    }
 
-        for (let i = 0; filterRating > i; i++) {
-            render.push(
-                // <StarIcon color={colors.yellow} key={i} size={17} />
-            );
-        }
-        for (let i = 5; filterRating < i; i--) {
-            render.push(
-                // <StarIcon color={colors.labelInput} key={i} size={17} />
-            );
-        }
+    return render || <></>;
+  };
 
-        return render || <></>;
-    };
-
-
-    // *********** TIRAR COMPONENTE DA HOME ****************** //
-    // *********** COMPONENTE StarIcon ****************** //
-
-    return (
-        <S.ContainerCard>
-            <S.ContainerHeader>
-                <S.Description>{description}</S.Description>
-            </S.ContainerHeader>
-            <S.ContainerFooter>
-                <S.Name>{nameProfessional}</S.Name>
-                <S.ContainerRating>
-                    <S.NumberRating>{numberRating}</S.NumberRating>
-                    {RenderStars()}
-                </S.ContainerRating>
-            </S.ContainerFooter>
-        </S.ContainerCard>
-    )
-}
+  return (
+    <S.ContainerCard>
+      <S.ContainerHeader>
+        <S.Description>{description}</S.Description>
+      </S.ContainerHeader>
+      <S.ContainerFooter>
+        <S.Name>{nameProfessional}</S.Name>
+        <S.ContainerRating>
+          <S.NumberRating>{numberRating}</S.NumberRating>
+          <div>{RenderStars()}</div>
+        </S.ContainerRating>
+      </S.ContainerFooter>
+    </S.ContainerCard>
+  );
+};
