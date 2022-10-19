@@ -15,9 +15,10 @@ import {
 } from './styles';
 
 import * as yup from 'yup';
-import api from 'src/services/api';
+import { PostHekps } from 'src/services/help';
 
 const ContactBox: React.FC = (props) => {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     subject: '',
     message: '',
@@ -30,17 +31,19 @@ const ContactBox: React.FC = (props) => {
     subject: yup.string().required('Preencha o campo Assunto'),
   });
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async (data, { resetForm }) => {
     console.log('teste', data);
-    setData({ ...data });
+    setLoading(true);
     try {
-      const resposta = await api.post('/faq/help/email/', data);
-      return resposta;
+      await PostHekps(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
+    } finally {
+      resetForm({ data: '' });
     }
   };
-
   return (
     <Container>
       <Formik validationSchema={userSchema} initialValues={data} onSubmit={handleSubmit}>
@@ -81,10 +84,17 @@ const ContactBox: React.FC = (props) => {
                     placeholder="Descreva seu problema..."
                     style={styleTextarea(errors.message)}
                   />
+                  <ErrorMessage name="subject">
+                    {(msg) => <div style={styleError}>{msg}</div>}
+                  </ErrorMessage>
                 </div>
               </BoxInput>
               <BoxButton>
-                <Button variant={'secondary'} widthCircle={''} heightCircle="10px">
+                <Button
+                  variant={'secondary'}
+                  widthCircle={''}
+                  heightCircle="10px"
+                  loading={loading}>
                   Enviar
                 </Button>
               </BoxButton>
