@@ -22,25 +22,25 @@ export const Title = styled.h1`
 
 export const ButtonRight = styled.button`
   display: flex;
-  position: absolute;
+  position: fixed;
   border: 1px solid;
   left: 0;
-  height: 28rem;
-  width: 3rem;
+  top: 55%;
+  width: 2.5rem;
   place-items: center;
   background: none;
   border: none;
 `;
 export const ButtonLeft = styled.button`
   display: flex;
-  position: absolute;
-  border: 1px solid;
+  position: fixed;
   right: 0;
-  height: 28rem;
-  width: 3rem;
+  top: 55%;
+  width: 2.5rem;
   place-items: center;
-  background: none;
   border: none;
+  border-radius: 48%;
+  background: none;
 `;
 export const Box = styled.div`
   display: flex;
@@ -65,6 +65,7 @@ export const CardContainer = styled.div`
   border-radius: 8px;
   padding: 0;
   cursor: pointer;
+  max-width: 344px;
 `;
 export const CardBox = styled.div`
   padding: 5%;
@@ -80,6 +81,13 @@ export const CardTitle = styled.h1`
 `;
 export const CardBoxContent = styled.div`
   padding: 10% 0;
+  height: 8em;
+  display: flex;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 export const CardContent = styled.div`
   display: flex;
