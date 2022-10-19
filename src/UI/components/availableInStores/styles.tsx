@@ -9,14 +9,20 @@ export const Container = styled.div`
   background-color: ${colors.purple};
   position: relative;
   padding: 55px 0 0 0;
-  margin: 0;
-  margin-top: 138px;
-  z-index: -10;
+  margin-top: 80px;
+  z-index: 1;
+  @media (max-width: 800px) {
+    margin-top: 0;
+  }
 `;
 
 export const LeftSide = styled.div`
   flex: 0.5;
   margin-top: -210px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const RightSide = styled.div`
@@ -24,6 +30,11 @@ export const RightSide = styled.div`
   flex: 1;
   max-width: 485px;
   padding-bottom: 55px;
+
+  @media (max-width: 800px) {
+    padding: 0 20px 55px 20px;
+    justify-content: center;
+  }
 `;
 
 export const Title = styled.h1`
@@ -32,6 +43,11 @@ export const Title = styled.h1`
   color: ${colors.white};
   line-height: 34px;
   margin: 5px 0;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+    text-align: center;
+  }
 `;
 
 export const Text = styled.p`
@@ -40,6 +56,9 @@ export const Text = styled.p`
   color: ${colors.white};
   line-height: 27px;
   margin: 0;
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 export const StoreButtonsContainer = styled.div`
@@ -49,6 +68,9 @@ export const StoreButtonsContainer = styled.div`
   margin-top: 16px;
   margin-left: -15px;
   margin-bottom: 20px;
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 `;
 
 export const BgDetailsConfig = styled.div`
@@ -80,4 +102,12 @@ export const BgDetailsThree = styled(BgDetailsConfig)`
   height: 97px;
   top: 40px;
   right: 0;
+`;
+
+export const ButtonContainer = styled.div`
+  display: none;
+  @media (max-width: 500px) {
+    display: flex;
+    width: 100%;
+  }
 `;

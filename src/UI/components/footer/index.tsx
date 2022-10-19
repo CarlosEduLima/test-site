@@ -1,28 +1,16 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import {
-  FooterContainer,
-  FooterUp,
-  FooterDown,
-  TextUp,
-  TextDown,
-  FooterSection,
-  FooterList,
-  FooterListImg,
-  ImageLocal,
-  ImageLocalDiv,
-  DownloadImage,
-  FooterListFAQ,
-  TitlesList,
-} from './styles';
 import instagram from '../../../assets/instagram.png';
 import facebook from '../../../assets/facebook.png';
 import twitter from '../../../assets/twitter.png';
 import linkedin from '../../../assets/linkedin.png';
 import googlePlay from '../../../assets/googlePlay.png';
 import appStore from '../../../assets/appStore.png';
+import iconPlayStore from '../../../assets/iconPlayStore.png';
+import iconAppleStore from '../../../assets/iconAppleStore.png';
 import iziwIcon from '../../../assets/icon.png';
+import * as S from './styles';
 
 const Footer = () => {
   const categoriasItens = [
@@ -58,81 +46,86 @@ const Footer = () => {
   ];
 
   return (
-    <FooterContainer>
-      <FooterUp>
-        <FooterSection width={300}>
-          <TextUp>Categorias</TextUp>
-          <FooterList>
+    <S.FooterContainer>
+      <S.FooterUp>
+        <S.FooterSection width={300}>
+          <S.TextUp>Categorias</S.TextUp>
+          <S.FooterList>
             {categoriasItens.map((item, i) => (
-              <TextDown key={i}>{item}</TextDown>
+              <S.TextItens key={i}>{item}</S.TextItens>
             ))}
-          </FooterList>
-        </FooterSection>
-        <FooterSection>
-          <TextUp>Institucional</TextUp>
+          </S.FooterList>
+        </S.FooterSection>
+        <S.FooterSection>
+          <S.TextUp>Institucional</S.TextUp>
           <Link href="/whoWeAre">
-            <TitlesList>
-              Quem somos
-            </TitlesList>
+            <S.TitlesList>Quem somos</S.TitlesList>
           </Link>
           <Link href="/pageWorkWithUs">
-            <TitlesList>
-              Trabalhe Conosco
-            </TitlesList>
+            <S.TitlesList>Trabalhe Conosco</S.TitlesList>
           </Link>
           <Link href="/verifiedProfessionals">
-            <TitlesList>
-              Profissionais Verificados
-            </TitlesList>
+            <S.TitlesList>Profissionais Verificados</S.TitlesList>
           </Link>
-        </FooterSection>
-        <FooterSection>
-          <TextUp>Redes Sociais</TextUp>
-          <FooterList>
-            <FooterListImg>
+        </S.FooterSection>
+        <S.FooterSection>
+          <S.TextUp>Redes Sociais</S.TextUp>
+          <S.FooterList>
+            <S.FooterListImg>
               {imagensSociais.map((item) => (
-                <ImageLocalDiv key={item.name}>
-                  <ImageLocal>
+                <S.ImageLocalDiv key={item.name}>
+                  <S.ImageLocal>
                     {item.name === 'facebook' ? (
                       <Image src={item.local} width={11} height={23} alt={item.name} />
                     ) : (
                       <Image src={item.local} height={500} alt={item.name} />
                     )}
-                  </ImageLocal>
-                </ImageLocalDiv>
+                  </S.ImageLocal>
+                </S.ImageLocalDiv>
               ))}
-            </FooterListImg>
-          </FooterList>
-        </FooterSection>
-        <FooterSection>
-          <TextUp>Downloads</TextUp>
-          <FooterList>
-            <DownloadImage>
-              <Image src={googlePlay} width={220} height={66} alt="Google play store" />
-            </DownloadImage>
-            <DownloadImage>
-              <Image src={appStore} width={220} height={66} alt="Apple Store" />
-            </DownloadImage>
-          </FooterList>
-        </FooterSection>
-      </FooterUp>
-      <FooterDown>
-        <Image src={iziwIcon} alt="Iziw Icon" />
-        <FooterListFAQ>
-          <TextDown>
-            Ajuda
-          </TextDown>
-          <Link href="/TermsOfUse">
-            <TextDown>
-              Termos de Uso
-            </TextDown>
-          </Link>
-          <TextDown size={12} key="3">
-            Firedev It Solutions 2021 - Todos os Direitos Reservados
-          </TextDown>
-        </FooterListFAQ>
-      </FooterDown>
-    </FooterContainer>
+            </S.FooterListImg>
+          </S.FooterList>
+          <S.TextUp>Parceiros</S.TextUp>
+        </S.FooterSection>
+        <S.FooterSection>
+          <S.TextUp>Downloads</S.TextUp>
+          <S.FooterList>
+            <S.DownloadImage>
+              <a href="https://play.google.com/store/apps">
+                <Image src={googlePlay} width={220} height={66} alt="Google play store" />
+              </a>
+            </S.DownloadImage>
+            <S.DownloadImage>
+              <a href="https://www.apple.com/br/app-store/">
+                <Image src={appStore} width={220} height={66} alt="Apple Store" />
+              </a>
+            </S.DownloadImage>
+            <S.ContainerIcons>
+              <S.ContainerIconStore>
+                <a href="https://play.google.com/store/apps">
+                  <Image src={iconPlayStore} width={36} height={36} alt="Google play store" />
+                </a>
+              </S.ContainerIconStore>
+              <S.ContainerIconStore>
+                <a href="https://www.apple.com/br/app-store/">
+                  <Image src={iconAppleStore} width={36} height={36} alt="Apple Store" />
+                </a>
+              </S.ContainerIconStore>
+            </S.ContainerIcons>
+          </S.FooterList>
+        </S.FooterSection>
+      </S.FooterUp>
+      <S.FooterDown>
+        <S.ContainerLogo>
+          <Image src={iziwIcon} alt="Iziw Icon" />
+        </S.ContainerLogo>
+        <S.TextDownFooter>Ajuda</S.TextDownFooter>
+        <Link href="/TermsOfUse">
+          <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
+        </Link>
+        <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
+      </S.FooterDown>
+    </S.FooterContainer>
   );
 };
 

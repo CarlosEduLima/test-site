@@ -5,6 +5,7 @@ export default {
   purple: '#373AAD',
   white: '#FFFFFF',
   black: '#000000',
+  smoke: '#F2F2F2',
   heading: '#353535',
   input: '#353535',
   gray: '#AAAFB9',

@@ -6,18 +6,16 @@ import Footer from 'src/UI/components/footer';
 import TermsOfUse from 'src/UI/components/termsOfUse';
 
 const TermsOfUsePage: React.FC = () => {
-    return (
-        <>
-            <HeaderContainer>
-                <Header />
-            </HeaderContainer>
-            <ContainerTermsOfUser>
-                <TermsOfUse />
-            </ContainerTermsOfUser>
-            <Newsletter />
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <ContainerTermsOfUser>
+        <TermsOfUse />
+      </ContainerTermsOfUser>
+      <Newsletter />
+      <Footer />
+    </>
+  );
 };
 
 export default TermsOfUsePage;

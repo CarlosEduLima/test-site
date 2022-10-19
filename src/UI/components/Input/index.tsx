@@ -3,27 +3,14 @@ import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useStat
 import { Controller, useForm } from 'react-hook-form';
 import { RHFInput } from 'react-hook-form-input';
 import { BsEyeSlashFill, BsFillEyeFill, BsSearch } from 'react-icons/bs';
-import InputMask from 'react-input-mask';
 import { TextInputMask } from 'react-masked-text';
 import { createFilter } from 'react-search-input';
-import colors from '../../../utils/colors';
 import { currencyConfig } from '../../../utils/input';
 import { TextInputAttributes } from './attributes';
 import { InputProps, InputRef } from './interfaces';
-import {
-  Container,
-  ContainerInput,
-  ContainerSearchPreview,
-  ContainerSearchPreviewItem,
-  ContainerSearchPreviewItems,
-  ContainerTextAreaInput,
-  CurrencyInput,
-  ErrorText,
-  Label,
-  SearchInput,
-  TextInput,
-  TextInputArea,
-} from './style';
+import InputMask from 'react-input-mask';
+import colors from '../../../utils/colors';
+import * as S from './style';
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
@@ -39,7 +26,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     style = {
       backgroundColor: 'white',
       height: 32,
-      color: 'black',
+      color: '#000000b5',
       size: 20,
       borderRadius: '60px',
       labelFontSize: 22,
@@ -48,13 +35,12 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       colorIcon: colors.blue,
       marginRight: 10,
       borderColor: 'transparent',
-      marginLeft: 18,
       rows: 10,
       cols: 33,
       fontSize: '16px',
-      fontWeight: '500',
+      fontWeight: '600',
       lineHeight: '25px',
-      placeholderTextColor: colors.labelInput,
+      placeholderTextColor: colors.black,
       focusBorderColor: 'transparent',
     },
     placeholder,
@@ -108,15 +94,19 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 
   const getNameSearch = (value: string) => {
     setIsClicked(false);
-    setValueSearch(value);
-    if (valueSearch != value) {
-      setIsSearch(true);
+    if (value.trim().length) {
+      setValueSearch(value);
+      if (valueSearch != value) {
+        setIsSearch(true);
+      }
+      setValue(name, value);
+      if (!isClicked) {
+        setFiltered(dataSearch.filter(createFilter(value)));
+      }
+      setFilterPreviewSearchValue(value);
+    } else {
+      setFiltered([]);
     }
-    setValue(name, value);
-    if (!isClicked) {
-      setFiltered(dataSearch.filter(createFilter(filterPreviewSearchValue, KEYS_TO_FILTERS)));
-    }
-    setFilterPreviewSearchValue(value);
   };
 
   const [isClicked, setIsClicked] = useState(false);
@@ -168,10 +158,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   };
 
   const passwordInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <RHFInput
         as={
-          <TextInput
+          <S.TextInput
             {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur, inputSecureTextEntry)}
             onChange={(text) => {
@@ -200,11 +190,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           />
         )}
       </div>
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const phoneInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <InputMask
         ref={() => Register.ref}
         mask="(99) 9 9999-9999"
@@ -213,50 +203,49 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           setValue(name, text);
         }}
         {...TextInputAttributes(handleInputFocus, handleInputBlur)}>
-        {() => <TextInput {...textInputProps} />}
+        {() => <S.TextInput {...textInputProps} />}
       </InputMask>
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const cepInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <InputMask
         mask="99999-999"
         maskChar={null}
         onChange={(text) => {
           setValue(name, text);
-          const textValue = text.substring(0, 9);
+          const textValue = text.target.value.substring(0, 9);
           if (getValues(name).length === 10) {
             setValue(name, textValue);
           }
         }}
         {...TextInputAttributes(handleInputFocus, handleInputBlur)}
         {...rest}>
-        {() => <TextInput {...textInputProps} />}
+        {() => <S.TextInput {...textInputProps} />}
       </InputMask>
-    </ContainerInput>
+    </S.ContainerInput>
   );
   const moneyInput = (
-    <ContainerInput {...containerInputProps}>
-      <CurrencyInput
+    <S.ContainerInput {...containerInputProps}>
+      <S.CurrencyInput
         {...textInputProps}
         required={required}
         currency="BRL"
         config={currencyConfig()}
         onChange={handleChange}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const searchInput = (
-    <ContainerInput
+    <S.ContainerInput
       {...containerInputProps}
       $borderRadius={
-        (filtered.length < 1 && valueSearch.length >= 0 && '9px 9px 9px 9px') ||
-        (filtered.length > 0 && valueSearch.length > 0 && '9px 9px 0 0')
+        filtered.length > 0 && valueSearch.length > 0 ? '9px 9px 0 0' : '9px 9px 9px 9px'
       }>
-      <SearchInput
-        autoComplete={false}
+      <S.SearchInput
+        autocomplete="off"
         type="text"
         onChange={getNameSearch}
         value={valueSearch}
@@ -265,14 +254,14 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       <div style={{ marginRight: style.marginRight, marginLeft: style.marginLeft }}>
         <BsSearch onClick={() => handleIconClick()} color={style.colorIcon} size={style.size} />
       </div>
-    </ContainerInput>
+    </S.ContainerInput>
   );
 
   const otherInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <RHFInput
         as={
-          <TextInput
+          <S.TextInput
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}
             type={typeInput}
             onChange={(text) => {
@@ -287,13 +276,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         setValue={() => {}}
         {...rest}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
   const textAreaInput = (
-    <ContainerTextAreaInput {...containerInputProps}>
+    <S.ContainerTextAreaInput {...containerInputProps}>
       <RHFInput
         as={
-          <TextInputArea
+          <S.TextInputArea
             $placeholderTextColor={style.placeholderTextColor}
             fontWeight={style.fontWeight}
             id={name}
@@ -319,15 +308,15 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         setValue={() => {}}
         {...rest}
       />
-    </ContainerTextAreaInput>
+    </S.ContainerTextAreaInput>
   );
   const typeTextInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <Controller
         control={control}
         name={name}
         render={({ field: { onChange } }) => (
-          <TextInput
+          <S.TextInput
             {...textInputProps}
             {...TextInputAttributes(handleInputFocus, handleInputBlur)}
             onChange={(text) => {
@@ -336,10 +325,10 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           />
         )}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
   const typeRandomInput = (
-    <ContainerInput {...containerInputProps}>
+    <S.ContainerInput {...containerInputProps}>
       <Controller
         control={control}
         name={name}
@@ -357,18 +346,18 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           />
         )}
       />
-    </ContainerInput>
+    </S.ContainerInput>
   );
   return (
     <>
-      <Container color={style.color} $placeholderTextColor={style.placeholderTextColor}>
-        <Label
+      <S.Container color={style.color} $placeholderTextColor={style.placeholderTextColor}>
+        <S.Label
           colorLabel={style.colorLabel}
           fontWeight={style.fontWeight}
           labelFontSize={style.labelFontSize}
           htmlFor={name}>
           {label}
-        </Label>
+        </S.Label>
 
         {type == 'text'
           ? typeTextInput
@@ -388,24 +377,24 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           ? searchInput
           : otherInput}
 
-        <ErrorText>{inputError}</ErrorText>
-      </Container>
-      {icon == 'search' &&
-        filterPreviewSearchValue.length != 0 &&
-        filtered.length != 0 &&
-        isSearch && (
-          <ContainerSearchPreview>
-            <ContainerSearchPreviewItems key={filtered.length}>
-              {filtered.map((value, index) => {
-                return (
-                  <ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
-                    {value.name}
-                  </ContainerSearchPreviewItem>
-                );
-              })}
-            </ContainerSearchPreviewItems>
-          </ContainerSearchPreview>
-        )}
+        <S.ErrorText>{inputError}</S.ErrorText>
+        {icon == 'search' &&
+          filterPreviewSearchValue.length != 0 &&
+          filtered.length != 0 &&
+          isSearch && (
+            <S.ContainerSearchPreview>
+              <S.ContainerSearchPreviewItems key={filtered.length}>
+                {filtered?.slice(0, 4)?.map((value, index) => {
+                  return (
+                    <S.ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
+                      {value}
+                    </S.ContainerSearchPreviewItem>
+                  );
+                })}
+              </S.ContainerSearchPreviewItems>
+            </S.ContainerSearchPreview>
+          )}
+      </S.Container>
     </>
   );
 };
