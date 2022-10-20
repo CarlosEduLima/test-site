@@ -5,7 +5,11 @@ import useWindowSize from '../../../utils/hooks';
 import useDraggableScroll from 'use-draggable-scroll';
 import * as S from './styles';
 
-export const WhoAreWe: React.FC = () => {
+interface Props {
+  title: string;
+}
+
+export const WhoAreWe: React.FC<Props> = ({ title }: Props) => {
   // Início da estrutura do carrousel //
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne]: any = useState([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo]: any = useState([]);
@@ -73,7 +77,7 @@ export const WhoAreWe: React.FC = () => {
 
   return (
     <S.Container>
-      <S.Title>O que dizem sobre nós</S.Title>
+      <S.Title>{title}</S.Title>
       <S.Divider />
       <S.ScrollAreaContainer>
         <S.HorizontalScrollArea
