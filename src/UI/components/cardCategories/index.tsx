@@ -49,7 +49,7 @@ export const CardCategories: React.FC = (id: any) => {
   };
 
   useEffect(() => {
-    void GetRating(id == id)
+    void GetRating(id === id)
       .then((data) => {
         const { arrayOne } = defineLines(data);
         setGetRatingProfessionalsLineOne(arrayOne);

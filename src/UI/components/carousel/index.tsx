@@ -87,6 +87,15 @@ export const Carousel: React.FC = () => {
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
+              onClick={() =>
+                router.push(
+                  {
+                    pathname: '/categories',
+                    query: { id: highlight.id },
+                  },
+                  '/categories',
+                )
+              }
               size={cardSize}
               title={highlight.name}
               key={index}

@@ -5,7 +5,7 @@ import fonts from '../../../utils/fonts';
 
 const cardOpacity = '65';
 
-export const Card = styled.div<{
+export const Card = styled.button<{
   backgroundImage: string;
   size: { width: number; height: number };
 }>`
@@ -39,7 +39,7 @@ interface Props {
 
 export const InputCard: React.FC<Props> = ({ title, backgroundImage, size, onClick }) => {
   return (
-    <Card backgroundImage={backgroundImage} size={size} onClick={() => onClick}>
+    <Card backgroundImage={backgroundImage} size={size} onClick={() => onClick()}>
       <CardText>{title}</CardText>
     </Card>
   );

@@ -40,7 +40,7 @@ const Categories: React.FC = (id: any) => {
       <Carrossel>
         <CardCategories id={router.query?.id} />
       </Carrossel>
-      <WhoAreWe />
+      <WhoAreWe title={'Pedidos com notas mais altas'} />
       <Newsletter />
       <Footer />
     </>
