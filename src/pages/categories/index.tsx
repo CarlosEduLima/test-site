@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '../../UI/components/Header';
 import Footer from '../../UI/components/footer';
 import { Button } from '../../UI/components/Button';
+import { useRouter } from 'next/router';
 import {
   Top,
   TextWhite,
@@ -13,8 +14,11 @@ import {
 } from './styles';
 import { CardCategories } from 'src/UI/components/cardCategories';
 import { Newsletter } from 'src/UI/components/newsletter';
+import { Carousel } from 'src/UI/components/carousel';
+import { WhoAreWe } from 'src/UI/components/whoAreWe';
 
-const Categories: React.FC = () => {
+const Categories: React.FC = (id: any) => {
+  const router = useRouter();
   return (
     <>
       <HeaderContainer>
@@ -34,8 +38,9 @@ const Categories: React.FC = () => {
         </TopCenter>
       </Top>
       <Carrossel>
-        <CardCategories />
+        <CardCategories id={router.query?.id} />
       </Carrossel>
+      <WhoAreWe />
       <Newsletter />
       <Footer />
     </>

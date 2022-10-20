@@ -22,9 +22,9 @@ export const Title = styled.h1`
 
 export const ButtonRight = styled.button`
   display: flex;
-  position: fixed;
+  position: relative;
   border: 1px solid;
-  left: 0;
+  right: 0;
   top: 55%;
   width: 2.5rem;
   place-items: center;
@@ -33,9 +33,9 @@ export const ButtonRight = styled.button`
 `;
 export const ButtonLeft = styled.button`
   display: flex;
-  position: fixed;
-  right: 0;
-  top: 55%;
+  position: relative;
+  left: 99%;
+  top: 49%;
   width: 2.5rem;
   place-items: center;
   border: none;

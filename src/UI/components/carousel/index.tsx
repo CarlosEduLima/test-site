@@ -4,6 +4,7 @@ import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
 import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
+import { useRouter } from 'next/router';
 
 export const Carousel: React.FC = () => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
@@ -29,6 +30,8 @@ export const Carousel: React.FC = () => {
     }
     return { arrayOne, arrayTwo };
   };
+
+  const router = useRouter();
 
   useEffect(() => {
     void ServiceHighlights()
@@ -102,6 +105,15 @@ export const Carousel: React.FC = () => {
           onMouseDown={onMouseDownRef2}>
           {serviceHighlightsLineTwo.map((highlight, index) => (
             <InputCard
+              onClick={() =>
+                router.push(
+                  {
+                    pathname: '/categories',
+                    query: { id: highlight.id },
+                  },
+                  '/categories',
+                )
+              }
               size={cardSize}
               title={highlight.name}
               key={index}

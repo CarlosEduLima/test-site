@@ -34,11 +34,12 @@ interface Props {
   title?: string;
   backgroundImage?: string;
   size: { width: number; height: number };
+  onClick?: () => void;
 }
 
-export const InputCard: React.FC<Props> = ({ title, backgroundImage, size }) => {
+export const InputCard: React.FC<Props> = ({ title, backgroundImage, size, onClick }) => {
   return (
-    <Card backgroundImage={backgroundImage} size={size}>
+    <Card backgroundImage={backgroundImage} size={size} onClick={() => onClick}>
       <CardText>{title}</CardText>
     </Card>
   );

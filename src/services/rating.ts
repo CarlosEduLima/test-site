@@ -18,3 +18,13 @@ export const GetRatingProfessionals = async () => {
     throw error;
   }
 };
+
+export const GetRating = async (id: number | null) => {
+  try {
+    const { data } = await api.get(`/services/average-ratings/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
