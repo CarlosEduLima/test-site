@@ -47,6 +47,9 @@ export const Header: React.FC<Props> = (props) => {
               <Link href="/PageFaq">
                 <List>FAQ</List>
               </Link>
+              <Link href="/ContactFaq">
+                <List>Contato</List>
+              </Link>
             </LinkContainer>
             <ContainerButton>
               <Link href="/RegisterUser">
