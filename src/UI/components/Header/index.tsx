@@ -47,6 +47,9 @@ export const Header: React.FC<Props> = (props) => {
               <Link href="/faq">
                 <List>FAQ</List>
               </Link>
+              <Link href="/ContactFaq">
+                <List>Contato</List>
+              </Link>
             </LinkContainer>
             <ContainerButton>
               <Link href="/RegisterUser">
@@ -74,6 +77,12 @@ export const Header: React.FC<Props> = (props) => {
             <List style={{ marginBottom: 25 }}>Como funciona?</List>
           </Link>
           <List style={{ marginBottom: 25 }}>Categorias</List>
+          <Link href="/PageFaq">
+            <List style={{ marginBottom: 25 }}>FAQ</List>
+          </Link>
+          <Link href="/ContactFaq">
+            <List>Contato</List>
+          </Link>
           <Link href="/faq">
             <List>FAQ</List>
           </Link>
