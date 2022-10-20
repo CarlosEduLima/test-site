@@ -16,7 +16,6 @@ import {
   Logo,
   Box,
   Container,
-
   ContainerText,
   Text,
   styleInput,
@@ -26,7 +25,6 @@ import {
 import { Button } from '../Button';
 
 export default function App() {
-
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -47,7 +45,7 @@ export default function App() {
   async function makeRequest(formData: IRegisterUserProps) {
     try {
       const resposta = await RegisterUser(formData);
-      setResp(resposta)
+      setResp(resposta);
 
       return resposta;
     } catch (error) {
@@ -147,10 +145,7 @@ const userSchema2 = yup.object({
     .string()
     .min(8, 'A senha deve ter no mínimo 8 caracteres')
     .required('Preencha o campo da senha')
-    .matches(
-      senhaRegex,
-      'A senha deve conter letras minúscula, maiúscula e caracteres especiais',
-    ),
+    .matches(senhaRegex, 'A senha deve conter letras minúscula, maiúscula e caracteres especiais'),
   password_confirmation: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Verifique as senhas')
@@ -214,12 +209,10 @@ const StepTwo = (props) => {
 };
 
 const StepThree = (props) => {
-
   return (
     <>
-      {
-        props.resp !== undefined && props.resp.message !== undefined &&
-        (<Box>
+      {props.resp !== undefined && props.resp.message !== undefined && (
+        <Box>
           <Logo src={Check} alt="Search" />
 
           <ContainerText>
@@ -230,8 +223,8 @@ const StepThree = (props) => {
             <Logo src={googlePlay} alt="googlePlay" />
             <Logo src={AppStore} alt="AppStore" />
           </ContainerImageStore>
-        </Box>)
-      }
+        </Box>
+      )}
     </>
   );
 };

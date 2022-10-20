@@ -22,6 +22,7 @@ export interface ButtonPropsComponent {
   fontSize?: string;
   widthCircle: string;
   heightCircle: string;
+  onClick?: () => void;
 }
 
 export interface CircleProps {
