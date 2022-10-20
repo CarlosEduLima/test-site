@@ -68,7 +68,7 @@ export const styleTextarea = (isError) => {
     borderRadius: '15px',
     border: isError ? '#F00 solid 1px' : '#f4fafd',
     display: 'flex',
-    backgroundColor: '#f4fafd',
+    backgroundColor: `${colors.lightBlueGrayish}`,
     width: '100%',
     height: '6rem',
     marginBottom: '0em',
