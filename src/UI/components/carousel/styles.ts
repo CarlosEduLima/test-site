@@ -9,7 +9,7 @@ export const Title = styled.h1`
 `;
 
 export const Container = styled.div`
-  margin: 45.5px auto 64px auto;
+  margin: 45.5px auto 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,10 +22,13 @@ export const Divider = styled.div`
   border: 1px solid ${colors.lightBlue};
 `;
 
-export const HorizontalScrollArea = styled.div`
+export const HorizontalScrollArea = styled.div<{
+  alignCenter: boolean;
+}>`
   margin: 0 auto;
   width: 100%;
   display: flex;
+  justify-content: ${(props) => (props.alignCenter === true ? 'center' : 'flex-start')};
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;

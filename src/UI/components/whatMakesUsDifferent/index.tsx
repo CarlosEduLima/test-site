@@ -11,10 +11,11 @@ import {
   SubContentRight,
   SubContentLeft,
   StyledLink,
+  ContentLineReverse,
 } from './styles';
-import askingQuestions from '../../../assets/asking-questions.png';
-import startupIdea from '../../../assets/startup-idea.png';
-import workRiskFree from '../../../assets/work-risk-free.png';
+import questionFree from '../../../assets/questionFree.svg';
+import questionSafe from '../../../assets/questionSafe.svg';
+import questionStart from '../../../assets/questionStart.svg';
 
 export const WhatMakesUsDifferent: React.FC = () => {
   return (
@@ -23,7 +24,7 @@ export const WhatMakesUsDifferent: React.FC = () => {
       <Divider />
       <ContentLine>
         <SubContentLeft>
-          <Image src={askingQuestions} alt="" />
+          <Image src={questionFree} alt="" />
         </SubContentLeft>
         <SubContentRight>
           <SubTitle>É de graça?</SubTitle>
@@ -34,7 +35,7 @@ export const WhatMakesUsDifferent: React.FC = () => {
         </SubContentRight>
       </ContentLine>
 
-      <ContentLine>
+      <ContentLineReverse>
         <SubContentLeft>
           <SubTitle>É seguro?</SubTitle>
           <Text>
@@ -43,18 +44,18 @@ export const WhatMakesUsDifferent: React.FC = () => {
           </Text>
         </SubContentLeft>
         <SubContentRight>
-          <Image src={startupIdea} alt="" />
+          <Image src={questionSafe} alt="" />
         </SubContentRight>
-      </ContentLine>
+      </ContentLineReverse>
 
       <ContentLine>
         <SubContentLeft>
-          <Image src={workRiskFree} alt="" />
+          <Image src={questionStart} alt="" />
         </SubContentLeft>
         <SubContentRight>
           <SubTitle>Como faço para ser um profissional IZiW?</SubTitle>
           <Text>
-            <Link href="/temp">
+            <Link href="/RegisterUser">
               <StyledLink>Clique aqui</StyledLink>
             </Link>{' '}
             e será redirecionado para nosso formulário de inscrição.

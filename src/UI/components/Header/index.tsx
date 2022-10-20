@@ -44,7 +44,7 @@ export const Header: React.FC<Props> = (props) => {
                 <List>Como funciona?</List>
               </Link>
               <List>Categorias</List>
-              <Link href="/PageFaq">
+              <Link href="/faq">
                 <List>FAQ</List>
               </Link>
               <Link href="/ContactFaq">
@@ -82,6 +82,9 @@ export const Header: React.FC<Props> = (props) => {
           </Link>
           <Link href="/ContactFaq">
             <List>Contato</List>
+          </Link>
+          <Link href="/faq">
+            <List>FAQ</List>
           </Link>
         </MobileLinkContainer>
       </MobileMenu>

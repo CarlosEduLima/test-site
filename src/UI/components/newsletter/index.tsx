@@ -1,43 +1,35 @@
 import React from 'react';
-import {
-  Container,
-  LeftContent,
-  TextTitle,
-  Text,
-  RightContent,
-  ImageBg,
-  BgDetailOne,
-  BgDetailTwo,
-  BgDetailThree,
-  BgDetailFour,
-  BgDetailFive,
-  InteractionContainer,
-} from './styles';
+import Link from 'next/link';
 import Image from 'next/image';
 import newsletterImage from '../../../assets/newsletterImage.png';
+import * as S from './styles';
+import { Button } from '../Button';
 
 export const Newsletter: React.FC = () => {
   return (
-    <Container>
-      <BgDetailTwo />
-      <BgDetailFour />
-      <LeftContent>
-        <TextTitle>A IziW chegou para mudar.</TextTitle>
-        <Text>Quer ganhar dinheiro extra e escolher quando e como trabalhar?</Text>
-        <InteractionContainer>
-          {/* TODO add input component */}
-          <p>*** INSERIR INPUT ***</p>
-          {/* TODO add button component */}
-          <button>Quero fazer parte</button>
-        </InteractionContainer>
-      </LeftContent>
-      <RightContent>
-        <ImageBg />
-        <Image src={newsletterImage} alt="newsletterImage" layout="fixed" />
-        <BgDetailOne />
-        <BgDetailThree />
-        <BgDetailFive />
-      </RightContent>
-    </Container>
+    <S.Container>
+      <S.ElementBallFooter />
+      <S.ElementRectangleHeader />
+      <S.LeftContent>
+        <S.TextTitle>A IziW chegou para mudar.</S.TextTitle>
+        <S.Text>Quer ganhar dinheiro extra e escolher quando e como trabalhar?</S.Text>
+        <S.InteractionContainer>
+          <Link href="/RegisterUser">
+            <Button variant={'secondary'} widthCircle={''} heightCircle={''}>
+              Quero me cadastrar
+            </Button>
+          </Link>
+        </S.InteractionContainer>
+      </S.LeftContent>
+      <S.RightContent>
+        <S.ElementBall />
+        <S.ContainerImage>
+          <Image src={newsletterImage} alt="newsletterImage" />
+        </S.ContainerImage>
+        <S.ElementMiniBall />
+        <S.ElementRectangleRight />
+        <S.ElementRectangleCenter />
+      </S.RightContent>
+    </S.Container>
   );
 };

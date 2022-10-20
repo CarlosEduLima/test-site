@@ -25,6 +25,7 @@
     "react-icons": "^4.3.1",
     "react-input-mask": "^2.0.4",
     "react-intl-currency-input": "^0.2.6",
+    "react-markdown": "^8.0.3",
     "react-masked-text": "^0.4.1",
     "react-scripts": "4.0.1",
     "react-search-input": "^0.11.3",

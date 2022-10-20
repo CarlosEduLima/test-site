@@ -9,21 +9,22 @@ import { Header } from '../../UI/components/Header';
 import { HeaderContainer } from './styles';
 import { HighProfessionals } from '../../UI/components/highProfessionals';
 import { Carousel } from 'src/UI/components/carousel';
+import RegisterButtonSection from 'src/UI/components/RegisterButtonSession';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <HeaderContainer>
-        <Header />
-      </HeaderContainer>
+    <>
+      <Header />
       <HighProfessionals />
       <Carousel />
+      <RegisterButtonSection />
       <HowItWorks />
+      <RegisterButtonSection />
       <AvailableInStores />
       <WhatMakesUsDifferent />
       <Newsletter />
       <Footer />
-    </div>
+    </>
   );
 };
 

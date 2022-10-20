@@ -1,37 +1,29 @@
 import React from 'react';
-import {
-  Top,
-  TextWhite,
-  SubTitleWhite,
-  TopCenter,
-  HeaderContainer,
-  NewsletterContainer,
-} from './styles';
+import * as S from './styles';
 import Aiziw from '../../UI/components/Aiziw';
+import Footer from 'src/UI/components/footer';
 import { Header } from '../../UI/components/Header';
-import { AvailableInStores } from '../../UI/components/availableInStores';
 import { Newsletter } from '../../UI/components/newsletter';
 
 const WhoWeAre: React.FC = () => {
   return (
     <>
-      <HeaderContainer>
+      <S.HeaderContainer>
         <Header />
-      </HeaderContainer>
-      <Top>
-        <TopCenter>
-          <SubTitleWhite>Quem somos</SubTitleWhite>
-          <TextWhite>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore.
-          </TextWhite>
-        </TopCenter>
-      </Top>
+      </S.HeaderContainer>
+      <S.Top>
+        <S.TopCenter>
+          <S.SubTitleWhite>Quem somos</S.SubTitleWhite>
+          <S.TextWhite>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+          </S.TextWhite>
+        </S.TopCenter>
+      </S.Top>
       <Aiziw />
-      <AvailableInStores />
-      <NewsletterContainer>
+      <S.NewsletterContainer>
         <Newsletter />
-      </NewsletterContainer>
+      </S.NewsletterContainer>
+      <Footer />
     </>
   );
 };
