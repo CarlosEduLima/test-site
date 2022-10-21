@@ -43,7 +43,9 @@ export const Header: React.FC<Props> = (props) => {
               <Link href="/firstStepsPage">
                 <List>Como funciona?</List>
               </Link>
-              <List>Categorias</List>
+              <Link href="/categories">
+                <List>Categorias</List>
+              </Link>
               <Link href="/faq">
                 <List>FAQ</List>
               </Link>

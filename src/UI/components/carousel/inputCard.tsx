@@ -5,7 +5,7 @@ import fonts from '../../../utils/fonts';
 
 const cardOpacity = '65';
 
-export const Card = styled.div<{
+export const Card = styled.button<{
   backgroundImage: string;
   size: { width: number; height: number };
 }>`
@@ -14,6 +14,8 @@ export const Card = styled.div<{
   height: ${(props) => props.size.height}px;
   width: ${(props) => props.size.width}px;
   border-radius: 13px;
+  border: 0;
+  cursor: pointer;
   background-image: linear-gradient(
       242deg,
       ${colors.blue}${cardOpacity},
@@ -34,11 +36,12 @@ interface Props {
   title?: string;
   backgroundImage?: string;
   size: { width: number; height: number };
+  onClick?: () => void;
 }
 
-export const InputCard: React.FC<Props> = ({ title, backgroundImage, size }) => {
+export const InputCard: React.FC<Props> = ({ title, backgroundImage, size, onClick }) => {
   return (
-    <Card backgroundImage={backgroundImage} size={size}>
+    <Card backgroundImage={backgroundImage} size={size} onClick={() => onClick()}>
       <CardText>{title}</CardText>
     </Card>
   );
