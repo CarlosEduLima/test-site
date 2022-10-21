@@ -14,6 +14,8 @@ export const Card = styled.button<{
   height: ${(props) => props.size.height}px;
   width: ${(props) => props.size.width}px;
   border-radius: 13px;
+  border: 0;
+  cursor: pointer;
   background-image: linear-gradient(
       242deg,
       ${colors.blue}${cardOpacity},

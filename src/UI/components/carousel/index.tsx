@@ -36,6 +36,7 @@ export const Carousel: React.FC = () => {
   useEffect(() => {
     void ServiceHighlights()
       .then((data) => {
+        console.log(data)
         const { arrayOne, arrayTwo } = defineLines(data);
         setServiceHighlightsLineOne(arrayOne);
         setServiceHighlightsLineTwo(arrayTwo);
@@ -91,7 +92,11 @@ export const Carousel: React.FC = () => {
                 router.push(
                   {
                     pathname: '/categories',
-                    query: { id: highlight.id },
+                    query: { 
+                      id: highlight.id,
+                      categoryName: highlight.name,
+                      description: highlight.description 
+                    },
                   },
                   '/categories',
                 )

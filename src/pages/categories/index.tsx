@@ -17,8 +17,10 @@ import { Newsletter } from 'src/UI/components/newsletter';
 import { Carousel } from 'src/UI/components/carousel';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
 
-const Categories: React.FC = (id: any) => {
+const Categories: React.FC = () => {
+  
   const router = useRouter();
+  console.log('rrr', router)
   return (
     <>
       <HeaderContainer>
@@ -26,9 +28,9 @@ const Categories: React.FC = (id: any) => {
       </HeaderContainer>
       <Top>
         <TopCenter>
-          <SubTitleWhite>Design e Tecnologia</SubTitleWhite>
+          <SubTitleWhite>{router.query?.categoryName}</SubTitleWhite>
           <TextWhite>
-            Logotipos, banners, redes sociais, papelaria, Ux design programação e muito mais.
+          {router.query?.description}
           </TextWhite>
           <BoxButton>
             <Button variant={'primary'} widthCircle={''} heightCircle={''}>

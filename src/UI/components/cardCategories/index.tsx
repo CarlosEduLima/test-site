@@ -49,14 +49,14 @@ export const CardCategories: React.FC = (id: any) => {
   };
 
   useEffect(() => {
-    void GetRating(id === id)
+    void GetRating(parseInt(id.id))
       .then((data) => {
         const { arrayOne } = defineLines(data);
         setGetRatingProfessionalsLineOne(arrayOne);
       })
       .catch(console.log);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, []);
 
   function onWheel(ev: React.WheelEvent, ref): void {
     if (ref.current) {
@@ -121,7 +121,7 @@ export const CardCategories: React.FC = (id: any) => {
               <CardImage src={mockIcon} width={325} height={228} />
               <CardBox>
                 <CardTitle>
-                  {highlight.name} <span> {highlight.rating}</span>
+                  {highlight.name} <span> {highlight.average_rating}</span>
                 </CardTitle>
                 <CardBoxContent>{highlight.description} </CardBoxContent>
                 <CardContent>
