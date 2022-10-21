@@ -36,7 +36,7 @@ const ViewAnswer = (questionid: any) => {
   };
 
   useEffect(() => {
-    void getData();
+    questionid?.id && getData();
   }, []);
 
   const handleReview = async (helped: boolean) => {
@@ -53,8 +53,8 @@ const ViewAnswer = (questionid: any) => {
     <>
       <FAQFull></FAQFull>
       <Container>
-        <BoxBack>
-          <IconBack src={GoBackIcon} alt="teste" onClick={() => router.back()} />
+        <BoxBack onClick={() => router.back()}>
+          <IconBack src={GoBackIcon} alt="teste" />
           <ButtonBack>Voltar à página inicial de ajuda</ButtonBack>
         </BoxBack>
         <MarckdownContainer>
