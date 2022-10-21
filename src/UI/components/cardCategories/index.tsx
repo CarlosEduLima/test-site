@@ -5,7 +5,6 @@ import { GetRating } from '../../../services/rating';
 import useWindowSize from '../../../utils/hooks';
 
 import { Button } from '../Button';
-import { InputCard } from '../carousel/inputCard';
 import { HorizontalScrollArea, ScrollAreaContainer } from '../carousel/styles';
 
 import {
@@ -15,6 +14,7 @@ import {
   CardBoxContent,
   CardContainer,
   CardContent,
+  CardIcon,
   CardImage,
   CardP,
   CardTitle,
@@ -24,11 +24,11 @@ import {
 import mockIcon from '../../../assets/mock.svg';
 import forwardIcon from '../../../assets/ir.svg';
 import backIcon from '../../../assets/voltar.svg';
+import estrelaIcon from '../../../assets/estrela.svg';
 import Image from 'next/image';
 
 export const CardCategories: React.FC = (id: any) => {
   const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne] = useState<any[]>([]);
-  const [GetRatingProfessionalsLineTwo, setGetRatingProfessionalsLineTwo] = useState<any[]>([]);
   const [alignCarouselCenter, setAlignCarouselCenter] = useState(false);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
@@ -118,10 +118,14 @@ export const CardCategories: React.FC = (id: any) => {
           onMouseDown={onMouseDownRef1}>
           {GetRatingProfessionalsLineOne.map((highlight, index) => (
             <CardContainer key={highlight.id}>
-              <CardImage src={mockIcon} width={325} height={228} />
+               <Image src={mockIcon} alt={'teste'} width={325} height={228} />
               <CardBox>
                 <CardTitle>
-                  {highlight.name} <span> {highlight.average_rating}</span>
+                  {highlight.name}
+                  <span style={{display: "flex", width: "70px", alignItems: "center"}}>
+                    {highlight.average_rating}
+                    <CardIcon src={estrelaIcon} alt={'teste'} width={20} height={20} />
+                  </span>
                 </CardTitle>
                 <CardBoxContent>{highlight.description} </CardBoxContent>
                 <CardContent>

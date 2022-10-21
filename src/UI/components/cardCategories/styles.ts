@@ -102,3 +102,6 @@ export const CardP = styled.h3`
   width: 80%;
 `;
 export const CardImage = styled(image)``;
+export const CardIcon= styled(image)`
+  padding: 0 20px;
+`;
