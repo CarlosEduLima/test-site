@@ -20,9 +20,7 @@ const ContactFaq: React.FC = () => {
           </TextWhite>
         </TopCenter>
       </Top>
-      <div style={{ margin: '0 15% auto' }}>
-        <ContactBox />
-      </div>
+      <ContactBox />
       <Footer />
     </>
   );
