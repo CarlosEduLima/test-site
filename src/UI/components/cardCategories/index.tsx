@@ -26,6 +26,7 @@ import forwardIcon from '../../../assets/ir.svg';
 import backIcon from '../../../assets/voltar.svg';
 import estrelaIcon from '../../../assets/estrela.svg';
 import Image from 'next/image';
+import { number } from 'yup';
 
 export const CardCategories: React.FC = (id: any) => {
   const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne] = useState<any[]>([]);
@@ -51,6 +52,8 @@ export const CardCategories: React.FC = (id: any) => {
   useEffect(() => {
     void GetRating(parseInt(id.id))
       .then((data) => {
+        console.log(data)
+        console.log(data[0]?.desktop_image)
         const { arrayOne } = defineLines(data);
         setGetRatingProfessionalsLineOne(arrayOne);
       })
@@ -91,7 +94,7 @@ export const CardCategories: React.FC = (id: any) => {
     e.preventDefault();
     ref1.current.scrollLeft += ref1.current.offsetWidth;
   };
-
+const test = null
   return (
     <Container>
       <Title>
@@ -118,7 +121,7 @@ export const CardCategories: React.FC = (id: any) => {
           onMouseDown={onMouseDownRef1}>
           {GetRatingProfessionalsLineOne.map((highlight, index) => (
             <CardContainer key={highlight.id}>
-               <Image src={mockIcon} alt={'teste'} width={325} height={228} />
+               <Image src={(highlight.desktop_image == '') || mockIcon} alt={'teste'} width={325} height={228} />
               <CardBox>
                 <CardTitle>
                   {highlight.name}
