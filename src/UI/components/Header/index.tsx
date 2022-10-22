@@ -48,8 +48,16 @@ export const Header: React.FC<Props> = (props) => {
                 <List>Como funciona?</List>
                   </Link>*/}
               <List
-                onClick={() =>
-                  router.pathname === '/Home' ? props.handleScroll() : router.push('/Home')
+                onClick={() => {
+                  if(router.pathname === '/Home'){
+                    props.handleScroll()
+                  }else{
+                    router.push({
+                      pathname: '/Home',
+                      query: { scroll: true },
+                    }); 
+                  }
+                }
                 }>
                 Categorias
               </List>
