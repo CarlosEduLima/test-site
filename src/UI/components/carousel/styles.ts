@@ -17,9 +17,10 @@ export const Container = styled.div`
 `;
 
 export const Divider = styled.div`
-  width: 124px;
-  height: 0;
-  border: 1px solid ${colors.lightBlue};
+  width: 130px;
+  border-radius: 10px;
+  border: 1px solid ${colors.blue};
+  margin-bottom: 30px;
 `;
 
 export const HorizontalScrollArea = styled.div<{
@@ -43,5 +44,6 @@ export const HorizontalScrollArea = styled.div<{
 
 export const ScrollAreaContainer = styled.div`
   margin: 47px 0;
+  padding: 0 30px;
   width: 100%;
 `;

@@ -1,32 +1,16 @@
-import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import useDraggableScroll from 'use-draggable-scroll';
-import { GetRating } from '../../../services/rating';
-import useWindowSize from '../../../utils/hooks';
-
-import { Button } from '../Button';
 import { HorizontalScrollArea, ScrollAreaContainer } from '../carousel/styles';
-
-import {
-  ButtonLeft,
-  ButtonRight,
-  CardBox,
-  CardBoxContent,
-  CardContainer,
-  CardContent,
-  CardIcon,
-  CardImage,
-  CardP,
-  CardTitle,
-  Container,
-  Title,
-} from './styles';
+import { GetRating } from '../../../services/rating';
+import { Button } from '../Button';
+import Link from 'next/link';
+import useWindowSize from '../../../utils/hooks';
+import useDraggableScroll from 'use-draggable-scroll';
 import mockIcon from '../../../assets/mock.svg';
 import forwardIcon from '../../../assets/ir.svg';
 import backIcon from '../../../assets/voltar.svg';
 import estrelaIcon from '../../../assets/estrela.svg';
 import Image from 'next/image';
-import { number } from 'yup';
+import * as S from './styles';
 
 export const CardCategories: React.FC = (id: any) => {
   const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne] = useState<any[]>([]);
@@ -94,18 +78,21 @@ export const CardCategories: React.FC = (id: any) => {
     e.preventDefault();
     ref1.current.scrollLeft += ref1.current.offsetWidth;
   };
-const test = null
+
   return (
-    <Container>
-      <Title>
-        Os mais pedidos na Iziw <hr />
-      </Title>
-      <ButtonRight onClick={handleLeftClick}>
+    <S.Container>
+      <S.ContainerDivider>
+        <S.Title>
+          Os mais pedidos na Iziw <hr />
+        </S.Title>
+        <S.Divider />
+      </S.ContainerDivider>
+      <S.ButtonRight onClick={handleLeftClick}>
         <Image src={backIcon} alt="voltar" />
-      </ButtonRight>
-      <ButtonLeft onClick={handleRightClick}>
+      </S.ButtonRight>
+      <S.ButtonLeft onClick={handleRightClick}>
         <Image src={forwardIcon} alt="voltar" />
-      </ButtonLeft>
+      </S.ButtonLeft>
       <ScrollAreaContainer>
         <HorizontalScrollArea
           ref={ref1}
@@ -120,33 +107,33 @@ const test = null
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
           {GetRatingProfessionalsLineOne.map((highlight, index) => (
-            <CardContainer key={highlight.id}>
-               <Image src={(highlight.desktop_image == '') || mockIcon} alt={'teste'} width={325} height={228} />
-              <CardBox>
-                <CardTitle>
+            <S.CardContainer key={highlight.id}>
+              <Image src={(highlight.desktop_image == '') || mockIcon} alt={''} width={325} height={228} />
+              <S.CardBox>
+                <S.CardTitle>
                   {highlight.name}
-                  <span style={{display: "flex", width: "70px", alignItems: "center"}}>
-                    {highlight.average_rating}
-                    <CardIcon src={estrelaIcon} alt={'teste'} width={20} height={20} />
-                  </span>
-                </CardTitle>
-                <CardBoxContent>{highlight.description} </CardBoxContent>
-                <CardContent>
-                  <CardP>
+                  <S.ContainerRating>
+                    <S.TextRating>{highlight.average_rating}</S.TextRating>
+                    <S.CardIcon src={estrelaIcon} alt={'rating'} width={16} height={16} />
+                  </S.ContainerRating>
+                </S.CardTitle>
+                <S.CardBoxContent>{highlight.description}</S.CardBoxContent>
+                <S.CardContent>
+                  <S.CardP>
                     R${highlight.prece}
                     <span>Média de preço </span>
-                  </CardP>
+                  </S.CardP>
                   <Link href="/RegisterUser">
-                    <Button variant={'secondary'} widthCircle={''} heightCircle={''}>
+                    <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} >
                       Quero contratar
                     </Button>
                   </Link>
-                </CardContent>
-              </CardBox>
-            </CardContainer>
+                </S.CardContent>
+              </S.CardBox>
+            </S.CardContainer>
           ))}
         </HorizontalScrollArea>
       </ScrollAreaContainer>
-    </Container>
+    </S.Container>
   );
 };

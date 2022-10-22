@@ -94,6 +94,7 @@ export const styleTextarea = (isError) => {
     outline: 'none !important',
     boxShadow: '0  0 0 2px #98887',
     color: 'black',
+    resize: 'none',
   };
 };
 
