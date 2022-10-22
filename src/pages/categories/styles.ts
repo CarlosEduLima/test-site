@@ -20,6 +20,10 @@ export const Top = styled.div`
   display: flex;
   justify-content: center;
   background-size: cover;
+
+  @media (width: 840px) {
+    width: 100%;
+  }
 `;
 
 export const TopCenter = styled.div`
@@ -44,10 +48,17 @@ export const SubTitleWhite = styled.h1`
   color: ${colors.white};
   margin-bottom: 40px;
 `;
+
 export const BoxButton = styled.div`
   padding-top: 2%;
   width: 30%;
+
+  @media (max-width: 840px) {
+    width: 80%;
+    margin-top: 30px;
+  }
 `;
+
 export const Carrossel = styled.div`
   display: flex;
   justify-content: center;

@@ -5,19 +5,30 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 95vw;
-  margin-top: 2%;
+
+  @media (max-width: 800px) {
+    max-width: 80vw;
+  }
 `;
+
 export const Title = styled.h1`
+  display: flex;
   font-family: ${fonts.bold};
-  align-items: center;
+  text-align: center;
+`;
+
+export const Divider = styled.div`
+  width: 130px;
+  border-radius: 10px;
+  border: 1px solid ${colors.blue};
+`;
+
+export const ContainerDivider = styled.div`
   display: flex;
   flex-direction: column;
-  line-height: 140%;
-  hr {
-    width: 10%;
-    display: flex;
-    border: 1px solid blue;
-  }
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
 `;
 
 export const ButtonRight = styled.button`
@@ -31,6 +42,7 @@ export const ButtonRight = styled.button`
   background: none;
   border: none;
 `;
+
 export const ButtonLeft = styled.button`
   display: flex;
   position: relative;
@@ -42,6 +54,7 @@ export const ButtonLeft = styled.button`
   border-radius: 48%;
   background: none;
 `;
+
 export const Box = styled.div`
   display: flex;
   overflow-x: auto;
@@ -51,48 +64,72 @@ export const Box = styled.div`
   }
 `;
 
-// Cards
-
 export const CardContainer = styled.div`
-  width: 325;
+  width: 325px;
+  max-width: 325px;
   height: 151;
   margin: 0 1%;
   flex: none;
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: 1px 1px 1px 1px rgba(149, 157, 165, 0.2);
   border-radius: 8px;
   padding: 0;
   cursor: pointer;
-  max-width: 344px;
 `;
+
 export const CardBox = styled.div`
   padding: 5%;
 `;
-export const CardTitle = styled.h1`
+
+export const CardTitle = styled.div`
   display: flex;
   font-size: 24px;
   font-family: ${fonts.heading};
   justify-content: space-between;
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
   span {
     font-size: 20px;
   }
 `;
+
+export const ContainerRating = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  min-width: 60px;
+  height: 30px;
+`;
+
+export const TextRating = styled.h2`
+  font-size: 17px;
+  font-family: ${fonts.heading};
+  margin-right: 6px;
+`;
+
 export const CardBoxContent = styled.div`
-  padding: 10% 0;
-  height: 8em;
+  /* padding: 10% 0; */
+  align-items: center;
+  height: 8rem;
   display: flex;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: ${colors.mediumGray};
 `;
+
 export const CardContent = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
+
 export const CardP = styled.h3`
   color: ${colors.LightBlue2};
   font-family: ${fonts.bold};
@@ -101,7 +138,9 @@ export const CardP = styled.h3`
   flex-direction: column;
   width: 80%;
 `;
-export const CardImage = styled(image)``;
-export const CardIcon= styled(image)`
-  padding: 0 20px;
+
+export const CardImage = styled(image)`
+`;
+
+export const CardIcon = styled(image)`
 `;

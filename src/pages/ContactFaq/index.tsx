@@ -1,25 +1,21 @@
 import React from 'react';
 import { Header } from '../../UI/components/Header';
 import Footer from '../../UI/components/footer';
-
-import { Top, TextWhite, SubTitleWhite, TopCenter, HeaderContainer } from './styles';
+import * as S from './styles';
 import ContactBox from 'src/UI/components/contactBox';
 
 const ContactFaq: React.FC = () => {
   return (
     <>
-      <HeaderContainer>
+      <S.HeaderContainer>
         <Header />
-      </HeaderContainer>
-      <Top>
-        <TopCenter>
-          <SubTitleWhite>Contato</SubTitleWhite>
-          <TextWhite>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore.
-          </TextWhite>
-        </TopCenter>
-      </Top>
+      </S.HeaderContainer>
+      <S.Top>
+        <S.TopCenter>
+          <S.SubTitleWhite>Contato</S.SubTitleWhite>
+          <S.TextWhite>Deixe aqui suas dúvidas, ficaremos felizes em ajudar.</S.TextWhite>
+        </S.TopCenter>
+      </S.Top>
       <ContactBox />
       <Footer />
     </>

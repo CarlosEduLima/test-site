@@ -14,13 +14,12 @@ import {
 } from './styles';
 import { CardCategories } from 'src/UI/components/cardCategories';
 import { Newsletter } from 'src/UI/components/newsletter';
-import { Carousel } from 'src/UI/components/carousel';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
 
 const Categories: React.FC = () => {
-  
+
   const router = useRouter();
-  console.log('rrr', router)
+
   return (
     <>
       <HeaderContainer>
@@ -30,7 +29,7 @@ const Categories: React.FC = () => {
         <TopCenter>
           <SubTitleWhite>{router.query?.categoryName}</SubTitleWhite>
           <TextWhite>
-          {router.query?.description}
+            {router.query?.description}
           </TextWhite>
           <BoxButton>
             <Button variant={'primary'} widthCircle={''} heightCircle={''}>

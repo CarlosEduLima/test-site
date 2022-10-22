@@ -43,5 +43,6 @@ export const HorizontalScrollArea = styled.div<{
 
 export const ScrollAreaContainer = styled.div`
   margin: 47px 0;
+  padding: 0 30px;
   width: 100%;
 `;

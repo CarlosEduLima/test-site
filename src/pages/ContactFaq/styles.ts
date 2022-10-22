@@ -31,15 +31,15 @@ export const TopCenter = styled.div`
 `;
 
 export const TextWhite = styled.p`
-  font-size: 20px;
+  font-size: 25px;
   line-height: 34px;
   font-family: ${fonts.regular};
   color: ${colors.white};
-  max-width: 500px;
+  max-width: 400px;
 `;
 
 export const SubTitleWhite = styled.h1`
-  font-size: 30px;
+  font-size: 35px;
   font-family: ${fonts.heading};
   color: ${colors.white};
   margin-bottom: 40px;
