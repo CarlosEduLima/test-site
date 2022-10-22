@@ -49,13 +49,13 @@ export const Header: React.FC<Props> = (props) => {
                   </Link>*/}
               <List
                 onClick={() => {
-                  if(router.pathname === '/Home'){
+                  if (router.pathname === '/Home') {
                     props.handleScroll()
-                  }else{
+                  } else {
                     router.push({
                       pathname: '/Home',
                       query: { scroll: true },
-                    }); 
+                    });
                   }
                 }
                 }>
@@ -90,11 +90,21 @@ export const Header: React.FC<Props> = (props) => {
           <Link href="/Home">
             <List style={{ marginBottom: 25 }}>Home</List>
           </Link>
-          <Link href="/firstStepsPage">
-            <List style={{ marginBottom: 25 }}>Como funciona?</List>
-          </Link>
-          <List style={{ marginBottom: 25 }}>Categorias</List>
-          <Link href="/PageFaq">
+          <List style={{ marginBottom: 25 }} onClick={() => {
+            if (router.pathname === '/Home') {
+              props.handleScroll()
+            } else {
+              router.push({
+                pathname: '/Home',
+                query: { scroll: true },
+              });
+            }
+          }
+          }
+          >
+            Categorias
+          </List>
+          <Link href="/faq">
             <List style={{ marginBottom: 25 }}>FAQ</List>
           </Link>
           <Link href="/ContactFaq">
