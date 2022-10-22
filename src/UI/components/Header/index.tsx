@@ -17,6 +17,7 @@ import LogoImg from '../../../assets/icon-white.png';
 import { Button } from '../Button';
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { useRouter } from 'next/router';
 interface Props {
   opacity?: boolean;
   handleScroll?: () => void;
@@ -26,6 +27,8 @@ export const Header: React.FC<Props> = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const router = useRouter();
+  console.log('aaaah', router);
 
   return (
     <div>
@@ -44,7 +47,12 @@ export const Header: React.FC<Props> = (props) => {
               {/*<Link href="/firstStepsPage">
                 <List>Como funciona?</List>
                   </Link>*/}
-              <List onClick={props.handleScroll}>Categorias</List>
+              <List
+                onClick={() =>
+                  router.pathname === '/Home' ? props.handleScroll() : router.push('/Home')
+                }>
+                Categorias
+              </List>
               <Link href="/faq">
                 <List>FAQ</List>
               </Link>
