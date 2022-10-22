@@ -12,6 +12,7 @@ import {
   styleError,
   styleInput,
   styleTextarea,
+  BoxInputTextArea,
 } from './styles';
 
 import * as yup from 'yup';
@@ -73,7 +74,7 @@ const ContactBox: React.FC = (props) => {
                 </ErrorMessage>
               </BoxInput>
               <Label htmlFor="message">Descreva seu problema</Label>
-              <BoxInput>
+              <BoxInputTextArea>
                 <div>
                   <Field
                     id="message"
@@ -88,7 +89,7 @@ const ContactBox: React.FC = (props) => {
                     {(msg) => <div style={styleError}>{msg}</div>}
                   </ErrorMessage>
                 </div>
-              </BoxInput>
+              </BoxInputTextArea>
               <BoxButton>
                 <Button
                   variant={'secondary'}
