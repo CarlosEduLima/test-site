@@ -48,14 +48,15 @@ const Footer = () => {
   return (
     <S.FooterContainer>
       <S.FooterUp>
-        <S.FooterSection width={300}>
+        {/* <S.FooterSection width={300}>
           <S.TextUp>Categorias</S.TextUp>
           <S.FooterList>
             {categoriasItens.map((item, i) => (
               <S.TextItens key={i}>{item}</S.TextItens>
             ))}
           </S.FooterList>
-        </S.FooterSection>
+        </S.FooterSection> */}
+
         <S.FooterSection>
           <S.TextUp>Institucional</S.TextUp>
           <Link href="/whoWeAre">
@@ -68,6 +69,7 @@ const Footer = () => {
             <S.TitlesList>Profissionais Verificados</S.TitlesList>
           </Link>
         </S.FooterSection>
+
         <S.FooterSection>
           <S.TextUp>Redes Sociais</S.TextUp>
           <S.FooterList>
@@ -85,7 +87,7 @@ const Footer = () => {
               ))}
             </S.FooterListImg>
           </S.FooterList>
-          <S.TextUp>Parceiros</S.TextUp>
+          {/* <S.TextUp>Parceiros</S.TextUp> */}
         </S.FooterSection>
         <S.FooterSection>
           <S.TextUp>Downloads</S.TextUp>
