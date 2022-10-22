@@ -65,7 +65,7 @@ export const Header: React.FC<Props> = (props) => {
                 <List>FAQ</List>
               </Link>
               <Link href="/ContactFaq">
-                <List>Contato</List>
+                <List>Contatos</List>
               </Link>
             </LinkContainer>
             <ContainerButton>
