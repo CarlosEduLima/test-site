@@ -12,6 +12,7 @@ import { GetFaq, IFAQProps } from '../../../services/faq';
 import Image from 'next/image';
 import QuestionIcon from '../../../assets/questionFaqIcon.png';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const FAQ: React.FC = () => {
   const [value, setValue] = useState('');
@@ -146,26 +147,30 @@ const FAQ: React.FC = () => {
       <S.ContactSession>
         <S.ContactText size={28}>Quer entrar em contato?</S.ContactText>
         <S.ContactButtonsContainer>
-          <S.ButtonContainer>
-            <Button
-              height="37px"
-              variant="secondary"
-              fontSize="16px"
-              widthCircle=""
-              heightCircle="">
-              Mande um e-mail
-            </Button>
-          </S.ButtonContainer>
-          <S.ButtonContainer>
-            <Button
-              height="37px"
-              variant="secondary"
-              fontSize="16px"
-              widthCircle=""
-              heightCircle="">
-              Fale pelo WhatsApp
-            </Button>
-          </S.ButtonContainer>
+          <Link href={'/ContactFaq'} passHref>
+            <S.ButtonContainer>
+              <Button
+                height="37px"
+                variant="secondary"
+                fontSize="16px"
+                widthCircle=""
+                heightCircle="">
+                Mande um e-mail
+              </Button>
+            </S.ButtonContainer>
+          </Link>
+          <Link href={'http://api.whatsapp.com/send?1=pt_BR&phone=5571996678685'} passHref>
+            <S.ButtonContainer>
+              <Button
+                height="37px"
+                variant="secondary"
+                fontSize="16px"
+                widthCircle=""
+                heightCircle="">
+                Fale pelo WhatsApp
+              </Button>
+            </S.ButtonContainer>
+          </Link>
         </S.ContactButtonsContainer>
       </S.ContactSession>
     </S.FAQFull>
