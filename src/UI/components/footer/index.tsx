@@ -121,7 +121,9 @@ const Footer = () => {
         <S.ContainerLogo>
           <Image src={iziwIcon} alt="Iziw Icon" />
         </S.ContainerLogo>
-        <S.TextDownFooter>Ajuda</S.TextDownFooter>
+        <Link href="/faq">
+          <S.TextDownFooter>Ajuda</S.TextDownFooter>
+        </Link>
         <Link href="/TermsOfUse">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
         </Link>
