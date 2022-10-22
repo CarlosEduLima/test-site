@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import { Container, Divider, HorizontalScrollArea, ScrollAreaContainer, Title } from './styles';
 import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
@@ -6,7 +6,7 @@ import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
 import { useRouter } from 'next/router';
 
-export const Carousel: React.FC = () => {
+export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
   const [alignCarouselCenter, setAlignCarouselCenter] = useState(false);
@@ -36,7 +36,7 @@ export const Carousel: React.FC = () => {
   useEffect(() => {
     void ServiceHighlights()
       .then((data) => {
-        console.log(data)
+        console.log(data);
         const { arrayOne, arrayTwo } = defineLines(data);
         setServiceHighlightsLineOne(arrayOne);
         setServiceHighlightsLineTwo(arrayTwo);
@@ -71,7 +71,7 @@ export const Carousel: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container ref={ref}>
       <Title style={{ marginBottom: 12 }}>Categorias em destaque</Title>
       <Divider />
       <ScrollAreaContainer>
@@ -92,10 +92,10 @@ export const Carousel: React.FC = () => {
                 router.push(
                   {
                     pathname: '/categories',
-                    query: { 
+                    query: {
                       id: highlight.id,
                       categoryName: highlight.name,
-                      description: highlight.description 
+                      description: highlight.description,
                     },
                   },
                   '/categories',
@@ -138,4 +138,4 @@ export const Carousel: React.FC = () => {
       </ScrollAreaContainer>
     </Container>
   );
-};
+});

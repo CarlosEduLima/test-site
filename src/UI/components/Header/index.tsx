@@ -19,6 +19,7 @@ import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 interface Props {
   opacity?: boolean;
+  handleScroll?: () => void;
 }
 
 export const Header: React.FC<Props> = (props) => {
@@ -40,12 +41,10 @@ export const Header: React.FC<Props> = (props) => {
               <Link href="/Home">
                 <List>Home</List>
               </Link>
-              <Link href="/firstStepsPage">
+              {/*<Link href="/firstStepsPage">
                 <List>Como funciona?</List>
-              </Link>
-              <Link href="/categories">
-                <List>Categorias</List>
-              </Link>
+                  </Link>*/}
+              <List onClick={props.handleScroll}>Categorias</List>
               <Link href="/faq">
                 <List>FAQ</List>
               </Link>
