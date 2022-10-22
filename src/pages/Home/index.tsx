@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { WhatMakesUsDifferent } from '../../UI/components/whatMakesUsDifferent';
 import Footer from '../../UI/components/footer';
 import { Newsletter } from '../../UI/components/newsletter';
@@ -13,11 +13,15 @@ import RegisterButtonSection from 'src/UI/components/RegisterButtonSession';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
 
 const Home: React.FC = () => {
+  const categoriesRef = useRef<HTMLDivElement>(null);
+  function handleBackClick() {
+    categoriesRef?.current.scrollIntoView({ behavior: 'smooth' });
+  }
   return (
     <>
-      <Header />
+      <Header handleScroll={handleBackClick} />
       <HighProfessionals />
-      <Carousel />
+      <Carousel ref={categoriesRef} />
       <RegisterButtonSection />
       <HowItWorks />
       <WhoAreWe title="O que dizem sobre nós" />
