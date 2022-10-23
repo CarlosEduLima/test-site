@@ -37,3 +37,8 @@ export const Container = styled.div`
   cursor: crosshair;
 }
 `;
+
+export const Break = styled.div`
+  margin: 30px 0;
+  width: 100%;
+`;
