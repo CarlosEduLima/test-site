@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
+    "build:root": "next build && next export && cd out && scp -r -P1121 * root@140.238.178.154:/var/www/iziw.com.br/web/",
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "yarn lint --fix",
