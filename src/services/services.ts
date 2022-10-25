@@ -19,7 +19,7 @@ export interface IServiceProps {
 
 export const ServiceHighlights = async (): Promise<IServiceProps[]> => {
   try {
-    const { data } = await api.get<IServiceProps[]>('/services?highlight=1');
+    const { data } = await api.get<IServiceProps[]>('/services/all');
     return data;
   } catch (error) {
     console.log('API GET error: /servicos?highlight=1');

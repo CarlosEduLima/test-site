@@ -119,10 +119,10 @@ export const CardCategories: React.FC = (id: any) => {
                 </S.CardTitle>
                 <S.CardBoxContent>{highlight.description}</S.CardBoxContent>
                 <S.CardContent>
-                  <S.CardP>
+                  {/*<S.CardP>
                     R${highlight.prece}
                     <span>Média de preço </span>
-                  </S.CardP>
+                    </S.CardP>*/}
                   <Link href="/RegisterUser">
                     <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} >
                       Quero contratar
