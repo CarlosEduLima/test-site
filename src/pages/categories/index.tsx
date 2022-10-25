@@ -17,7 +17,6 @@ import { Newsletter } from 'src/UI/components/newsletter';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
 
 const Categories: React.FC = () => {
-
   const router = useRouter();
 
   return (
@@ -28,11 +27,18 @@ const Categories: React.FC = () => {
       <Top>
         <TopCenter>
           <SubTitleWhite>{router.query?.categoryName}</SubTitleWhite>
-          <TextWhite>
-            {router.query?.description}
-          </TextWhite>
+          <TextWhite>{router.query?.description}</TextWhite>
           <BoxButton>
-            <Button variant={'primary'} widthCircle={''} heightCircle={''}>
+            <Button
+              variant={'primary'}
+              widthCircle={''}
+              heightCircle={''}
+              onClick={() => {
+                router.push({
+                  pathname: '/Home',
+                  query: { scroll: true },
+                });
+              }}>
               Encontre um profissional
             </Button>
           </BoxButton>
