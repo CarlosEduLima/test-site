@@ -10,7 +10,6 @@ import Link from 'next/link';
 import * as S from './styles';
 
 const Categories: React.FC = () => {
-
   const router = useRouter();
 
   return (
@@ -25,11 +24,18 @@ const Categories: React.FC = () => {
             {router.query?.description}
           </S.TextWhite>
           <S.BoxButton>
-            <Link href="/Login">
-              <Button variant={'primary'} widthCircle={''} heightCircle={''}>
-                Encontre um profissional
-              </Button>
-            </Link>
+            <Button
+              variant={'primary'}
+              widthCircle={''}
+              heightCircle={''}
+              onClick={() => {
+                router.push({
+                  pathname: '/Home',
+                  query: { scroll: true },
+                });
+              }}>
+              Encontre um profissional
+            </Button>
           </S.BoxButton>
         </S.TopCenter>
       </S.Top>
