@@ -22,7 +22,7 @@ export const CardCategories: React.FC = (id: any) => {
   const windowSize = useWindowSize();
   const cardSize = { width: 325, height: 151 };
   const defineLines = (highlights) => {
-    let arrayOne: GetRating[];
+    let arrayOne: any;
     if (cardSize.width * highlights.length > windowSize.width * 2) {
       const index = Math.floor(highlights.length / 2 + 1);
       arrayOne = highlights.slice(0, index);
@@ -34,13 +34,11 @@ export const CardCategories: React.FC = (id: any) => {
   };
 
   useEffect(() => {
-    void GetRating(parseInt(id.id))
-      .then((data) => {
-        const { arrayOne } = defineLines(data);
-        setGetRatingProfessionalsLineOne(arrayOne);
-      })
-      .catch(console.log);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    (async () => {
+      const data = await GetRating(parseInt(id.id));
+      const { arrayOne } = defineLines(data);
+      setGetRatingProfessionalsLineOne(arrayOne);
+    })();
   }, []);
 
   function onWheel(ev: React.WheelEvent, ref): void {
@@ -107,7 +105,12 @@ export const CardCategories: React.FC = (id: any) => {
         >
           {GetRatingProfessionalsLineOne.map((highlight, index) => (
             <S.CardContainer key={highlight.id}>
-              <Image src={(highlight.desktop_image == '') || mockIcon} alt={''} width={325} height={228} />
+              <Image
+                src={highlight.desktop_image == '' || mockIcon}
+                alt={''}
+                width={325}
+                height={228}
+              />
               <S.CardBox>
                 <S.CardTitle>
                   {highlight.name}

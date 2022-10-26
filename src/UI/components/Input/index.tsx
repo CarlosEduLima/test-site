@@ -11,6 +11,7 @@ import { InputProps, InputRef } from './interfaces';
 import InputMask from 'react-input-mask';
 import colors from '../../../utils/colors';
 import * as S from './style';
+import Link from 'next/link';
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
@@ -101,7 +102,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       }
       setValue(name, value);
       if (!isClicked) {
-        setFiltered(dataSearch.filter(createFilter(value)));
+        console.log('SearchData --', dataSearch.filter(createFilter(value, ['name'])));
+        setFiltered(dataSearch.filter(createFilter(value, ['name'])));
       }
       setFilterPreviewSearchValue(value);
     } else {
@@ -115,7 +117,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     setIsSearch(false);
     setFiltered([]);
     setIsClicked(true);
-    return setValueSearch(value.name);
+    setValueSearch(value.name);
   };
 
   useEffect(() => {
@@ -384,11 +386,18 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           isSearch && (
             <S.ContainerSearchPreview>
               <S.ContainerSearchPreviewItems key={filtered.length}>
-                {filtered?.slice(0, 4)?.map((value, index) => {
+                {filtered?.slice(0, 4)?.map((value: any, index) => {
                   return (
-                    <S.ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
-                      {value}
-                    </S.ContainerSearchPreviewItem>
+                    <Link
+                      key={index}
+                      onClick={() => {
+                        handleSelected(value);
+                      }}
+                      passHref
+                      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                      href={`/categories?id=${value?.sup_id || value?.id}`}>
+                      <S.ContainerSearchPreviewItem>{value.name}</S.ContainerSearchPreviewItem>
+                    </Link>
                   );
                 })}
               </S.ContainerSearchPreviewItems>

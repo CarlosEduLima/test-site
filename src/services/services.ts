@@ -17,6 +17,11 @@ export interface IServiceProps {
   sub_services: IServiceProps[];
 }
 
+export const ServiceHighlightsShow = async (id: number) => {
+  const { data } = await api.get(`/services/${id}`);
+  return data;
+};
+
 export const ServiceHighlights = async (): Promise<IServiceProps[]> => {
   try {
     const { data } = await api.get<IServiceProps[]>('/services/all');
