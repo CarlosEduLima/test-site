@@ -36,7 +36,6 @@ export const ServiceHighlights = async (): Promise<IServiceProps[]> => {
 export const Services = async () => {
   try {
     const { data } = await api.get<IServiceProps[]>('/services');
-    console.log('sldsd', data);
     return data;
   } catch (error) {
     console.log(error);

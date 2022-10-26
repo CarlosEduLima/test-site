@@ -4,9 +4,15 @@ import Input from '../Input';
 import { Button } from '../Button';
 import { TopImg, CenterProfessional, SubTitleProfessional } from './styles';
 import { Services } from 'src/services/services';
+import { useRouter } from 'next/router';
+interface Props {
+  handleScroll?: () => void;
+}
 
-export const HighProfessionals: React.FC = () => {
+export const HighProfessionals: React.FC<Props> = (props) => {
   const [data, setData] = useState([]);
+
+  const router = useRouter();
 
   const AllServices = async () => {
     const response: any[] = await Services();
@@ -48,14 +54,23 @@ export const HighProfessionals: React.FC = () => {
           placeholder="O que você precisa hoje?"
           dataSearch={data}
         />
-        <Link href="/Login">
-          <Button
-            children="Encontre um profissional"
-            variant={'primary'}
-            widthCircle={''}
-            heightCircle={''}
-          />
-        </Link>
+
+        <Button
+          children={'Encontre um profissional'}
+          variant={'primary'}
+          widthCircle={''}
+          heightCircle={''}
+          onClick={() => {
+            if (router.pathname === '/Home') {
+              props.handleScroll();
+            } else {
+              router.push({
+                pathname: '/Home',
+                query: { scroll: true },
+              });
+            }
+          }}
+        />
       </CenterProfessional>
     </TopImg>
   );
