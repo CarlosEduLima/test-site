@@ -4,7 +4,7 @@ import image from 'next/image';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 95vw;
+  max-width: 90vw;
 
   @media (max-width: 800px) {
     max-width: 80vw;
@@ -15,6 +15,7 @@ export const Title = styled.h1`
   display: flex;
   font-family: ${fonts.bold};
   text-align: center;
+  font-size: 25px;
 `;
 
 export const Divider = styled.div`
@@ -41,6 +42,7 @@ export const ButtonRight = styled.button`
   place-items: center;
   background: none;
   border: none;
+  cursor: pointer;
 `;
 
 export const ButtonLeft = styled.button`
@@ -53,6 +55,7 @@ export const ButtonLeft = styled.button`
   border: none;
   border-radius: 48%;
   background: none;
+  cursor: pointer;
 `;
 
 export const Box = styled.div`

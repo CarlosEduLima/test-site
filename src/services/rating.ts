@@ -21,9 +21,7 @@ export const GetRatingProfessionals = async () => {
 
 export const GetRating = async (id: number | any) => {
   try {
-    console.log('jhh', id)
     const { data } = await api.get(`/services/average-ratings/${parseInt(id)}`);
-    console.log(data)
     return data;
   } catch (error) {
     console.log(error);

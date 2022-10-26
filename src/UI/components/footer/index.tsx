@@ -63,7 +63,7 @@ const Footer = () => {
             <S.TitlesList>Quem somos</S.TitlesList>
           </Link>
           <Link href="/pageWorkWithUs">
-            <S.TitlesList>Trabalhe Conosco</S.TitlesList>
+            <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link>
           <Link href="/verifiedProfessionals">
             <S.TitlesList>Profissionais Verificados</S.TitlesList>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Input from '../Input';
 import { Button } from '../Button';
-import { TopImg, CenterProfessional, SubTitleProfessional } from './styles';
+import { TopImg, CenterProfessional, SubTitleProfessional, Container } from './styles';
 import { Services } from 'src/services/services';
 
 export const HighProfessionals: React.FC = () => {
@@ -32,6 +32,6 @@ export const HighProfessionals: React.FC = () => {
                     <Button children={'Encontre um profissional'} variant={'primary'} widthCircle={''} heightCircle={''} />
                 </Link>
             </CenterProfessional>
-        </TopImg>
+        </TopImg >
     );
 };
