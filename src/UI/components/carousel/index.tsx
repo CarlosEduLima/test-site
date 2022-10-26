@@ -36,7 +36,6 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   useEffect(() => {
     void ServiceHighlights()
       .then((data) => {
-        console.log(data);
         const { arrayOne, arrayTwo } = defineLines(data);
         setServiceHighlightsLineOne(arrayOne);
         setServiceHighlightsLineTwo(arrayTwo);
@@ -88,7 +87,8 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
-              onClick={() =>
+              onClick={() => {
+                enableScroll();
                 router.push(
                   {
                     pathname: '/categories',
@@ -100,6 +100,7 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
                   },
                   '/categories',
                 )
+              }
               }
               size={cardSize}
               title={highlight.name}

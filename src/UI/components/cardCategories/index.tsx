@@ -36,8 +36,6 @@ export const CardCategories: React.FC = (id: any) => {
   useEffect(() => {
     void GetRating(parseInt(id.id))
       .then((data) => {
-        console.log(data)
-        console.log(data[0]?.desktop_image)
         const { arrayOne } = defineLines(data);
         setGetRatingProfessionalsLineOne(arrayOne);
       })
@@ -105,7 +103,8 @@ export const CardCategories: React.FC = (id: any) => {
             disableScroll()
           }
           onMouseLeave={enableScroll}
-          onMouseDown={onMouseDownRef1}>
+          onMouseDown={onMouseDownRef1}
+        >
           {GetRatingProfessionalsLineOne.map((highlight, index) => (
             <S.CardContainer key={highlight.id}>
               <Image src={(highlight.desktop_image == '') || mockIcon} alt={''} width={325} height={228} />
@@ -124,7 +123,7 @@ export const CardCategories: React.FC = (id: any) => {
                     <span>Média de preço </span>
                     </S.CardP>*/}
                   <Link href="/RegisterUser">
-                    <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} >
+                    <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} onClick={enableScroll}>
                       Quero contratar
                     </Button>
                   </Link>

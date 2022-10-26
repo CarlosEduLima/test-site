@@ -1,34 +1,29 @@
 import React from 'react';
 import { Header } from '../../UI/components/Header';
-import Footer from '../../UI/components/footer';
 import { Button } from '../../UI/components/Button';
 import { useRouter } from 'next/router';
-import {
-  Top,
-  TextWhite,
-  SubTitleWhite,
-  TopCenter,
-  HeaderContainer,
-  BoxButton,
-  Carrossel,
-} from './styles';
 import { CardCategories } from 'src/UI/components/cardCategories';
 import { Newsletter } from 'src/UI/components/newsletter';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
+import Footer from '../../UI/components/footer';
+import Link from 'next/link';
+import * as S from './styles';
 
 const Categories: React.FC = () => {
   const router = useRouter();
 
   return (
     <>
-      <HeaderContainer>
+      <S.HeaderContainer>
         <Header />
-      </HeaderContainer>
-      <Top>
-        <TopCenter>
-          <SubTitleWhite>{router.query?.categoryName}</SubTitleWhite>
-          <TextWhite>{router.query?.description}</TextWhite>
-          <BoxButton>
+      </S.HeaderContainer>
+      <S.Top>
+        <S.TopCenter>
+          <S.SubTitleWhite>{router.query?.categoryName}</S.SubTitleWhite>
+          <S.TextWhite>
+            {router.query?.description}
+          </S.TextWhite>
+          <S.BoxButton>
             <Button
               variant={'primary'}
               widthCircle={''}
@@ -41,12 +36,12 @@ const Categories: React.FC = () => {
               }}>
               Encontre um profissional
             </Button>
-          </BoxButton>
-        </TopCenter>
-      </Top>
-      <Carrossel>
+          </S.BoxButton>
+        </S.TopCenter>
+      </S.Top>
+      <S.Carrossel>
         <CardCategories id={router.query?.id} />
-      </Carrossel>
+      </S.Carrossel>
       <WhoAreWe title={'Pedidos com notas mais altas'} />
       <Newsletter />
       <Footer />
