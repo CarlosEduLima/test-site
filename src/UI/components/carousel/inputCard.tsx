@@ -41,7 +41,7 @@ interface Props {
 
 export const InputCard: React.FC<Props> = ({ title, backgroundImage, size, onClick }) => {
   return (
-    <Card backgroundImage={backgroundImage} size={size} onClick={() => onClick()}>
+    <Card backgroundImage={backgroundImage} size={size} onClick={() => onClick && onClick()}>
       <CardText>{title}</CardText>
     </Card>
   );

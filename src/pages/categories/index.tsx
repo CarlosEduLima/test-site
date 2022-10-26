@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../UI/components/Header';
 import Footer from '../../UI/components/footer';
 import { Button } from '../../UI/components/Button';
@@ -15,10 +15,20 @@ import {
 import { CardCategories } from 'src/UI/components/cardCategories';
 import { Newsletter } from 'src/UI/components/newsletter';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
+import { ServiceHighlightsShow } from 'src/services/services';
 
 const Categories: React.FC = () => {
+  const router: any = useRouter();
+  const [categoryData, setCategoryData]: any = useState();
 
-  const router = useRouter();
+  useEffect(() => {
+    void (async () => {
+      if (router.query.id) {
+        const data = await ServiceHighlightsShow(router?.query?.id);
+        setCategoryData(data);
+      }
+    })();
+  }, [router.query.id]);
 
   return (
     <>
@@ -27,10 +37,8 @@ const Categories: React.FC = () => {
       </HeaderContainer>
       <Top>
         <TopCenter>
-          <SubTitleWhite>{router.query?.categoryName}</SubTitleWhite>
-          <TextWhite>
-            {router.query?.description}
-          </TextWhite>
+          <SubTitleWhite>{categoryData?.name}</SubTitleWhite>
+          <TextWhite>{categoryData?.description}</TextWhite>
           <BoxButton>
             <Button variant={'primary'} widthCircle={''} heightCircle={''}>
               Encontre um profissional
@@ -38,9 +46,7 @@ const Categories: React.FC = () => {
           </BoxButton>
         </TopCenter>
       </Top>
-      <Carrossel>
-        <CardCategories id={router.query?.id} />
-      </Carrossel>
+      <Carrossel>{categoryData?.id && <CardCategories id={categoryData?.id} />}</Carrossel>
       <WhoAreWe title={'Pedidos com notas mais altas'} />
       <Newsletter />
       <Footer />
