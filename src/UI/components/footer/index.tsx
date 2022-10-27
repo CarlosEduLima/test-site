@@ -42,6 +42,9 @@ const Footer = () => {
     {
       name: 'linkedin',
       local: linkedin,
+      onclick: () => {
+        <Link href="https://www.facebook.com/profile.php?id=100070007527103"></Link>;
+      },
     },
   ];
 
@@ -78,9 +81,21 @@ const Footer = () => {
                 <S.ImageLocalDiv key={item.name}>
                   <S.ImageLocal>
                     {item.name === 'facebook' ? (
-                      <Image src={item.local} width={11} height={23} alt={item.name} />
+                      <Link href="https://www.facebook.com/profile.php?id=100070007527103">
+                        <Image src={item.local} width={11} height={23} alt={item.name} />
+                      </Link>
+                    ) : item.name === 'instagram' ? (
+                      <Link href="https://www.instagram.com/iziwapp/">
+                        <Image src={item.local} height={500} alt={item.name} />
+                      </Link>
+                    ) : item.name === 'twitter' ? (
+                      <Link href="https://twitter.com/iziwapp">
+                        <Image src={item.local} height={500} alt={item.name} />
+                      </Link>
                     ) : (
-                      <Image src={item.local} height={500} alt={item.name} />
+                      <Link href="https://www.linkedin.com/company/iziw">
+                        <Image src={item.local} height={500} alt={item.name} />
+                      </Link>
                     )}
                   </S.ImageLocal>
                 </S.ImageLocalDiv>
