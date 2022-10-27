@@ -91,9 +91,10 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
                 enableScroll();
                 router.push(
                   {
-                    pathname: `/categories?id=${highlight.id}`,
+                    pathname: `/categories`,
+                    query: {id: highlight.id}
                   },
-                  `/categories?id=${highlight.id}`,
+                  `/categories`,
                 )
               }
               }
