@@ -88,7 +88,7 @@ const Footer = () => {
                       <Link href="https://www.instagram.com/iziwapp/">
                         <Image src={item.local} height={500} alt={item.name} />
                       </Link>
-                    ) : <Image src={item.local} height={500} alt={item.name} /> ? (
+                    ) : item.name === 'twitter' ? (
                       <Link href="https://twitter.com/iziwapp">
                         <Image src={item.local} height={500} alt={item.name} />
                       </Link>
