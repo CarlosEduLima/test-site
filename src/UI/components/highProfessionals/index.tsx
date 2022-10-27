@@ -53,14 +53,7 @@ export const HighProfessionals: React.FC<Props> = (props) => {
           widthCircle={''}
           heightCircle={''}
           onClick={() => {
-            if (router.pathname === '/Home') {
-              props.handleScroll();
-            } else {
-              router.push({
-                pathname: '/Home',
-                query: { scroll: true },
-              });
-            }
+            props.handleScroll();
           }}
         />
       </CenterProfessional>
