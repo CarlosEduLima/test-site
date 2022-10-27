@@ -1,46 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../UI/components/Header';
-import Footer from '../../UI/components/footer';
 import { Button } from '../../UI/components/Button';
 import { useRouter } from 'next/router';
-import {
-  Top,
-  TextWhite,
-  SubTitleWhite,
-  TopCenter,
-  HeaderContainer,
-  BoxButton,
-  Carrossel,
-} from './styles';
 import { CardCategories } from 'src/UI/components/cardCategories';
 import { Newsletter } from 'src/UI/components/newsletter';
 import { WhoAreWe } from 'src/UI/components/whoAreWe';
-
+import { ServiceHighlightsShow } from 'src/services/services';
+import * as S from './styles';
+import Footer from 'src/UI/components/footer';
 const Categories: React.FC = () => {
+  const router: any = useRouter();
+  const [categoryData, setCategoryData]: any = useState();
 
-  const router = useRouter();
+  useEffect(() => {
+    void (async () => {
+      if (router.query.id) {
+        const data = await ServiceHighlightsShow(router?.query?.id);
+        setCategoryData(data);
+      }
+    })();
+  }, [router.query.id]);
 
   return (
     <>
-      <HeaderContainer>
+      <S.HeaderContainer>
         <Header />
-      </HeaderContainer>
-      <Top>
-        <TopCenter>
-          <SubTitleWhite>{router.query?.categoryName}</SubTitleWhite>
-          <TextWhite>
-            {router.query?.description}
-          </TextWhite>
-          <BoxButton>
-            <Button variant={'primary'} widthCircle={''} heightCircle={''}>
+      </S.HeaderContainer>
+      <S.Top>
+        <S.TopCenter>
+          <S.SubTitleWhite>{categoryData?.name}</S.SubTitleWhite>
+          <S.TextWhite>{categoryData?.description}</S.TextWhite>
+          <S.BoxButton>
+            <Button
+              variant={'primary'}
+              widthCircle={''}
+              heightCircle={''}
+              onClick={() =>
+                router.push({
+                  pathname: '/Home',
+                  query: { scroll: true },
+                })
+              }
+            >
               Encontre um profissional
             </Button>
-          </BoxButton>
-        </TopCenter>
-      </Top>
-      <Carrossel>
-        <CardCategories id={router.query?.id} />
-      </Carrossel>
+          </S.BoxButton>
+        </S.TopCenter>
+      </S.Top>
+      <S.Carrossel>{categoryData?.id && <CardCategories id={categoryData?.id} />}</S.Carrossel>
       <WhoAreWe title={'Pedidos com notas mais altas'} />
       <Newsletter />
       <Footer />

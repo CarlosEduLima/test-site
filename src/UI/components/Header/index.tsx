@@ -28,7 +28,6 @@ export const Header: React.FC<Props> = (props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const router = useRouter();
-  console.log('aaaah', router);
 
   return (
     <div>
