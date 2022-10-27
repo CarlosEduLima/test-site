@@ -18,6 +18,10 @@ export const CenterProfessional = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 840px) {
+    padding: 25px;
+  }
 `;
 
 export const SubTitleProfessional = styled.h1`
@@ -29,5 +33,9 @@ export const SubTitleProfessional = styled.h1`
 
   span {
     font-weight: 700;
+  }
+
+  @media (max-width: 840px) {
+    font-size: 25px;
   }
 `;
