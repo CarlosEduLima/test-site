@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import LogoImg from '../../../assets/icon.png';
 import Check from '../../../assets/check.png';
-import AppStore from '../../../assets/AppStore.png';
+import AppStore from '../../../assets/appStore.png';
 import googlePlay from '../../../assets/googlePlay.png';
 import { RegisterUser, IRegisterUserProps } from 'src/services/auth';
 import * as yup from 'yup';
