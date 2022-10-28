@@ -58,6 +58,8 @@ build:
     paths:
       - node_modules/
       - .next/cache/
+  artifacts:
+    paths:
       - out/
   script:
     - ls -la
