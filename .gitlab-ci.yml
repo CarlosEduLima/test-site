@@ -74,6 +74,6 @@ deploy_staging:
     - runner-1
   before_script:
     - cd out
-    - grep -Rli uat.iziw.com.br | xargs sed -i "s/uat.iziw.com.br/hlg.iziw.com.br/g"
+    - grep -Rli uat.iziw.com.br | xargs sed -i 's/uat.iziw.com.br/hlg.iziw.com.br/g'
   script:
     - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$SERVER_PATH_STAGING
