@@ -78,5 +78,5 @@ deploy_staging:
     # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
     # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
   script:
-    - ssh -p$SERVER_PORT $SERVER_USER@$SERVER_HOST
+    - ssh -p$SERVER_PORT $SERVER_USER@$SERVER_HOST -t
     # - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
