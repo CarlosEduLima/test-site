@@ -61,7 +61,7 @@ build:
   artifacts:
     paths:
       - out/
-      expire_in: 1 week
+    expire_in: 1 week
   script:
     - ls -la
     - yarn build
