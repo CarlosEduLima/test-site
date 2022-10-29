@@ -66,8 +66,6 @@ build:
     - yarn build
 
 deploy_staging:
-  image: 
-    name: node:16.16.0-alpine3.16
   when: manual
 #   only:
 #     - master
