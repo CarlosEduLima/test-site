@@ -77,6 +77,6 @@ deploy_staging:
   before_script:
     - cd out
     - sed -i "s/uat.iziw.com.br/hlg.iziw.com.br/g" _next/static/chunks/*.js 
-    - sed -i "s/uat.iziw.com.br/hlg.iziw.com.br/g" _next/static/chunks/pages*.js 
+    - sed -i "s/uat.iziw.com.br/hlg.iziw.com.br/g" _next/static/chunks/pages/*.js 
   script:
     - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$SERVER_PATH_STAGING
