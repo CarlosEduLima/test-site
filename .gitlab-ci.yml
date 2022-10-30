@@ -82,7 +82,5 @@ deploy_staging:
     #     -o "UserKnownHostsFile=../known_hosts" \
     #     -i $IDENTITY \
     #     -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
-    - ssh  -o "UserKnownHostsFile=../known_hosts" \
-      -i $IDENTITY \
-      $SERVER_USER@$SERVER_HOST \
-      -p$SERVER_POR
+    - ssh -i $IDENTITY -o "UserKnownHostsFile=./known_hosts" -p1121 root@140.238.178.154
+
