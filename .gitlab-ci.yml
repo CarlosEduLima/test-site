@@ -79,6 +79,6 @@ deploy_staging:
   script:
     # - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
     - scp -r \
-        -o "UserKnownHostsFile=./known_hosts" \
+        -o "UserKnownHostsFile=../known_hosts" \
         -i $IDENTITY \
         -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
