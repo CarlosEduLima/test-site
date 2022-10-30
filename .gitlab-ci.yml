@@ -52,11 +52,6 @@ build:
   before_script:
     - yarn
     - mkdir $HOME/.ssh 
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - node_modules/
-      - .next/cache/
   artifacts:
     paths:
       - out/
@@ -75,8 +70,8 @@ deploy_staging:
   before_script:
     - chmod 600 $IDENTITY
     - cd out
-    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
-    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
+    - sed -i "s/$API_PROD/$API_HLG/g" _next/static/chunks/*.js 
+    - sed -i "s/$API_PROD/$API_HLG/g" _next/static/chunks/pages/*.js 
   script:
     - scp -i $IDENTITY -o "UserKnownHostsFile=$KNOWN_HOSTS" -r -P 1121 * $SERVER_USER@$SERVER_HOST:/var/www/$STAGING_DOMAIN/web/ 
 
