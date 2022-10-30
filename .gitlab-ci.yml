@@ -79,6 +79,6 @@ deploy_staging:
     # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
   script:
     # - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
-    - scp -r public/favicon.ico $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/ -P 1121 -i $IDENTITY -o "UserKnownHostsFile=./known_hosts"
+    - scp -r public/favicon.ico $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/ -P 1121 -i $IDENTITY -o UserKnownHostsFile=$KNOWN_HOSTS
     # - ssh -i $IDENTITY -o "UserKnownHostsFile=$KNOWN_HOSTS" -p$SERVER_PORT $SERVER_USER@$SERVER_HOST
 
