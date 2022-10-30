@@ -74,8 +74,8 @@ deploy_staging:
     - runner-1
   before_script:
     - cd out
-    # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
-    # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
+    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
+    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
   script:
     # - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
     - scp -r \
