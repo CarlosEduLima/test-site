@@ -71,3 +71,19 @@ deploy_staging:
   script:
     - scp -i $IDENTITY -o "UserKnownHostsFile=$KNOWN_HOSTS" -r -P 1121 * $SERVER_USER@$SERVER_HOST:/var/www/$STAGING_DOMAIN/web/ 
 
+deploy_prod:
+  when: manual
+  only:
+    - main
+  stage: deploy
+  tags:
+    - runner-1
+  before_script:
+    - chmod 600 $IDENTITY
+    - cd out
+    - sed -i "s/$API_HLG/$API_PROD/g" _next/static/chunks/*.js 
+    - sed -i "s/$API_HLG/$API_PROD/g" _next/static/chunks/pages/*.js 
+  script:
+    - scp -i $IDENTITY -o "UserKnownHostsFile=$KNOWN_HOSTS" -r -P 1121 * $SERVER_USER@$SERVER_HOST:/var/www/$PROD_DOMAIN/web/ 
+
+
