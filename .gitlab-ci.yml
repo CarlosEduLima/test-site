@@ -73,12 +73,16 @@ deploy_staging:
   tags:
     - runner-1
   before_script:
-    - cd out
-    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
-    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
+    # - cd out
+    # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
+    # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
   script:
     # - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
-    - scp -r \
-        -o "UserKnownHostsFile=../known_hosts" \
-        -i $IDENTITY \
-        -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
+    # - scp -r \
+    #     -o "UserKnownHostsFile=../known_hosts" \
+    #     -i $IDENTITY \
+    #     -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
+    - ssh  -o "UserKnownHostsFile=../known_hosts" \
+      -i $IDENTITY \
+      $SERVER_USER@$SERVER_HOST \
+      -p$SERVER_POR
