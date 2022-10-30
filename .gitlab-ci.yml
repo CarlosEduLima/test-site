@@ -82,6 +82,6 @@ deploy_staging:
     - scp -r \
         -o "UserKnownHostsFile=$KNOWN_HOSTS" \
         -i $IDENTITY \
-        public/favicon.ico -p$SERVER_PORT $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
+        public/favicon.ico -P$SERVER_PORT $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
     # - ssh -i $IDENTITY -o "UserKnownHostsFile=$KNOW_HOSTS" -p$SERVER_PORT $SERVER_USER@$SERVER_HOST
 
