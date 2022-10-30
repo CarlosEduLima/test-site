@@ -41,9 +41,6 @@ stages:          # List of stages for jobs, and their order of execution
 
 
 build:
-  when: manual
-#   only:
-#     - master
   image: 
     name: node:16.16.0-alpine3.16
   stage: build
@@ -57,7 +54,6 @@ build:
       - out/
     expire_in: 1 week
   script:
-    - ls -la
     - yarn build
 
 deploy_staging:
