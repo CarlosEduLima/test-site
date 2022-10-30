@@ -74,14 +74,14 @@ deploy_staging:
     - runner-1
   before_script:
     - chmod 600 $IDENTITY
-    - cd out
-    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
-    - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
+    # - cd out
+    # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/*.js 
+    # - sed -i "s/$PROD_DOMAIN/$STAGING_DOMAIN/g" _next/static/chunks/pages/*.js 
   script:
     # - scp -r -P$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
     - scp -r \
         -o "UserKnownHostsFile=$KNOWN_HOSTS" \
         -i $IDENTITY \
-        -p$SERVER_PORT * $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
+        -p$SERVER_PORT public/favicon.ico $SERVER_USER@$SERVER_HOST:$/var/www/$STAGING_DOMAIN/web/
     # - ssh -i $IDENTITY -o "UserKnownHostsFile=$KNOW_HOSTS" -p$SERVER_PORT $SERVER_USER@$SERVER_HOST
 
