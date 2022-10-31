@@ -29,7 +29,7 @@ export default function App() {
         <a href="https://play.google.com/store/apps" target={'_blank'}>
         <Logo src={googlePlay} alt="Search" width={'250%'} height={'80%'} />
         </a>
-        <a href="https://www.apple.com/br/app-store/" target={'_blank'}>
+        <a href="https://apps.apple.com/br/app/iziw/id1645767737" target={'_blank'}>
         <Logo src={AppStore} alt="Search"  width={'250%'} height={'80%'}/>
         </a>
       </Box>
