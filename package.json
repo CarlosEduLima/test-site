@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export && cd out && scp -r -P1121 * firedevbackoffice_iziw@140.238.178.154:/var/www/iziw.com.br/web/",
+    "build:staging": "next build && next export && cd out && scp -r -P1121 * root@140.238.178.154:/var/www/staging.iziw.com.br/web/",
+    "build:root": "next build && next export && cd out && scp -r -P1121 * root@140.238.178.154:/var/www/iziw.com.br/web/",
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "yarn lint --fix",

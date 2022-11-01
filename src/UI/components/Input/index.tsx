@@ -12,7 +12,7 @@ import InputMask from 'react-input-mask';
 import colors from '../../../utils/colors';
 import * as S from './style';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
     name,
@@ -61,7 +61,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   const [isSearch, setIsSearch] = useState(false);
   const { register, getValues, setFocus, setValue } = useForm();
   const Register = register(name);
-
+  const router = useRouter();
   if (variant == 'squared') {
     style.backgroundColor = colors.lightBlue;
     style.height = 44;
@@ -175,7 +175,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
       />
       <div style={{ marginRight: style.marginRight }}>
         {inputSecureTextEntry ? (
@@ -275,7 +275,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
         {...rest}
       />
     </S.ContainerInput>
@@ -307,7 +307,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
         {...rest}
       />
     </S.ContainerTextAreaInput>
@@ -364,20 +364,20 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         {type == 'text'
           ? typeTextInput
           : type != 'other'
-          ? typeRandomInput
-          : icon == 'password'
-          ? passwordInput
-          : icon == 'textArea'
-          ? textAreaInput
-          : icon == 'phone'
-          ? phoneInput
-          : icon == 'cep'
-          ? cepInput
-          : icon == 'money'
-          ? moneyInput
-          : icon == 'search'
-          ? searchInput
-          : otherInput}
+            ? typeRandomInput
+            : icon == 'password'
+              ? passwordInput
+              : icon == 'textArea'
+                ? textAreaInput
+                : icon == 'phone'
+                  ? phoneInput
+                  : icon == 'cep'
+                    ? cepInput
+                    : icon == 'money'
+                      ? moneyInput
+                      : icon == 'search'
+                        ? searchInput
+                        : otherInput}
 
         <S.ErrorText>{inputError}</S.ErrorText>
         {icon == 'search' &&
@@ -388,16 +388,19 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
               <S.ContainerSearchPreviewItems key={filtered.length}>
                 {filtered?.slice(0, 4)?.map((value: any, index) => {
                   return (
-                    <Link
+                    <S.ContainerSearchPreviewItem
                       key={index}
                       onClick={() => {
                         handleSelected(value);
+                        router.push(
+                          {
+                            pathname: `/categories`,
+                            query: { id: value?.sup_id || value?.id }
+                          },
+                          `/categories`,
+                        )
                       }}
-                      passHref
-                      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                      href={`/categories?id=${value?.sup_id || value?.id}`}>
-                      <S.ContainerSearchPreviewItem>{value.name}</S.ContainerSearchPreviewItem>
-                    </Link>
+                    >{value.name}</S.ContainerSearchPreviewItem>
                   );
                 })}
               </S.ContainerSearchPreviewItems>
