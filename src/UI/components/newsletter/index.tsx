@@ -14,7 +14,7 @@ export const Newsletter: React.FC = () => {
         <S.TextTitle>A IziW chegou para mudar.</S.TextTitle>
         <S.Text>Quer ganhar dinheiro extra e escolher quando e como trabalhar?</S.Text>
         <S.InteractionContainer>
-          <Link href="/RegisterUser">
+          <Link href="/register_user">
             <Button variant={'secondary'} widthCircle={''} heightCircle={''}>
               Quero me cadastrar
             </Button>
