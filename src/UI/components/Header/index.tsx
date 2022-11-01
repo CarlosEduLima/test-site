@@ -34,13 +34,13 @@ export const Header: React.FC<Props> = (props) => {
       <DivHeader opacity={props.opacity === true ? 0.45 : 1.0}>
         <HeaderContent>
           <ContainerImage>
-            <Link href="/Home">
+            <Link href="/home">
               <Icon src={LogoImg} alt="Logo IZIW" />
             </Link>
           </ContainerImage>
           <ContainerList>
             <LinkContainer>
-              <Link href="/Home">
+              <Link href="/home">
                 <List>Home</List>
               </Link>
               {/*<Link href="/firstStepsPage">
@@ -48,11 +48,11 @@ export const Header: React.FC<Props> = (props) => {
                   </Link>*/}
               <List
                 onClick={() => {
-                  if (router.pathname === '/Home') {
+                  if (router.pathname === '/home') {
                     props.handleScroll()
                   } else {
                     router.push({
-                      pathname: '/Home',
+                      pathname: '/home',
                       query: { scroll: true },
                     });
                   }
@@ -86,15 +86,15 @@ export const Header: React.FC<Props> = (props) => {
       </DivHeader>
       <MobileMenu open={open}>
         <MobileLinkContainer>
-          <Link href="/Home">
+          <Link href="/home">
             <List style={{ marginBottom: 25 }}>Home</List>
           </Link>
           <List style={{ marginBottom: 25 }} onClick={() => {
-            if (router.pathname === '/Home') {
+            if (router.pathname === '/home') {
               props.handleScroll()
             } else {
               router.push({
-                pathname: '/Home',
+                pathname: '/home',
                 query: { scroll: true },
               });
             }

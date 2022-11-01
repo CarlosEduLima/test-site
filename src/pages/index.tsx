@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from '../pages/Home';
+import Home from './home';
 
 const Index: React.FC = () => {
   return (
