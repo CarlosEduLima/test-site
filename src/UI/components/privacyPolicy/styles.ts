@@ -18,11 +18,21 @@ export const Title = styled.h2`
   align-items: center;
   width: 100%;
   font-size: 35.81px;
+
+  @media (max-width: 840px) {
+    font-size: 23px;
+  }
 `;
+
 export const Border = styled.div`
   padding-bottom: 40px;
   border-top: 3.07692px solid #29abe2;
   width: 200px;
+
+  @media (max-width: 840px) {
+    border-top: 1px solid #29abe2;
+    width: 150px;
+  }
 `;
 
 export const Container = styled.div`
@@ -33,9 +43,13 @@ export const Container = styled.div`
   line-height: 34.1px;
   width: 100%;
 
-  span.crosshair{
-  cursor: crosshair;
-}
+  @media (max-width: 840px) {
+    font-size: 16px;
+  }
+
+  span.crosshair {
+    cursor: crosshair;
+  }
 `;
 
 export const Break = styled.div`
