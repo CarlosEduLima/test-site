@@ -43,7 +43,7 @@ export const Header: React.FC<Props> = (props) => {
               <Link href="/home">
                 <List>Home</List>
               </Link>
-              {/*<Link href="/firstStepsPage">
+              {/*<Link href="/primeiros-passos">
                 <List>Como funciona?</List>
                   </Link>*/}
               <List
@@ -54,21 +54,21 @@ export const Header: React.FC<Props> = (props) => {
                     router.push({
                       pathname: '/home',
                       query: { scroll: true },
-                    });
+                    }, '/home');
                   }
                 }
                 }>
                 Categorias
               </List>
-              <Link href="/faq">
+              <Link href="/perguntas-frequentes">
                 <List>FAQ</List>
               </Link>
-              <Link href="/ContactFaq">
+              <Link href="/contato">
                 <List>Contatos</List>
               </Link>
             </LinkContainer>
             <ContainerButton>
-              <Link href="/RegisterUser">
+              <Link href="/cadastro">
                 <Button variant={'primary'} height={'30px'} widthCircle={''} heightCircle={''}>
                   <ButtonText>Quero me cadastrar</ButtonText>
                 </Button>
@@ -89,24 +89,25 @@ export const Header: React.FC<Props> = (props) => {
           <Link href="/home">
             <List style={{ marginBottom: 25 }}>Home</List>
           </Link>
-          <List style={{ marginBottom: 25 }} onClick={() => {
-            if (router.pathname === '/home') {
-              props.handleScroll()
-            } else {
-              router.push({
-                pathname: '/home',
-                query: { scroll: true },
-              });
+          <List style={{ marginBottom: 25 }}
+            onClick={() => {
+              if (router.pathname === '/home') {
+                props.handleScroll()
+              } else {
+                router.push({
+                  pathname: '/home',
+                  query: { scroll: true },
+                },'/home');
+              }
             }
-          }
-          }
+            }
           >
             Categorias
           </List>
-          <Link href="/faq">
+          <Link href="/perguntas-frequentes">
             <List style={{ marginBottom: 25 }}>FAQ</List>
           </Link>
-          <Link href="/ContactFaq">
+          <Link href="/contato">
             <List>Contatos</List>
           </Link>
         </MobileLinkContainer>

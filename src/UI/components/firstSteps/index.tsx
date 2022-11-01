@@ -9,7 +9,7 @@ import Link from 'next/link';
 const FirstSteps: React.FC = () => {
   return (
     <Container>
-      <Link href="/RegisterUser">
+      <Link href="/cadastro">
         <CardLink>
           <CardFirstSteps src={perfil} alt="perfil" name="Crie seu perfil" />
         </CardLink>

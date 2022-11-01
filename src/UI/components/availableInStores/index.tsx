@@ -30,7 +30,7 @@ export const AvailableInStores: React.FC = () => {
           </a>
         </S.StoreButtonsContainer>
         <S.ButtonContainer>
-          <Link href="/RegisterUser">
+          <Link href="/cadastro">
             <Button
               variant={'primary'}
               height="36px"

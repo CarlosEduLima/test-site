@@ -91,10 +91,10 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
                 enableScroll();
                 router.push(
                   {
-                    pathname: `/categories`,
+                    pathname: `/categoria`,
                     query: {id: highlight.id}
                   },
-                  `/categories`,
+                  `/categoria`,
                 )
               }
               }
@@ -119,9 +119,9 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
               onClick={() =>
                 router.push(
                   {
-                    pathname: `/categories?id=${highlight.id}`,
+                    pathname: `/categoria?id=${highlight.id}`,
                   },
-                  `/categories?id=${highlight.id}`,
+                  `/categoria?id=${highlight.id}`,
                 )
               }
               size={cardSize}

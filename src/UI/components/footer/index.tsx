@@ -68,7 +68,7 @@ const Footer = () => {
           <Link href="/trabalhe-conosco">
             <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link>
-          <Link href="/verifiedProfessionals">
+          <Link href="/profissionais-verificados">
             <S.TitlesList>Profissionais Verificados</S.TitlesList>
           </Link>
         </S.FooterSection>
@@ -136,7 +136,7 @@ const Footer = () => {
         <S.ContainerLogo>
           <Image src={iziwIcon} alt="Iziw Icon" />
         </S.ContainerLogo>
-        <Link href="/faq">
+        <Link href="/perguntas-frequentes">
           <S.TextDownFooter>Ajuda</S.TextDownFooter>
         </Link>
         <Link href="/termos-de-uso">
