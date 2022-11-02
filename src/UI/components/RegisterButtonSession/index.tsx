@@ -10,7 +10,12 @@ const RegisterButtonSession: React.FC = () => {
     <Container>
       <ContainerButton>
         <Link href="/RegisterUser">
-          <Button variant={'primary'} height={'40px'} widthCircle={''} heightCircle={''}>
+          <Button
+            variant={'primary'}
+            height={'37px'}
+            widthCircle={''}
+            heightCircle={''}
+          >
             <ButtonText>Quero me cadastrar</ButtonText>
           </Button>
         </Link>

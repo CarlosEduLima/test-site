@@ -15,9 +15,16 @@ export const Newsletter: React.FC = () => {
         <S.Text>Quer ganhar dinheiro extra e escolher quando e como trabalhar?</S.Text>
         <S.InteractionContainer>
           <Link href="/RegisterUser">
-            <Button variant={'secondary'} widthCircle={''} heightCircle={''}>
-              Quero me cadastrar
-            </Button>
+            <S.ContainerButton>
+              <Button
+                variant={'secondary'}
+                widthCircle={''}
+                heightCircle={''}
+                height={'37px'}
+              >
+                Quero me cadastrar
+              </Button>
+            </S.ContainerButton>
           </Link>
         </S.InteractionContainer>
       </S.LeftContent>

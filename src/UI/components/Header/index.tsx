@@ -69,7 +69,12 @@ export const Header: React.FC<Props> = (props) => {
             </LinkContainer>
             <ContainerButton>
               <Link href="/RegisterUser">
-                <Button variant={'primary'} height={'30px'} widthCircle={''} heightCircle={''}>
+                <Button
+                  variant={'primary'}
+                  height={'37px'}
+                  widthCircle={''}
+                  heightCircle={''}
+                >
                   <ButtonText>Quero me cadastrar</ButtonText>
                 </Button>
               </Link>

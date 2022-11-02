@@ -6,8 +6,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: 90vw;
 
-  @media (max-width: 800px) {
+  @media (max-width: 840px) {
     max-width: 80vw;
+    margin-bottom: 40px;
   }
 `;
 
@@ -16,6 +17,10 @@ export const Title = styled.h1`
   font-family: ${fonts.bold};
   text-align: center;
   font-size: 25px;
+
+  @media (max-width: 840px) {
+    font-size: 22px; 
+  }
 `;
 
 export const Divider = styled.div`
@@ -36,13 +41,17 @@ export const ButtonRight = styled.button`
   display: flex;
   position: relative;
   border: 1px solid;
-  right: 0;
+  right: 30px;
   top: 55%;
   width: 2.5rem;
   place-items: center;
   background: none;
   border: none;
   cursor: pointer;
+
+  /* @media (max-width: 840px) {
+    display: none;
+  } */
 `;
 
 export const ButtonLeft = styled.button`
@@ -56,6 +65,10 @@ export const ButtonLeft = styled.button`
   border-radius: 48%;
   background: none;
   cursor: pointer;
+
+  /* @media (max-width: 840px) {
+    display: none;
+  } */
 `;
 
 export const Box = styled.div`
@@ -80,6 +93,12 @@ export const CardContainer = styled.div`
   border-radius: 8px;
   padding: 0;
   cursor: pointer;
+
+  @media (max-width: 840px) {
+    width: 250px;
+    max-width: 250px;
+    margin-left: 4px;
+  }
 `;
 
 export const CardBox = styled.div`
@@ -96,7 +115,11 @@ export const CardTitle = styled.div`
   margin-bottom: 10px;
 
   span {
-    font-size: 20px;
+    font-size: 24px;
+  }
+
+  @media (max-width: 840px) {
+    font-size: 21px;
   }
 `;
 
@@ -105,11 +128,12 @@ export const ContainerRating = styled.div`
   align-items: center;
   flex-direction: row;
   min-width: 60px;
-  height: 30px;
+  height: 25px;
 `;
 
 export const TextRating = styled.h2`
-  font-size: 17px;
+  display: flex;
+  font-size: 16px;
   font-family: ${fonts.heading};
   margin-right: 6px;
 `;
@@ -131,6 +155,11 @@ export const CardContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 840px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 export const CardP = styled.h3`

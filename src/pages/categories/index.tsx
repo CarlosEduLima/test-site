@@ -35,6 +35,7 @@ const Categories: React.FC = () => {
               variant={'primary'}
               widthCircle={''}
               heightCircle={''}
+              height={'37px'}
               onClick={() =>
                 router.push({
                   pathname: '/Home',
