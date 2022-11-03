@@ -6,7 +6,6 @@ import { AvailableInStores } from '../../UI/components/availableInStores';
 
 import HowItWorks from '../../UI/components/howItWorks';
 import { Header } from '../../UI/components/Header';
-import { HeaderContainer } from './styles';
 import { HighProfessionals } from '../../UI/components/highProfessionals';
 import { Carousel } from 'src/UI/components/carousel';
 import RegisterButtonSection from 'src/UI/components/RegisterButtonSession';
