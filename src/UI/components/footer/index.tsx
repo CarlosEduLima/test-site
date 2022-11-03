@@ -142,6 +142,9 @@ const Footer = () => {
         <Link href="/termos-de-uso">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
         </Link>
+        <Link href="/politica-de-privacidade">
+          <S.TextDownFooter>Política de Privacidade</S.TextDownFooter>
+        </Link>
         <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
       </S.FooterDown>
     </S.FooterContainer>

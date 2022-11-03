@@ -1,6 +1,6 @@
 import React from 'react';
 import { StarYellow } from '../../../assets/starYellow.tsx';
-import { StarBlue } from '../../../assets/StarBlue.tsx';
+import { StarBlue } from '../../../assets/starBlue.tsx';
 import * as S from './styles';
 
 interface CardProps {
