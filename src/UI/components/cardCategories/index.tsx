@@ -6,8 +6,6 @@ import Link from 'next/link';
 import useWindowSize from '../../../utils/hooks';
 import useDraggableScroll from 'use-draggable-scroll';
 import mockIcon from '../../../assets/mock.svg';
-import forwardIcon from '../../../assets/ir.svg';
-import backIcon from '../../../assets/voltar.svg';
 import estrelaIcon from '../../../assets/estrela.svg';
 import Image from 'next/image';
 import * as S from './styles';
@@ -83,12 +81,6 @@ export const CardCategories: React.FC = (id: any) => {
         </S.Title>
         <S.Divider />
       </S.ContainerDivider>
-      <S.ButtonRight onClick={handleLeftClick}>
-        <Image src={backIcon} alt="voltar" />
-      </S.ButtonRight>
-      <S.ButtonLeft onClick={handleRightClick}>
-        <Image src={forwardIcon} alt="voltar" />
-      </S.ButtonLeft>
       <ScrollAreaContainer>
         <HorizontalScrollArea
           ref={ref1}

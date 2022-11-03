@@ -25,7 +25,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Header handleScroll={handleBackClick} />
-      <HighProfessionals handleScroll={handleBackClick}/>
+      <HighProfessionals handleScroll={handleBackClick} />
       <Carousel ref={categoriesRef} />
       <RegisterButtonSection />
       <HowItWorks />

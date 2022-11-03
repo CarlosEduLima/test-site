@@ -7,8 +7,7 @@ const bannerProfessionals: React.FC = () => {
       <TopCenter>
         <SubTitleWhite>Profissionais verificados</SubTitleWhite>
         <TextWhite>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
         </TextWhite>
       </TopCenter>
     </Top>

@@ -24,12 +24,13 @@ export const Divider = styled.div`
 `;
 
 export const ScrollAreaContainer = styled.div`
+  padding-bottom: 20px;
   margin: 45px 0;
-  padding: 0 30px;
   width: 100%;
 
   @media (max-width: 840px) {
     margin: 5px 0;
+    margin-bottom: 0px;
     padding: 0px;
   }
 `;

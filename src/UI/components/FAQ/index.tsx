@@ -1,18 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
-
-import * as S from './styles';
-
 import { BsChevronRight } from 'react-icons/bs';
-import SearchBtn from '../../../assets/searchBtn.svg';
-
-import { Button } from '../Button';
-
-import { GetFaq, IFAQProps } from '../../../services/faq';
-import Image from 'next/image';
-import QuestionIcon from '../../../assets/questionFaqIcon.png';
 import { useRouter } from 'next/router';
+import { Button } from '../Button';
+import { GetFaq, IFAQProps } from '../../../services/faq';
+import SearchBtn from '../../../assets/searchBtn.svg';
+import QuestionIcon from '../../../assets/questionFaqIcon.png';
+import Image from 'next/image';
 import Link from 'next/link';
+import * as S from './styles';
 
 const FAQ: React.FC = () => {
   const [value, setValue] = useState('');

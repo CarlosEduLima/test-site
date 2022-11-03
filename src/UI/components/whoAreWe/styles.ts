@@ -11,12 +11,12 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: ${fonts.bold};
+  font-family: ${fonts.extraBold};
   color: ${colors.black};
   font-size: 25px;
 
   @media (max-width: 840px) {
-    font-size: 21px; 
+    font-size: 20px; 
   }
 `;
 
@@ -24,7 +24,10 @@ export const Divider = styled.div`
   width: 130px;
   border-radius: 10px;
   border: 1px solid ${colors.blue};
-  margin-bottom: 30px;
+  
+  @media(max-width: 840px) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const ButtonContainer = styled.div`

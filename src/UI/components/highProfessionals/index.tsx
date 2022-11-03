@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Input from '../Input';
 import { Button } from '../Button';
-import * as S from './styles';
 import { Services } from 'src/services/services';
 import { useRouter } from 'next/router';
+import Input from '../Input';
+import * as S from './styles';
+
 interface Props {
   handleScroll?: () => void;
 }
