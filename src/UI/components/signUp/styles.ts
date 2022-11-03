@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import fonts from 'src/utils/fonts';
-import img from '../../../assets/imagemFundoCadastro.png';
+import img from '../../../assets/ImagemFundoCadastro.png';
 
 export const Container = styled.div`
   background: url(${img.src}) no-repeat;
@@ -92,7 +92,6 @@ export const Box = styled.div`
     transform: translate(-50%, -50%);
   }
 `;
-
 
 export const BoxInput = styled.div`
   border-radius: 50%;

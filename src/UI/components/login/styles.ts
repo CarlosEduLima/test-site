@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import fonts from 'src/utils/fonts';
 import colors from 'src/utils/colors';
-import img from '../../../assets/imagemFundoCadastro.png';
+import img from '../../../assets/ImagemFundoCadastro.png';
 
 export const Container = styled.div`
   background: url(${img.src}) no-repeat;
@@ -52,10 +52,10 @@ export const styleError = {
 };
 
 export const ErrorLogin = styled.p`
-    color: ${colors.redError};
-    font-family: ${fonts.heading};
-    margin-top: 15px;
-  `;
+  color: ${colors.redError};
+  font-family: ${fonts.heading};
+  margin-top: 15px;
+`;
 
 export const Input = styled.input`
   box-shadow: none !important;
