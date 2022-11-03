@@ -69,7 +69,7 @@ const Footer = () => {
             <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link>
           <Link href="/verifiedProfessionals">
-            <S.TitlesList>Profissionais Verificados</S.TitlesList>
+            <S.TitlesList>Profissionais verificados</S.TitlesList>
           </Link>
         </S.FooterSection>
 
@@ -141,6 +141,9 @@ const Footer = () => {
         </Link>
         <Link href="/TermsOfUse">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
+        </Link>
+        <Link href="/politica-de-privacidade">
+          <S.TextDownFooter>Política de Privacidade</S.TextDownFooter>
         </Link>
         <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
       </S.FooterDown>
