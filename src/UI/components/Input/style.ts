@@ -109,28 +109,27 @@ export const TextInputArea = styled.textarea<InputPropsStyle>`
 
 export const ContainerSearchPreview = styled.div`
   display: block;
-  max-width: 100%;
   width: 440px;
   z-index: 0;
   position: absolute;
   margin-top: 55px;
+  max-width: 86%;
 `;
 
 export const ContainerSearchPreviewItems = styled.ul`
-  width: calc(100%);
+  width: 100%;
   background-color: white;
   position: relative;
   border-radius: 0 0 9px 9px;
   transition: all 0.7s;
   background-color: ${colors.smoke};
-  
 
   ::before {
     content: '';
     display: block;
     margin: 0 auto;
     width: 92%;
-  } 
+  }
 `;
 
 export const ContainerSearchPreviewItem = styled.li`

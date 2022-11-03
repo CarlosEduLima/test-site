@@ -18,10 +18,7 @@ export const CenterProfessional = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 840px) {
-    padding: 25px;
-  }
+  max-width: 86%;
 `;
 
 export const SubTitleProfessional = styled.h1`
