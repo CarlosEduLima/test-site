@@ -37,7 +37,7 @@ const Categories: React.FC = () => {
               heightCircle={''}
               onClick={() =>
                 router.push({
-                  pathname: '/Home',
+                  pathname: '/home',
                   query: { scroll: true },
                 })
               }

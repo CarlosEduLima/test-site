@@ -34,41 +34,41 @@ export const Header: React.FC<Props> = (props) => {
       <DivHeader opacity={props.opacity === true ? 0.45 : 1.0}>
         <HeaderContent>
           <ContainerImage>
-            <Link href="/Home">
+            <Link href="/home">
               <Icon src={LogoImg} alt="Logo IZIW" />
             </Link>
           </ContainerImage>
           <ContainerList>
             <LinkContainer>
-              <Link href="/Home">
+              <Link href="/home">
                 <List>Home</List>
               </Link>
-              {/*<Link href="/firstStepsPage">
+              {/*<Link href="/primeiros-passos">
                 <List>Como funciona?</List>
                   </Link>*/}
               <List
                 onClick={() => {
-                  if (router.pathname === '/Home') {
+                  if (router.pathname === '/home') {
                     props.handleScroll()
                   } else {
                     router.push({
-                      pathname: '/Home',
+                      pathname: '/home',
                       query: { scroll: true },
-                    });
+                    }, '/home');
                   }
                 }
                 }>
                 Categorias
               </List>
-              <Link href="/faq">
+              <Link href="/perguntas-frequentes">
                 <List>FAQ</List>
               </Link>
-              <Link href="/ContactFaq">
+              <Link href="/contato">
                 <List>Contatos</List>
               </Link>
             </LinkContainer>
             <ContainerButton>
-              <Link href="/RegisterUser">
+              <Link href="/cadastro">
                 <Button variant={'primary'} height={'30px'} widthCircle={''} heightCircle={''}>
                   <ButtonText>Quero me cadastrar</ButtonText>
                 </Button>
@@ -86,27 +86,28 @@ export const Header: React.FC<Props> = (props) => {
       </DivHeader>
       <MobileMenu open={open}>
         <MobileLinkContainer>
-          <Link href="/Home">
+          <Link href="/home">
             <List style={{ marginBottom: 25 }}>Home</List>
           </Link>
-          <List style={{ marginBottom: 25 }} onClick={() => {
-            if (router.pathname === '/Home') {
-              props.handleScroll()
-            } else {
-              router.push({
-                pathname: '/Home',
-                query: { scroll: true },
-              });
+          <List style={{ marginBottom: 25 }}
+            onClick={() => {
+              if (router.pathname === '/home') {
+                props.handleScroll()
+              } else {
+                router.push({
+                  pathname: '/home',
+                  query: { scroll: true },
+                },'/home');
+              }
             }
-          }
-          }
+            }
           >
             Categorias
           </List>
-          <Link href="/faq">
+          <Link href="/perguntas-frequentes">
             <List style={{ marginBottom: 25 }}>FAQ</List>
           </Link>
-          <Link href="/ContactFaq">
+          <Link href="/contato">
             <List>Contatos</List>
           </Link>
         </MobileLinkContainer>

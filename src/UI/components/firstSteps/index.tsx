@@ -9,17 +9,17 @@ import Link from 'next/link';
 const FirstSteps: React.FC = () => {
   return (
     <Container>
-      <Link href="/RegisterUser">
+      <Link href="/cadastro">
         <CardLink>
           <CardFirstSteps src={perfil} alt="perfil" name="Crie seu perfil" />
         </CardLink>
       </Link>
-      <Link href="/pagePrices">
+      <Link href="/precos">
         <CardLink>
           <CardFirstSteps src={boxW} alt="circulo" name="Preços e moedas" />
         </CardLink>
       </Link>
-      <Link href="/TermsOfUse">
+      <Link href="/termos-de-uso">
         <CardLink>
           <CardFirstSteps src={terms} alt="Termos de Uso" name="Termos de Uso" />
         </CardLink>

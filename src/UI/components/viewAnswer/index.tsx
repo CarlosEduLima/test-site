@@ -11,6 +11,7 @@ import {
   Label,
   BoxQuestion,
   ButtonContainer,
+  TitleQuestion
 } from './styles';
 
 import GoBackIcon from '../../../assets/goBack.svg';
@@ -20,7 +21,11 @@ import { GetAnswer, PostAnswerFeedback, GetFaqAnswerReview } from '../../../serv
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
 
-const ViewAnswer = (questionid: any) => {
+interface IQuestionProps {
+  questionId: string;
+}
+
+const ViewAnswer = ({ questionId }: IQuestionProps) => {
   const [markdonwAnswer, setMarkdonwAnswer] = useState('');
   const [canView, setCanView] = useState<boolean>(false);
   const [answerId, setAnswerId] = useState<number>(0);
@@ -28,7 +33,7 @@ const ViewAnswer = (questionid: any) => {
   const router = useRouter();
 
   const getData = async () => {
-    const answerObj = await GetAnswer(parseInt(questionid?.id));
+    const answerObj = await GetAnswer(parseInt(questionId));
     setAnswerId(answerObj?.answers[0]?.id);
     const data = await GetFaqAnswerReview(answerObj?.answers[0]?.id);
     setMarkdonwAnswer(answerObj?.answers[0]?.answer);
@@ -36,7 +41,7 @@ const ViewAnswer = (questionid: any) => {
   };
 
   useEffect(() => {
-    questionid?.id && getData();
+    questionId && getData();
   }, []);
 
   const handleReview = async (helped: boolean) => {

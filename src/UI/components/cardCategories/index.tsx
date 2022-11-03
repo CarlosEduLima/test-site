@@ -125,7 +125,7 @@ export const CardCategories: React.FC = (id: any) => {
                     R${highlight.prece}
                     <span>Média de preço </span>
                     </S.CardP>*/}
-                  <Link href="/RegisterUser">
+                  <Link href="/cadastro">
                     <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} onClick={enableScroll}>
                       Quero contratar
                     </Button>

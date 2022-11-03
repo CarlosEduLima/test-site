@@ -7,12 +7,14 @@ import { useRouter } from 'next/router';
 
 const Answer: React.FC = () => {
   const router = useRouter();
+  const id = router.query?.id as string
+  const title = router.query?.title as string
   return (
     <>
       <HeaderContainer>
         <Header />
       </HeaderContainer>
-      <ViewAnswer id={router.query?.id} />
+      <ViewAnswer questionId={id} questionTitle={title}/>
       <Footer />
     </>
   );
