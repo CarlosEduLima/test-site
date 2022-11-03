@@ -76,30 +76,23 @@ const FAQ: React.FC = () => {
                     </S.CategoryResultTitleContainer>
                     <S.ResultQuestionsContainer>
                       {result.questions.map((question) => (
-                        <S.ResultQuestionContainer
-                          key={question.id}
-                          onClick={() =>
-                            router.push(
-                              {
-                                pathname: '/Answer',
-                                query: {
-                                  id: question.id,
-                                  title: question.question
-                                },
-                              },
-                              '/Answer',
-                            )
-                          }>
-                          <S.ResultQuestionInfo>
-                            <S.QuestionResultTitle>{question.question}</S.QuestionResultTitle>
-                            <S.ResultAnswerPreview>
-                              {question.previous_answer}
-                            </S.ResultAnswerPreview>
-                          </S.ResultQuestionInfo>
-                          <S.ResultQuestionIconContainer>
-                            <BsChevronRight size={16} />
-                          </S.ResultQuestionIconContainer>
-                        </S.ResultQuestionContainer>
+                        <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`}
+                          passHref
+                        >
+                          <S.ResultQuestionContainer
+                            key={question.id}
+                          >
+                            <S.ResultQuestionInfo>
+                              <S.QuestionResultTitle>{question.question}</S.QuestionResultTitle>
+                              <S.ResultAnswerPreview>
+                                {question.previous_answer}
+                              </S.ResultAnswerPreview>
+                            </S.ResultQuestionInfo>
+                            <S.ResultQuestionIconContainer>
+                              <BsChevronRight size={16} />
+                            </S.ResultQuestionIconContainer>
+                          </S.ResultQuestionContainer>
+                        </Link>
                       ))}
                     </S.ResultQuestionsContainer>
                   </S.ResultContainer>
@@ -122,7 +115,7 @@ const FAQ: React.FC = () => {
                   </S.CategoryCardHeader>
                   <S.CategoryCardQuestionsContainer>
                     {category.questions.map((question) => (
-                      <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`} 
+                      <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`}
                         passHref
                       >
                         <S.CategoryCardQuestion
