@@ -87,7 +87,11 @@ export const ElementBall = styled.div`
 `;
 
 export const ContainerImage = styled.div`
+  margin-bottom: 7px;
+  margin-left: -1px;
   display: flex;
+  border-radius: 48% / 42%;
+  overflow: hidden;
 
   @media (max-width: 840px) {
     display: flex;
