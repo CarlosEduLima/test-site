@@ -6,8 +6,6 @@ import Link from 'next/link';
 import useWindowSize from '../../../utils/hooks';
 import useDraggableScroll from 'use-draggable-scroll';
 import mockIcon from '../../../assets/mock.svg';
-import forwardIcon from '../../../assets/ir.svg';
-import backIcon from '../../../assets/voltar.svg';
 import estrelaIcon from '../../../assets/estrela.svg';
 import Image from 'next/image';
 import * as S from './styles';
@@ -21,6 +19,7 @@ export const CardCategories: React.FC = (id: any) => {
   const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 325, height: 151 };
+
   const defineLines = (highlights) => {
     let arrayOne: any;
     if (cardSize.width * highlights.length > windowSize.width * 2) {
@@ -46,9 +45,9 @@ export const CardCategories: React.FC = (id: any) => {
       const initialPosition: { scrollLeft: number } = {
         scrollLeft: ref.current.scrollLeft,
       };
-      ref.current.scrollLeft = initialPosition.scrollLeft + ev.deltaY * 3;
+      ref.current.scrollLeft = initialPosition.scrollLeft + ev.deltaY * 10;
     }
-  }
+  };
 
   function enableScroll(): void {
     document.removeEventListener('wheel', preventDefault, false);
@@ -83,12 +82,6 @@ export const CardCategories: React.FC = (id: any) => {
         </S.Title>
         <S.Divider />
       </S.ContainerDivider>
-      <S.ButtonRight onClick={handleLeftClick}>
-        <Image src={backIcon} alt="voltar" />
-      </S.ButtonRight>
-      <S.ButtonLeft onClick={handleRightClick}>
-        <Image src={forwardIcon} alt="voltar" />
-      </S.ButtonLeft>
       <ScrollAreaContainer>
         <HorizontalScrollArea
           ref={ref1}
@@ -125,7 +118,7 @@ export const CardCategories: React.FC = (id: any) => {
                     R${highlight.prece}
                     <span>Média de preço </span>
                     </S.CardP>*/}
-                  <Link href="/RegisterUser">
+                  <Link href="/cadastro">
                     <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} onClick={enableScroll}>
                       Quero contratar
                     </Button>

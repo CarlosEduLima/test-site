@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import colors from '../../utils/colors';
-import fonts from '../../utils/fonts';
-import firstStep from '../../assets/top.png';
+import colors from '../../../../utils/colors';
+import fonts from '../../../../utils/fonts';
+import firstStep from '../../../../assets/top.png';
+import backgroundContact from '../../assets/backgroundContact.png';
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -20,6 +21,14 @@ export const Top = styled.div`
   display: flex;
   justify-content: center;
   background-size: cover;
+
+  @media (max-width: 840px) {
+    background: url(${backgroundContact.src}) no-repeat;
+    width: 100%;
+    background-size: cover;
+    height: 400px;  
+    margin-bottom: 30px;
+  }
 `;
 
 export const TopCenter = styled.div`
@@ -35,12 +44,36 @@ export const TextWhite = styled.p`
   line-height: 34px;
   font-family: ${fonts.regular};
   color: ${colors.white};
-  max-width: 400px;
+  max-width: 500px;
+
+  @media (max-width: 840) {
+    font-size: 16px;
+  }
 `;
 
 export const SubTitleWhite = styled.h1`
-  font-size: 35px;
+  font-size: 30px;
   font-family: ${fonts.heading};
   color: ${colors.white};
   margin-bottom: 40px;
+
+  @media (max-width: 840) {
+    font-size: 16px;
+  }
+`;
+
+export const BoxButton = styled.div`
+  padding-top: 2%;
+  width: 30%;
+
+  @media (max-width: 840px) {
+    width: 80%;
+    margin-top: 30px;
+  }
+`;
+
+export const Carrossel = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 `;
