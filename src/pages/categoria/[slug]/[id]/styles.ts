@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import colors from '../../utils/colors';
-import fonts from '../../utils/fonts';
-import firstStep from '../../assets/top.png';
+import colors from '../../../../utils/colors';
+import fonts from '../../../../utils/fonts';
+import firstStep from '../../../../assets/top.png';
 import backgroundContact from '../../assets/backgroundContact.png';
 
 export const HeaderContainer = styled.div`

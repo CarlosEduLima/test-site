@@ -5,7 +5,7 @@ import useDraggableScroll from 'use-draggable-scroll';
 import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
 import { useRouter } from 'next/router';
-
+import slugify from 'slugify';
 export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
@@ -91,9 +91,9 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
                 enableScroll();
                 router.push(
                   {
-                    pathname: `/categories?id=${highlight.id}`,
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                   },
-                  `/categories?id=${highlight.id}`,
+                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                 )
               }
               }
@@ -118,9 +118,9 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
               onClick={() =>
                 router.push(
                   {
-                    pathname: `/categories?id=${highlight.id}`,
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                   },
-                  `/categories?id=${highlight.id}`,
+                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                 )
               }
               size={cardSize}

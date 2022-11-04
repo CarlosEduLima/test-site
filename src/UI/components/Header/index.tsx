@@ -34,47 +34,42 @@ export const Header: React.FC<Props> = (props) => {
       <DivHeader opacity={props.opacity === true ? 0.45 : 1.0}>
         <HeaderContent>
           <ContainerImage>
-            <Link href="/Home">
+            <Link href="/">
               <Icon src={LogoImg} alt="Logo IZIW" />
             </Link>
           </ContainerImage>
           <ContainerList>
             <LinkContainer>
-              <Link href="/Home">
+              <Link href="/">
                 <List>Home</List>
               </Link>
-              {/*<Link href="/firstStepsPage">
+              {/*<Link href="/primeiros-passos">
                 <List>Como funciona?</List>
                   </Link>*/}
               <List
                 onClick={() => {
-                  if (router.pathname === '/Home') {
+                  if (router.pathname === '/') {
                     props.handleScroll()
                   } else {
                     router.push({
-                      pathname: '/Home',
+                      pathname: '/',
                       query: { scroll: true },
-                    });
+                    }, '/');
                   }
                 }
                 }>
                 Categorias
               </List>
-              <Link href="/faq">
+              <Link href="/perguntas-frequentes">
                 <List>FAQ</List>
               </Link>
-              <Link href="/ContactFaq">
+              <Link href="/contato">
                 <List>Contatos</List>
               </Link>
             </LinkContainer>
             <ContainerButton>
-              <Link href="/RegisterUser">
-                <Button
-                  variant={'primary'}
-                  height={'37px'}
-                  widthCircle={''}
-                  heightCircle={''}
-                >
+              <Link href="/cadastro">
+                <Button variant={'primary'} height={'37px'} widthCircle={''} heightCircle={''}>
                   <ButtonText>Quero me cadastrar</ButtonText>
                 </Button>
               </Link>
@@ -91,27 +86,28 @@ export const Header: React.FC<Props> = (props) => {
       </DivHeader>
       <MobileMenu open={open}>
         <MobileLinkContainer>
-          <Link href="/Home">
+          <Link href="/">
             <List style={{ marginBottom: 25 }}>Home</List>
           </Link>
-          <List style={{ marginBottom: 25 }} onClick={() => {
-            if (router.pathname === '/Home') {
-              props.handleScroll()
-            } else {
-              router.push({
-                pathname: '/Home',
-                query: { scroll: true },
-              });
+          <List style={{ marginBottom: 25 }}
+            onClick={() => {
+              if (router.pathname === '/') {
+                props.handleScroll()
+              } else {
+                router.push({
+                  pathname: '/',
+                  query: { scroll: true },
+                },'/');
+              }
             }
-          }
-          }
+            }
           >
             Categorias
           </List>
-          <Link href="/faq">
+          <Link href="/perguntas-frequentes">
             <List style={{ marginBottom: 25 }}>FAQ</List>
           </Link>
-          <Link href="/ContactFaq">
+          <Link href="/contato">
             <List>Contatos</List>
           </Link>
         </MobileLinkContainer>

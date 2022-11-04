@@ -3,7 +3,7 @@ import { HeaderContainer } from './styles';
 import { Header } from 'src/UI/components/Header';
 import SignUp from 'src/UI/components/signUp';
 
-const Home: React.FC = () => {
+const RegisterUser: React.FC = () => {
   return (
     <>
       <HeaderContainer>
@@ -14,4 +14,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default RegisterUser;
