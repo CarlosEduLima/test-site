@@ -65,9 +65,9 @@ const Footer = () => {
           <Link href="/quem-somos">
             <S.TitlesList>Quem somos</S.TitlesList>
           </Link>
-          <Link href="/trabalhe-conosco">
+          {/* <Link href="/trabalhe-conosco">
             <S.TitlesList>Trabalhe conosco</S.TitlesList>
-          </Link>
+          </Link> */}
           {/* Botão ocultado até definições da tela em questão
               <Link href="/profissionais-verificados">
                 <S.TitlesList>Profissionais Verificados</S.TitlesList>
