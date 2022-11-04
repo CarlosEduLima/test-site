@@ -2,11 +2,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import fonts from '../../../utils/fonts';
 import colors from '../../../utils/colors';
-
-import circuloFaq from '../../../assets/circuloFaq.svg';
-import meioCirculoFaq from '../../../assets/meioCirculoFaq.svg';
-import retanguloFaq from '../../../assets/retanguloFaq.svg';
 import backgroundSearchFaq from '../../../assets/faqBanner.png';
+import backgroundFAQ from '../../../assets/backgroundFAQ.png';
 
 export const FAQFull = styled.div`
   display: flex;
@@ -27,7 +24,7 @@ export const FAQContainer = styled.div`
 `;
 
 export const SearchContainer = styled.div`
-  padding: 40px 0;
+  padding: 40px 10px;
   width: 100%;
   height: 420px;
   display: flex;
@@ -37,6 +34,14 @@ export const SearchContainer = styled.div`
   text-align: center;
   background: linear-gradient(#373aadaa, #373aadaa), url(${backgroundSearchFaq.src}) no-repeat;
   background-size: cover;
+
+  @media (max-width: 840px) {
+    background: url(${backgroundFAQ.src}) no-repeat;
+    width: 100%;
+    background-size: cover;
+    height: 330px;  
+    margin-bottom: 30px;
+  }
 `;
 
 export const ContactSession = styled.div`
@@ -90,12 +95,14 @@ export const Title = styled.p<{ size: number }>`
   color: #000;
   font-size: ${(props) => props.size}px;
   font-family: ${fonts.regular};
+
   span {
     font-weight: 800;
   }
   @media (max-width: 600px) {
     font-size: ${(props) => props.size - 4}px;
     max-width: 80%;
+
   }
   &.center {
     text-align: center;
@@ -208,23 +215,28 @@ export const Text = styled.p<{ size: number }>`
   font-family: ${fonts.regular};
   margin: 0 8px;
   user-select: text;
+
   span {
     font-weight: 600;
   }
+
   @media (max-width: 600px) {
     font-size: ${(props) => props.size - 4}px;
     max-width: 100%;
   }
+
   &.answer {
     padding: 0px 40px 32px 40px;
     cursor: text;
   }
+
   &.mTop {
     margin-top: 1px;
     @media screen and (max-width: 600px) {
       margin-top: 4px;
     }
   }
+
   &.categoria {
     margin: 38px;
   }

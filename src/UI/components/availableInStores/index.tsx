@@ -33,10 +33,11 @@ export const AvailableInStores: React.FC = () => {
           <Link href="/cadastro">
             <Button
               variant={'primary'}
-              height="36px"
+              height={'37px'}
               widthCircle={''}
               heightCircle={''}
-              fontSize="14px">
+              fontSize="14px"
+            >
               Quero me cadastrar
             </Button>
           </Link>

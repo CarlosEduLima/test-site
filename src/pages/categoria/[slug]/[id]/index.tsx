@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Header } from '../../UI/components/Header';
-import { Button } from '../../UI/components/Button';
+import { Header } from '../../../../UI/components/Header';
+import { Button } from '../../../../UI/components/Button';
 import { useRouter } from 'next/router';
-import { CardCategories } from 'src/UI/components/cardCategories';
-import { Newsletter } from 'src/UI/components/newsletter';
-import { WhoAreWe } from 'src/UI/components/whoAreWe';
-import { ServiceHighlightsShow } from 'src/services/services';
+import { CardCategories } from '../../../../UI/components/cardCategories';
+import { Newsletter } from '../../../../UI/components/newsletter';
+import { WhoAreWe } from '../../../../UI/components/whoAreWe';
+import { ServiceHighlightsShow } from '../../../../services/services';
 import * as S from './styles';
-import Footer from 'src/UI/components/footer';
+import Footer from '../../../../UI/components/footer';
+
 const Categories: React.FC = () => {
   const router: any = useRouter();
   const [categoryData, setCategoryData]: any = useState();
@@ -35,6 +36,7 @@ const Categories: React.FC = () => {
               variant={'primary'}
               widthCircle={''}
               heightCircle={''}
+              height={'37px'}
               onClick={() =>
                 router.push({
                   pathname: '/',
