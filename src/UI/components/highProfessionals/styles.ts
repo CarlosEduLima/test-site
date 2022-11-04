@@ -39,3 +39,4 @@ export const SubTitleProfessional = styled.h1`
     font-size: 25px;
   }
 `;
+

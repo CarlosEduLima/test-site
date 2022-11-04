@@ -93,6 +93,12 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     setValue(name, value);
   };
 
+  const normalize = (string) =>
+  string
+    .normalize('NFD')
+    .toLowerCase()
+    .replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
+
   const getNameSearch = (value: string) => {
     setIsClicked(false);
     if (value.trim().length) {
@@ -102,8 +108,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       }
       setValue(name, value);
       if (!isClicked) {
-        console.log('SearchData --', dataSearch.filter(createFilter(value, ['name'])));
-        setFiltered(dataSearch.filter(createFilter(value, ['name'])));
+        setFiltered(dataSearch.filter((item: any) => createFilter(value, ['name'])({name: normalize(item.name)})));
       }
       setFilterPreviewSearchValue(value);
     } else {
