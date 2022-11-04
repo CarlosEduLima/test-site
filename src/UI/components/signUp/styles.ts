@@ -11,7 +11,10 @@ export const Container = styled.div`
   overflow: hidden;
   display: flex;
   place-content: center;
-  place-items: center;
+  place-items: flex-end;
+  @media (max-width: 1124px) {
+    place-items: center;
+  }
 `;
 
 export const LogoImgs = styled(Image)`
@@ -48,20 +51,36 @@ export const ImageBOX = styled.div`
   margin-top: 10%;
 `;
 export const ImageBOXs = styled.div``;
+export const ContentBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5em;
+  @media (max-width: 1124px) {
+    margin-top: 5em;
+  }
+  @media (max-width: 768px) {
+    margin-top: 4em;
+  }
+  @media (max-width: 425px) {
+    margin-top: 1em;
+  }
+`;
 
 export const Box = styled.div`
   display: flex;
   background-color: white;
-  width: 26%;
-  height: 65%;
+  width: 28%;
+  height: 72%;
   flex-direction: column;
-  border-radius: 25px;
+  border-radius: 25px 25px 0 0;
   align-items: center;
   text-align: center;
   justify-content: space-between;
   padding: 2%;
-  @media (max-width: 1100px) {
-    height: 80%;
-    width: 80%;
+  @media (max-width: 1124px) {
+    height: 70%;
+    width: 60%;
+    border-radius: 25px;
   }
 `;

@@ -7,7 +7,17 @@ import LogoImg from '../../../assets/seta.svg';
 import Barra from '../../../assets/icon.png';
 import AppStore from '../../../assets/AppStore.png';
 import googlePlay from '../../../assets/googlePlay.png';
-import { Logo, Box, Container, ContainerText, Text, LogoImgs, ImageBOX, ImageBOXs } from './styles';
+import {
+  Logo,
+  Box,
+  Container,
+  ContainerText,
+  Text,
+  LogoImgs,
+  ImageBOX,
+  ImageBOXs,
+  ContentBox,
+} from './styles';
 
 export default function App() {
   return (
@@ -21,8 +31,8 @@ export default function App() {
           <ContainerText>
             Faça o download do aplicativo, escolha seus pedidos e feche muitos negócios!
           </ContainerText>
-          <div style={{ height: '15em', justifyContent: 'space-between' }}>
-            <div style={{ marginBottom: '1em' }}>
+          <ContentBox>
+            <div style={{ marginBottom: '2em' }}>
               <a href="https://play.google.com/store/apps" target={'_blank'} rel="noreferrer">
                 <Logo src={googlePlay} alt="Search" width={'250%'} height={'80%'} />
               </a>
@@ -35,7 +45,7 @@ export default function App() {
                 <Logo src={AppStore} alt="Search" width={'250%'} height={'80%'} />
               </a>
             </div>
-          </div>
+          </ContentBox>
         </ImageBOX>
       </Box>
     </Container>
