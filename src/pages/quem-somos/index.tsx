@@ -15,7 +15,9 @@ const WhoWeAre: React.FC = () => {
         <S.TopCenter>
           <S.SubTitleWhite>Quem somos</S.SubTitleWhite>
           <S.TextWhite>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            A Iziwork veio com o propósito de trazer a facilidade do seu dia a dia, aqui você pode
+            de maneira simples dizer qual a sua necessidade e nós indicaremos voce aos melhores
+            profissionais. Sem custo nenhum para você.
           </S.TextWhite>
         </S.TopCenter>
       </S.Top>
