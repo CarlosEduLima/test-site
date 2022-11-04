@@ -55,7 +55,7 @@ export const WhatMakesUsDifferent: React.FC = () => {
         <SubContentRight>
           <SubTitle>Como faço para ser um profissional IZiW?</SubTitle>
           <Text>
-            <Link href="/RegisterUser">
+            <Link href="/cadastro">
               <StyledLink>Clique aqui</StyledLink>
             </Link>{' '}
             e será redirecionado para nosso formulário de inscrição.

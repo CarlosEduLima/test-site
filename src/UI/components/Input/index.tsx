@@ -13,6 +13,7 @@ import colors from '../../../utils/colors';
 import * as S from './style';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import slugify from 'slugify';
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
     name,
@@ -393,19 +394,16 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
               <S.ContainerSearchPreviewItems key={filtered.length}>
                 {filtered?.slice(0, 4)?.map((value: any, index) => {
                   return (
-                    <S.ContainerSearchPreviewItem
-                      key={index}
-                      onClick={() => {
-                        handleSelected(value);
-                        router.push(
-                          {
-                            pathname: `/categories`,
-                            query: { id: value?.sup_id || value?.id }
-                          },
-                          `/categories`,
-                        )
-                      }}
-                    >{value.name}</S.ContainerSearchPreviewItem>
+                    <Link href={`/categoria/${slugify(value.name).toLowerCase()}/${value?.sup_id || value?.id}`}
+                      passHref
+                    >
+                      <S.ContainerSearchPreviewItem
+                        key={index}
+                        onClick={() => {
+                          handleSelected(value);
+                        }}
+                      >{value.name}</S.ContainerSearchPreviewItem>
+                    </Link>
                   );
                 })}
               </S.ContainerSearchPreviewItems>

@@ -62,15 +62,16 @@ const Footer = () => {
 
         <S.FooterSection>
           <S.TextUp>Institucional</S.TextUp>
-          <Link href="/whoWeAre">
+          <Link href="/quem-somos">
             <S.TitlesList>Quem somos</S.TitlesList>
           </Link>
-          <Link href="/pageWorkWithUs">
+          <Link href="/trabalhe-conosco">
             <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link>
-          <Link href="/verifiedProfessionals">
-            <S.TitlesList>Profissionais Verificados</S.TitlesList>
-          </Link>
+          {/* Botão ocultado até definições da tela em questão
+              <Link href="/profissionais-verificados">
+                <S.TitlesList>Profissionais Verificados</S.TitlesList>
+              </Link> */}
         </S.FooterSection>
 
         <S.FooterSection>
@@ -136,11 +137,14 @@ const Footer = () => {
         <S.ContainerLogo>
           <Image src={iziwIcon} alt="Iziw Icon" />
         </S.ContainerLogo>
-        <Link href="/faq">
+        <Link href="/perguntas-frequentes">
           <S.TextDownFooter>Ajuda</S.TextDownFooter>
         </Link>
-        <Link href="/TermsOfUse">
+        <Link href="/termos-de-uso">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
+        </Link>
+        <Link href="/politica-de-privacidade">
+          <S.TextDownFooter>Política de Privacidade</S.TextDownFooter>
         </Link>
         <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
       </S.FooterDown>

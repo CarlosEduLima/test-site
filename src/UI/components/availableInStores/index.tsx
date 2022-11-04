@@ -30,13 +30,14 @@ export const AvailableInStores: React.FC = () => {
           </a>
         </S.StoreButtonsContainer>
         <S.ButtonContainer>
-          <Link href="/register_user">
+          <Link href="/cadastro">
             <Button
               variant={'primary'}
-              height="36px"
+              height={'37px'}
               widthCircle={''}
               heightCircle={''}
-              fontSize="14px">
+              fontSize="14px"
+            >
               Quero me cadastrar
             </Button>
           </Link>

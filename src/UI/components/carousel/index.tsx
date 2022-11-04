@@ -5,7 +5,7 @@ import useDraggableScroll from 'use-draggable-scroll';
 import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
 import { useRouter } from 'next/router';
-
+import slugify from 'slugify';
 export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
@@ -15,7 +15,7 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
   const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
-  const cardSize = { width: 325, height: 151 };
+  const cardSize = { width: 310, height: 151 };
   const defineLines = (highlights) => {
     let arrayOne: IServiceProps[];
     let arrayTwo: IServiceProps[];
@@ -91,10 +91,9 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
                 enableScroll();
                 router.push(
                   {
-                    pathname: `/categories`,
-                    query: {id: highlight.id}
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                   },
-                  `/categories`,
+                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                 )
               }
               }
@@ -119,9 +118,9 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
               onClick={() =>
                 router.push(
                   {
-                    pathname: `/categories?id=${highlight.id}`,
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                   },
-                  `/categories?id=${highlight.id}`,
+                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                 )
               }
               size={cardSize}

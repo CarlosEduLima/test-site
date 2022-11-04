@@ -1,13 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../Button';
-import {
-  TopImg,
-  CenterProfessional,
-  SubTitleProfessional,
-} from './styles';
 import { Services } from 'src/services/services';
 import { useRouter } from 'next/router';
 import Input from '../Input';
+import * as S from './styles';
+
 interface Props {
   handleScroll?: () => void;
 }
@@ -37,28 +34,31 @@ export const HighProfessionals: React.FC<Props> = (props) => {
 
 
   return (
-    <TopImg>
-      <CenterProfessional>
-        <SubTitleProfessional>
+    <S.TopImg>
+      <S.CenterProfessional>
+        <S.SubTitleProfessional>
           Os <span>melhores profissionais,</span> a um clique de distância.
-        </SubTitleProfessional>
-
+        </S.SubTitleProfessional>
         <Input
           name="search"
           icon="search"
           placeholder="O que você precisa hoje?"
           dataSearch={data}
         />
-        <Button
-          children={'Encontre um profissional'}
-          variant={'primary'}
-          widthCircle={''}
-          heightCircle={''}
-          onClick={() => {
-            props.handleScroll();
-          }}
-        />
-      </CenterProfessional>
-    </TopImg>
+
+        <S.ContainerButton>
+          <Button
+            children={'Encontre um profissional'}
+            variant={'primary'}
+            widthCircle={''}
+            heightCircle={''}
+            height={'37px'}
+            onClick={() => {
+              props.handleScroll();
+            }}
+          />
+        </S.ContainerButton>
+      </S.CenterProfessional>
+    </S.TopImg>
   );
 };
