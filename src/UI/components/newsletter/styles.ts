@@ -197,3 +197,11 @@ export const ElementRectangleCenter = styled(BgDetail)`
     top: 255px;
   }
 `;
+
+export const ContainerButton = styled.div`
+  width: 100%;
+
+  @media (max-width: 840px) {
+    padding: 0 30px;
+  }
+`;

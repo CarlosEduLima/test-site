@@ -106,8 +106,10 @@ export const BgDetailsThree = styled(BgDetailsConfig)`
 
 export const ButtonContainer = styled.div`
   display: none;
+  
   @media (max-width: 500px) {
     display: flex;
     width: 100%;
+    padding: 0 30px;
   }
 `;
