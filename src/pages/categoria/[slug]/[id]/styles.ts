@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '../../../../utils/colors';
 import fonts from '../../../../utils/fonts';
 import firstStep from '../../../../assets/top.png';
-import backgroundContact from '../../assets/backgroundContact.png';
+import backgroundContact from '../../../../assets/backgroundContact.png';
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ export const Top = styled.div`
     background: url(${backgroundContact.src}) no-repeat;
     width: 100%;
     background-size: cover;
-    height: 400px;  
+    height: 400px;
     margin-bottom: 30px;
   }
 `;

@@ -4,8 +4,8 @@
 /* eslint-disable react/no-children-prop */
 import React from 'react';
 import LogoImg from '../../../assets/seta.svg';
-import Barra from '../../../assets/icon.png';
-import AppStore from '../../../assets/AppStore.png';
+import Barra from '../../../assets/barra.svg';
+import AppStore from '../../../assets/appStore.png';
 import googlePlay from '../../../assets/googlePlay.png';
 import {
   Logo,
