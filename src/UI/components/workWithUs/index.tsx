@@ -7,8 +7,8 @@ export const WorkWithUs: React.FC = () => {
       <TopCenterWork>
         <SubTitleWork>Trabalhe conosco</SubTitleWork>
         <TextWhite>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore.
+          Deseja trabalhar conosco? Envia seu CV para nós! - Temos que criar um e-mail ou podemos
+          deixar os que já existem?
         </TextWhite>
       </TopCenterWork>
     </TopWork>
