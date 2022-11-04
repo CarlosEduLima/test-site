@@ -68,9 +68,10 @@ const Footer = () => {
           <Link href="/trabalhe-conosco">
             <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link>
-          <Link href="/profissionais-verificados">
-            <S.TitlesList>Profissionais Verificados</S.TitlesList>
-          </Link>
+          {/* Botão ocultado até definições da tela em questão
+              <Link href="/profissionais-verificados">
+                <S.TitlesList>Profissionais Verificados</S.TitlesList>
+              </Link> */}
         </S.FooterSection>
 
         <S.FooterSection>
