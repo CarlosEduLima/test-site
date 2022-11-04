@@ -11,7 +11,7 @@ export const Container = styled.div`
   overflow: hidden;
   display: flex;
   place-content: center;
-  place-items: flex-end;
+  place-items: center;
 `;
 
 export const LogoImgs = styled(Image)`
@@ -52,10 +52,10 @@ export const ImageBOXs = styled.div``;
 export const Box = styled.div`
   display: flex;
   background-color: white;
-  width: 28%;
-  height: 75%;
+  width: 26%;
+  height: 65%;
   flex-direction: column;
-  border-radius: 25px 25px 0 0;
+  border-radius: 25px;
   align-items: center;
   text-align: center;
   justify-content: space-between;
