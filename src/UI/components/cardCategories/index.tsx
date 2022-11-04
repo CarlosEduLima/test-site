@@ -11,12 +11,12 @@ import Image from 'next/image';
 import * as S from './styles';
 
 export const CardCategories: React.FC = (id: any) => {
-  const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne] = useState<any[]>([]);
+  const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne]: any = useState([]);
   const [alignCarouselCenter, setAlignCarouselCenter] = useState(false);
   const ref1 = useRef(null);
-  const ref2 = useRef(null);
+  // const ref2 = useRef(null);
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
-  const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
+  // const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 325, height: 151 };
 
@@ -33,9 +33,10 @@ export const CardCategories: React.FC = (id: any) => {
   };
 
   useEffect(() => {
-    (async () => {
-      const data = await GetRating(parseInt(id.id));
-      const { arrayOne } = defineLines(data);
+    void (async () => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      const data: any = await GetRating(parseInt(id.id));
+      const { arrayOne }: any = defineLines(data);
       setGetRatingProfessionalsLineOne(arrayOne);
     })();
   }, []);
@@ -77,9 +78,7 @@ export const CardCategories: React.FC = (id: any) => {
   return (
     <S.Container>
       <S.ContainerDivider>
-        <S.Title>
-          Os mais pedidos na Iziw <hr />
-        </S.Title>
+        <S.Title>Serviços</S.Title>
         <S.Divider />
       </S.ContainerDivider>
       <ScrollAreaContainer>
@@ -94,8 +93,7 @@ export const CardCategories: React.FC = (id: any) => {
             disableScroll()
           }
           onMouseLeave={enableScroll}
-          onMouseDown={onMouseDownRef1}
-        >
+          onMouseDown={onMouseDownRef1}>
           {GetRatingProfessionalsLineOne.map((highlight, index) => (
             <S.CardContainer key={highlight.id}>
               <Image
