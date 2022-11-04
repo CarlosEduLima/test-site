@@ -15,7 +15,7 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
   const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
-  const cardSize = { width: 325, height: 151 };
+  const cardSize = { width: 310, height: 151 };
   const defineLines = (highlights) => {
     let arrayOne: IServiceProps[];
     let arrayTwo: IServiceProps[];

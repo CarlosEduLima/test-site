@@ -93,6 +93,7 @@ export const CardContainer = styled.div`
   @media (max-width: 840px) {
     width: 216px;
     max-width: 216px;
+    margin-left: 5px;
   }
 `;
 
@@ -124,10 +125,10 @@ export const ContainerRating = styled.div`
   flex-direction: row;
   min-width: 60px;
   margin-left: 10px;
-  margin-top: 6px;
+  margin-top: 3px;
 
   @media (max-width: 840px) {
-    margin-top: 3px;
+    margin-top: 0px;
   }
 `;
 
@@ -136,6 +137,7 @@ export const TextRating = styled.h2`
   font-size: 16px;
   font-family: ${fonts.heading};
   margin-right: 6px;
+  margin-top: 3px;
 `;
 
 export const CardBoxContent = styled.div`

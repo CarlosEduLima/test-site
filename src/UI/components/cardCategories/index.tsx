@@ -19,6 +19,7 @@ export const CardCategories: React.FC = (id: any) => {
   const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
   const cardSize = { width: 325, height: 151 };
+
   const defineLines = (highlights) => {
     let arrayOne: any;
     if (cardSize.width * highlights.length > windowSize.width * 2) {
@@ -44,9 +45,9 @@ export const CardCategories: React.FC = (id: any) => {
       const initialPosition: { scrollLeft: number } = {
         scrollLeft: ref.current.scrollLeft,
       };
-      ref.current.scrollLeft = initialPosition.scrollLeft + ev.deltaY * 3;
+      ref.current.scrollLeft = initialPosition.scrollLeft + ev.deltaY * 10;
     }
-  }
+  };
 
   function enableScroll(): void {
     document.removeEventListener('wheel', preventDefault, false);
