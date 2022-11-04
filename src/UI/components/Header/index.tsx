@@ -17,39 +17,58 @@ import LogoImg from '../../../assets/icon-white.png';
 import { Button } from '../Button';
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { useRouter } from 'next/router';
 interface Props {
   opacity?: boolean;
+  handleScroll?: () => void;
 }
 
 export const Header: React.FC<Props> = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const router = useRouter();
 
   return (
     <div>
       <DivHeader opacity={props.opacity === true ? 0.45 : 1.0}>
         <HeaderContent>
           <ContainerImage>
-            <Link href="/Home">
+            <Link href="/">
               <Icon src={LogoImg} alt="Logo IZIW" />
             </Link>
           </ContainerImage>
           <ContainerList>
             <LinkContainer>
-              <Link href="/Home">
+              <Link href="/">
                 <List>Home</List>
               </Link>
-              <Link href="/firstStepsPage">
+              {/*<Link href="/primeiros-passos">
                 <List>Como funciona?</List>
-              </Link>
-              <List>Categorias</List>
-              <Link href="/PageFaq">
+                  </Link>*/}
+              <List
+                onClick={() => {
+                  if (router.pathname === '/') {
+                    props.handleScroll()
+                  } else {
+                    router.push({
+                      pathname: '/',
+                      query: { scroll: true },
+                    }, '/');
+                  }
+                }
+                }>
+                Categorias
+              </List>
+              <Link href="/perguntas-frequentes">
                 <List>FAQ</List>
+              </Link>
+              <Link href="/contato">
+                <List>Contatos</List>
               </Link>
             </LinkContainer>
             <ContainerButton>
-              <Link href="/RegisterUser">
+              <Link href="/cadastro">
                 <Button variant={'primary'} height={'30px'} widthCircle={''} heightCircle={''}>
                   <ButtonText>Quero me cadastrar</ButtonText>
                 </Button>
@@ -67,15 +86,29 @@ export const Header: React.FC<Props> = (props) => {
       </DivHeader>
       <MobileMenu open={open}>
         <MobileLinkContainer>
-          <Link href="/Home">
+          <Link href="/">
             <List style={{ marginBottom: 25 }}>Home</List>
           </Link>
-          <Link href="/firstStepsPage">
-            <List style={{ marginBottom: 25 }}>Como funciona?</List>
+          <List style={{ marginBottom: 25 }}
+            onClick={() => {
+              if (router.pathname === '/') {
+                props.handleScroll()
+              } else {
+                router.push({
+                  pathname: '/',
+                  query: { scroll: true },
+                },'/');
+              }
+            }
+            }
+          >
+            Categorias
+          </List>
+          <Link href="/perguntas-frequentes">
+            <List style={{ marginBottom: 25 }}>FAQ</List>
           </Link>
-          <List style={{ marginBottom: 25 }}>Categorias</List>
-          <Link href="/PageFaq">
-            <List>FAQ</List>
+          <Link href="/contato">
+            <List>Contatos</List>
           </Link>
         </MobileLinkContainer>
       </MobileMenu>

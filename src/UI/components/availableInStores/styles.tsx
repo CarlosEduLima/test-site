@@ -9,9 +9,11 @@ export const Container = styled.div`
   background-color: ${colors.purple};
   position: relative;
   padding: 55px 0 0 0;
-  margin: 0;
-  margin-top: 138px;
+  margin-top: 80px;
   z-index: 1;
+  @media (max-width: 800px) {
+    margin-top: 0;
+  }
 `;
 
 export const LeftSide = styled.div`
@@ -104,8 +106,10 @@ export const BgDetailsThree = styled(BgDetailsConfig)`
 
 export const ButtonContainer = styled.div`
   display: none;
+  
   @media (max-width: 500px) {
     display: flex;
     width: 100%;
+    padding: 0 30px;
   }
 `;

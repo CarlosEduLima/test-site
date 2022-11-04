@@ -1,20 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import { Container, Divider, HorizontalScrollArea, ScrollAreaContainer, Title } from './styles';
 import { InputCard } from './inputCard';
 import useDraggableScroll from 'use-draggable-scroll';
 import { IServiceProps, ServiceHighlights } from '../../../services/services';
 import useWindowSize from '../../../utils/hooks';
-
-export const Carousel: React.FC = () => {
+import { useRouter } from 'next/router';
+import slugify from 'slugify';
+export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
   const [serviceHighlightsLineOne, setServiceHighlightsLineOne] = useState<IServiceProps[]>([]);
   const [serviceHighlightsLineTwo, setServiceHighlightsLineTwo] = useState<IServiceProps[]>([]);
+  const [alignCarouselCenter, setAlignCarouselCenter] = useState(false);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
   const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
   const windowSize = useWindowSize();
-  const cardSize = { width: 325, height: 151 };
-
+  const cardSize = { width: 310, height: 151 };
   const defineLines = (highlights) => {
     let arrayOne: IServiceProps[];
     let arrayTwo: IServiceProps[];
@@ -25,9 +26,12 @@ export const Carousel: React.FC = () => {
     } else {
       arrayOne = highlights;
       arrayTwo = [];
+      cardSize.width * highlights.length < windowSize.width && setAlignCarouselCenter(true);
     }
     return { arrayOne, arrayTwo };
   };
+
+  const router = useRouter();
 
   useEffect(() => {
     void ServiceHighlights()
@@ -66,20 +70,33 @@ export const Carousel: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container ref={ref}>
       <Title style={{ marginBottom: 12 }}>Categorias em destaque</Title>
       <Divider />
       <ScrollAreaContainer>
         <HorizontalScrollArea
           ref={ref1}
+          alignCenter={alignCarouselCenter}
           onWheel={(e) => {
             onWheel(e, ref1);
           }}
-          onMouseEnter={disableScroll}
+          onMouseEnter={() =>
+            cardSize.width * serviceHighlightsLineOne.length > windowSize.width && disableScroll()
+          }
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
+              onClick={() => {
+                enableScroll();
+                router.push(
+                  {
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
+                  },
+                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
+                )
+              }
+              }
               size={cardSize}
               title={highlight.name}
               key={index}
@@ -89,6 +106,7 @@ export const Carousel: React.FC = () => {
         </HorizontalScrollArea>
         <HorizontalScrollArea
           ref={ref2}
+          alignCenter={false}
           onWheel={(e) => {
             onWheel(e, ref2);
           }}
@@ -97,6 +115,14 @@ export const Carousel: React.FC = () => {
           onMouseDown={onMouseDownRef2}>
           {serviceHighlightsLineTwo.map((highlight, index) => (
             <InputCard
+              onClick={() =>
+                router.push(
+                  {
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
+                  },
+                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
+                )
+              }
               size={cardSize}
               title={highlight.name}
               key={index}
@@ -105,8 +131,6 @@ export const Carousel: React.FC = () => {
           ))}
         </HorizontalScrollArea>
       </ScrollAreaContainer>
-      <button>Quero me cadastrar</button>
-      <div>{}</div>
     </Container>
   );
-};
+});

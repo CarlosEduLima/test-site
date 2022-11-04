@@ -5,7 +5,7 @@ export const WorkWithUs: React.FC = () => {
   return (
     <TopWork>
       <TopCenterWork>
-        <SubTitleWork>Trabalher Conosco</SubTitleWork>
+        <SubTitleWork>Trabalhe conosco</SubTitleWork>
         <TextWhite>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore.

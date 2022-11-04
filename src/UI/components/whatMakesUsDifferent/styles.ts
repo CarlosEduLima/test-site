@@ -7,6 +7,7 @@ export const Title = styled.h1`
   font-family: ${fonts.extraBold};
   color: ${colors.black};
   font-size: 30px;
+  text-align: center;
 `;
 export const Container = styled.div`
   margin: 45.5px auto 64px auto;
@@ -14,6 +15,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 5%;
 `;
 export const Divider = styled.div`
   width: 124px;
@@ -22,20 +24,19 @@ export const Divider = styled.div`
 `;
 export const ContentLine = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 `;
 export const SubContent = styled.div`
-  align-self: flex-end;
-  flex: 1;
   max-width: 500px;
 `;
 export const SubContentLeft = styled(SubContent)`
-  text-align: right;
+  max-width: 500px;
 `;
 export const SubContentRight = styled(SubContent)`
-  text-align: left;
+  max-width: 500px;
 `;
 export const SubTitle = styled.h1`
   font-size: 25px;
@@ -59,4 +60,11 @@ export const StyledLink = styled.a`
 `;
 export const Image = styled(NextImage)`
   width: 545px;
+`;
+export const ContentLineReverse = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+  justify-content: center;
 `;

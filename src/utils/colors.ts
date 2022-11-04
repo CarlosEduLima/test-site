@@ -23,4 +23,5 @@ export default {
   yellow: '#FFED00',
   redError: '#EF504B',
   orange: '#FF824D',
+  lightBlueGrayish: '#e8f4f8',
 };

@@ -11,7 +11,9 @@ import { InputProps, InputRef } from './interfaces';
 import InputMask from 'react-input-mask';
 import colors from '../../../utils/colors';
 import * as S from './style';
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import slugify from 'slugify';
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
     name,
@@ -60,7 +62,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   const [isSearch, setIsSearch] = useState(false);
   const { register, getValues, setFocus, setValue } = useForm();
   const Register = register(name);
-
+  const router = useRouter();
   if (variant == 'squared') {
     style.backgroundColor = colors.lightBlue;
     style.height = 44;
@@ -92,20 +94,26 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     setValue(name, value);
   };
 
+  const normalize = (string) =>
+  string
+    .normalize('NFD')
+    .toLowerCase()
+    .replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
+
   const getNameSearch = (value: string) => {
     setIsClicked(false);
-    if (!!value.trim().length) {
+    if (value.trim().length) {
       setValueSearch(value);
       if (valueSearch != value) {
         setIsSearch(true);
       }
       setValue(name, value);
       if (!isClicked) {
-        setFiltered(dataSearch.filter((createFilter(value))));
+        setFiltered(dataSearch.filter((item: any) => createFilter(value, ['name'])({name: normalize(item.name)})));
       }
       setFilterPreviewSearchValue(value);
     } else {
-      setFiltered([])
+      setFiltered([]);
     }
   };
 
@@ -115,7 +123,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     setIsSearch(false);
     setFiltered([]);
     setIsClicked(true);
-    return setValueSearch(value.name);
+    setValueSearch(value.name);
   };
 
   useEffect(() => {
@@ -215,7 +223,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         maskChar={null}
         onChange={(text) => {
           setValue(name, text);
-          const textValue = text.substring(0, 9);
+          const textValue = text.target.value.substring(0, 9);
           if (getValues(name).length === 10) {
             setValue(name, textValue);
           }
@@ -242,9 +250,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     <S.ContainerInput
       {...containerInputProps}
       $borderRadius={
-        (filtered.length > 0 && valueSearch.length > 0 ? '9px 9px 0 0' : '9px 9px 9px 9px')
-      }
-    >
+        filtered.length > 0 && valueSearch.length > 0 ? '9px 9px 0 0' : '9px 9px 9px 9px'
+      }>
       <S.SearchInput
         autocomplete="off"
         type="text"
@@ -385,11 +392,18 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           isSearch && (
             <S.ContainerSearchPreview>
               <S.ContainerSearchPreviewItems key={filtered.length}>
-                {filtered?.slice(0, 4)?.map((value, index) => {
+                {filtered?.slice(0, 4)?.map((value: any, index) => {
                   return (
-                    <S.ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
-                      {value}
-                    </S.ContainerSearchPreviewItem>
+                    <Link href={`/categoria/${slugify(value.name).toLowerCase()}/${value?.sup_id || value?.id}`}
+                      passHref
+                    >
+                      <S.ContainerSearchPreviewItem
+                        key={index}
+                        onClick={() => {
+                          handleSelected(value);
+                        }}
+                      >{value.name}</S.ContainerSearchPreviewItem>
+                    </Link>
                   );
                 })}
               </S.ContainerSearchPreviewItems>
