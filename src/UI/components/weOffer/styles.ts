@@ -40,6 +40,7 @@ export const SubContent = styled.div`
 export const SubContentLeft = styled(SubContent)`
   height: 155px;
   width: 155px;
+  min-width: 9em;
   background-color: #e0f7fe;
   display: flex;
   flex-direction: column;
@@ -74,4 +75,7 @@ export const StyledLink = styled.a`
 `;
 export const Image = styled(NextImage)`
   width: 545px;
+  @media (max-width: 425px) {
+    width: 10px;
+  }
 `;
