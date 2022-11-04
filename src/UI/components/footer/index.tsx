@@ -42,6 +42,9 @@ const Footer = () => {
     {
       name: 'linkedin',
       local: linkedin,
+      onclick: () => {
+        <Link href="https://www.facebook.com/profile.php?id=100070007527103"></Link>;
+      },
     },
   ];
 
@@ -59,13 +62,13 @@ const Footer = () => {
 
         <S.FooterSection>
           <S.TextUp>Institucional</S.TextUp>
-          <Link href="/whoWeAre">
+          <Link href="/quem-somos">
             <S.TitlesList>Quem somos</S.TitlesList>
           </Link>
-          <Link href="/pageWorkWithUs">
-            <S.TitlesList>Trabalhe Conosco</S.TitlesList>
+          <Link href="/trabalhe-conosco">
+            <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link>
-          <Link href="/verifiedProfessionals">
+          <Link href="/profissionais-verificados">
             <S.TitlesList>Profissionais Verificados</S.TitlesList>
           </Link>
         </S.FooterSection>
@@ -78,9 +81,21 @@ const Footer = () => {
                 <S.ImageLocalDiv key={item.name}>
                   <S.ImageLocal>
                     {item.name === 'facebook' ? (
-                      <Image src={item.local} width={11} height={23} alt={item.name} />
+                      <Link href="https://www.facebook.com/profile.php?id=100070007527103">
+                        <Image src={item.local} width={11} height={23} alt={item.name} />
+                      </Link>
+                    ) : item.name === 'instagram' ? (
+                      <Link href="https://www.instagram.com/iziwapp/">
+                        <Image src={item.local} height={500} alt={item.name} />
+                      </Link>
+                    ) : item.name === 'twitter' ? (
+                      <Link href="https://twitter.com/iziwapp">
+                        <Image src={item.local} height={500} alt={item.name} />
+                      </Link>
                     ) : (
-                      <Image src={item.local} height={500} alt={item.name} />
+                      <Link href="https://www.linkedin.com/company/iziw">
+                        <Image src={item.local} height={500} alt={item.name} />
+                      </Link>
                     )}
                   </S.ImageLocal>
                 </S.ImageLocalDiv>
@@ -121,11 +136,14 @@ const Footer = () => {
         <S.ContainerLogo>
           <Image src={iziwIcon} alt="Iziw Icon" />
         </S.ContainerLogo>
-        <Link href="/faq">
+        <Link href="/perguntas-frequentes">
           <S.TextDownFooter>Ajuda</S.TextDownFooter>
         </Link>
-        <Link href="/TermsOfUse">
+        <Link href="/termos-de-uso">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
+        </Link>
+        <Link href="/politica-de-privacidade">
+          <S.TextDownFooter>Política de Privacidade</S.TextDownFooter>
         </Link>
         <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
       </S.FooterDown>

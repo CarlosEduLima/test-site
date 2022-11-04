@@ -17,14 +17,14 @@ import money from '../../../assets/money.svg';
 const WeOffer: React.FC = () => {
   return (
     <Container>
-      <Title>O que Oferecemos</Title>
+      <Title>O que oferecemos</Title>
       <Divider />
       <ContentLine>
         <SubContentLeft>
           <Image src={ok} alt="" />
         </SubContentLeft>
         <SubContentRight>
-          <SubTitle>As Melhores Oportunidades</SubTitle>
+          <SubTitle>As melhores oportunidades</SubTitle>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
@@ -37,7 +37,7 @@ const WeOffer: React.FC = () => {
           <Image src={lock} alt="" />
         </SubContentLeft>
         <SubContentRight>
-          <SubTitle>Segurança e Confiança</SubTitle>
+          <SubTitle>Segurança e confiança</SubTitle>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.

@@ -11,7 +11,8 @@ import { InputProps, InputRef } from './interfaces';
 import InputMask from 'react-input-mask';
 import colors from '../../../utils/colors';
 import * as S from './style';
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   {
     name,
@@ -60,7 +61,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   const [isSearch, setIsSearch] = useState(false);
   const { register, getValues, setFocus, setValue } = useForm();
   const Register = register(name);
-
+  const router = useRouter();
   if (variant == 'squared') {
     style.backgroundColor = colors.lightBlue;
     style.height = 44;
@@ -101,7 +102,8 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       }
       setValue(name, value);
       if (!isClicked) {
-        setFiltered(dataSearch.filter(createFilter(value)));
+        console.log('SearchData --', dataSearch.filter(createFilter(value, ['name'])));
+        setFiltered(dataSearch.filter(createFilter(value, ['name'])));
       }
       setFilterPreviewSearchValue(value);
     } else {
@@ -115,7 +117,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
     setIsSearch(false);
     setFiltered([]);
     setIsClicked(true);
-    return setValueSearch(value.name);
+    setValueSearch(value.name);
   };
 
   useEffect(() => {
@@ -173,7 +175,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
       />
       <div style={{ marginRight: style.marginRight }}>
         {inputSecureTextEntry ? (
@@ -273,7 +275,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
         {...rest}
       />
     </S.ContainerInput>
@@ -305,7 +307,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         register={() => Register.ref}
         rules={{ required }}
         name={name}
-        setValue={() => {}}
+        setValue={() => { }}
         {...rest}
       />
     </S.ContainerTextAreaInput>
@@ -362,20 +364,20 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
         {type == 'text'
           ? typeTextInput
           : type != 'other'
-          ? typeRandomInput
-          : icon == 'password'
-          ? passwordInput
-          : icon == 'textArea'
-          ? textAreaInput
-          : icon == 'phone'
-          ? phoneInput
-          : icon == 'cep'
-          ? cepInput
-          : icon == 'money'
-          ? moneyInput
-          : icon == 'search'
-          ? searchInput
-          : otherInput}
+            ? typeRandomInput
+            : icon == 'password'
+              ? passwordInput
+              : icon == 'textArea'
+                ? textAreaInput
+                : icon == 'phone'
+                  ? phoneInput
+                  : icon == 'cep'
+                    ? cepInput
+                    : icon == 'money'
+                      ? moneyInput
+                      : icon == 'search'
+                        ? searchInput
+                        : otherInput}
 
         <S.ErrorText>{inputError}</S.ErrorText>
         {icon == 'search' &&
@@ -384,11 +386,21 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           isSearch && (
             <S.ContainerSearchPreview>
               <S.ContainerSearchPreviewItems key={filtered.length}>
-                {filtered?.slice(0, 4)?.map((value, index) => {
+                {filtered?.slice(0, 4)?.map((value: any, index) => {
                   return (
-                    <S.ContainerSearchPreviewItem key={index} onClick={() => handleSelected(value)}>
-                      {value}
-                    </S.ContainerSearchPreviewItem>
+                    <S.ContainerSearchPreviewItem
+                      key={index}
+                      onClick={() => {
+                        handleSelected(value);
+                        router.push(
+                          {
+                            pathname: `/categories`,
+                            query: { id: value?.sup_id || value?.id }
+                          },
+                          `/categories`,
+                        )
+                      }}
+                    >{value.name}</S.ContainerSearchPreviewItem>
                   );
                 })}
               </S.ContainerSearchPreviewItems>

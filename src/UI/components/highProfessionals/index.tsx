@@ -5,7 +5,6 @@ import { Button } from '../Button';
 import { TopImg, CenterProfessional, SubTitleProfessional } from './styles';
 import { Services } from 'src/services/services';
 import { useRouter } from 'next/router';
-
 interface Props {
   handleScroll?: () => void;
 }
@@ -16,22 +15,31 @@ export const HighProfessionals: React.FC<Props> = (props) => {
   const router = useRouter();
 
   const AllServices = async () => {
-    const response: any = await Services();
+    const response: any[] = await Services();
     setData(
       response
-        .flatMap((item) => item.sub_services)
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        .flatMap((item: any) => item?.sub_services)
         .concat(
           response.map((item) => {
-            return { name: item.name };
+            return { name: item.name, id: item.id, description: item.description };
           }),
         )
-        .map((item) => item.name)
-        .sort(),
+        .map((item) => {
+          return {
+            name: item?.name,
+            id: item?.id,
+            description: item?.description,
+            sup_name: item?.service_name,
+            sup_id: item?.service_id,
+            sup_description: item?.service_description,
+          };
+        }),
     );
   };
 
   useEffect(() => {
-    AllServices();
+    void AllServices();
   }, []);
 
   return (
@@ -53,14 +61,7 @@ export const HighProfessionals: React.FC<Props> = (props) => {
           widthCircle={''}
           heightCircle={''}
           onClick={() => {
-            if (router.pathname === '/Home') {
-              props.handleScroll();
-            } else {
-              router.push({
-                pathname: '/Home',
-                query: { scroll: true },
-              });
-            }
+            props.handleScroll();
           }}
         />
       </CenterProfessional>

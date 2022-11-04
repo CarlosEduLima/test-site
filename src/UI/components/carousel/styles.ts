@@ -23,6 +23,12 @@ export const Divider = styled.div`
   margin-bottom: 30px;
 `;
 
+export const ScrollAreaContainer = styled.div`
+  margin: 47px 0;
+  padding: 0 30px;
+  width: 100%;
+`;
+
 export const HorizontalScrollArea = styled.div<{
   alignCenter: boolean;
 }>`
@@ -40,10 +46,4 @@ export const HorizontalScrollArea = styled.div<{
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const ScrollAreaContainer = styled.div`
-  margin: 47px 0;
-  padding: 0 30px;
-  width: 100%;
 `;
