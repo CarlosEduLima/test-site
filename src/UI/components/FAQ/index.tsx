@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { BsChevronRight } from 'react-icons/bs';
 import { useRouter } from 'next/router';
 import { Button } from '../Button';
-import { GetFaq, IFAQProps } from '../../../services/faq';
+import { GetFaq, GetWhatsappNumber, IFAQProps, IQuestionProps } from '../../../services/faq';
 import SearchBtn from '../../../assets/searchBtn.svg';
 import QuestionIcon from '../../../assets/questionFaqIcon.png';
 import Image from 'next/image';
@@ -15,6 +15,8 @@ const FAQ: React.FC = () => {
   const [value, setValue] = useState('');
   const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [data, setData] = useState<IFAQProps[]>([]);
+  const [whatsappData, setWhatsappData] = useState<string>(null);
+
   const router = useRouter();
 
   const getData = async () => {
@@ -22,8 +24,14 @@ const FAQ: React.FC = () => {
     setData(response);
   };
 
+  const getWhatsNumber = async () => {
+    const response = await GetWhatsappNumber();
+    setWhatsappData(response.value);
+  };
+
   useEffect(() => {
     void getData();
+    void getWhatsNumber();
   }, []);
 
   const SearchQuestion = (valor) => {
@@ -71,13 +79,14 @@ const FAQ: React.FC = () => {
                       </S.CategoryResultTitle>
                     </S.CategoryResultTitleContainer>
                     <S.ResultQuestionsContainer>
-                      {result.questions.map((question) => (
-                        <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`}
-                          passHref
-                        >
-                          <S.ResultQuestionContainer
-                            key={question.id}
-                          >
+                      {result.questions.map((question: IQuestionProps) => (
+                        <Link
+                          href={`/perguntas-frequentes/${question.id}/${slugify(
+                            question.question,
+                          ).toLowerCase()}`}
+                          key={question.id}
+                          passHref>
+                          <S.ResultQuestionContainer>
                             <S.ResultQuestionInfo>
                               <S.QuestionResultTitle>{question.question}</S.QuestionResultTitle>
                               <S.ResultAnswerPreview>
@@ -110,13 +119,14 @@ const FAQ: React.FC = () => {
                     </S.CategoryCardTitle>
                   </S.CategoryCardHeader>
                   <S.CategoryCardQuestionsContainer>
-                    {category.questions.map((question) => (
-                      <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`}
+                    {category.questions.map((question: IQuestionProps) => (
+                      <Link
+                        href={`/perguntas-frequentes/${question.id}/${slugify(
+                          question.question,
+                        ).toLowerCase()}`}
                         passHref
-                      >
-                        <S.CategoryCardQuestion
-                          key={question.id}
-                        >
+                        key={question.id}>
+                        <S.CategoryCardQuestion>
                           <S.QuestionTitleContainer>
                             <S.QuestionTitle>{question.question}</S.QuestionTitle>
                           </S.QuestionTitleContainer>
@@ -148,18 +158,23 @@ const FAQ: React.FC = () => {
               </Button>
             </S.ButtonContainer>
           </Link>
-          <Link href={'http://api.whatsapp.com/send?1=pt_BR&phone=5571996678685'} passHref>
-            <S.ButtonContainer>
-              <Button
-                height="37px"
-                variant="secondary"
-                fontSize="16px"
-                widthCircle=""
-                heightCircle="">
-                Fale pelo WhatsApp
-              </Button>
-            </S.ButtonContainer>
-          </Link>
+          {whatsappData && (
+            <a
+              href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${whatsappData}`}
+              target="_blank"
+              rel="noreferrer">
+              <S.ButtonContainer>
+                <Button
+                  height="37px"
+                  variant="secondary"
+                  fontSize="16px"
+                  widthCircle=""
+                  heightCircle="">
+                  Fale pelo WhatsApp
+                </Button>
+              </S.ButtonContainer>
+            </a>
+          )}
         </S.ContactButtonsContainer>
       </S.ContactSession>
     </S.FAQFull>
