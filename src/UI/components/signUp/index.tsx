@@ -5,7 +5,7 @@
 import React from 'react';
 import LogoImg from '../../../assets/seta.svg';
 import Barra from '../../../assets/barra.svg';
-import AppStore from '../../../assets/AppStore.png';
+import AppStore from '../../../assets/appStore.png';
 import googlePlay from '../../../assets/googlePlay.png';
 import { Logo, Box, Container, ContainerText, Text, LogoImgs, ImageBOX, ImageBOXs } from './styles';
 
@@ -26,11 +26,14 @@ export default function App() {
           </ContainerText>
         </ImageBOX>
 
-        <a href="https://play.google.com/store/apps" target={'_blank'}>
-        <Logo src={googlePlay} alt="Search" width={'250%'} height={'80%'} />
+        <a href="https://play.google.com/store/apps" target={'_blank'} rel="noreferrer">
+          <Logo src={googlePlay} alt="Search" width={'250%'} height={'80%'} />
         </a>
-        <a href="https://apps.apple.com/br/app/iziw/id1645767737" target={'_blank'}>
-        <Logo src={AppStore} alt="Search"  width={'250%'} height={'80%'}/>
+        <a
+          href="https://apps.apple.com/br/app/iziw/id1645767737"
+          target={'_blank'}
+          rel="noreferrer">
+          <Logo src={AppStore} alt="Search" width={'250%'} height={'80%'} />
         </a>
       </Box>
     </Container>
