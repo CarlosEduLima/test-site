@@ -87,7 +87,11 @@ export const ElementBall = styled.div`
 `;
 
 export const ContainerImage = styled.div`
+  margin-bottom: 7px;
+  margin-left: -1px;
   display: flex;
+  border-radius: 48% / 42%;
+  overflow: hidden;
 
   @media (max-width: 840px) {
     display: flex;
@@ -191,5 +195,13 @@ export const ElementRectangleCenter = styled(BgDetail)`
     width: 230px;
     right: 50%;
     top: 255px;
+  }
+`;
+
+export const ContainerButton = styled.div`
+  width: 100%;
+
+  @media (max-width: 840px) {
+    padding: 0 30px;
   }
 `;

@@ -1,18 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
-
-import * as S from './styles';
-
 import { BsChevronRight } from 'react-icons/bs';
-import SearchBtn from '../../../assets/searchBtn.svg';
-
-import { Button } from '../Button';
-
-import { GetFaq, IFAQProps } from '../../../services/faq';
-import Image from 'next/image';
-import QuestionIcon from '../../../assets/questionFaqIcon.png';
 import { useRouter } from 'next/router';
+import { Button } from '../Button';
+import { GetFaq, IFAQProps } from '../../../services/faq';
+import SearchBtn from '../../../assets/searchBtn.svg';
+import QuestionIcon from '../../../assets/questionFaqIcon.png';
+import Image from 'next/image';
 import Link from 'next/link';
+import * as S from './styles';
+import slugify from 'slugify';
 
 const FAQ: React.FC = () => {
   const [value, setValue] = useState('');
@@ -75,27 +72,23 @@ const FAQ: React.FC = () => {
                     </S.CategoryResultTitleContainer>
                     <S.ResultQuestionsContainer>
                       {result.questions.map((question) => (
-                        <S.ResultQuestionContainer
-                          key={question.id}
-                          onClick={() =>
-                            router.push(
-                              {
-                                pathname: '/Answer',
-                                query: { id: question.id },
-                              },
-                              '/Answer',
-                            )
-                          }>
-                          <S.ResultQuestionInfo>
-                            <S.QuestionResultTitle>{question.question}</S.QuestionResultTitle>
-                            <S.ResultAnswerPreview>
-                              {question.previous_answer}
-                            </S.ResultAnswerPreview>
-                          </S.ResultQuestionInfo>
-                          <S.ResultQuestionIconContainer>
-                            <BsChevronRight size={16} />
-                          </S.ResultQuestionIconContainer>
-                        </S.ResultQuestionContainer>
+                        <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`}
+                          passHref
+                        >
+                          <S.ResultQuestionContainer
+                            key={question.id}
+                          >
+                            <S.ResultQuestionInfo>
+                              <S.QuestionResultTitle>{question.question}</S.QuestionResultTitle>
+                              <S.ResultAnswerPreview>
+                                {question.previous_answer}
+                              </S.ResultAnswerPreview>
+                            </S.ResultQuestionInfo>
+                            <S.ResultQuestionIconContainer>
+                              <BsChevronRight size={16} />
+                            </S.ResultQuestionIconContainer>
+                          </S.ResultQuestionContainer>
+                        </Link>
                       ))}
                     </S.ResultQuestionsContainer>
                   </S.ResultContainer>
@@ -118,24 +111,20 @@ const FAQ: React.FC = () => {
                   </S.CategoryCardHeader>
                   <S.CategoryCardQuestionsContainer>
                     {category.questions.map((question) => (
-                      <S.CategoryCardQuestion
-                        key={question.id}
-                        onClick={() =>
-                          router.push(
-                            {
-                              pathname: '/Answer',
-                              query: { id: question.id },
-                            },
-                            '/Answer',
-                          )
-                        }>
-                        <S.QuestionTitleContainer>
-                          <S.QuestionTitle>{question.question}</S.QuestionTitle>
-                        </S.QuestionTitleContainer>
-                        <S.IconContainer>
-                          <BsChevronRight size={16} />
-                        </S.IconContainer>
-                      </S.CategoryCardQuestion>
+                      <Link href={`/perguntas-frequentes/${question.id}/${slugify(question.question).toLowerCase()}`}
+                        passHref
+                      >
+                        <S.CategoryCardQuestion
+                          key={question.id}
+                        >
+                          <S.QuestionTitleContainer>
+                            <S.QuestionTitle>{question.question}</S.QuestionTitle>
+                          </S.QuestionTitleContainer>
+                          <S.IconContainer>
+                            <BsChevronRight size={16} />
+                          </S.IconContainer>
+                        </S.CategoryCardQuestion>
+                      </Link>
                     ))}
                   </S.CategoryCardQuestionsContainer>
                 </S.CategoryCard>
@@ -147,7 +136,7 @@ const FAQ: React.FC = () => {
       <S.ContactSession>
         <S.ContactText size={28}>Quer entrar em contato?</S.ContactText>
         <S.ContactButtonsContainer>
-          <Link href={'/ContactFaq'} passHref>
+          <Link href={'/contato'} passHref>
             <S.ButtonContainer>
               <Button
                 height="37px"

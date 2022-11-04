@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerButton = styled.div`
-  width: 280px;
+  width: 287px;
   margin: 0 15px;
 `;
 

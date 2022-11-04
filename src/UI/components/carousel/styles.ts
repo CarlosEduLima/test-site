@@ -24,9 +24,15 @@ export const Divider = styled.div`
 `;
 
 export const ScrollAreaContainer = styled.div`
-  margin: 47px 0;
-  padding: 0 30px;
+  padding-bottom: 20px;
+  margin: 45px 0;
   width: 100%;
+
+  @media (max-width: 840px) {
+    margin: 5px 0;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
 `;
 
 export const HorizontalScrollArea = styled.div<{
