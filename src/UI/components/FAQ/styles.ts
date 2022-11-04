@@ -39,7 +39,7 @@ export const SearchContainer = styled.div`
     background: url(${backgroundFAQ.src}) no-repeat;
     width: 100%;
     background-size: cover;
-    height: 330px;  
+    height: 330px;
     margin-bottom: 30px;
   }
 `;
@@ -67,6 +67,10 @@ export const ContactButtonsContainer = styled.div`
   align-items: center;
   @media (max-width: 800px) {
     flex-direction: column;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 
@@ -102,7 +106,6 @@ export const Title = styled.p<{ size: number }>`
   @media (max-width: 600px) {
     font-size: ${(props) => props.size - 4}px;
     max-width: 80%;
-
   }
   &.center {
     text-align: center;

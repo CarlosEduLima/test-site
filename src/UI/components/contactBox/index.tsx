@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../Button';
 import {
   Container,
@@ -17,9 +17,11 @@ import {
 
 import * as yup from 'yup';
 import { PostHekps } from 'src/services/help';
+import { GetWhatsappNumber } from 'src/services/faq';
 
 const ContactBox: React.FC = (props) => {
   const [loading, setLoading] = useState(false);
+  const [whatsappData, setWhatsappData] = useState<string>(null);
   const [data, setData] = useState({
     subject: '',
     message: '',
@@ -31,6 +33,11 @@ const ContactBox: React.FC = (props) => {
     email: yup.string().email('Email inválido').required('Preencha o campo de e-mail'),
     subject: yup.string().required('Preencha o campo Assunto'),
   });
+
+  const getWhatsNumber = async () => {
+    const response = await GetWhatsappNumber();
+    setWhatsappData(response.value);
+  };
 
   const handleSubmit = async (data, { resetForm }) => {
     console.log('teste', data);
@@ -45,6 +52,10 @@ const ContactBox: React.FC = (props) => {
       resetForm({ data: '' });
     }
   };
+
+  useEffect(() => {
+    void getWhatsNumber();
+  });
   return (
     <Container>
       <Formik validationSchema={userSchema} initialValues={data} onSubmit={handleSubmit}>
@@ -103,18 +114,24 @@ const ContactBox: React.FC = (props) => {
           </Box>
         )}
       </Formik>
-      <Title>Ou entre em contato conosco pelo WhatsApp!</Title>
-      <BoxButton>
+      {whatsappData && (
         <>
-          <a
-            href="http://api.whatsapp.com/send?1=pt_BR&phone=5571996678685"
-            style={{ textDecoration: 'none' }}>
-            <Button variant={'primary'} widthCircle={''} heightCircle="10px">
-              Fale pelo WhatsApp
-            </Button>
-          </a>
+          <Title>Ou entre em contato conosco pelo WhatsApp!</Title>
+          <BoxButton>
+            <>
+              <a
+                href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${whatsappData}`}
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: 'none' }}>
+                <Button variant={'primary'} widthCircle={''} heightCircle="10px">
+                  Fale pelo WhatsApp
+                </Button>
+              </a>
+            </>
+          </BoxButton>
         </>
-      </BoxButton>
+      )}
     </Container>
   );
 };

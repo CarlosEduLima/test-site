@@ -29,6 +29,11 @@ export interface IAnswerProps {
   ];
 }
 
+export interface IWhatsProps {
+  description: string;
+  value: string;
+}
+
 export const GetFaq = async () => {
   try {
     const { data } = await api.get<IFAQProps[]>('/faq/category');
@@ -62,6 +67,16 @@ export const PostAnswerFeedback = async (formData: IAnswerFeedbackProps) => {
 export const GetAnswer = async (questionId: number) => {
   try {
     const { data } = await api.get<IAnswerProps>(`/faq/questions-and-answers/${questionId}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const GetWhatsappNumber = async () => {
+  try {
+    const { data } = await api.get<IWhatsProps>('/support/whatsapp');
     return data;
   } catch (error) {
     console.log(error);
