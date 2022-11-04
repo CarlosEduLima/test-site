@@ -24,23 +24,14 @@ export const HighProfessionals: React.FC<Props> = (props) => {
           response.map((item) => {
             return { name: item.name, id: item.id, description: item.description };
           }),
-        )
-        .map((item) => {
-          return {
-            name: item?.name,
-            id: item?.id,
-            description: item?.description,
-            sup_name: item?.service_name,
-            sup_id: item?.service_id,
-            sup_description: item?.service_description,
-          };
-        }),
+        ),
     );
   };
 
   useEffect(() => {
     void AllServices();
   }, []);
+
 
   return (
     <S.TopImg>
