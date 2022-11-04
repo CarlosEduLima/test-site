@@ -26,12 +26,7 @@ export const CenterProfessional = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 250px;
-
-  @media (max-width: 840px) {
-    padding: 25px;
-    margin-top: 150px;
-  }
+  max-width: 86%;
 `;
 
 export const SubTitleProfessional = styled.h1`
