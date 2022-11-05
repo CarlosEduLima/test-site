@@ -127,11 +127,11 @@ export const Box = styled.div`
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  padding: 2%;
+  padding: 0 2%;
 
   @media (max-width: 1366px) {
     width: 410px;
-    height: 87%;
+    height: 86%;
   }
 
   @media (max-width: 840px) {
