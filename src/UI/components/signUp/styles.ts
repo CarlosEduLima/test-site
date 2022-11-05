@@ -64,7 +64,7 @@ export const ContainerText = styled.h3`
   @media (max-width: 1366px) {
     font-size: 16px;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 5px;
     margin-bottom: 0;
   }
 
@@ -104,7 +104,7 @@ export const ContentBox = styled.div`
   margin-top: 2em;
 
   @media (max-width: 1366px) {
-    padding: 5% 25%;
+    padding: 4% 25%;
   }
 
   @media (max-width: 768px) {
@@ -131,7 +131,7 @@ export const Box = styled.div`
 
   @media (max-width: 1366px) {
     width: 410px;
-    height: 80%;
+    height: 87%;
   }
 
   @media (max-width: 840px) {
