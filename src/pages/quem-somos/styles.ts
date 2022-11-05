@@ -11,6 +11,10 @@ export const HeaderContainer = styled.div`
 `;
 export const NewsletterContainer = styled.div`
   margin-top: 100px;
+
+  @media (max-width: 840px) {
+    margin-top: 0px;
+  }
 `;
 
 export const Top = styled.div`
@@ -25,7 +29,7 @@ export const Top = styled.div`
     background: url(${backgroundContact.src}) no-repeat;
     width: 100%;
     background-size: cover;
-    height: 400px;  
+    height: 400px;
     margin-bottom: 30px;
   }
 `;
@@ -43,10 +47,10 @@ export const TextWhite = styled.p`
   line-height: 34px;
   font-family: ${fonts.regular};
   color: ${colors.white};
-  max-width: 580px;
 
-  @media (max-width: 840) {
-    font-size: 16px;
+  @media (max-width: 840px) {
+    font-size: 14px;
+    line-height: 24px;
   }
 `;
 
@@ -56,7 +60,8 @@ export const SubTitleWhite = styled.h1`
   color: ${colors.white};
   margin-bottom: 40px;
 
-  @media (max-width: 840) {
+  @media (max-width: 840px) {
     font-size: 24px;
+    margin-top: 40px;
   }
 `;

@@ -12,6 +12,8 @@ import {
   SubContentLeft,
   StyledLink,
   ContentLineReverse,
+  SubContentLeftImage,
+  SubContentRightImage,
 } from './styles';
 import questionFree from '../../../assets/questionFree.svg';
 import questionSafe from '../../../assets/questionSafe.svg';
@@ -23,9 +25,9 @@ export const WhatMakesUsDifferent: React.FC = () => {
       <Title>O que nos torna diferentes?</Title>
       <Divider />
       <ContentLine>
-        <SubContentLeft>
+        <SubContentLeftImage>
           <Image src={questionFree} alt="" />
-        </SubContentLeft>
+        </SubContentLeftImage>
         <SubContentRight>
           <SubTitle>É de graça?</SubTitle>
           <Text>
@@ -43,15 +45,15 @@ export const WhatMakesUsDifferent: React.FC = () => {
             checamos e verificamos as informações.
           </Text>
         </SubContentLeft>
-        <SubContentRight>
+        <SubContentRightImage>
           <Image src={questionSafe} alt="" />
-        </SubContentRight>
+        </SubContentRightImage>
       </ContentLineReverse>
 
       <ContentLine>
-        <SubContentLeft>
+        <SubContentLeftImage>
           <Image src={questionStart} alt="" />
-        </SubContentLeft>
+        </SubContentLeftImage>
         <SubContentRight>
           <SubTitle>Como faço para ser um profissional IZiW?</SubTitle>
           <Text>
