@@ -34,6 +34,10 @@ export const Text = styled.h3`
   font-weight: ${fonts.extraBold};
   margin-top: 1em;
 
+  @media (max-width: 1366px) {
+    font-size: 1.5em;
+  }
+
   @media (max-width: 840px) {
     font-size: 1.4em;
   }
@@ -60,14 +64,14 @@ export const ContainerText = styled.h3`
   @media (max-width: 1366px) {
     font-size: 16px;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 5px;
     margin-bottom: 0;
   }
 
   @media (max-width: 840px) {
     font-size: 16px;
     width: 100%;
-    margin-top: 50px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -97,10 +101,10 @@ export const ContentBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 4em;
+  margin-top: 2em;
 
-  @media (max-width: 1124px) {
-    margin-top: 5em;
+  @media (max-width: 1366px) {
+    padding: 4% 25%;
   }
 
   @media (max-width: 768px) {
@@ -109,7 +113,7 @@ export const ContentBox = styled.div`
 
   @media (max-width: 425px) {
     margin-top: 1em;
-    padding: 18%;
+    padding: 0 20%;
   }
 `;
 
@@ -123,18 +127,18 @@ export const Box = styled.div`
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  padding: 2%;
+  padding: 0 2%;
 
   @media (max-width: 1366px) {
     width: 410px;
-    height: 80%;
+    height: 86%;
   }
 
   @media (max-width: 840px) {
     padding: 5%;
     width: 90%;
-    height: 75%;
-    margin-bottom: 60px;
+    height: 60%;
+    margin-bottom: 120px;
     border-radius: 25px;
   }
 `;

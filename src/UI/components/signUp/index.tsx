@@ -25,7 +25,7 @@ export default function App() {
             Faça o download do aplicativo, escolha seus pedidos e feche muitos negócios!
           </S.ContainerText>
           <S.ContentBox>
-            <div style={{ marginBottom: '2em' }}>
+            <div style={{ marginBottom: '1em' }}>
               <a href="https://play.google.com/store/apps" target={'_blank'} rel="noreferrer">
                 <S.Logo src={googlePlay} alt="Search" width={'250%'} height={'80%'} />
               </a>
