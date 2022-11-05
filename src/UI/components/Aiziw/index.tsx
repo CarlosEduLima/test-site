@@ -10,9 +10,9 @@ const Aiziw: React.FC = () => {
       <S.Title>A Iziw</S.Title>
       <S.Divider />
       <S.ContentLine>
-        <S.SubContent>
+        <S.SubContentImage>
           <S.Image src={WhoWeAre} alt="" />
-        </S.SubContent>
+        </S.SubContentImage>
         <S.SubContent>
           <S.SubTitle>Quem somos</S.SubTitle>
           <S.Text>
@@ -35,14 +35,14 @@ const Aiziw: React.FC = () => {
             vem o segundo passo ou o serviço é pequeno demais e acaba não tendo retorno
           </S.Text>
         </S.SubContent>
-        <S.SubContent>
+        <S.SubContentImage>
           <S.Image src={WhoWeAreTwo} alt="" />
-        </S.SubContent>
+        </S.SubContentImage>
       </S.ContentLineReverse>
       <S.ContentLine>
-        <S.SubContent>
+        <S.SubContentImage>
           <S.Image src={WhoWeAreThree} alt="" />
-        </S.SubContent>
+        </S.SubContentImage>
         <S.SubContent>
           <S.SubTitle>O que fazemos</S.SubTitle>
           <S.Text>
