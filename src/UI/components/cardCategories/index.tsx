@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { HorizontalScrollArea, ScrollAreaContainer } from '../carousel/styles';
 import { GetRating } from '../../../services/rating';
 import { Button } from '../Button';
@@ -12,13 +12,11 @@ import * as S from './styles';
 
 export const CardCategories: React.FC = (id: any) => {
   const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne]: any = useState([]);
-  const [alignCarouselCenter, setAlignCarouselCenter] = useState(false);
-  const ref1 = useRef(null);
-  // const ref2 = useRef(null);
-  const onMouseDownRef1 = useDraggableScroll(ref1).onMouseDown;
-  // const onMouseDownRef2 = useDraggableScroll(ref2).onMouseDown;
-  const windowSize = useWindowSize();
-  const cardSize = { width: 325, height: 151 };
+  const [alignCarouselCenter, setAlignCarouselCenter]: any = useState(false);
+  const ref1: any = useRef(null);
+  const onMouseDownRef1: any = useDraggableScroll(ref1).onMouseDown;
+  const windowSize: any = useWindowSize();
+  const cardSize: any = { width: 325, height: 151 };
 
   const defineLines = (highlights) => {
     let arrayOne: any;
@@ -32,16 +30,14 @@ export const CardCategories: React.FC = (id: any) => {
     return { arrayOne };
   };
 
-  useEffect(() => {
-    void (async () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      const data: any = await GetRating(parseInt(id.id));
-      const { arrayOne }: any = defineLines(data);
-      setGetRatingProfessionalsLineOne(arrayOne);
-    })();
+  useMemo(async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    const data: any = await GetRating(parseInt(id?.id));
+    const { arrayOne }: any = defineLines(data);
+    setGetRatingProfessionalsLineOne(arrayOne);
   }, []);
 
-  function onWheel(ev: React.WheelEvent, ref): void {
+  function onWheel(ev: React.WheelEvent, ref: any): void {
     if (ref.current) {
       const initialPosition: { scrollLeft: number } = {
         scrollLeft: ref.current.scrollLeft,
@@ -52,11 +48,11 @@ export const CardCategories: React.FC = (id: any) => {
 
   function enableScroll(): void {
     document.removeEventListener('wheel', preventDefault, false);
-  }
+  };
 
   function disableScroll(): void {
     document.addEventListener('wheel', preventDefault, { passive: false });
-  }
+  };
 
   function preventDefault(e: Event) {
     e = e || window.event;
@@ -64,15 +60,6 @@ export const CardCategories: React.FC = (id: any) => {
       e.preventDefault();
     }
     e.returnValue = false;
-  }
-
-  const handleLeftClick = (e: any) => {
-    e.preventDefault();
-    ref1.current.scrollLeft -= ref1.current.offsetWidth;
-  };
-  const handleRightClick = (e: any) => {
-    e.preventDefault();
-    ref1.current.scrollLeft += ref1.current.offsetWidth;
   };
 
   return (
@@ -94,26 +81,27 @@ export const CardCategories: React.FC = (id: any) => {
           }
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
-          {GetRatingProfessionalsLineOne.map((highlight, index) => (
-            <S.CardContainer key={highlight.id}>
+          {GetRatingProfessionalsLineOne?.map((highlight: any, index: any) => (
+            <S.CardContainer key={highlight?.id}>
               <Image
-                src={highlight.desktop_image == '' || mockIcon}
+                src={highlight?.desktop_image == '' || mockIcon}
                 alt={''}
                 width={325}
                 height={228}
+                key={index}
               />
               <S.CardBox>
                 <S.CardTitle>
-                  {highlight.name}
+                  {highlight?.name}
                   <S.ContainerRating>
-                    <S.TextRating>{highlight.average_rating}</S.TextRating>
+                    <S.TextRating>{highlight?.average_rating}</S.TextRating>
                     <S.CardIcon src={estrelaIcon} alt={'rating'} width={16} height={16} />
                   </S.ContainerRating>
                 </S.CardTitle>
-                <S.CardBoxContent>{highlight.description}</S.CardBoxContent>
+                <S.CardBoxContent>{highlight?.description}</S.CardBoxContent>
                 <S.CardContent>
                   {/*<S.CardP>
-                    R${highlight.prece}
+                    R${highlight?.prece}
                     <span>Média de preço </span>
                     </S.CardP>*/}
                   <Link href="/cadastro">
