@@ -394,8 +394,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
               <S.ContainerSearchPreviewItems key={filtered.length}>
                 {filtered?.slice(0, 4)?.map((value: any, index) => {
                   return (
-                    <Link href={`/categoria/${slugify(value.name).toLowerCase()}/${value?.sup_id || value?.id}`}
+                    <Link href={ 
+                      `/categoria/${slugify(value.name).toLowerCase()}/${value?.sup_id || value?.id}`
+                    }
                       passHref
+                      key={index}
                     >
                       <S.ContainerSearchPreviewItem
                         key={index}

@@ -22,9 +22,18 @@ export const HighProfessionals: React.FC<Props> = (props) => {
         .flatMap((item: any) => item?.sub_services)
         .concat(
           response.map((item) => {
-            return { name: item.name, id: item.id, description: item.description };
+            return { name: item.name, id: item.id, description: item.description, main: true };
           }),
-        ),
+        ).map((item) => {
+          return {
+            name: item?.name,
+            id: item?.id,
+            description: item?.description,
+            sup_name: item?.service_name,
+            sup_id: item?.service_id,
+            sup_description: item?.service_description,
+          };
+        }),
     );
   };
 
@@ -48,7 +57,6 @@ export const HighProfessionals: React.FC<Props> = (props) => {
 
         <S.ContainerButton>
           <Button
-            children={'Encontre um profissional'}
             variant={'primary'}
             widthCircle={''}
             heightCircle={''}
@@ -56,7 +64,9 @@ export const HighProfessionals: React.FC<Props> = (props) => {
             onClick={() => {
               props.handleScroll();
             }}
-          />
+          >
+            Encontre um profissional
+          </Button>
         </S.ContainerButton>
       </S.CenterProfessional>
     </S.TopImg>
