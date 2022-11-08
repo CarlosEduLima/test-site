@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { RefObject, useMemo, useRef, useState } from 'react';
 import { HorizontalScrollArea, ScrollAreaContainer } from '../carousel/styles';
 import { GetRating } from '../../../services/rating';
 import { Button } from '../Button';
@@ -9,12 +9,13 @@ import mockIcon from '../../../assets/mock.svg';
 import estrelaIcon from '../../../assets/estrela.svg';
 import Image from 'next/image';
 import * as S from './styles';
+import slugify from 'slugify';
 
-export const CardCategories: React.FC = (id: any) => {
+export const CardCategories: React.FC = ({ id, name }: any) => {
   const [GetRatingProfessionalsLineOne, setGetRatingProfessionalsLineOne]: any = useState([]);
   const [alignCarouselCenter, setAlignCarouselCenter]: any = useState(false);
   const ref1: any = useRef(null);
-  const onMouseDownRef1: any = useDraggableScroll(ref1).onMouseDown;
+  const onMouseDownRef1: RefObject<HTMLElement> = useDraggableScroll(ref1).onMouseDown;
   const windowSize: any = useWindowSize();
   const cardSize: any = { width: 325, height: 151 };
 
@@ -32,7 +33,7 @@ export const CardCategories: React.FC = (id: any) => {
 
   useMemo(async () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const data: any = await GetRating(parseInt(id?.id));
+    const data: any = await GetRating(parseInt(id));
     const { arrayOne }: any = defineLines(data);
     setGetRatingProfessionalsLineOne(arrayOne);
   }, []);
@@ -81,38 +82,39 @@ export const CardCategories: React.FC = (id: any) => {
           }
           onMouseLeave={enableScroll}
           onMouseDown={onMouseDownRef1}>
-          {GetRatingProfessionalsLineOne?.map((highlight: any, index: any) => (
-            <S.CardContainer key={highlight?.id}>
-              <Image
-                src={highlight?.desktop_image == '' || mockIcon}
-                alt={''}
-                width={325}
-                height={228}
-                key={index}
-              />
-              <S.CardBox>
-                <S.CardTitle>
-                  {highlight?.name}
-                  <S.ContainerRating>
-                    <S.TextRating>{highlight?.average_rating}</S.TextRating>
-                    <S.CardIcon src={estrelaIcon} alt={'rating'} width={16} height={16} />
-                  </S.ContainerRating>
-                </S.CardTitle>
-                <S.CardBoxContent>{highlight?.description}</S.CardBoxContent>
-                <S.CardContent>
-                  {/*<S.CardP>
+          {GetRatingProfessionalsLineOne?.sort((a, b) => slugify(b.name).toLowerCase() === name ? 1 : -1
+          ) .map((highlight: any, index: any) => (
+              <S.CardContainer key={highlight?.id}>
+                <Image
+                  src={highlight?.desktop_image == '' || mockIcon}
+                  alt={''}
+                  width={325}
+                  height={228}
+                  key={index}
+                />
+                <S.CardBox>
+                  <S.CardTitle>
+                    {highlight?.name}
+                    <S.ContainerRating>
+                      <S.TextRating>{highlight?.average_rating}</S.TextRating>
+                      <S.CardIcon src={estrelaIcon} alt={'rating'} width={16} height={16} />
+                    </S.ContainerRating>
+                  </S.CardTitle>
+                  <S.CardBoxContent>{highlight?.description}</S.CardBoxContent>
+                  <S.CardContent>
+                    {/*<S.CardP>
                     R${highlight?.prece}
                     <span>Média de preço </span>
                     </S.CardP>*/}
-                  <Link href="/cadastro">
-                    <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} onClick={enableScroll}>
-                      Quero contratar
-                    </Button>
-                  </Link>
-                </S.CardContent>
-              </S.CardBox>
-            </S.CardContainer>
-          ))}
+                    <Link href="/cadastro">
+                      <Button variant={'secondary'} widthCircle={''} heightCircle={''} height={'37px'} onClick={enableScroll}>
+                        Quero contratar
+                      </Button>
+                    </Link>
+                  </S.CardContent>
+                </S.CardBox>
+              </S.CardContainer>
+            ))}
         </HorizontalScrollArea>
       </ScrollAreaContainer>
     </S.Container>
