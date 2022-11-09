@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React, { useEffect, useState } from 'react';
 import { BsChevronRight } from 'react-icons/bs';
-import { useRouter } from 'next/router';
 import { Button } from '../Button';
 import { GetFaq, GetWhatsappNumber, IFAQProps, IQuestionProps } from '../../../services/faq';
 import SearchBtn from '../../../assets/searchBtn.svg';
@@ -17,10 +16,9 @@ const FAQ: React.FC = () => {
   const [data, setData] = useState<IFAQProps[]>([]);
   const [whatsappData, setWhatsappData] = useState<string>(null);
 
-  const router = useRouter();
-
   const getData = async () => {
     const response = await GetFaq();
+    console.log('tess', response);
     setData(response);
   };
 
@@ -119,7 +117,7 @@ const FAQ: React.FC = () => {
                     </S.CategoryCardTitle>
                   </S.CategoryCardHeader>
                   <S.CategoryCardQuestionsContainer>
-                    {category.questions.map((question: IQuestionProps) => (
+                    {category.questions.slice(0, 4).map((question: IQuestionProps) => (
                       <Link
                         href={`/perguntas-frequentes/${question.id}/${slugify(
                           question.question,
