@@ -117,7 +117,7 @@ const FAQ: React.FC = () => {
                     </S.CategoryCardTitle>
                   </S.CategoryCardHeader>
                   <S.CategoryCardQuestionsContainer>
-                    {category.questions.slice(0, 4).map((question: IQuestionProps) => (
+                    {category.questions.filter(item => item.highlight === 1).slice(0, 4).map((question: IQuestionProps) =>  (
                       <Link
                         href={`/perguntas-frequentes/${question.id}/${slugify(
                           question.question,
