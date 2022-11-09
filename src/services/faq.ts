@@ -4,6 +4,7 @@ export interface IQuestionProps {
   id: number;
   previous_answer: string;
   question: string;
+  highlight: number
 }
 export interface IFAQProps {
   id: number;
