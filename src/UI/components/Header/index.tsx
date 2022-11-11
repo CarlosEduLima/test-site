@@ -40,9 +40,6 @@ export const Header: React.FC<Props> = (props) => {
           </ContainerImage>
           <ContainerList>
             <LinkContainer>
-              <Link href="/">
-                <List>Home</List>
-              </Link>
               {/*<Link href="/primeiros-passos">
                 <List>Como funciona?</List>
                   </Link>*/}
@@ -64,7 +61,7 @@ export const Header: React.FC<Props> = (props) => {
                 <List>FAQ</List>
               </Link>
               <Link href="/contato">
-                <List>Contatos</List>
+                <List>Suporte</List>
               </Link>
             </LinkContainer>
             <ContainerButton>
@@ -86,9 +83,6 @@ export const Header: React.FC<Props> = (props) => {
       </DivHeader>
       <MobileMenu open={open}>
         <MobileLinkContainer>
-          <Link href="/">
-            <List style={{ marginBottom: 25 }}>Home</List>
-          </Link>
           <List style={{ marginBottom: 25 }}
             onClick={() => {
               if (router.pathname === '/') {
@@ -108,7 +102,7 @@ export const Header: React.FC<Props> = (props) => {
             <List style={{ marginBottom: 25 }}>FAQ</List>
           </Link>
           <Link href="/contato">
-            <List>Contatos</List>
+            <List>Suporte</List>
           </Link>
         </MobileLinkContainer>
       </MobileMenu>
