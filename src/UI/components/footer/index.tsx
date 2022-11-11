@@ -65,6 +65,9 @@ const Footer = () => {
           <Link href="/quem-somos">
             <S.TitlesList>Quem somos</S.TitlesList>
           </Link>
+          <Link href="/perguntas-frequentes">
+            <S.TitlesList>Ajuda</S.TitlesList>
+          </Link>
           {/* <Link href="/trabalhe-conosco">
             <S.TitlesList>Trabalhe conosco</S.TitlesList>
           </Link> */}
@@ -137,16 +140,13 @@ const Footer = () => {
         <S.ContainerLogo>
           <Image src={iziwIcon} alt="Iziw Icon" />
         </S.ContainerLogo>
-        <Link href="/perguntas-frequentes">
-          <S.TextDownFooter>Ajuda</S.TextDownFooter>
-        </Link>
         <Link href="/termos-de-uso">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>
         </Link>
         <Link href="/politica-de-privacidade">
           <S.TextDownFooter>Política de Privacidade</S.TextDownFooter>
         </Link>
-        <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
+        <S.TextFiredev>Iziwork Tecnologia LTDA 2022 - Todos os Direitos Reservados</S.TextFiredev>
       </S.FooterDown>
     </S.FooterContainer>
   );
