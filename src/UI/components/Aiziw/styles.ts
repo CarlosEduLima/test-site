@@ -14,7 +14,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 0 50px 0;
+  padding: 10px 0;
   margin-top: 40px;
 `;
 
@@ -29,41 +29,80 @@ export const Divider = styled.div`
 export const ContentLine = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 40px;
-  padding: 0 5%;
+  margin-bottom: 150px;
   width: 100%;
-  justify-content: space-evenly;
+
+  @media (max-width: 840px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const ContentLineReverse = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
   flex-wrap: wrap-reverse;
+  justify-content: center;
+  margin-bottom: 150px;
   margin-top: 40px;
-  padding: 0 5%;
   width: 100%;
-  justify-content: space-evenly;
+
+  @media (max-width: 840px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const SubContent = styled.div`
-  max-width: 600px;
+  width: 50%;
+`;
+
+export const SubContentReverse = styled.div`
+  width: 50%;
 `;
 
 export const SubContentImage = styled.div`
-  max-width: 600px;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 70px;
 
   @media (max-width: 840px) {
     max-width: 250px;
   }
 `;
 
-export const SubTitle = styled.h1`
+export const SubContentImageReverse = styled.div`
+  width: 50%;
+  padding-left: 70px;
+
+  @media (max-width: 840px) {
+    max-width: 250px;
+  }
+`;
+
+export const SubTitle = styled.div`
   font-size: 27px;
   font-family: ${fonts.extraBold};
   color: ${colors.purple};
+  margin-bottom: 25px;
+
+  @media (max-width: 840px) {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+`;
+
+export const SubTitleReverse = styled.div`
+  font-size: 27px;
+  font-family: ${fonts.extraBold};
+  color: ${colors.purple};
+  margin-bottom: 25px;
+  text-align: right;
 
   @media (max-width: 840px) {
     font-size: 20px;
@@ -79,7 +118,21 @@ export const Text = styled.p`
   line-height: 34px;
   font-family: ${fonts.heading};
   color: ${colors.black};
-  margin-bottom: 55px;
+  max-width: 550px;
+
+  @media (max-width: 840px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+`;
+
+export const TextReverse = styled.p`
+  font-size: 25px;
+  line-height: 34px;
+  font-family: ${fonts.heading};
+  color: ${colors.black};
+  text-align: right;
+  padding-left: 150px;
 
   @media (max-width: 840px) {
     font-size: 18px;
@@ -98,4 +151,9 @@ export const StyledLink = styled.a`
 
 export const Image = styled(NextImage)`
   width: 545px;
+`;
+
+export const Break = styled.div`
+  margin: 30px 0;
+  width: 100%;
 `;
