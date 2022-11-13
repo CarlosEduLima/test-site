@@ -1,8 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 import Link from 'next/link';
-import { GooglePlayBadge } from './googlePlayStoreBadge';
-import { AppStoreBadge } from './appStoreBadge';
+import Image from 'next/image';
+import PlayStoreBadge from '../../../assets/PlayStoreBadge.svg';
+import AppStoreBadge from '../../../assets/AppStoreBadge.svg';
 import { CellImages } from './CellImages';
 import { Button } from '../Button';
 
@@ -16,24 +17,24 @@ export const AvailableInStores: React.FC = () => {
         <CellImages />
       </S.LeftSide>
       <S.RightSide>
-        <S.Title>A IziW chegou para mudar.</S.Title>
+        <S.Title>A Iziwork chegou para mudar.</S.Title>
         <S.Text>
-          Mude a visualização. Receba ou solicite pedidos e venda produtos, tudo no mesmo
-          aplicativo. Rapidez e facilidade na resolução de problemas.
+          Receba ou solicite pedidos de orçamentos de serviços,
+          tudo no mesmo aplicativo. Rapidez e facilidade na resolução de problemas com os melhores profissionais.
         </S.Text>
         <S.StoreButtonsContainer>
-          <a href="https://www.apple.com/br/app-store/">
-            <AppStoreBadge height={68} />
+          <a href="https://www.apple.com/br/app-store/" style={{ marginRight: 17 }}>
+            <Image src={AppStoreBadge} width={226} height={70} alt="Apple Store" />
           </a>
           <a href="https://play.google.com/store/apps">
-            <GooglePlayBadge height={68} />
+            <Image src={PlayStoreBadge} width={226} height={70} alt="Google play store" />
           </a>
         </S.StoreButtonsContainer>
         <S.ButtonContainer>
           <Link href="/cadastro">
             <Button
               variant={'primary'}
-              height={'37px'}
+              height={'40px'}
               widthCircle={''}
               heightCircle={''}
               fontSize="14px"

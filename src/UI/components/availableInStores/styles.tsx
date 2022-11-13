@@ -13,6 +13,7 @@ export const Container = styled.div`
   z-index: 1;
   @media (max-width: 800px) {
     margin-top: 0;
+    padding: 40px 0 0 0;
   }
 `;
 
@@ -28,7 +29,7 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div`
   flex-direction: column;
   flex: 1;
-  max-width: 485px;
+  max-width: 500px;
   padding-bottom: 55px;
 
   @media (max-width: 800px) {
@@ -47,6 +48,7 @@ export const Title = styled.h1`
   @media (max-width: 500px) {
     font-size: 20px;
     text-align: center;
+    margin-top: 0;
   }
 `;
 
@@ -55,20 +57,22 @@ export const Text = styled.p`
   font-family: ${fonts.regular};
   color: ${colors.white};
   line-height: 27px;
-  margin: 0;
-  @media (max-width: 500px) {
-    font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  @media (max-width: 840px) {
+    font-size: 16px;
+    line-height: 24px;
   }
 `;
 
 export const StoreButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  margin-top: 16px;
-  margin-left: -15px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  @media (max-width: 500px) {
+
+  @media (max-width: 840px) {
     justify-content: center;
   }
 `;
@@ -82,26 +86,48 @@ export const BgDetailsConfig = styled.div`
 
 export const BgDetailsOne = styled(BgDetailsConfig)`
   border-radius: 67px 0 0 67px;
-  width: 309px;
+  width: 380px;
   height: 92px;
-  bottom: 37px;
+  bottom: 50px;
   right: 0;
+
+  @media (max-width: 840px) {
+    border-radius: 22px;
+    width: 159px;
+    height: 46px;
+    bottom: 100px;
+  }
 `;
 
 export const BgDetailsTwo = styled(BgDetailsConfig)`
-  border-radius: 0 67px 67px 0;
-  width: 40px;
-  height: 97px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  width: 50px;
+  height: 100px;
   bottom: 109px;
-  left: 0;
+
+  @media (max-width: 840px) {
+    bottom: 300px;
+    height: 49px;
+    width: 49px;
+    border-radius: 100px;
+    left: -15px;
+  }
 `;
 
 export const BgDetailsThree = styled(BgDetailsConfig)`
-  border-radius: 67px 0 0 67px;
-  width: 65px;
-  height: 97px;
-  top: 40px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  width: 75px;
+  height: 147px;
+  top: 35px;
   right: 0;
+
+  @media (max-width: 840px) {
+    height: 49px;
+    width: 25px;
+    top: 35px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -110,6 +136,6 @@ export const ButtonContainer = styled.div`
   @media (max-width: 500px) {
     display: flex;
     width: 100%;
-    padding: 0 30px;
+    margin-top: 30px;
   }
 `;

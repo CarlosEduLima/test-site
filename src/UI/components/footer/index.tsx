@@ -9,7 +9,7 @@ import googlePlay from '../../../assets/googlePlay.png';
 import appStore from '../../../assets/appStore.png';
 import iconPlayStore from '../../../assets/iconPlayStore.png';
 import iconAppleStore from '../../../assets/iconAppleStore.png';
-import iziwIcon from '../../../assets/icon.png';
+import newLogoIZIW from '../../../assets/newLogoIZIW.svg';
 import * as S from './styles';
 
 const Footer = () => {
@@ -135,7 +135,7 @@ const Footer = () => {
       </S.FooterUp>
       <S.FooterDown>
         <S.ContainerLogo>
-          <Image src={iziwIcon} alt="Iziw Icon" />
+          <Image src={newLogoIZIW} alt="Iziw Icon" height={39} width={174} />
         </S.ContainerLogo>
         <Link href="/perguntas-frequentes">
           <S.TextDownFooter>Ajuda</S.TextDownFooter>
@@ -146,7 +146,7 @@ const Footer = () => {
         <Link href="/politica-de-privacidade">
           <S.TextDownFooter>Política de Privacidade</S.TextDownFooter>
         </Link>
-        <S.TextFiredev>Firedev It Solutions 2021 - Todos os Direitos Reservados</S.TextFiredev>
+        <S.TextFiredev>Iziwork Tecnologia LTDA 2022 - Todos os Direitos Reservados</S.TextFiredev>
       </S.FooterDown>
     </S.FooterContainer>
   );
