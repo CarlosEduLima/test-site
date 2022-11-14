@@ -18,12 +18,26 @@ export const Container = styled.div`
   margin-top: 40px;
 `;
 
+export const ContainerResponsive = styled.div`
+
+  @media (max-width: 840px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    margin-bottom: 50px;
+  }
+`;
+
 export const Divider = styled.div`
   width: 133px;
   height: 0;
   border: 1.5px solid ${colors.blue};
   background-color: ${colors.blue};
-  margin-bottom: 30px;
+  margin-bottom: 80px;
+
+  @media (max-width: 840px) {
+    margin-bottom: 0px;
+  }
 `;
 
 export const ContentLine = styled.div`
@@ -37,6 +51,7 @@ export const ContentLine = styled.div`
 
   @media (max-width: 840px) {
     margin-bottom: 0;
+    flex-direction: column;
   }
 `;
 
@@ -56,10 +71,18 @@ export const ContentLineReverse = styled.div`
 
 export const SubContent = styled.div`
   width: 50%;
+
+  @media (max-width: 840px) {
+    width: 100%;
+  }
 `;
 
 export const SubContentReverse = styled.div`
   width: 50%;
+
+  @media (max-width: 840px) {
+    width: 100%;
+  }
 `;
 
 export const SubContentImage = styled.div`
@@ -69,7 +92,8 @@ export const SubContentImage = styled.div`
   padding-right: 70px;
 
   @media (max-width: 840px) {
-    max-width: 250px;
+    width: 100%;
+    padding: 50px;
   }
 `;
 
@@ -78,7 +102,8 @@ export const SubContentImageReverse = styled.div`
   padding-left: 70px;
 
   @media (max-width: 840px) {
-    max-width: 250px;
+    width: 100%;
+    padding: 50px;
   }
 `;
 
@@ -92,8 +117,7 @@ export const SubTitle = styled.div`
     font-size: 20px;
     width: 100%;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
   }
 `;
 
@@ -108,8 +132,7 @@ export const SubTitleReverse = styled.div`
     font-size: 20px;
     width: 100%;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
   }
 `;
 
@@ -137,6 +160,9 @@ export const TextReverse = styled.p`
   @media (max-width: 840px) {
     font-size: 18px;
     line-height: 24px;
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
   }
 `;
 
