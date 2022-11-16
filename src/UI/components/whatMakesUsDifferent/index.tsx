@@ -1,69 +1,58 @@
 import React from 'react';
 import Link from 'next/link';
-import {
-  Container,
-  ContentLine,
-  Text,
-  Divider,
-  SubTitle,
-  Title,
-  Image,
-  SubContentRight,
-  SubContentLeft,
-  StyledLink,
-  ContentLineReverse,
-  SubContentLeftImage,
-  SubContentRightImage,
-} from './styles';
+import * as S from './styles';
 import questionFree from '../../../assets/questionFree.svg';
 import questionSafe from '../../../assets/questionSafe.svg';
 import questionStart from '../../../assets/questionStart.svg';
 
 export const WhatMakesUsDifferent: React.FC = () => {
   return (
-    <Container>
-      <Title>O que nos torna diferentes?</Title>
-      <Divider />
-      <ContentLine>
-        <SubContentLeftImage>
-          <Image src={questionFree} alt="" />
-        </SubContentLeftImage>
-        <SubContentRight>
-          <SubTitle>É de graça?</SubTitle>
-          <Text>
-            Para solicitar orçamentos sim! Os profissionais podem desbloquear pedidos adquirindo
-            nossas moedas.
-          </Text>
-        </SubContentRight>
-      </ContentLine>
+    <S.Container>
+      <S.Title>O que nos torna diferentes?</S.Title>
+      <S.Divider />
+      <S.ContentLine>
+        <S.SubContentLeftImage>
+          <S.Image src={questionFree} alt="" />
+        </S.SubContentLeftImage>
+        <S.SubContentRight>
+          <S.SubTitle>É de graça!</S.SubTitle>
+          <S.Text>
+            A solicitação de orçamentos é gratuita
+            para o cliente! Os profissionais devem
+            adquirir Izicoins para desbloquear pedidos.
+          </S.Text>
+        </S.SubContentRight>
+      </S.ContentLine>
 
-      <ContentLineReverse>
-        <SubContentLeft>
-          <SubTitle>É seguro?</SubTitle>
-          <Text>
-            Na IziW prezamos sempre pela segurança de nossos clientes e colaboradores. Sempre
-            checamos e verificamos as informações.
-          </Text>
-        </SubContentLeft>
-        <SubContentRightImage>
-          <Image src={questionSafe} alt="" />
-        </SubContentRightImage>
-      </ContentLineReverse>
+      <S.ContentLineReverse>
+        <S.SubContentLeft>
+          <S.SubTitle>É seguro!</S.SubTitle>
+          <S.Text>
+            Prezamos pela segurança de nosso cliente e prestadores.
+            Fazemos conferência de documentação dos profissionais e
+            dados dos pedidos.
+          </S.Text>
+        </S.SubContentLeft>
+        <S.SubContentRightImage>
+          <S.Image src={questionSafe} alt="" />
+        </S.SubContentRightImage>
+      </S.ContentLineReverse>
 
-      <ContentLine>
-        <SubContentLeftImage>
-          <Image src={questionStart} alt="" />
-        </SubContentLeftImage>
-        <SubContentRight>
-          <SubTitle>Como faço para ser um profissional IZiW?</SubTitle>
-          <Text>
+      <S.ContentLine>
+        <S.SubContentLeftImage>
+          <S.Image src={questionStart} alt="" />
+        </S.SubContentLeftImage>
+        <S.SubContentRight>
+          <S.SubTitle>É facil ser um profissional cadastrado!</S.SubTitle>
+          <S.Text>
             <Link href="/cadastro">
-              <StyledLink>Clique aqui</StyledLink>
-            </Link>{' '}
-            e será redirecionado para nosso formulário de inscrição.
-          </Text>
-        </SubContentRight>
-      </ContentLine>
-    </Container>
+              <S.StyledLink>Clique aqui</S.StyledLink>
+            </Link>
+            , baixe o app, preencha seus dados e pronto!
+            Logo poderá começar a receber pedidos de orçamento.
+          </S.Text>
+        </S.SubContentRight>
+      </S.ContentLine>
+    </S.Container>
   );
 };

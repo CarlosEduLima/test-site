@@ -98,7 +98,7 @@ export const TextFiredev = styled.p`
 
   @media (max-width: 840px) {
     width: 100vw;
-    padding-left: 30px;
+    padding-left: 17px;
     font-size: 11px;
     margin-top: 30px;
   }

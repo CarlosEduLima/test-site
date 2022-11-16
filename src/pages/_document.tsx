@@ -30,7 +30,7 @@ class MyDocument extends Document {
         return (
             <Html lang="pt">
                 <Head>
-                    <title>Iziw</title>
+                    <title>Iziwork</title>
                     <meta name='description' content='Site informativo do aplicativo Iziw' />
                     <meta charSet="utf-8" />
                 </Head>

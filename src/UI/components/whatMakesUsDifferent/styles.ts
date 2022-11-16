@@ -17,7 +17,7 @@ export const Title = styled.h1`
 `;
 
 export const Container = styled.div`
-  margin: 45.5px auto 64px auto;
+  margin: 45px auto 64px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,8 +34,16 @@ export const Divider = styled.div`
 
 export const ContentLine = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const ContentLineReverse = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap-reverse;
   flex-direction: row;
   justify-content: center;
 `;
@@ -77,6 +85,8 @@ export const SubTitle = styled.h1`
     font-size: 20px;
     width: 100%;
     text-align: center;
+    line-height: 30px;
+    font-family: ${fonts.extraBold};
   }
 `;
 
@@ -89,14 +99,15 @@ export const Text = styled.p`
 
   @media (max-width: 840px) {
     font-size: 18px;
-    line-height: 25px;
+    line-height: 24px;
+    margin-left: 10px;
   }
 `;
 
 export const StyledLink = styled.a`
   font-size: 25px;
   font-family: ${fonts.heading};
-  color: ${colors.black};
+  color: ${colors.blue};
   text-decoration: none;
   text-decoration: underline;
   cursor: pointer;
@@ -108,12 +119,4 @@ export const StyledLink = styled.a`
 
 export const Image = styled(NextImage)`
   width: 545px;
-`;
-
-export const ContentLineReverse = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap-reverse;
-  flex-direction: row;
-  justify-content: center;
 `;
