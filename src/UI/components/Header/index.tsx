@@ -27,9 +27,6 @@ export const Header: React.FC<Props> = (props) => {
           </S.ContainerImage>
           <S.ContainerList>
             <S.LinkContainer>
-              <Link href="/">
-                <S.List>Home</S.List>
-              </Link>
               {/*<S.Link href="/primeiros-passos">
                 <S.List>Como funciona?</S.List>
                   </S.Link>*/}
