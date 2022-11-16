@@ -9,7 +9,7 @@ import googlePlay from '../../../assets/googlePlay.png';
 import appStore from '../../../assets/appStore.png';
 import iconPlayStore from '../../../assets/iconPlayStore.png';
 import iconAppleStore from '../../../assets/iconAppleStore.png';
-import iziwIcon from '../../../assets/icon.png';
+import newLogoIZIW from '../../../assets/newLogoIZIW.svg';
 import * as S from './styles';
 
 const Footer = () => {
@@ -138,7 +138,7 @@ const Footer = () => {
       </S.FooterUp>
       <S.FooterDown>
         <S.ContainerLogo>
-          <Image src={iziwIcon} alt="Iziw Icon" />
+          <Image src={newLogoIZIW} alt="Iziw Icon" height={39} width={174} />
         </S.ContainerLogo>
         <Link href="/termos-de-uso">
           <S.TextDownFooter>Termos de Uso</S.TextDownFooter>

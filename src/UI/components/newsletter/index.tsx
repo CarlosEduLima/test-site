@@ -11,7 +11,7 @@ export const Newsletter: React.FC = () => {
       <S.ElementBallFooter />
       <S.ElementRectangleHeader />
       <S.LeftContent>
-        <S.TextTitle>A IziW chegou para mudar.</S.TextTitle>
+        <S.TextTitle>A Iziwork chegou para mudar.</S.TextTitle>
         <S.Text>Quer ganhar dinheiro extra e escolher quando e como trabalhar?</S.Text>
         <S.InteractionContainer>
           <Link href="/cadastro">
