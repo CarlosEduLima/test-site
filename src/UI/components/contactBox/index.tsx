@@ -18,8 +18,9 @@ import {
 import * as yup from 'yup';
 import { PostHekps } from 'src/services/help';
 import { GetWhatsappNumber } from 'src/services/faq';
-
+import { useToast } from 'src/hooks/toast';
 const ContactBox: React.FC = (props) => {
+  const { addToast } = useToast();
   const [loading, setLoading] = useState(false);
   const [whatsappData, setWhatsappData] = useState<string>(null);
   const [data, setData] = useState({
@@ -30,7 +31,10 @@ const ContactBox: React.FC = (props) => {
   });
   const userSchema = yup.object({
     name: yup.string().required('Preencha o campo Nome'),
-    email: yup.string().email('Email inválido').required('Preencha o campo de e-mail'),
+    email: yup
+      .string()
+      .email('Email inválido')
+      .required('Preencha o campo de e-mail'),
     subject: yup.string().required('Preencha o campo Assunto'),
   });
 
@@ -40,46 +44,69 @@ const ContactBox: React.FC = (props) => {
   };
 
   const handleSubmit = async (data, { resetForm }) => {
-    console.log('teste', data);
     setLoading(true);
     try {
       await PostHekps(data);
       setLoading(false);
+      addToast({
+        type: 'success',
+        title: 'Sucesso',
+        description: 'Seu e-mail foi enviado com sucesso',
+      });
+      resetForm({ data: '' });
     } catch (error) {
       console.log(error);
+      addToast({
+        type: 'error',
+        title: 'Opss..',
+        description: 'Tivemos um problema para enviar seu e-mail',
+      });
       setLoading(false);
-    } finally {
-      resetForm({ data: '' });
     }
   };
 
   useEffect(() => {
     void getWhatsNumber();
-  });
+  }, []);
   return (
     <Container>
-      <Formik validationSchema={userSchema} initialValues={data} onSubmit={handleSubmit}>
+      <Formik
+        validationSchema={userSchema}
+        initialValues={data}
+        onSubmit={handleSubmit}>
         {({ errors }) => (
           <Box>
             <Form>
               <Title>Enviar email de suporte</Title>
               <Label htmlFor="name">Nome completo</Label>
               <BoxInput>
-                <Field name="name" style={styleInput(errors.name)} placeHolder="Nome" />
+                <Field
+                  name="name"
+                  style={styleInput(errors.name)}
+                  placeHolder="Nome"
+                />
                 <ErrorMessage name="name">
                   {(msg) => <div style={styleError}>{msg}</div>}
                 </ErrorMessage>
               </BoxInput>
               <Label htmlFor="email">E-mail</Label>
               <BoxInput>
-                <Field name="email" style={styleInput(errors.email)} placeHolder="Email" />
+                <Field
+                  name="email"
+                  style={styleInput(errors.email)}
+                  placeHolder="Email"
+                />
                 <ErrorMessage name="email">
                   {(msg) => <div style={styleError}>{msg}</div>}
                 </ErrorMessage>
               </BoxInput>
               <Label htmlFor="subject">Assunto</Label>
               <BoxInput>
-                <Field name="subject" style={styleInput(errors.subject)} placeHolder="Assunto" />
+                <Field
+                  name="subject"
+                  style={styleInput(errors.subject)}
+                  placeHolder="Assunto"
+                />
                 <ErrorMessage name="subject">
                   {(msg) => <div style={styleError}>{msg}</div>}
                 </ErrorMessage>
@@ -124,7 +151,10 @@ const ContactBox: React.FC = (props) => {
                 target="_blank"
                 rel="noreferrer"
                 style={{ textDecoration: 'none' }}>
-                <Button variant={'primary'} widthCircle={''} heightCircle="10px">
+                <Button
+                  variant={'primary'}
+                  widthCircle={''}
+                  heightCircle="10px">
                   Fale pelo WhatsApp
                 </Button>
               </a>
