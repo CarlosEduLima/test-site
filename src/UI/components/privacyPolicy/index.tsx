@@ -14,14 +14,14 @@ export const PrivacyPolicy = () => {
                 Esta Política de Privacidade aplica-se a todos os Usuários cadastrados e integram os
                 Termos e condições gerais de uso do IZIWORK TECNOLOGIA LTDA., pessoa jurídica
                 de direito privado, devidamente inscrita no CNPJ/MF sob o nº 48.280.16/0001-46,
-                doravante nominada “IZIW”.
+                doravante nominada “Iziwork”.
                 <S.Break />
                 Esta Política de Privacidade contém informações claras e completas sobre coleta,
                 uso, armazenamento, tratamento e proteção dos dados pessoais dos Usuários e
-                visitantes do “IZIW”, com a finalidade de demonstrar absoluta transparência quanto
+                visitantes do “Iziwork”, com a finalidade de demonstrar absoluta transparência quanto
                 a este importante assunto.
                 <S.Break />
-                O “IZIW”, pela natureza dos Serviços prestados, poderá acessar, coletar, armazenar
+                O “Iziwork”, pela natureza dos Serviços prestados, poderá acessar, coletar, armazenar
                 e, em alguns casos, revelar informações de seus usuários e visitantes
                 relativas aos dados cadastrais e registros de acesso ao seu Site/App, para terceiros,
                 tais como, não se limitando a fornecedores, parceiros comerciais, autoridades e
@@ -29,14 +29,14 @@ export const PrivacyPolicy = () => {
                 <S.Break />
                 SEÇÃO 01 – INFORMAÇÕES COLETADAS
                 <S.Break />
-                Todas as informações ou os dados pessoais prestados pelo usuário do “IZIW” são
+                Todas as informações ou os dados pessoais prestados pelo usuário do “Iziwork” são
                 armazenados em servidores ou meios magnéticos de alta segurança.
                 <S.Break />
-                O “IZIW” tomará todas as medidas possíveis para manter a confidencialidade e a
+                O “Iziwork” tomará todas as medidas possíveis para manter a confidencialidade e a
                 segurança descritas nesta cláusula, mas não será responsável por prejuízo que possa
                 ser derivado da violação dessas medidas por parte de terceiros que utilizem de
                 meios indevidos, fraudulentos ou ilegais para acessar as informações armazenadas
-                nos servidores ou nos bancos de dados utilizados pelo “IZIW”.
+                nos servidores ou nos bancos de dados utilizados pelo “Iziwork”.
                 <S.Break />
                 Coletamos os seguintes dados e informações pessoais de nossos Usuários:
                 <S.Break />
@@ -115,7 +115,7 @@ export const PrivacyPolicy = () => {
                 SEÇÃO 02 – UTILIZAÇÃO DA INFORMAÇÃO
                 <S.Break />
                 Para fornecer um bom serviço e para que os usuários possam realizar operações de
-                forma ágil e segura, o “IZIW” coleta as informações acima elencadas com as
+                forma ágil e segura, o “Iziwork” coleta as informações acima elencadas com as
                 seguintes finalidades:
                 <S.Break />
                 • Manutenção cadastral necessária para o fornecimento dos serviços de anúncios
@@ -131,16 +131,16 @@ export const PrivacyPolicy = () => {
                 do aplicativo;
                 <S.Break />
                 • Comunicação a respeito de pontos que possam ser de interesse do Usuário e que
-                sejam relacionados aos serviços de anúncios do “IZIW”;
+                sejam relacionados aos serviços de anúncios do “Iziwork”;
                 <S.Break />
                 • Prestação dos serviços de suporte e atendimento solicitados pelo Usuário;
                 <S.Break />
                 • Realização de pesquisas de uso e interação da Plataforma e do Aplicativo para
-                aprimoramento dos serviços de anúncio oferecidos pelo “IZIW”;
+                aprimoramento dos serviços de anúncio oferecidos pelo “Iziwork”;
                 <S.Break />
                 • Geração de relatórios estatísticos a respeito do uso e interação dos Usuários;
                 <S.Break />
-                • Promoção o “IZIW” para informar o Usuário sobre novidades, funcionalidades,
+                • Promoção o “Iziwork” para informar o Usuário sobre novidades, funcionalidades,
                 conteúdos, notícias e demais eventos relevantes para a manutenção do
                 relacionamento deste relacionamento. Tais comunicações são realizadas por meio
                 de ferramentas automáticas de envio de mensagens criadas a partir de processos
@@ -148,13 +148,13 @@ export const PrivacyPolicy = () => {
                 <S.Break />
                 • Cumprir as obrigações legais e regulatórias;
                 <S.Break />
-                • Resguardar O “IZIW” dos seus direitos e obrigações relacionados a Plataforma e ao
+                • Resguardar O “Iziwork” dos seus direitos e obrigações relacionados a Plataforma e ao
                 Aplicativo, conforme disposições da legislação brasileira;
                 <S.Break />
                 • Colaborar e/ou cumprir ordem judicial ou requisição por autoridade
                 administrativa.
                 <S.Break />
-                Durante a navegação do Usuário na plataforma e no aplicativo, o “IZIW” também
+                Durante a navegação do Usuário na plataforma e no aplicativo, o “Iziwork” também
                 coleta as seguintes informações e dados dos Usuários:
                 <S.Break />
                 • Endereço IP do Usuário;
@@ -175,18 +175,18 @@ export const PrivacyPolicy = () => {
                 <S.Break />
                 SEÇÃO 03 – CONFIDENCIALIDADE DA INFORMAÇÃO
                 <S.Break />
-                Uma vez registrado no Site, o “IZIW” não venderá, alugará ou compartilhará a
+                Uma vez registrado no Site, o “Iziwork” não venderá, alugará ou compartilhará a
                 Informação Pessoal, exceto nas formas estabelecidas nestas Políticas de privacidade.
                 Será feito tudo o que estiver ao alcance no sentido de proteger a privacidade da
                 Informação Pessoal.
                 <S.Break />
                 SEÇÃO 04 – SERVIÇOS DE TERCEIROS
                 <S.Break />
-                No geral, os fornecedores terceirizados usados pelo “IZIW” irão apenas coletar, usar
+                No geral, os fornecedores terceirizados usados pelo “Iziwork” irão apenas coletar, usar
                 e divulgar suas informações na medida do necessário para permitir que estes
                 terceiros realizem seus serviços.
                 <S.Break />
-                Para esses fornecedores terceirizados, o “IZIW” aconselha aos Usuários que leiam as
+                Para esses fornecedores terceirizados, o “Iziwork” aconselha aos Usuários que leiam as
                 políticas de privacidade daqueles para que fique claro a maneira na qual as
                 informações pessoais dos Usuários serão usadas por esses fornecedores
                 terceirizados.
@@ -201,7 +201,7 @@ export const PrivacyPolicy = () => {
                 <S.Break />
                 SEÇÃO 06 – COOKIES
                 <S.Break />
-                O Usuário e o visitante do site/APP do “IZIW” manifestam conhecer e aceitar que
+                O Usuário e o visitante do site/APP do “Iziwork” manifestam conhecer e aceitar que
                 poderá ser utilizado um sistema de coleta de dados de navegação mediante à
                 utilização de cookies. Os cookies são pequenos arquivos que se instalam no disco
                 rígido, com uma duração limitada de tempo que ajudam a personalizar os Serviços.
@@ -220,15 +220,15 @@ export const PrivacyPolicy = () => {
                 beacon tem finalidades similares aos Cookies. Adicionalmente um Web beacon é
                 utilizado para medir padrões de tráfego dos Usuários de uma página a outra com
                 objetivo de maximizar o fluxo de tráfego através da internet. O Usuário e o visitante
-                do aplicativo/site “IZIW” manifestam conhecer e aceitar que o “IZIW”poderá usar
+                do aplicativo/site “Iziwork” manifestam conhecer e aceitar que o “Iziwork”poderá usar
                 um sistema de coleta de dados mediante a utilização de Web beacons.
                 <S.Break />
                 SEÇÃO 08 – SPAM
                 <S.Break />
-                O “IZIW” e os seus usuários não aceitam condutas consideradas "spamming", seja
+                O “Iziwork” e os seus usuários não aceitam condutas consideradas "spamming", seja
                 em opiniões, perguntas, respostas e/ou no envio solicitado de e-mails ou no chat.
                 Fica absolutamente proibido o envio indiscriminado de mensagens de qualquer
-                natureza entre os usuários do “IZIW”.
+                natureza entre os usuários do “Iziwork”.
                 <S.Break />
                 SEÇÃO 09 – DIREITOS DOS USUÁRIOS – LGPD
                 <S.Break />
@@ -237,7 +237,7 @@ export const PrivacyPolicy = () => {
                 vigência e autenticidade dos dados pessoais, e se compromete a mantê-los
                 devidamente atualizados.
                 <S.Break />
-                O “IZIW” se compromete a cumprir as normas previstas na LGPD, em respeito aos
+                O “Iziwork” se compromete a cumprir as normas previstas na LGPD, em respeito aos
                 seguintes princípios:
                 <S.Break />
                 • Os dados pessoais dos usuários serão processados de forma lícita, leal e
@@ -343,7 +343,7 @@ export const PrivacyPolicy = () => {
                 "Formulário de Atendimento ao Titular de Dados":
                 <S.Break />
                 <S.Site>
-                    <a style={{ textDecoration: 'none' }} target="_blank" href="https://iziw.com.br" rel="noreferrer">iziw.com.br</a>
+                    <a style={{ textDecoration: 'none' }} target="_blank" href="https://iziwork.com.br" rel="noreferrer">iziwork.com.br</a>
                 </S.Site>
                 <S.Break />
                 Cuidamos das suas informações com padrões rígidos de segurança e
