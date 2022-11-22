@@ -87,16 +87,17 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
           onMouseDown={onMouseDownRef1}>
           {serviceHighlightsLineOne.map((highlight, index) => (
             <InputCard
-              onClick={() => {
+              onClick={async () => {
                 enableScroll();
-                router.push(
-                  {
-                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
-                  },
-                  `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
-                )
-              }
-              }
+                void (await router
+                  .push(
+                    {
+                      pathname: '/categoria/[slug]/[id]',
+                    },
+                    `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
+                  )
+                  .catch((e) => console.log(e)));
+              }}
               size={cardSize}
               title={highlight.name}
               key={index}
@@ -116,9 +117,11 @@ export const Carousel = forwardRef((props, ref: React.Ref<HTMLDivElement>) => {
           {serviceHighlightsLineTwo.map((highlight, index) => (
             <InputCard
               onClick={() =>
-                router.push(
+                void router.push(
                   {
-                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
+                    pathname: `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${
+                      highlight.id
+                    }`,
                   },
                   `/categoria/${slugify(highlight.name).toLocaleLowerCase()}/${highlight.id}`,
                 )
