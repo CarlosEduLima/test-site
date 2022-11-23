@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://hlg.iziw.com.br/api/',
+  baseURL: 'https://hlg.iziwork.com.br/api/',
 });
 
 export default api;
